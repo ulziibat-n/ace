@@ -78,6 +78,7 @@
 				<element value="ub"/>
 			</property>
 		</properties>
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
 	</rule>
 
 	<rule ref="WordPress.Files.FileName">
