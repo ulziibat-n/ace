@@ -304,3 +304,170 @@ if ( ! function_exists( 'ub_content_class' ) ) :
 		echo 'class="' . esc_attr( implode( ' ', $combined_classes ) ) . '"';
 	}
 endif;
+
+if ( ! function_exists( 'ub_can_show_post_thumbnail' ) ) :
+	/**
+	 * Тухайн постны Featured Image (Thumbnail) харагдах боломжтой эсэхийг шалгах.
+	 */
+	function ub_can_show_post_thumbnail() {
+		return apply_filters( 'ub_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
+	}
+endif;
+
+if ( ! function_exists( 'ub_get_avatar_size' ) ) :
+	/**
+	 * Theme-д ашиглагдах Аватар зургийн хэмжээг тодорхойлох.
+	 */
+	function ub_get_avatar_size() {
+		return 60;
+	}
+endif;
+
+if ( ! function_exists( 'ub_html5_comment' ) ) :
+	/**
+	 * Сэтгэгдлийг HTML5 стандартаар харуулах функц.
+	 *
+	 * WordPress-ийн стандарт сэтгэгдлийн гаралтыг өөрчилж, Tailwind Typography
+	 * болон дизайны онцлогт нийцүүлэн засаж харуулдаг.
+	 *
+	 * @param WP_Comment $comment Харуулах сэтгэгдэл.
+	 * @param array      $args    Нэмэлт аргументууд.
+	 * @param int        $depth   Сэтгэгдлийн түвшин (хариу бичих үед).
+	 */
+	function ub_html5_comment( $comment, $args, $depth ) {
+		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+
+		$commenter          = wp_get_current_commenter();
+		$show_pending_links = ! empty( $commenter['comment_author'] );
+
+		if ( $commenter['comment_author_email'] ) {
+			$moderation_note = __( 'Your comment is awaiting moderation.', 'aceedu' );
+		} else {
+			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'aceedu' );
+		}
+		?>
+		<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<%s id="comment-%d" %s>', esc_attr( $tag ), get_comment_ID(), get_comment_class( $comment->has_children ? 'parent' : '', $comment ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		?>
+			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<?php
+						if ( 0 !== $args['avatar_size'] ) {
+							echo get_avatar( $comment, $args['avatar_size'] );
+						}
+						?>
+						<?php
+						$comment_author = get_comment_author_link( $comment );
+
+						if ( '0' === $comment->comment_approved && ! $show_pending_links ) {
+							$comment_author = get_comment_author( $comment );
+						}
+
+						printf(
+							/* translators: %s: Comment author link. */
+							wp_kses_post( __( '%s <span class="says">says:</span>', 'aceedu' ) ),
+							sprintf( '<b class="fn">%s</b>', wp_kses_post( $comment_author ) )
+						);
+						?>
+					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<?php
+						printf(
+							'<a href="%s"><time datetime="%s">%s</time></a>',
+							esc_url( get_comment_link( $comment, $args ) ),
+							esc_attr( get_comment_time( 'c' ) ),
+							esc_html(
+								sprintf(
+								/* translators: 1: Comment date, 2: Comment time. */
+									__( '%1$s at %2$s', 'aceedu' ),
+									get_comment_date( '', $comment ),
+									get_comment_time()
+								)
+							)
+						);
+
+						edit_comment_link( __( 'Edit', 'aceedu' ), ' <span class="edit-link">', '</span>' );
+						?>
+					</div><!-- .comment-metadata -->
+
+					<?php if ( '0' === $comment->comment_approved ) : ?>
+					<em class="comment-awaiting-moderation"><?php echo esc_html( $moderation_note ); ?></em>
+					<?php endif; ?>
+				</footer><!-- .comment-meta -->
+
+				<div <?php ub_content_class( 'comment-content' ); ?>>
+					<?php comment_text(); ?>
+				</div><!-- .comment-content -->
+
+				<?php
+				if ( '1' === $comment->comment_approved || $show_pending_links ) {
+					comment_reply_link(
+						array_merge(
+							$args,
+							array(
+								'add_below' => 'div-comment',
+								'depth'     => $depth,
+								'max_depth' => $args['max_depth'],
+								'before'    => '<div class="reply">',
+								'after'     => '</div>',
+							)
+						)
+					);
+				}
+				?>
+			</article><!-- .comment-body -->
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'ub_language_switcher' ) ) :
+	/**
+	 * Display Falang Language Switcher with Tailwind Styling.
+	 */
+	function ub_language_switcher() {
+		if ( ! function_exists( 'falang_languages_list' ) || ! function_exists( 'FALANG' ) ) {
+			return;
+		}
+
+		$languages = falang_languages_list();
+		if ( empty( $languages ) || count( $languages ) < 2 ) {
+			return;
+		}
+
+		$current_language_slug = falang_current_language();
+		?>
+		<div class="flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+			<?php
+			$count = count( $languages );
+			$i     = 0;
+			foreach ( $languages as $language ) :
+				++$i;
+				$is_active = ( $current_language_slug === $language->slug );
+				$url       = FALANG()->get_translated_url( $language );
+
+				// Map for cleaner display.
+				$display_name = $language->slug;
+				if ( strpos( $language->slug, 'mn' ) === 0 ) {
+					$display_name = 'MN';
+				} elseif ( strpos( $language->slug, 'en' ) === 0 ) {
+					$display_name = 'EN';
+				} elseif ( strpos( $language->slug, 'ko' ) === 0 ) {
+					$display_name = 'KR';
+				} else {
+					$display_name = strtoupper( substr( $language->slug, 0, 2 ) );
+				}
+				?>
+				<a href="<?php echo esc_url( $url ); ?>"
+					class="transition-all duration-300 <?php echo $is_active ? 'text-primary' : 'text-neutral-400 hover:text-neutral-900'; ?>">
+					<?php echo esc_html( $display_name ); ?>
+				</a>
+				<?php if ( $i < $count ) : ?>
+					<span class="w-1 h-1 rounded-full bg-neutral-200"></span>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</div>
+		<?php
+	}
+endif;

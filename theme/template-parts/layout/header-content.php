@@ -4,7 +4,6 @@
  *
  * @package aceedu
  */
-
 ?>
 
 <header id="masthead" class="relative z-50 ">
@@ -37,21 +36,22 @@
 					)
 				);
 				?>
-				<?php ub_language_switcher(); ?>
-
-				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 shadow-lg shadow-primary/20">
-					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
-				</a>
 			</nav>
 
-			<!-- Mobile Menu Toggle -->
-			<button id="mobile-menu-toggle" class="lg:hidden p-2 text-neutral-600 hover:text-primary transition-colors focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-				<span class="sr-only"><?php esc_html_e( 'Toggle menu', 'aceedu' ); ?></span>
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path class="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-					<path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-				</svg>
-			</button>
+			<div class="flex items-center gap-4 ml-auto mr-0">
+				<?php ub_language_switcher(); ?>
+
+				<?php
+				$ub_header_button = function_exists( 'get_field' ) ? get_field( 'header_button', 'option' ) : null;
+				?>
+				<?php if ( $ub_header_button ) : ?>
+					<a href="<?php echo esc_url( $ub_header_button['url'] ); ?>" 
+						target="<?php echo esc_attr( $ub_header_button['target'] ? $ub_header_button['target'] : '_self' ); ?>"
+						class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xs text-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20">
+						<?php echo esc_html( $ub_header_button['title'] ); ?>
+					</a>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 
@@ -70,9 +70,13 @@
 			<div class="mt-12 pt-8 border-t border-neutral-100 flex flex-col gap-8">
 				<?php ub_language_switcher(); ?>
 				
-				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
-					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
-				</a>
+				<?php if ( $header_button ) : ?>
+					<a href="<?php echo esc_url( $header_button['url'] ); ?>" 
+						target="<?php echo esc_attr( $header_button['target'] ? $header_button['target'] : '_self' ); ?>"
+						class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
+						<?php echo esc_html( $header_button['title'] ); ?>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

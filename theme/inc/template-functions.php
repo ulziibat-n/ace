@@ -7,6 +7,21 @@
  */
 
 /**
+ * UB (ACE) theme-ийн үндсэн тодорхойлолтууд
+ */
+if ( ! defined( 'UB_VERSION' ) ) {
+	$theme_info = wp_get_theme();
+	define( 'UB_VERSION', $theme_info->get( 'Version' ) );
+}
+
+if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
+	define(
+		'UB_TYPOGRAPHY_CLASSES',
+		'prose prose-neutral max-w-none prose-a:text-primary'
+	);
+}
+
+/**
  * Ганц пост, хуудас эсвэл хавсралт (attachment) ачаалах үед
  * Pingback URL-ийг автоматаар илрүүлэх header нэмэх.
  */
@@ -71,20 +86,6 @@ function ub_get_the_archive_title() {
 add_filter( 'get_the_archive_title', 'ub_get_the_archive_title' );
 
 /**
- * Тухайн постны Featured Image (Thumbnail) харагдах боломжтой эсэхийг шалгах.
- */
-function ub_can_show_post_thumbnail() {
-	return apply_filters( 'ub_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
-}
-
-/**
- * Theme-д ашиглагдах Аватар зургийн хэмжээг тодорхойлох.
- */
-function ub_get_avatar_size() {
-	return 60;
-}
-
-/**
  * "Үргэлжлүүлэн унших" (Continue Reading) холбоосыг үүсгэх.
  *
  * @param string $more_string Холбоос дотор харагдах текст.
@@ -109,101 +110,6 @@ add_filter( 'excerpt_more', 'ub_continue_reading_link' );
 
 // Filter the content more link.
 add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
-
-/**
- * Сэтгэгдлийг HTML5 стандартаар харуулах функц.
- *
- * WordPress-ийн стандарт сэтгэгдлийн гаралтыг өөрчилж, Tailwind Typography
- * болон дизайны онцлогт нийцүүлэн засаж харуулдаг.
- *
- * @param WP_Comment $comment Харуулах сэтгэгдэл.
- * @param array      $args    Нэмэлт аргументууд.
- * @param int        $depth   Сэтгэгдлийн түвшин (хариу бичих үед).
- */
-function ub_html5_comment( $comment, $args, $depth ) {
-	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-
-	$commenter          = wp_get_current_commenter();
-	$show_pending_links = ! empty( $commenter['comment_author'] );
-
-	if ( $commenter['comment_author_email'] ) {
-		$moderation_note = __( 'Your comment is awaiting moderation.', 'aceedu' );
-	} else {
-		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'aceedu' );
-	}
-	?>
-	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->has_children ? 'parent' : '', $comment ); ?>>
-		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-			<footer class="comment-meta">
-				<div class="comment-author vcard">
-					<?php
-					if ( 0 !== $args['avatar_size'] ) {
-						echo get_avatar( $comment, $args['avatar_size'] );
-					}
-					?>
-					<?php
-					$comment_author = get_comment_author_link( $comment );
-
-					if ( '0' === $comment->comment_approved && ! $show_pending_links ) {
-						$comment_author = get_comment_author( $comment );
-					}
-
-					printf(
-						/* translators: %s: Comment author link. */
-						wp_kses_post( __( '%s <span class="says">says:</span>', 'aceedu' ) ),
-						sprintf( '<b class="fn">%s</b>', wp_kses_post( $comment_author ) )
-					);
-					?>
-				</div><!-- .comment-author -->
-
-				<div class="comment-metadata">
-					<?php
-					printf(
-						'<a href="%s"><time datetime="%s">%s</time></a>',
-						esc_url( get_comment_link( $comment, $args ) ),
-						esc_attr( get_comment_time( 'c' ) ),
-						esc_html(
-							sprintf(
-							/* translators: 1: Comment date, 2: Comment time. */
-								__( '%1$s at %2$s', 'aceedu' ),
-								get_comment_date( '', $comment ),
-								get_comment_time()
-							)
-						)
-					);
-
-					edit_comment_link( __( 'Edit', 'aceedu' ), ' <span class="edit-link">', '</span>' );
-					?>
-				</div><!-- .comment-metadata -->
-
-				<?php if ( '0' === $comment->comment_approved ) : ?>
-				<em class="comment-awaiting-moderation"><?php echo esc_html( $moderation_note ); ?></em>
-				<?php endif; ?>
-			</footer><!-- .comment-meta -->
-
-			<div <?php ub_content_class( 'comment-content' ); ?>>
-				<?php comment_text(); ?>
-			</div><!-- .comment-content -->
-
-			<?php
-			if ( '1' === $comment->comment_approved || $show_pending_links ) {
-				comment_reply_link(
-					array_merge(
-						$args,
-						array(
-							'add_below' => 'div-comment',
-							'depth'     => $depth,
-							'max_depth' => $args['max_depth'],
-							'before'    => '<div class="reply">',
-							'after'     => '</div>',
-						)
-					)
-				);
-			}
-			?>
-		</article><!-- .comment-body -->
-	<?php
-}
 
 /**
  *  Typography-ийн классуудыг нэмэх.
@@ -257,3 +163,119 @@ function ub_nav_menu_classes( $classes, $item, $args ) {
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 3 );
+
+
+/**
+ * Сэтгэгдэл, Визжет, болон Site Editor-ийг зөвхөн Production (Debug хаалттай) үед хаах.
+ *
+ * Хэрэв WP_DEBUG идэвхтэй байвал хөгжүүлэгчид бүх функцүүд нээлттэй харагдах бөгөөд
+ * харин Live сайт дээр (WP_DEBUG = false) хэрэгцээгүй цэсүүдийг нууж сайтыг цэгцэлнэ.
+ */
+function ub_disable_unused_features() {
+	// Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй.
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		return;
+	}
+
+	// Сэтгэгдэл хаах.
+	add_filter( 'comments_open', '__return_false', 20, 2 );
+	add_filter( 'pings_open', '__return_false', 20, 2 );
+
+	add_action(
+		'admin_menu',
+		function () {
+			// Comments цэс хасах.
+			remove_menu_page( 'edit-comments.php' );
+
+			// Site Editor (Gutenberg FSE) цэсийг хасах.
+			remove_submenu_page( 'themes.php', 'site-editor.php?path=/edit' );
+		},
+		999
+	);
+
+	// Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах.
+	add_action(
+		'init',
+		function () {
+			remove_post_type_support( 'post', 'comments' );
+			remove_post_type_support( 'page', 'comments' );
+		},
+		100
+	);
+}
+ub_disable_unused_features();
+
+/**
+ * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
+ *
+ * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон
+ * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
+ */
+function ub_scripts() {
+	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
+	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
+}
+add_action( 'wp_enqueue_scripts', 'ub_scripts' );
+
+/**
+ * Gutenberg (Block Editor) редактор дээр ашиглагдах файл болон стилийг дуудах.
+ *
+ * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
+ * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
+ */
+function ub_enqueue_block_editor_script() {
+	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+	if (
+		$current_screen &&
+		$current_screen->is_block_editor() &&
+		'widgets' !== $current_screen->id
+	) {
+		wp_enqueue_script(
+			'ace-editor',
+			get_template_directory_uri() . '/js/block-editor.min.js',
+			array(
+				'wp-blocks',
+				'wp-edit-post',
+			),
+			UB_VERSION,
+			true
+		);
+		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+	}
+}
+add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
+
+/**
+ * TinyMCE (Classic Editor) редактор дээр Tailwind Typography-ийн классуудыг нэмэх.
+ *
+ * @param array $settings TinyMCE-ийн тохиргоонууд.
+ * @return array Шинэчилсэн тохиргоо.
+ */
+function ub_tinymce_add_class( $settings ) {
+	$settings['body_class'] = UB_TYPOGRAPHY_CLASSES;
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'ub_tinymce_add_class' );
+
+/**
+ * Гарчгийн (Heading) түвшингүүдийг Tailwind Typography-д нийцүүлэн хязгаарлах.
+ *
+ * Редактор дээр H1-ийг зөвхөн нэг байлгах, H5/H6-г дизайнд тохируулан
+ * хасах зорилгоор Default сонголтыг H2, H3, H4 болгож өөрчилнө.
+ *
+ * @param array  $args Блок бүртгэх үеийн аргументууд.
+ * @param string $block_type Блокны нэр (core/heading гэх мэт).
+ * @return array Шинэчилсэн аргументууд.
+ */
+function ub_modify_heading_levels( $args, $block_type ) {
+	if ( 'core/heading' !== $block_type ) {
+		return $args;
+	}
+
+	// Remove <h1>, <h5> and <h6>.
+	$args['attributes']['levelOptions']['default'] = array( 2, 3, 4 );
+
+	return $args;
+}
+add_filter( 'register_block_type_args', 'ub_modify_heading_levels', 10, 2 );
