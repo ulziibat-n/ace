@@ -95,6 +95,62 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --tw-prose-font-extrabold: 800;
   --tw-prose-font-black: 900;
 }
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Regular.woff2') format('woff2'), url('fonts/GoogleSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Italic.woff2') format('woff2'), url('fonts/GoogleSans-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Medium.woff2') format('woff2'), url('fonts/GoogleSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-MediumItalic.woff2') format('woff2'), url('fonts/GoogleSans-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-SemiBold.woff2') format('woff2'), url('fonts/GoogleSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-SemiBoldItalic.woff2') format('woff2'), url('fonts/GoogleSans-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Bold.woff2') format('woff2'), url('fonts/GoogleSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-BoldItalic.woff2') format('woff2'), url('fonts/GoogleSans-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 :where(.not-prose) *,:where(.not-prose) ::after,:where(.not-prose) ::before,:where(.not-prose) ::backdrop,:where(.not-prose) ::file-selector-button {
   box-sizing: border-box;
   margin: 0;

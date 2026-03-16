@@ -212,7 +212,6 @@ ub_disable_unused_features();
  * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
  */
 function ub_scripts() {
-	wp_enqueue_style( 'ace-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
 }
@@ -225,7 +224,6 @@ add_action( 'wp_enqueue_scripts', 'ub_scripts' );
  * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
 function ub_enqueue_block_editor_script() {
-	wp_enqueue_style( 'ace-editor-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
 	if (
