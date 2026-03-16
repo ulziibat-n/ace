@@ -77,8 +77,8 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'ace' ),
-				'menu-2' => __( 'Footer Menu', 'ace' ),
+				'menu-1' => __( 'Үндсэн цэс', 'ace' ),
+				'menu-2' => __( 'Доод талын цэс', 'ace' ),
 			)
 		);
 
@@ -169,24 +169,24 @@ add_action( 'after_setup_theme', 'ub_setup' );
  * харин Live сайт дээр (WP_DEBUG = false) хэрэгцээгүй цэсүүдийг нууж сайтыг цэгцэлнэ.
  */
 function ub_disable_unused_features() {
-    // Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй
+    // Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй.
     if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
         return;
     }
 
-    // Сэтгэгдэл хаах
+    // Сэтгэгдэл хаах.
     add_filter('comments_open', '__return_false', 20, 2);
     add_filter('pings_open', '__return_false', 20, 2);
 
     add_action('admin_menu', function () {
-        // Comments цэс хасах
+        // Comments цэс хасах.
         remove_menu_page('edit-comments.php');
         
-        // Site Editor (Gutenberg FSE) цэсийг хасах
+        // Site Editor (Gutenberg FSE) цэсийг хасах.
         remove_submenu_page('themes.php', 'site-editor.php?path=/edit');
     }, 999);
 
-    // Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах
+    // Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах.
     add_action('init', function () {
         remove_post_type_support('post', 'comments');
         remove_post_type_support('page', 'comments');

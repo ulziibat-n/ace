@@ -7,13 +7,5 @@
  * file and is applied both to the front end and in the block editor.
  */
 body {
-	@apply bg-background text-foreground font-sans;
-}
-
-.custom-logo-link {
-    @apply inline-block;
-}
-
-.custom-logo {
-    @apply h-auto max-h-12 md:max-h-16 w-auto;
+	@apply bg-white;
 }

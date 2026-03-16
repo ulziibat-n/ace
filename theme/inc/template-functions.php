@@ -213,7 +213,7 @@ function ub_html5_comment( $comment, $args, $depth ) {
  */
 function ub_custom_logo_class( $html ) {
 	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
-    $html = str_replace( 'custom-logo-link', 'custom-logo-link flex items-center transition-opacity hover:opacity-80', $html );
+    $html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[5rem] [&_img]:h-auto', $html );
     return $html;
 }
 add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
@@ -251,7 +251,7 @@ add_filter( 'body_class', 'ub_body_classes' );
  */
 function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
     // Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно
-    // if ( 'menu-1' === $args->theme_location ) { $classes[] = 'my-class'; }
+    if ( 'menu-1' === $args->theme_location ) { $classes[] = 'group [&_a]:text-slate-700 [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-primary [&_a]:group-[.current-menu-item]:text-primary'; }
     
     return $classes;
 }
