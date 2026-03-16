@@ -1,6 +1,9 @@
 <?php
 /**
- * ub functions and definitions
+ * UB (ACE) theme-ийн үндсэн функцүүд болон тодорхойлолтууд
+ *
+ * Энэхүү файл нь вэб сайтын суурь тохиргоо, файл дуудах, болон бусад нэмэлт 
+ * функцүүдийг агуулдаг.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -8,14 +11,8 @@
  */
 
 if ( ! defined( 'UB_VERSION' ) ) {
-	/*
-	 * Set the theme’s version number.
-	 *
-	 * This is used primarily for cache busting. If you use `npm run bundle`
-	 * to create your production build, the value below will be replaced in the
-	 * generated zip file with a timestamp, converted to base 36.
-	 */
-	define( 'UB_VERSION', '0.2.0' );
+	$theme_info = wp_get_theme();
+	define( 'UB_VERSION', $theme_info->get( 'Version' ) );
 }
 
 if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
@@ -44,11 +41,11 @@ if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
 
 if ( ! function_exists( 'ub_setup' ) ) :
 	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
+	 * Theme-ийн анхны тохиргоо болон WordPress-ийн функцүүдийг идэвхжүүлэх.
 	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
+	 * Энэ функц нь 'after_setup_theme' hook-той холбогдож ажиллах бөгөөд 
+	 * вэб сайт ачаалж эхлэх үед зурагны хэмжээ, цэсний байршил, 
+	 * theme-ийн дэмжлэгүүдийг (thumbnails гэх мэт) бүртгэдэг.
 	 */
 	function ub_setup() {
 		/*
@@ -103,7 +100,23 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+// Add theme support for automatic RSS feed links. (Optional, keeping it for now)
+		// add_theme_support( 'automatic-feed-links' );
+
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 100,
+				'width'       => 400,
+				'flex-width'  => true,
+				'flex-height' => true,
+			)
+		);
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
@@ -150,44 +163,50 @@ endif;
 add_action( 'after_setup_theme', 'ub_setup' );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Визжет болон сэтгэгдлийн хэсгийг хааж, сайтыг илүү цэвэрхэн болгох.
+ * 
+ * Энэ функц нь сайтын хурдыг нэмэгдүүлж, хэрэглэгчдэд зөвхөн хэрэгцээт 
+ * функцүүдийг үлдээх зорилгоор ашиглагдаагүй хэсгүүдийг нуудаг.
  */
-function ub_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => __( 'Footer', 'ace' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'ace' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+function ub_disable_comments_and_widgets() {
+    // Hide existing comments
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+
+    // Hide comments from admin bar and menu
+    add_action('admin_menu', function () {
+        remove_menu_page('edit-comments.php');
+    });
+
+    // Remove comments support from post types
+    add_action('init', function () {
+        remove_post_type_support('post', 'comments');
+        remove_post_type_support('page', 'comments');
+    }, 100);
 }
-add_action( 'widgets_init', 'ub_widgets_init' );
+ub_disable_comments_and_widgets();
 
 /**
- * Enqueue scripts and styles.
+ * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
+ * 
+ * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон 
+ * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
  */
 function ub_scripts() {
-	wp_enqueue_style( 'ace-google-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap', array(), null );
+	wp_enqueue_style( 'ace-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'ub_scripts' );
 
 /**
- * Enqueue the block editor script.
+ * Gutenberg (Block Editor) редактор дээр ашиглагдах файл болон стилийг дуудах.
+ * 
+ * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
+ * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
 function ub_enqueue_block_editor_script() {
-	wp_enqueue_style( 'ace-editor-google-fonts', 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap', array(), null );
+	wp_enqueue_style( 'ace-editor-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
 	if (
@@ -211,10 +230,10 @@ function ub_enqueue_block_editor_script() {
 add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
 
 /**
- * Add the Tailwind Typography classes to TinyMCE.
+ * TinyMCE (Classic Editor) редактор дээр Tailwind Typography-ийн классуудыг нэмэх.
  *
- * @param array $settings TinyMCE settings.
- * @return array
+ * @param array $settings TinyMCE-ийн тохиргоонууд.
+ * @return array Шинэчилсэн тохиргоо.
  */
 function ub_tinymce_add_class( $settings ) {
 	$settings['body_class'] = UB_TYPOGRAPHY_CLASSES;
@@ -223,11 +242,14 @@ function ub_tinymce_add_class( $settings ) {
 add_filter( 'tiny_mce_before_init', 'ub_tinymce_add_class' );
 
 /**
- * Limit the block editor to heading levels supported by Tailwind Typography.
+ * Гарчгийн (Heading) түвшингүүдийг Tailwind Typography-д нийцүүлэн хязгаарлах.
+ * 
+ * Редактор дээр H1-ийг зөвхөн нэг байлгах, H5/H6-г дизайнд тохируулан 
+ * хасах зорилгоор Default сонголтыг H2, H3, H4 болгож өөрчилнө.
  *
- * @param array  $args Array of arguments for registering a block type.
- * @param string $block_type Block type name including namespace.
- * @return array
+ * @param array  $args Блок бүртгэх үеийн аргументууд.
+ * @param string $block_type Блокны нэр (core/heading гэх мэт).
+ * @return array Шинэчилсэн аргументууд.
  */
 function ub_modify_heading_levels( $args, $block_type ) {
 	if ( 'core/heading' !== $block_type ) {

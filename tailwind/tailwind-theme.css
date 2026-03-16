@@ -13,21 +13,16 @@
 	/**
 	 * Design tokens previously in theme.json are now defined here directly.
      */
-	--color-background: #ffffff;
-	--color-foreground: #1e293b;
-	--color-primary: #1e3a8a;
-	--color-secondary: #f59e0b;
-	--color-tertiary: #0f172a;
+	--color-primary: #085399;
+	--color-secondary: #EC1B24;
 	
 	--container-content: 64rem;
 	--container-wide: 80rem;
 
 	/**
-	 * Use Google Sans (Outfit) as our primary font.
+	 * Use Google Sans as our primary font.
 	 */
-	--font-sans:
-		"Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-sans: "Google Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono:
 		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,

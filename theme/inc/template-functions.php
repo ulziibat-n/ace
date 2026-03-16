@@ -1,12 +1,14 @@
 <?php
 /**
- * Functions which enhance the theme by hooking into WordPress
+ * WordPress-ийн стандарт функцүүдийг сайжруулах болон theme-д зориулсан 
+ * нэмэлт функцүүдийг агуулсан файл.
  *
  * @package ub
  */
 
 /**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+ * Ганц пост, хуудас эсвэл хавсралт (attachment) ачаалах үед 
+ * Pingback URL-ийг автоматаар илрүүлэх header нэмэх.
  */
 function ub_pingback_header() {
 	if ( is_singular() && pings_open() ) {
@@ -16,11 +18,10 @@ function ub_pingback_header() {
 add_action( 'wp_head', 'ub_pingback_header' );
 
 /**
- * Changes comment form default fields.
+ * Сэтгэгдэл бичих формын үндсэн талбаруудын тохиргоог өөрчлөх.
  *
- * @param array $defaults The default comment form arguments.
- *
- * @return array Returns the modified fields.
+ * @param array $defaults Сэтгэгдлийн формын анхны аргументууд.
+ * @return array Шинэчилсэн талбаруудын жагсаалт.
  */
 function ub_comment_form_defaults( $defaults ) {
 	$comment_field = $defaults['comment_field'];
@@ -33,7 +34,7 @@ function ub_comment_form_defaults( $defaults ) {
 add_filter( 'comment_form_defaults', 'ub_comment_form_defaults' );
 
 /**
- * Filters the default archive titles.
+ * Архивын хуудасны гарчгийг (Category, Tag, Author гэх мэт) засаж харуулах.
  */
 function ub_get_the_archive_title() {
 	if ( is_category() ) {
@@ -70,23 +71,23 @@ function ub_get_the_archive_title() {
 add_filter( 'get_the_archive_title', 'ub_get_the_archive_title' );
 
 /**
- * Determines whether the post thumbnail can be displayed.
+ * Тухайн постны Featured Image (Thumbnail) харагдах боломжтой эсэхийг шалгах.
  */
 function ub_can_show_post_thumbnail() {
 	return apply_filters( 'ub_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
 }
 
 /**
- * Returns the size for avatars used in the theme.
+ * Theme-д ашиглагдах Аватар зургийн хэмжээг тодорхойлох.
  */
 function ub_get_avatar_size() {
 	return 60;
 }
 
 /**
- * Create the continue reading link
+ * "Үргэлжлүүлэн унших" (Continue Reading) холбоосыг үүсгэх.
  *
- * @param string $more_string The string shown within the more link.
+ * @param string $more_string Холбоос дотор харагдах текст.
  */
 function ub_continue_reading_link( $more_string ) {
 
@@ -110,15 +111,14 @@ add_filter( 'excerpt_more', 'ub_continue_reading_link' );
 add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
 
 /**
- * Outputs a comment in the HTML5 format.
+ * Сэтгэгдлийг HTML5 стандартаар харуулах функц.
  *
- * This function overrides the default WordPress comment output in HTML5
- * format, adding the required class for Tailwind Typography. Based on the
- * `html5_comment()` function from WordPress core.
+ * WordPress-ийн стандарт сэтгэгдлийн гаралтыг өөрчилж, Tailwind Typography 
+ * болон дизайны онцлогт нийцүүлэн засаж харуулдаг.
  *
- * @param WP_Comment $comment Comment to display.
- * @param array      $args    An array of arguments.
- * @param int        $depth   Depth of the current comment.
+ * @param WP_Comment $comment Харуулах сэтгэгдэл.
+ * @param array      $args    Нэмэлт аргументууд.
+ * @param int        $depth   Сэтгэгдлийн түвшин (хариу бичих үед).
  */
 function ub_html5_comment( $comment, $args, $depth ) {
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
@@ -204,3 +204,56 @@ function ub_html5_comment( $comment, $args, $depth ) {
 		</article><!-- .comment-body -->
 	<?php
 }
+
+/**
+ * 	Typography-ийн классуудыг нэмэх.
+ *
+ * @param mixed $html Логоны HTML код.
+ * @return array|string Шинэчилсэн HTML код.
+ */
+function ub_custom_logo_class( $html ) {
+	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
+    $html = str_replace( 'custom-logo-link', 'custom-logo-link flex items-center transition-opacity hover:opacity-80', $html );
+    return $html;
+}
+add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
+
+/**
+ * <body> элементэд нэмэлт CSS классуудыг нэмэх функц.
+ * 
+ * Энэ функц нь WordPress-ийн 'body_class' шүүлтүүрийг (filter) ашиглан 
+ * вэб сайтын хуудас бүрийн онцлогоос хамаарч (жишээ нь: нүүр хуудас, 
+ * ганц болон олон пост харагдах үед) <body> таг дээр тусгай классуудыг
+ * автоматаар нэмж өгдөг. Энэ нь CSS загварчлалыг илүү уян хатан болгоно.
+ *
+ * @param array $classes Одоо байгаа body классуудын жагсаалт.
+ * @return array Шинэчилсэн классуудын жагсаалт.
+ */
+function ub_body_classes( $classes ) {
+	// Энд нэмэлт нөхцөлт классуудыг нэмж болно
+	$classes[] = 'font-sans bg-white';
+	return $classes;
+}
+add_filter( 'body_class', 'ub_body_classes' );
+
+/**
+ * Цэсний элементүүдэд (<li>) нэмэлт CSS классуудыг нэмэх функц.
+ * 
+ * Энэ функц нь WordPress-ийн 'nav_menu_css_class' шүүлтүүрийг ашиглан 
+ * вэб сайтын цэсний элемент бүр дээр Tailwind CSS эсвэл өөр бусад 
+ * тусгай классуудыг нэмж өгөх боломжийг олгоно.
+ *
+ * @param array    $classes Одоо байгаа цэсний элементийн классууд.
+ * @param WP_Post  $item    Цэсний элементийн объект.
+ * @param array    $args    wp_nav_menu() функцын аргументууд.
+ * @param int      $depth   Цэсний түвшин.
+ * @return array Шинэчилсэн классуудын жагсаалт.
+ */
+function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
+    // Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно
+    // if ( 'menu-1' === $args->theme_location ) { $classes[] = 'my-class'; }
+    
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 4 );
+
