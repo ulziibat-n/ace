@@ -26,8 +26,8 @@ if ( post_password_required() ) {
 		?>
 		<h2>
 			<?php
-			$aceedu_comment_count = get_comments_number();
-			if ( '1' === $aceedu_comment_count ) {
+			$ub_comment_count = get_comments_number();
+			if ( '1' === $ub_comment_count ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: title. */
@@ -39,8 +39,8 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $aceedu_comment_count, 'comments title', 'aceedu' ) ),
-					number_format_i18n( $aceedu_comment_count ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $ub_comment_count, 'comments title', 'aceedu' ) ),
+					number_format_i18n( $ub_comment_count ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 			wp_list_comments(
 				array(
 					'style'      => 'ol',
-					'callback'   => 'aceedu_html5_comment',
+					'callback'   => 'ub_html5_comment',
 					'short_ping' => true,
 				)
 			);

@@ -6,7 +6,7 @@ Description: ACE Education - Custom WordPress Theme
 Version: 0.2.0
 Author: Ulziibat Nansaltsog
 Author URI: https://ulziibat.tech
-Text Domain: ace
+Text Domain: aceedu
 Requires at least: 6.9
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -1018,14 +1018,8 @@ body {
 .max-w-xl {
   max-width: var(--container-xl);
 }
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
 .shrink-0 {
   flex-shrink: 0;
-}
-.flex-grow {
-  flex-grow: 1;
 }
 .grow {
   flex-grow: 1;

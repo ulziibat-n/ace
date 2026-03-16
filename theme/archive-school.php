@@ -28,7 +28,7 @@ get_header();
             </div>
 
             <div class="mt-12">
-                <?php aceedu_the_posts_navigation(); ?>
+                <?php ub_the_posts_navigation(); ?>
             </div>
 
         <?php else : ?>

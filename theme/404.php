@@ -18,7 +18,7 @@ get_header();
 					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'aceedu' ); ?></h1>
 				</header><!-- .page-header -->
 
-				<div <?php aceedu_content_class( 'page-content' ); ?>>
+				<div <?php ub_content_class( 'page-content' ); ?>>
 					<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'aceedu' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .page-content -->

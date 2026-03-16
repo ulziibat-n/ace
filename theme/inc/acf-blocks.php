@@ -3,7 +3,7 @@
  * Register ACF Blocks
  */
 
-function aceedu_register_acf_blocks() {
+function ub_register_acf_blocks() {
 	/**
 	 * We register our blocks by looking for block.json files in the blocks directory.
 	 */
@@ -21,12 +21,12 @@ function aceedu_register_acf_blocks() {
 		}
 	}
 }
-add_action( 'init', 'aceedu_register_acf_blocks' );
+add_action( 'init', 'ub_register_acf_blocks' );
 
 /**
  * Add Block Categories
  */
-function aceedu_block_categories( $categories, $post ) {
+function ub_block_categories( $categories, $post ) {
 	return array_merge(
 		$categories,
 		array(
@@ -37,4 +37,4 @@ function aceedu_block_categories( $categories, $post ) {
 		)
 	);
 }
-add_filter( 'block_categories_all', 'aceedu_block_categories', 10, 2 );
+add_filter( 'block_categories_all', 'ub_block_categories', 10, 2 );

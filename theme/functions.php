@@ -10,17 +10,17 @@
  * @package aceedu
  */
 
-if ( ! defined( 'ACEEDU_VERSION' ) ) {
+if ( ! defined( 'UB_VERSION' ) ) {
 	$theme_info = wp_get_theme();
-	define( 'ACEEDU_VERSION', $theme_info->get( 'Version' ) );
+	define( 'UB_VERSION', $theme_info->get( 'Version' ) );
 }
 
-if ( ! defined( 'ACEEDU_TYPOGRAPHY_CLASSES' ) ) {
+if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
 	 *
-	 * For the front end, these classes are added by the `aceedu_content_class`
+	 * For the front end, these classes are added by the `ub_content_class`
 	 * function. You will see that function used everywhere an `entry-content`
 	 * or `page-content` class has been added to a wrapper element.
 	 *
@@ -34,12 +34,12 @@ if ( ! defined( 'ACEEDU_TYPOGRAPHY_CLASSES' ) ) {
 	 * initializes.
 	 */
 	define(
-		'ACEEDU_TYPOGRAPHY_CLASSES',
+		'UB_TYPOGRAPHY_CLASSES',
 		'prose prose-neutral max-w-none prose-a:text-primary'
 	);
 }
 
-if ( ! function_exists( 'aceedu_setup' ) ) :
+if ( ! function_exists( 'ub_setup' ) ) :
 	/**
 	 * Theme-ийн анхны тохиргоо болон WordPress-ийн функцүүдийг идэвхжүүлэх.
 	 *
@@ -47,7 +47,7 @@ if ( ! function_exists( 'aceedu_setup' ) ) :
 	 * вэб сайт ачаалж эхлэх үед зурагны хэмжээ, цэсний байршил,
 	 * theme-ийн дэмжлэгүүдийг (thumbnails гэх мэт) бүртгэдэг.
 	 */
-	function aceedu_setup() {
+	function ub_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -163,7 +163,7 @@ if ( ! function_exists( 'aceedu_setup' ) ) :
 		add_theme_support( 'disable-custom-gradients' );
 	}
 endif;
-add_action( 'after_setup_theme', 'aceedu_setup' );
+add_action( 'after_setup_theme', 'ub_setup' );
 
 /**
  * Сэтгэгдэл, Визжет, болон Site Editor-ийг зөвхөн Production (Debug хаалттай) үед хаах.
@@ -171,7 +171,7 @@ add_action( 'after_setup_theme', 'aceedu_setup' );
  * Хэрэв WP_DEBUG идэвхтэй байвал хөгжүүлэгчид бүх функцүүд нээлттэй харагдах бөгөөд
  * харин Live сайт дээр (WP_DEBUG = false) хэрэгцээгүй цэсүүдийг нууж сайтыг цэгцэлнэ.
  */
-function aceedu_disable_unused_features() {
+function ub_disable_unused_features() {
 	// Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй.
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 		return;
@@ -203,7 +203,7 @@ function aceedu_disable_unused_features() {
 		100
 	);
 }
-aceedu_disable_unused_features();
+ub_disable_unused_features();
 
 /**
  * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
@@ -211,12 +211,12 @@ aceedu_disable_unused_features();
  * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон
  * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
  */
-function aceedu_scripts() {
+function ub_scripts() {
 	wp_enqueue_style( 'ace-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
-	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), ACEEDU_VERSION );
-	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), ACEEDU_VERSION, true );
+	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
+	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
 }
-add_action( 'wp_enqueue_scripts', 'aceedu_scripts' );
+add_action( 'wp_enqueue_scripts', 'ub_scripts' );
 
 /**
  * Gutenberg (Block Editor) редактор дээр ашиглагдах файл болон стилийг дуудах.
@@ -224,7 +224,7 @@ add_action( 'wp_enqueue_scripts', 'aceedu_scripts' );
  * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
  * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
-function aceedu_enqueue_block_editor_script() {
+function ub_enqueue_block_editor_script() {
 	wp_enqueue_style( 'ace-editor-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
@@ -240,13 +240,13 @@ function aceedu_enqueue_block_editor_script() {
 				'wp-blocks',
 				'wp-edit-post',
 			),
-			ACEEDU_VERSION,
+			UB_VERSION,
 			true
 		);
-		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( ACEEDU_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
 	}
 }
-add_action( 'enqueue_block_assets', 'aceedu_enqueue_block_editor_script' );
+add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
 
 /**
  * TinyMCE (Classic Editor) редактор дээр Tailwind Typography-ийн классуудыг нэмэх.
@@ -254,11 +254,11 @@ add_action( 'enqueue_block_assets', 'aceedu_enqueue_block_editor_script' );
  * @param array $settings TinyMCE-ийн тохиргоонууд.
  * @return array Шинэчилсэн тохиргоо.
  */
-function aceedu_tinymce_add_class( $settings ) {
-	$settings['body_class'] = ACEEDU_TYPOGRAPHY_CLASSES;
+function ub_tinymce_add_class( $settings ) {
+	$settings['body_class'] = UB_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'aceedu_tinymce_add_class' );
+add_filter( 'tiny_mce_before_init', 'ub_tinymce_add_class' );
 
 /**
  * Гарчгийн (Heading) түвшингүүдийг Tailwind Typography-д нийцүүлэн хязгаарлах.
@@ -270,7 +270,7 @@ add_filter( 'tiny_mce_before_init', 'aceedu_tinymce_add_class' );
  * @param string $block_type Блокны нэр (core/heading гэх мэт).
  * @return array Шинэчилсэн аргументууд.
  */
-function aceedu_modify_heading_levels( $args, $block_type ) {
+function ub_modify_heading_levels( $args, $block_type ) {
 	if ( 'core/heading' !== $block_type ) {
 		return $args;
 	}
@@ -280,7 +280,7 @@ function aceedu_modify_heading_levels( $args, $block_type ) {
 
 	return $args;
 }
-add_filter( 'register_block_type_args', 'aceedu_modify_heading_levels', 10, 2 );
+add_filter( 'register_block_type_args', 'ub_modify_heading_levels', 10, 2 );
 
 /**
  * Custom template tags for this theme.

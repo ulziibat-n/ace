@@ -29,7 +29,7 @@ get_header();
 			endwhile;
 
 			// Previous/next page navigation.
-			aceedu_the_posts_navigation();
+			ub_the_posts_navigation();
 
 		else :
 

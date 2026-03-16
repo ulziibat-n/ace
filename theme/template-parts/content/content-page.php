@@ -21,9 +21,9 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php aceedu_post_thumbnail(); ?>
+	<?php ub_post_thumbnail(); ?>
 
-	<div <?php aceedu_content_class( 'entry-content' ); ?>>
+	<div <?php ub_content_class( 'entry-content' ); ?>>
 		<?php
 		the_content();
 

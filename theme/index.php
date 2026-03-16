@@ -36,7 +36,7 @@ get_header();
 			}
 
 			// Previous/next page navigation.
-			aceedu_the_posts_navigation();
+			ub_the_posts_navigation();
 
 		} else {
 

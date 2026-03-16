@@ -8,7 +8,7 @@
  * Limit allowed block types to keep the editor clean.
  * We remove Design (except Separator), Widgets, Theme, and Embeds categories.
  */
-function aceedu_allowed_block_types( $allowed_block_types, $editor_context ) {
+function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 	
 	// List of allowed core blocks
 	$allowed_blocks = array(
@@ -40,12 +40,12 @@ function aceedu_allowed_block_types( $allowed_block_types, $editor_context ) {
 	
 	return $allowed_blocks;
 }
-add_filter( 'allowed_block_types_all', 'aceedu_allowed_block_types', 10, 2 );
+add_filter( 'allowed_block_types_all', 'ub_allowed_block_types', 10, 2 );
 
 /**
  * Remove Core Block Patterns to prevent clutter
  */
-function aceedu_remove_core_block_patterns() {
+function ub_remove_core_block_patterns() {
 	remove_theme_support( 'core-block-patterns' );
 }
-add_action( 'after_setup_theme', 'aceedu_remove_core_block_patterns' );
+add_action( 'after_setup_theme', 'ub_remove_core_block_patterns' );

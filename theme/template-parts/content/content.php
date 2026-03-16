@@ -24,9 +24,9 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php aceedu_post_thumbnail(); ?>
+	<?php ub_post_thumbnail(); ?>
 
-	<div <?php aceedu_content_class( 'entry-content' ); ?>>
+	<div <?php ub_content_class( 'entry-content' ); ?>>
 		<?php
 		the_content();
 
@@ -40,7 +40,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php aceedu_entry_footer(); ?>
+		<?php ub_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-${ID} -->

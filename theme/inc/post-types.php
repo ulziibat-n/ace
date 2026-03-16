@@ -11,7 +11,7 @@
  * вэб сайтад шаардлагатай байгаа бүх төрлийн контентуудыг админ хэсэгт 
  * тусад нь цэс болгон оруулж ирдэг.
  */
-function aceedu_register_post_types() {
+function ub_register_post_types() {
 
 	// Schools (Сургуулиуд)
 	register_post_type( 'school', array(
@@ -82,7 +82,7 @@ function aceedu_register_post_types() {
 		'show_in_rest' => true,
 	) );
 }
-add_action( 'init', 'aceedu_register_post_types' );
+add_action( 'init', 'ub_register_post_types' );
 
 /**
  * Пост төрлүүдэд зориулсан ангилал, шүүлтүүрүүдийг (Taxonomies) бүртгэх функц.
@@ -90,7 +90,7 @@ add_action( 'init', 'aceedu_register_post_types' );
  * Жишээ нь: Сургуулиудыг хотоор нь эсвэл сургалтын түвшингөөр нь 
  * ангилах боломжийг энд тодорхойлдог.
  */
-function aceedu_register_taxonomies() {
+function ub_register_taxonomies() {
 
 	// City (Хот)
 	register_taxonomy( 'city', array( 'school' ), array(
@@ -122,4 +122,4 @@ function aceedu_register_taxonomies() {
 		'show_in_rest' => true,
 	) );
 }
-add_action( 'init', 'aceedu_register_taxonomies' );
+add_action( 'init', 'ub_register_taxonomies' );

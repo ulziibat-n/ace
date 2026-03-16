@@ -10,12 +10,12 @@
  * Ганц пост, хуудас эсвэл хавсралт (attachment) ачаалах үед
  * Pingback URL-ийг автоматаар илрүүлэх header нэмэх.
  */
-function aceedu_pingback_header() {
+function ub_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'aceedu_pingback_header' );
+add_action( 'wp_head', 'ub_pingback_header' );
 
 /**
  * Сэтгэгдэл бичих формын үндсэн талбаруудын тохиргоог өөрчлөх.
@@ -23,7 +23,7 @@ add_action( 'wp_head', 'aceedu_pingback_header' );
  * @param array $defaults Сэтгэгдлийн формын анхны аргументууд.
  * @return array Шинэчилсэн талбаруудын жагсаалт.
  */
-function aceedu_comment_form_defaults( $defaults ) {
+function ub_comment_form_defaults( $defaults ) {
 	$comment_field = $defaults['comment_field'];
 
 	// Adjust height of comment form.
@@ -31,12 +31,12 @@ function aceedu_comment_form_defaults( $defaults ) {
 
 	return $defaults;
 }
-add_filter( 'comment_form_defaults', 'aceedu_comment_form_defaults' );
+add_filter( 'comment_form_defaults', 'ub_comment_form_defaults' );
 
 /**
  * Архивын хуудасны гарчгийг (Category, Tag, Author гэх мэт) засаж харуулах.
  */
-function aceedu_get_the_archive_title() {
+function ub_get_the_archive_title() {
 	if ( is_category() ) {
 		$title = __( 'Category Archives: ', 'aceedu' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_tag() ) {
@@ -68,19 +68,19 @@ function aceedu_get_the_archive_title() {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'aceedu_get_the_archive_title' );
+add_filter( 'get_the_archive_title', 'ub_get_the_archive_title' );
 
 /**
  * Тухайн постны Featured Image (Thumbnail) харагдах боломжтой эсэхийг шалгах.
  */
-function aceedu_can_show_post_thumbnail() {
-	return apply_filters( 'aceedu_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
+function ub_can_show_post_thumbnail() {
+	return apply_filters( 'ub_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
 }
 
 /**
  * Theme-д ашиглагдах Аватар зургийн хэмжээг тодорхойлох.
  */
-function aceedu_get_avatar_size() {
+function ub_get_avatar_size() {
 	return 60;
 }
 
@@ -89,7 +89,7 @@ function aceedu_get_avatar_size() {
  *
  * @param string $more_string Холбоос дотор харагдах текст.
  */
-function aceedu_continue_reading_link( $more_string ) {
+function ub_continue_reading_link( $more_string ) {
 
 	if ( ! is_admin() ) {
 		$continue_reading = sprintf(
@@ -105,10 +105,10 @@ function aceedu_continue_reading_link( $more_string ) {
 }
 
 // Filter the excerpt more link.
-add_filter( 'excerpt_more', 'aceedu_continue_reading_link' );
+add_filter( 'excerpt_more', 'ub_continue_reading_link' );
 
 // Filter the content more link.
-add_filter( 'the_content_more_link', 'aceedu_continue_reading_link' );
+add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
 
 /**
  * Сэтгэгдлийг HTML5 стандартаар харуулах функц.
@@ -120,7 +120,7 @@ add_filter( 'the_content_more_link', 'aceedu_continue_reading_link' );
  * @param array      $args    Нэмэлт аргументууд.
  * @param int        $depth   Сэтгэгдлийн түвшин (хариу бичих үед).
  */
-function aceedu_html5_comment( $comment, $args, $depth ) {
+function ub_html5_comment( $comment, $args, $depth ) {
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
 	$commenter          = wp_get_current_commenter();
@@ -181,7 +181,7 @@ function aceedu_html5_comment( $comment, $args, $depth ) {
 				<?php endif; ?>
 			</footer><!-- .comment-meta -->
 
-			<div <?php aceedu_content_class( 'comment-content' ); ?>>
+			<div <?php ub_content_class( 'comment-content' ); ?>>
 				<?php comment_text(); ?>
 			</div><!-- .comment-content -->
 
@@ -211,12 +211,12 @@ function aceedu_html5_comment( $comment, $args, $depth ) {
  * @param mixed $html Логоны HTML код.
  * @return array|string Шинэчилсэн HTML код.
  */
-function aceedu_custom_logo_class( $html ) {
+function ub_custom_logo_class( $html ) {
 	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
 	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[4rem] [&_img]:h-auto', $html );
 	return $html;
 }
-add_filter( 'get_custom_logo', 'aceedu_custom_logo_class' );
+add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
 
 /**
  * <body> элементэд нэмэлт CSS классуудыг нэмэх функц.
@@ -229,12 +229,12 @@ add_filter( 'get_custom_logo', 'aceedu_custom_logo_class' );
  * @param array $classes Одоо байгаа body классуудын жагсаалт.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function aceedu_body_classes( $classes ) {
+function ub_body_classes( $classes ) {
 	// Энд нэмэлт нөхцөлт классуудыг нэмж болно.
 	$classes[] = 'font-sans bg-white';
 	return $classes;
 }
-add_filter( 'body_class', 'aceedu_body_classes' );
+add_filter( 'body_class', 'ub_body_classes' );
 
 /**
  * Цэсний элементүүдэд (<li>) нэмэлт CSS классуудыг нэмэх функц.
@@ -248,7 +248,7 @@ add_filter( 'body_class', 'aceedu_body_classes' );
  * @param array   $args    wp_nav_menu() функцын аргументууд.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function aceedu_nav_menu_classes( $classes, $item, $args ) {
+function ub_nav_menu_classes( $classes, $item, $args ) {
 	// Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно.
 	if ( 'menu-1' === $args->theme_location ) {
 		$classes[] = 'group [&_a]:text-slate-700 [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-primary [&_a]:group-[.current-menu-item]:text-primary [&_a]:text-xs [&_a]:uppercase';
@@ -256,4 +256,4 @@ function aceedu_nav_menu_classes( $classes, $item, $args ) {
 
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'aceedu_nav_menu_classes', 10, 3 );
+add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 3 );
