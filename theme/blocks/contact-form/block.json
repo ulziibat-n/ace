@@ -1,0 +1,16 @@
+{
+    "name": "acf/contact-form",
+    "title": "Холбоо барих форм",
+    "description": "Хэрэглэгчийн мэдээлэл хүлээн авах форм.",
+    "category": "ace-blocks",
+    "icon": "email-alt",
+    "keywords": ["холбоо барих", "форм", "form", "contact"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "contact-form.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "jsx": true
+    }
+}

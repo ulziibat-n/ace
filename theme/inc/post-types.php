@@ -1,0 +1,111 @@
+<?php
+/**
+ * Register Custom Post Types and Taxonomies
+ */
+
+function ub_register_post_types() {
+
+	// Schools (Сургуулиуд)
+	register_post_type( 'school', array(
+		'labels' => array(
+			'name' => __( 'Сургуулиуд', 'ace' ),
+			'singular_name' => __( 'Сургууль', 'ace' ),
+		),
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'schools' ),
+		'menu_icon' => 'dashicons-university',
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'show_in_rest' => true,
+	) );
+
+	// Services (Үйлчилгээ)
+	register_post_type( 'service', array(
+		'labels' => array(
+			'name' => __( 'Үйлчилгээ', 'ace' ),
+			'singular_name' => __( 'Үйлчилгээ', 'ace' ),
+		),
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'services' ),
+		'menu_icon' => 'dashicons-rest-api',
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'show_in_rest' => true,
+	) );
+
+	// Success Stories (Амжилтын түүх)
+	register_post_type( 'success_story', array(
+		'labels' => array(
+			'name' => __( 'Амжилтын түүх', 'ace' ),
+			'singular_name' => __( 'Амжилтын түүх', 'ace' ),
+		),
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'stories' ),
+		'menu_icon' => 'dashicons-awards',
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'show_in_rest' => true,
+	) );
+
+	// Events (Event / Webinar)
+	register_post_type( 'event', array(
+		'labels' => array(
+			'name' => __( 'Хэмжээ/Вебинар', 'ace' ),
+			'singular_name' => __( 'Хэмжээ', 'ace' ),
+		),
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array( 'slug' => 'events' ),
+		'menu_icon' => 'dashicons-calendar-alt',
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'show_in_rest' => true,
+	) );
+
+	// FAQ (Асуулт хариулт)
+	register_post_type( 'faq', array(
+		'labels' => array(
+			'name' => __( 'FAQ', 'ace' ),
+			'singular_name' => __( 'FAQ', 'ace' ),
+		),
+		'public' => true,
+		'has_archive' => false,
+		'menu_icon' => 'dashicons-editor-help',
+		'supports' => array( 'title', 'editor' ),
+		'show_in_rest' => true,
+	) );
+}
+add_action( 'init', 'ub_register_post_types' );
+
+function ub_register_taxonomies() {
+
+	// City (Хот)
+	register_taxonomy( 'city', array( 'school' ), array(
+		'labels' => array(
+			'name' => __( 'Хотууд', 'ace' ),
+			'singular_name' => __( 'Хот', 'ace' ),
+		),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	) );
+
+	// Study Level (Түвшин)
+	register_taxonomy( 'study_level', array( 'school', 'service', 'success_story' ), array(
+		'labels' => array(
+			'name' => __( 'Түвшинүүд', 'ace' ),
+			'singular_name' => __( 'Түвшин', 'ace' ),
+		),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	) );
+
+	// FAQ Category
+	register_taxonomy( 'faq_category', array( 'faq' ), array(
+		'labels' => array(
+			'name' => __( 'FAQ Ангилал', 'ace' ),
+			'singular_name' => __( 'FAQ Ангилал', 'ace' ),
+		),
+		'hierarchical' => true,
+		'show_in_rest' => true,
+	) );
+}
+add_action( 'init', 'ub_register_taxonomies' );

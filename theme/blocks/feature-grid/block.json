@@ -1,0 +1,16 @@
+{
+    "name": "acf/feature-grid",
+    "title": "Давуу талуудын грид",
+    "description": "Давуу тал болон үйлчилгээнүүдийг дүрс тэмдэгтэйгээр харуулна.",
+    "category": "ace-blocks",
+    "icon": "grid-view",
+    "keywords": ["давуу тал", "grid", "features", "services"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "feature-grid.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "jsx": true
+    }
+}

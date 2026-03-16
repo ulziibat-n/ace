@@ -1,0 +1,16 @@
+{
+    "name": "acf/roadmap",
+    "title": "Замнал (Roadmap)",
+    "description": "Алхам алхмаар харуулах замналын хэсэг.",
+    "category": "ace-blocks",
+    "icon": "randomize",
+    "keywords": ["замнал", "roadmap", "steps", "process"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "roadmap.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "jsx": true
+    }
+}

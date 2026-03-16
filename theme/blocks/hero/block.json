@@ -1,0 +1,18 @@
+{
+    "name": "acf/hero",
+    "title": "Нүүр хэсэг (Hero)",
+    "description": "Гарчиг, тайлбар болон үйлдэл дуудах товч бүхий нүүр хэсэг.",
+    "style": "file:./hero.css",
+    "category": "ace-blocks",
+    "icon": "superhero",
+    "keywords": ["нүүр", "hero", "header", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true
+    }
+}
