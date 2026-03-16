@@ -37,7 +37,8 @@
 					)
 				);
 				?>
-				
+				<?php ub_language_switcher(); ?>
+
 				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 shadow-lg shadow-primary/20">
 					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
 				</a>
@@ -66,7 +67,9 @@
 				)
 			);
 			?>
-			<div class="mt-12 pt-8 border-t border-neutral-100">
+			<div class="mt-12 pt-8 border-t border-neutral-100 flex flex-col gap-8">
+				<?php ub_language_switcher(); ?>
+				
 				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
 					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
 				</a>

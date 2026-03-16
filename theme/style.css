@@ -104,23 +104,9 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 }
 @font-face {
   font-family: 'Google Sans';
-  src: url('fonts/GoogleSans-Italic.woff2') format('woff2'), url('fonts/GoogleSans-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Google Sans';
   src: url('fonts/GoogleSans-Medium.woff2') format('woff2'), url('fonts/GoogleSans-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Google Sans';
-  src: url('fonts/GoogleSans-MediumItalic.woff2') format('woff2'), url('fonts/GoogleSans-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
   font-display: swap;
 }
 @font-face {
@@ -132,23 +118,9 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 }
 @font-face {
   font-family: 'Google Sans';
-  src: url('fonts/GoogleSans-SemiBoldItalic.woff2') format('woff2'), url('fonts/GoogleSans-SemiBoldItalic.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Google Sans';
   src: url('fonts/GoogleSans-Bold.woff2') format('woff2'), url('fonts/GoogleSans-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Google Sans';
-  src: url('fonts/GoogleSans-BoldItalic.woff2') format('woff2'), url('fonts/GoogleSans-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
   font-display: swap;
 }
 *, ::after, ::before, ::backdrop, ::file-selector-button {
@@ -984,6 +956,9 @@ body {
 .h-0\.5 {
   height: calc(var(--spacing) * 0.5);
 }
+.h-1 {
+  height: calc(var(--spacing) * 1);
+}
 .h-4 {
   height: calc(var(--spacing) * 4);
 }
@@ -1019,6 +994,9 @@ body {
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.w-1 {
+  width: calc(var(--spacing) * 1);
 }
 .w-1\/3 {
   width: calc(1 / 3 * 100%);
@@ -1748,6 +1726,11 @@ body {
     .hover\:bg-white\/20:hover {
       background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
     }
+  }
+}
+@media (hover: hover) {
+  .hover\:text-neutral-900:hover {
+    color: var(--color-neutral-900);
   }
 }
 @media (hover: hover) {

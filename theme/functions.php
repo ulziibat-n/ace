@@ -313,3 +313,51 @@ require get_template_directory() . '/inc/editor-settings.php';
  * TutorLMS Integration.
  */
 require get_template_directory() . '/inc/tutorlms.php';
+
+/**
+ * Display Falang Language Switcher with Tailwind Styling.
+ */
+function ub_language_switcher() {
+	if ( ! function_exists( 'falang_languages_list' ) || ! function_exists( 'FALANG' ) ) {
+		return;
+	}
+
+	$languages = falang_languages_list();
+	if ( empty( $languages ) || count( $languages ) < 2 ) {
+		return;
+	}
+
+	$current_language_slug = falang_current_language();
+	?>
+	<div class="flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+		<?php
+		$count = count( $languages );
+		$i     = 0;
+		foreach ( $languages as $language ) :
+			$i++;
+			$is_active = ( $current_language_slug === $language->slug );
+			$url       = FALANG()->get_translated_url( $language );
+
+			// Map for cleaner display
+			$display_name = $language->slug;
+			if ( strpos( $language->slug, 'mn' ) === 0 ) {
+				$display_name = 'MN';
+			} elseif ( strpos( $language->slug, 'en' ) === 0 ) {
+				$display_name = 'EN';
+			} elseif ( strpos( $language->slug, 'ko' ) === 0 ) {
+				$display_name = 'KO';
+			} else {
+				$display_name = strtoupper( substr( $language->slug, 0, 2 ) );
+			}
+			?>
+			<a href="<?php echo esc_url( $url ); ?>"
+			   class="transition-all duration-300 <?php echo $is_active ? 'text-primary' : 'text-neutral-400 hover:text-neutral-900'; ?>">
+				<?php echo esc_html( $display_name ); ?>
+			</a>
+			<?php if ( $i < $count ) : ?>
+				<span class="w-1 h-1 rounded-full bg-neutral-200"></span>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
+	<?php
+}
