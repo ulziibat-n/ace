@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ace
+ * @package aceedu
  */
 
 /*
@@ -26,12 +26,12 @@ if ( post_password_required() ) {
 		?>
 		<h2>
 			<?php
-			$ace_comment_count = get_comments_number();
-			if ( '1' === $ace_comment_count ) {
+			$aceedu_comment_count = get_comments_number();
+			if ( '1' === $aceedu_comment_count ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'ace' ),
+					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'aceedu' ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -39,8 +39,8 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $ace_comment_count, 'comments title', 'ace' ) ),
-					number_format_i18n( $ace_comment_count ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $aceedu_comment_count, 'comments title', 'aceedu' ) ),
+					number_format_i18n( $aceedu_comment_count ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 			wp_list_comments(
 				array(
 					'style'      => 'ol',
-					'callback'   => 'ace_html5_comment',
+					'callback'   => 'aceedu_html5_comment',
 					'short_ping' => true,
 				)
 			);
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		// message.
 		if ( ! comments_open() ) :
 			?>
-			<p><?php esc_html_e( 'Comments are closed.', 'ace' ); ?></p>
+			<p><?php esc_html_e( 'Comments are closed.', 'aceedu' ); ?></p>
 			<?php
 		endif;
 

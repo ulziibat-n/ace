@@ -9,9 +9,9 @@ get_header();
 <div class="bg-neutral-50 min-h-screen">
     <header class="bg-primary text-white py-20">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php _e( 'Сургуулиуд', 'ace' ); ?></h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4"><?php _e( 'Сургуулиуд', 'aceedu' ); ?></h1>
             <p class="text-lg text-primary-dark/20 max-w-2xl mx-auto opacity-80">
-                <?php _e( 'Солонгос улсын нэр хүндтэй их дээд сургуулиудыг хот, чиглэл, тэтгэлгийн боломжоор нь шүүж хараарай.', 'ace' ); ?>
+                <?php _e( 'Солонгос улсын нэр хүндтэй их дээд сургуулиудыг хот, чиглэл, тэтгэлгийн боломжоор нь шүүж хараарай.', 'aceedu' ); ?>
             </p>
         </div>
     </header>
@@ -28,12 +28,12 @@ get_header();
             </div>
 
             <div class="mt-12">
-                <?php ace_the_posts_navigation(); ?>
+                <?php aceedu_the_posts_navigation(); ?>
             </div>
 
         <?php else : ?>
             <div class="text-center py-20">
-                <p class="text-neutral-500"><?php _e( 'Сургууль олдсонгүй.', 'ace' ); ?></p>
+                <p class="text-neutral-500"><?php _e( 'Сургууль олдсонгүй.', 'aceedu' ); ?></p>
             </div>
         <?php endif; ?>
     </div>

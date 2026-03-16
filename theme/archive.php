@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ace
+ * @package aceedu
  */
 
 get_header();
@@ -29,7 +29,7 @@ get_header();
 			endwhile;
 
 			// Previous/next page navigation.
-			ace_the_posts_navigation();
+			aceedu_the_posts_navigation();
 
 		else :
 

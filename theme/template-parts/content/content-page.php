@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ace
+ * @package aceedu
  */
 
 ?>
@@ -21,15 +21,15 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php ace_post_thumbnail(); ?>
+	<?php aceedu_post_thumbnail(); ?>
 
-	<div <?php ace_content_class( 'entry-content' ); ?>>
+	<div <?php aceedu_content_class( 'entry-content' ); ?>>
 		<?php
 		the_content();
 
 		wp_link_pages(
 			array(
-				'before' => '<div>' . __( 'Pages:', 'ace' ),
+				'before' => '<div>' . __( 'Pages:', 'aceedu' ),
 				'after'  => '</div>',
 			)
 		);
@@ -43,7 +43,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers. */
-						__( 'Edit <span class="sr-only">%s</span>', 'ace' ),
+						__( 'Edit <span class="sr-only">%s</span>', 'aceedu' ),
 						array(
 							'span' => array(
 								'class' => array(),

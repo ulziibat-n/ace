@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package ace
+ * @package aceedu
  */
 
 ?><!doctype html>
@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 
 <div id="page">
-	<a href="#content" class="sr-only"><?php esc_html_e( 'Skip to content', 'ace' ); ?></a>
+	<a href="#content" class="sr-only"><?php esc_html_e( 'Skip to content', 'aceedu' ); ?></a>
 
 	<?php get_template_part( 'template-parts/layout/header', 'content' ); ?>
 

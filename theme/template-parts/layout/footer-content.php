@@ -16,7 +16,7 @@
                     </span>
                 </a>
                 <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-                    <?php _e( 'Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас. Бид таны сурах замналыг мэргэжлийн түвшинд төлөвлөж өгөх болно.', 'ace' ); ?>
+                    <?php _e( 'Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас. Бид таны сурах замналыг мэргэжлийн түвшинд төлөвлөж өгөх болно.', 'aceedu' ); ?>
                 </p>
                 <div class="flex items-center gap-4">
                     <!-- Social icons (Placeholder names, SVGs could be added) -->
@@ -28,29 +28,29 @@
 
             <!-- Column 2: Program & Services -->
             <div>
-                <h4 class="text-lg font-bold mb-6"><?php _e( 'Үйлчилгээ', 'ace' ); ?></h4>
+                <h4 class="text-lg font-bold mb-6"><?php _e( 'Үйлчилгээ', 'aceedu' ); ?></h4>
                 <ul class="space-y-4 text-neutral-400 text-sm">
-                    <li><a href="<?php echo esc_url( home_url( '/schools' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Сургуулиуд', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Хөтөлбөрүүд', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/scholarships' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Тэтгэлэг', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/courses' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Онлайн хичээл', 'ace' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/schools' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Сургуулиуд', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Хөтөлбөрүүд', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/scholarships' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Тэтгэлэг', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/courses' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Онлайн хичээл', 'aceedu' ); ?></a></li>
                 </ul>
             </div>
 
             <!-- Column 3: Resources -->
             <div>
-                <h4 class="text-lg font-bold mb-6"><?php _e( 'Нөөцүүд', 'ace' ); ?></h4>
+                <h4 class="text-lg font-bold mb-6"><?php _e( 'Нөөцүүд', 'aceedu' ); ?></h4>
                 <ul class="space-y-4 text-neutral-400 text-sm">
-                    <li><a href="<?php echo esc_url( home_url( '/stories' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Амжилтын түүх', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Блог / Guide', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/faq' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'FAQ', 'ace' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/events' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Event & Webinar', 'ace' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/stories' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Амжилтын түүх', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Блог / Guide', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/faq' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'FAQ', 'aceedu' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/events' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Event & Webinar', 'aceedu' ); ?></a></li>
                 </ul>
             </div>
 
             <!-- Column 4: Contact -->
             <div>
-                <h4 class="text-lg font-bold mb-6"><?php _e( 'Холбоо барих', 'ace' ); ?></h4>
+                <h4 class="text-lg font-bold mb-6"><?php _e( 'Холбоо барих', 'aceedu' ); ?></h4>
                 <ul class="space-y-4 text-neutral-400 text-sm">
                     <li class="flex items-start gap-3">
                         <span class="text-primary font-bold">A:</span>
@@ -67,7 +67,7 @@
                 </ul>
                 <div class="mt-8">
                     <a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="inline-block bg-white text-neutral-900 px-6 py-3 rounded-xl font-bold text-sm hover:bg-secondary hover:text-white transition-all duration-300">
-                        <?php _e( 'Зөвлөгөө авах', 'ace' ); ?>
+                        <?php _e( 'Зөвлөгөө авах', 'aceedu' ); ?>
                     </a>
                 </div>
             </div>
@@ -76,8 +76,8 @@
         <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500 uppercase tracking-widest">
             <p>&copy; <?php echo date('Y'); ?> ACE EDU WORLD. All rights reserved.</p>
             <div class="flex gap-6">
-                <a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Privacy Policy', 'ace' ); ?></a>
-                <a href="<?php echo esc_url( home_url( '/terms-conditions' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Terms & Conditions', 'ace' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Privacy Policy', 'aceedu' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/terms-conditions' ) ); ?>" class="hover:text-white transition-colors"><?php _e( 'Terms & Conditions', 'aceedu' ); ?></a>
             </div>
         </div>
     </div>

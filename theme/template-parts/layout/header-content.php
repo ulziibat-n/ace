@@ -1,7 +1,10 @@
 <?php
 /**
- * Template part for displaying the header content with modern Tailwind styling
+ * Template part for displaying the header content with modern Tailwind styling.
+ *
+ * @package aceedu
  */
+
 ?>
 
 <header id="masthead" class="relative z-50 ">
@@ -9,7 +12,7 @@
 		<div class="flex items-center gap-8 py-4">
 			
 			<!-- Logo -->
-			<div class="flex-shrink-0">
+			<div class="shrink-0">
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
 				<?php else : ?>
@@ -22,7 +25,7 @@
 			</div>
 
 			<!-- Desktop Navigation -->
-			<nav id="site-navigation" class="hidden lg:flex items-center gap-8" aria-label="<?php esc_attr_e( 'Үндсэн цэс', 'ace' ); ?>">
+			<nav id="site-navigation" class="hidden lg:flex items-center gap-8" aria-label="<?php esc_attr_e( 'Үндсэн цэс', 'aceedu' ); ?>">
 				<?php
 				wp_nav_menu(
 					array(
@@ -36,13 +39,13 @@
 				?>
 				
 				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 shadow-lg shadow-primary/20">
-					<?php esc_html_e( 'Бүртгүүлэх', 'ace' ); ?>
+					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
 				</a>
 			</nav>
 
 			<!-- Mobile Menu Toggle -->
 			<button id="mobile-menu-toggle" class="lg:hidden p-2 text-neutral-600 hover:text-primary transition-colors focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-				<span class="sr-only"><?php esc_html_e( 'Toggle menu', 'ace' ); ?></span>
+				<span class="sr-only"><?php esc_html_e( 'Toggle menu', 'aceedu' ); ?></span>
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path class="menu-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
 					<path class="menu-close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -65,7 +68,7 @@
 			?>
 			<div class="mt-12 pt-8 border-t border-neutral-100">
 				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
-					<?php _e( 'Бүртгүүлэх', 'ace' ); ?>
+					<?php _e( 'Бүртгүүлэх', 'aceedu' ); ?>
 				</a>
 			</div>
 		</div>

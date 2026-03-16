@@ -9,9 +9,9 @@ get_header();
 <div class="bg-white min-h-screen">
     <header class="py-20 bg-neutral-900 text-white">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6"><?php _e( 'Манай үйлчилгээнүүд', 'ace' ); ?></h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6"><?php _e( 'Манай үйлчилгээнүүд', 'aceedu' ); ?></h1>
             <p class="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                <?php _e( 'Солонгост сурах замналыг тань хялбарчлах зорилготой, системчилсэн бэлтгэл хөтөлбөрүүд.', 'ace' ); ?>
+                <?php _e( 'Солонгост сурах замналыг тань хялбарчлах зорилготой, системчилсэн бэлтгэл хөтөлбөрүүд.', 'aceedu' ); ?>
             </p>
         </div>
     </header>
@@ -28,7 +28,7 @@ get_header();
             </div>
         <?php else : ?>
             <div class="text-center py-20">
-                <p class="text-neutral-500"><?php _e( 'Үйлчилгээ олдсонгүй.', 'ace' ); ?></p>
+                <p class="text-neutral-500"><?php _e( 'Үйлчилгээ олдсонгүй.', 'aceedu' ); ?></p>
             </div>
         <?php endif; ?>
     </div>

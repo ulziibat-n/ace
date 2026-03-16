@@ -11,13 +11,13 @@
  * вэб сайтад шаардлагатай байгаа бүх төрлийн контентуудыг админ хэсэгт 
  * тусад нь цэс болгон оруулж ирдэг.
  */
-function ace_register_post_types() {
+function aceedu_register_post_types() {
 
 	// Schools (Сургуулиуд)
 	register_post_type( 'school', array(
 		'labels' => array(
-			'name' => __( 'Сургуулиуд', 'ace' ),
-			'singular_name' => __( 'Сургууль', 'ace' ),
+			'name' => __( 'Сургуулиуд', 'aceedu' ),
+			'singular_name' => __( 'Сургууль', 'aceedu' ),
 		),
 		'public' => true,
 		'has_archive' => true,
@@ -30,8 +30,8 @@ function ace_register_post_types() {
 	// Services (Үйлчилгээ)
 	register_post_type( 'service', array(
 		'labels' => array(
-			'name' => __( 'Үйлчилгээ', 'ace' ),
-			'singular_name' => __( 'Үйлчилгээ', 'ace' ),
+			'name' => __( 'Үйлчилгээ', 'aceedu' ),
+			'singular_name' => __( 'Үйлчилгээ', 'aceedu' ),
 		),
 		'public' => true,
 		'has_archive' => true,
@@ -44,8 +44,8 @@ function ace_register_post_types() {
 	// Success Stories (Амжилтын түүх)
 	register_post_type( 'success_story', array(
 		'labels' => array(
-			'name' => __( 'Амжилтын түүх', 'ace' ),
-			'singular_name' => __( 'Амжилтын түүх', 'ace' ),
+			'name' => __( 'Амжилтын түүх', 'aceedu' ),
+			'singular_name' => __( 'Амжилтын түүх', 'aceedu' ),
 		),
 		'public' => true,
 		'has_archive' => true,
@@ -58,8 +58,8 @@ function ace_register_post_types() {
 	// Events (Event / Webinar)
 	register_post_type( 'event', array(
 		'labels' => array(
-			'name' => __( 'Хэмжээ/Вебинар', 'ace' ),
-			'singular_name' => __( 'Хэмжээ', 'ace' ),
+			'name' => __( 'Хэмжээ/Вебинар', 'aceedu' ),
+			'singular_name' => __( 'Хэмжээ', 'aceedu' ),
 		),
 		'public' => true,
 		'has_archive' => true,
@@ -72,8 +72,8 @@ function ace_register_post_types() {
 	// FAQ (Асуулт хариулт)
 	register_post_type( 'faq', array(
 		'labels' => array(
-			'name' => __( 'FAQ', 'ace' ),
-			'singular_name' => __( 'FAQ', 'ace' ),
+			'name' => __( 'FAQ', 'aceedu' ),
+			'singular_name' => __( 'FAQ', 'aceedu' ),
 		),
 		'public' => true,
 		'has_archive' => false,
@@ -82,7 +82,7 @@ function ace_register_post_types() {
 		'show_in_rest' => true,
 	) );
 }
-add_action( 'init', 'ace_register_post_types' );
+add_action( 'init', 'aceedu_register_post_types' );
 
 /**
  * Пост төрлүүдэд зориулсан ангилал, шүүлтүүрүүдийг (Taxonomies) бүртгэх функц.
@@ -90,13 +90,13 @@ add_action( 'init', 'ace_register_post_types' );
  * Жишээ нь: Сургуулиудыг хотоор нь эсвэл сургалтын түвшингөөр нь 
  * ангилах боломжийг энд тодорхойлдог.
  */
-function ace_register_taxonomies() {
+function aceedu_register_taxonomies() {
 
 	// City (Хот)
 	register_taxonomy( 'city', array( 'school' ), array(
 		'labels' => array(
-			'name' => __( 'Хотууд', 'ace' ),
-			'singular_name' => __( 'Хот', 'ace' ),
+			'name' => __( 'Хотууд', 'aceedu' ),
+			'singular_name' => __( 'Хот', 'aceedu' ),
 		),
 		'hierarchical' => true,
 		'show_in_rest' => true,
@@ -105,8 +105,8 @@ function ace_register_taxonomies() {
 	// Study Level (Түвшин)
 	register_taxonomy( 'study_level', array( 'school', 'service', 'success_story' ), array(
 		'labels' => array(
-			'name' => __( 'Түвшинүүд', 'ace' ),
-			'singular_name' => __( 'Түвшин', 'ace' ),
+			'name' => __( 'Түвшинүүд', 'aceedu' ),
+			'singular_name' => __( 'Түвшин', 'aceedu' ),
 		),
 		'hierarchical' => true,
 		'show_in_rest' => true,
@@ -115,11 +115,11 @@ function ace_register_taxonomies() {
 	// FAQ Category
 	register_taxonomy( 'faq_category', array( 'faq' ), array(
 		'labels' => array(
-			'name' => __( 'FAQ Ангилал', 'ace' ),
-			'singular_name' => __( 'FAQ Ангилал', 'ace' ),
+			'name' => __( 'FAQ Ангилал', 'aceedu' ),
+			'singular_name' => __( 'FAQ Ангилал', 'aceedu' ),
 		),
 		'hierarchical' => true,
 		'show_in_rest' => true,
 	) );
 }
-add_action( 'init', 'ace_register_taxonomies' );
+add_action( 'init', 'aceedu_register_taxonomies' );

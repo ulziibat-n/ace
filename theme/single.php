@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package ace
+ * @package aceedu
  */
 
 get_header();
@@ -23,11 +23,11 @@ get_header();
 					// Previous/next post navigation.
 					the_post_navigation(
 						array(
-							'next_text' => '<span aria-hidden="true">' . __( 'Next Post', 'ace' ) . '</span> ' .
-								'<span class="sr-only">' . __( 'Next post:', 'ace' ) . '</span> <br/>' .
+							'next_text' => '<span aria-hidden="true">' . __( 'Next Post', 'aceedu' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Next post:', 'aceedu' ) . '</span> <br/>' .
 								'<span>%title</span>',
-							'prev_text' => '<span aria-hidden="true">' . __( 'Previous Post', 'ace' ) . '</span> ' .
-								'<span class="sr-only">' . __( 'Previous post:', 'ace' ) . '</span> <br/>' .
+							'prev_text' => '<span aria-hidden="true">' . __( 'Previous Post', 'aceedu' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Previous post:', 'aceedu' ) . '</span> <br/>' .
 								'<span>%title</span>',
 						)
 					);

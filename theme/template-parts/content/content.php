@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ace
+ * @package aceedu
  */
 
 ?>
@@ -14,7 +14,7 @@
 	<header class="entry-header">
 		<?php
 		if ( is_sticky() && is_home() && ! is_paged() ) {
-			printf( '<span">%s</span>', esc_html_x( 'Featured', 'post', 'ace' ) );
+			printf( '<span">%s</span>', esc_html_x( 'Featured', 'post', 'aceedu' ) );
 		}
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -24,15 +24,15 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php ace_post_thumbnail(); ?>
+	<?php aceedu_post_thumbnail(); ?>
 
-	<div <?php ace_content_class( 'entry-content' ); ?>>
+	<div <?php aceedu_content_class( 'entry-content' ); ?>>
 		<?php
 		the_content();
 
 		wp_link_pages(
 			array(
-				'before' => '<div>' . __( 'Pages:', 'ace' ),
+				'before' => '<div>' . __( 'Pages:', 'aceedu' ),
 				'after'  => '</div>',
 			)
 		);
@@ -40,7 +40,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php ace_entry_footer(); ?>
+		<?php aceedu_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-${ID} -->

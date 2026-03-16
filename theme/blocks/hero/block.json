@@ -5,7 +5,7 @@
     "style": "file:./hero.css",
     "category": "ace-blocks",
     "icon": "superhero",
-    "keywords": ["нүүр", "hero", "header", "ace"],
+    "keywords": ["нүүр", "hero", "header", "aceedu"],
     "acf": {
         "mode": "preview",
         "renderTemplate": "hero.php"
