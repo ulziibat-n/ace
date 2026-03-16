@@ -163,28 +163,36 @@ endif;
 add_action( 'after_setup_theme', 'ub_setup' );
 
 /**
- * Визжет болон сэтгэгдлийн хэсгийг хааж, сайтыг илүү цэвэрхэн болгох.
+ * Сэтгэгдэл, Визжет, болон Site Editor-ийг зөвхөн Production (Debug хаалттай) үед хаах.
  * 
- * Энэ функц нь сайтын хурдыг нэмэгдүүлж, хэрэглэгчдэд зөвхөн хэрэгцээт 
- * функцүүдийг үлдээх зорилгоор ашиглагдаагүй хэсгүүдийг нуудаг.
+ * Хэрэв WP_DEBUG идэвхтэй байвал хөгжүүлэгчид бүх функцүүд нээлттэй харагдах бөгөөд 
+ * харин Live сайт дээр (WP_DEBUG = false) хэрэгцээгүй цэсүүдийг нууж сайтыг цэгцэлнэ.
  */
-function ub_disable_comments_and_widgets() {
-    // Hide existing comments
+function ub_disable_unused_features() {
+    // Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        return;
+    }
+
+    // Сэтгэгдэл хаах
     add_filter('comments_open', '__return_false', 20, 2);
     add_filter('pings_open', '__return_false', 20, 2);
 
-    // Hide comments from admin bar and menu
     add_action('admin_menu', function () {
+        // Comments цэс хасах
         remove_menu_page('edit-comments.php');
-    });
+        
+        // Site Editor (Gutenberg FSE) цэсийг хасах
+        remove_submenu_page('themes.php', 'site-editor.php?path=/edit');
+    }, 999);
 
-    // Remove comments support from post types
+    // Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах
     add_action('init', function () {
         remove_post_type_support('post', 'comments');
         remove_post_type_support('page', 'comments');
     }, 100);
 }
-ub_disable_comments_and_widgets();
+ub_disable_unused_features();
 
 /**
  * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
