@@ -1,0 +1,66 @@
+{
+    "key": "group_feature_grid_block",
+    "title": "Block: Feature Grid",
+    "fields": [
+        {
+            "key": "field_fg_title",
+            "label": "Section Title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_fg_subtitle",
+            "label": "Section Subtitle",
+            "name": "subtitle",
+            "type": "textarea"
+        },
+        {
+            "key": "field_fg_columns",
+            "label": "Columns",
+            "name": "columns",
+            "type": "select",
+            "choices": {
+                "2": "2 Columns",
+                "3": "3 Columns",
+                "4": "4 Columns"
+            }
+        },
+        {
+            "key": "field_fg_items",
+            "label": "Items",
+            "name": "items",
+            "type": "repeater",
+            "sub_fields": [
+                {
+                    "key": "field_fg_item_image",
+                    "label": "Icon/Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_fg_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_fg_item_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/feature-grid"
+            }
+        ]
+    ],
+    "modified": 1710510004
+}

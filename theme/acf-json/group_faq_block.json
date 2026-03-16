@@ -1,0 +1,35 @@
+{
+    "key": "group_faq_block",
+    "title": "Block: FAQ",
+    "fields": [
+        {
+            "key": "field_faq_block_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text"
+        },
+        {
+            "key": "field_faq_block_category",
+            "label": "FAQ Category",
+            "name": "category",
+            "type": "taxonomy",
+            "taxonomy": "faq_category",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/faq"
+            }
+        ]
+    ],
+    "modified": 1710510002
+}

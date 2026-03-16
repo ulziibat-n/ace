@@ -1,0 +1,35 @@
+/**
+ * Add your design tokens as Tailwind theme variables.
+ *
+ * https://tailwindcss.com/docs/theme
+ */
+
+/**
+ * Your theme variables are merged with Tailwind’s defaults, either extending
+ * the default theme with new variables or overriding the values of existing
+ * variables.
+ */
+@theme {
+	/**
+	 * Design tokens previously in theme.json are now defined here directly.
+     */
+	--color-background: #ffffff;
+	--color-foreground: #1e293b;
+	--color-primary: #1e3a8a;
+	--color-secondary: #f59e0b;
+	--color-tertiary: #0f172a;
+	
+	--container-content: 64rem;
+	--container-wide: 80rem;
+
+	/**
+	 * Use Google Sans (Outfit) as our primary font.
+	 */
+	--font-sans:
+		"Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+	--font-mono:
+		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
+}
