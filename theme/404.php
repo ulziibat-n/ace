@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package ub
+ * @package ace
  */
 
 get_header();
@@ -18,7 +18,7 @@ get_header();
 					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'ace' ); ?></h1>
 				</header><!-- .page-header -->
 
-				<div <?php ub_content_class( 'page-content' ); ?>>
+				<div <?php ace_content_class( 'page-content' ); ?>>
 					<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'ace' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .page-content -->

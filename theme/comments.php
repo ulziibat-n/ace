@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ub
+ * @package ace
  */
 
 /*
@@ -26,8 +26,8 @@ if ( post_password_required() ) {
 		?>
 		<h2>
 			<?php
-			$ub_comment_count = get_comments_number();
-			if ( '1' === $ub_comment_count ) {
+			$ace_comment_count = get_comments_number();
+			if ( '1' === $ace_comment_count ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: title. */
@@ -39,8 +39,8 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $ub_comment_count, 'comments title', 'ace' ) ),
-					number_format_i18n( $ub_comment_count ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $ace_comment_count, 'comments title', 'ace' ) ),
+					number_format_i18n( $ace_comment_count ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
 			wp_list_comments(
 				array(
 					'style'      => 'ol',
-					'callback'   => 'ub_html5_comment',
+					'callback'   => 'ace_html5_comment',
 					'short_ping' => true,
 				)
 			);

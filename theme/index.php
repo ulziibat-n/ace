@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ub
+ * @package ace
  */
 
 get_header();
@@ -36,7 +36,7 @@ get_header();
 			}
 
 			// Previous/next page navigation.
-			ub_the_posts_navigation();
+			ace_the_posts_navigation();
 
 		} else {
 

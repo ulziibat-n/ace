@@ -2,25 +2,25 @@
 /**
  * UB (ACE) theme-ийн үндсэн функцүүд болон тодорхойлолтууд
  *
- * Энэхүү файл нь вэб сайтын суурь тохиргоо, файл дуудах, болон бусад нэмэлт 
+ * Энэхүү файл нь вэб сайтын суурь тохиргоо, файл дуудах, болон бусад нэмэлт
  * функцүүдийг агуулдаг.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package ub
+ * @package ace
  */
 
-if ( ! defined( 'UB_VERSION' ) ) {
+if ( ! defined( 'ACE_VERSION' ) ) {
 	$theme_info = wp_get_theme();
-	define( 'UB_VERSION', $theme_info->get( 'Version' ) );
+	define( 'ACE_VERSION', $theme_info->get( 'Version' ) );
 }
 
-if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
+if ( ! defined( 'ACE_TYPOGRAPHY_CLASSES' ) ) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
 	 *
-	 * For the front end, these classes are added by the `ub_content_class`
+	 * For the front end, these classes are added by the `ace_content_class`
 	 * function. You will see that function used everywhere an `entry-content`
 	 * or `page-content` class has been added to a wrapper element.
 	 *
@@ -34,20 +34,20 @@ if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
 	 * initializes.
 	 */
 	define(
-		'UB_TYPOGRAPHY_CLASSES',
+		'ACE_TYPOGRAPHY_CLASSES',
 		'prose prose-neutral max-w-none prose-a:text-primary'
 	);
 }
 
-if ( ! function_exists( 'ub_setup' ) ) :
+if ( ! function_exists( 'ace_setup' ) ) :
 	/**
 	 * Theme-ийн анхны тохиргоо болон WordPress-ийн функцүүдийг идэвхжүүлэх.
 	 *
-	 * Энэ функц нь 'after_setup_theme' hook-той холбогдож ажиллах бөгөөд 
-	 * вэб сайт ачаалж эхлэх үед зурагны хэмжээ, цэсний байршил, 
+	 * Энэ функц нь 'after_setup_theme' hook-той холбогдож ажиллах бөгөөд
+	 * вэб сайт ачаалж эхлэх үед зурагны хэмжээ, цэсний байршил,
 	 * theme-ийн дэмжлэгүүдийг (thumbnails гэх мэт) бүртгэдэг.
 	 */
-	function ub_setup() {
+	function ace_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -100,8 +100,8 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-// Add theme support for automatic RSS feed links. (Optional, keeping it for now)
-		// add_theme_support( 'automatic-feed-links' );
+		// Add theme support for automatic RSS feed links. (Optional, keeping it for now).
+		// add_theme_support( 'automatic-feed-links' );.
 
 		/**
 		 * Add support for core custom logo.
@@ -131,28 +131,31 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		remove_theme_support( 'block-templates' );
 
 		// Custom color palette for the editor.
-		add_theme_support( 'editor-color-palette', array(
+		add_theme_support(
+			'editor-color-palette',
 			array(
-				'name'  => __( 'Primary', 'ace' ),
-				'slug'  => 'primary',
-				'color' => '#1e3a8a',
-			),
-			array(
-				'name'  => __( 'Secondary', 'ace' ),
-				'slug'  => 'secondary',
-				'color' => '#f59e0b',
-			),
-			array(
-				'name'  => __( 'Slate', 'ace' ),
-				'slug'  => 'slate',
-				'color' => '#1e293b',
-			),
-			array(
-				'name'  => __( 'White', 'ace' ),
-				'slug'  => 'white',
-				'color' => '#ffffff',
-			),
-		) );
+				array(
+					'name'  => __( 'Primary', 'ace' ),
+					'slug'  => 'primary',
+					'color' => '#1e3a8a',
+				),
+				array(
+					'name'  => __( 'Secondary', 'ace' ),
+					'slug'  => 'secondary',
+					'color' => '#f59e0b',
+				),
+				array(
+					'name'  => __( 'Slate', 'ace' ),
+					'slug'  => 'slate',
+					'color' => '#1e293b',
+				),
+				array(
+					'name'  => __( 'White', 'ace' ),
+					'slug'  => 'white',
+					'color' => '#ffffff',
+				),
+			)
+		);
 
 		// Disable custom colors and gradients to keep design consistent.
 		add_theme_support( 'disable-custom-colors' );
@@ -160,60 +163,68 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		add_theme_support( 'disable-custom-gradients' );
 	}
 endif;
-add_action( 'after_setup_theme', 'ub_setup' );
+add_action( 'after_setup_theme', 'ace_setup' );
 
 /**
  * Сэтгэгдэл, Визжет, болон Site Editor-ийг зөвхөн Production (Debug хаалттай) үед хаах.
- * 
- * Хэрэв WP_DEBUG идэвхтэй байвал хөгжүүлэгчид бүх функцүүд нээлттэй харагдах бөгөөд 
+ *
+ * Хэрэв WP_DEBUG идэвхтэй байвал хөгжүүлэгчид бүх функцүүд нээлттэй харагдах бөгөөд
  * харин Live сайт дээр (WP_DEBUG = false) хэрэгцээгүй цэсүүдийг нууж сайтыг цэгцэлнэ.
  */
-function ub_disable_unused_features() {
-    // Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй.
-    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-        return;
-    }
+function ace_disable_unused_features() {
+	// Хэрэв Debug mode идэвхтэй байвал эдгээр хязгаарлалтуудыг хийхгүй.
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		return;
+	}
 
-    // Сэтгэгдэл хаах.
-    add_filter('comments_open', '__return_false', 20, 2);
-    add_filter('pings_open', '__return_false', 20, 2);
+	// Сэтгэгдэл хаах.
+	add_filter( 'comments_open', '__return_false', 20, 2 );
+	add_filter( 'pings_open', '__return_false', 20, 2 );
 
-    add_action('admin_menu', function () {
-        // Comments цэс хасах.
-        remove_menu_page('edit-comments.php');
-        
-        // Site Editor (Gutenberg FSE) цэсийг хасах.
-        remove_submenu_page('themes.php', 'site-editor.php?path=/edit');
-    }, 999);
+	add_action(
+		'admin_menu',
+		function () {
+			// Comments цэс хасах.
+			remove_menu_page( 'edit-comments.php' );
 
-    // Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах.
-    add_action('init', function () {
-        remove_post_type_support('post', 'comments');
-        remove_post_type_support('page', 'comments');
-    }, 100);
+			// Site Editor (Gutenberg FSE) цэсийг хасах.
+			remove_submenu_page( 'themes.php', 'site-editor.php?path=/edit' );
+		},
+		999
+	);
+
+	// Пост төрлүүдээс сэтгэгдлийн дэмжлэгийг хасах.
+	add_action(
+		'init',
+		function () {
+			remove_post_type_support( 'post', 'comments' );
+			remove_post_type_support( 'page', 'comments' );
+		},
+		100
+	);
 }
-ub_disable_unused_features();
+ace_disable_unused_features();
 
 /**
  * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
- * 
- * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон 
+ *
+ * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон
  * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
  */
-function ub_scripts() {
+function ace_scripts() {
 	wp_enqueue_style( 'ace-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
-	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
-	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
+	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), ACE_VERSION );
+	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), ACE_VERSION, true );
 }
-add_action( 'wp_enqueue_scripts', 'ub_scripts' );
+add_action( 'wp_enqueue_scripts', 'ace_scripts' );
 
 /**
  * Gutenberg (Block Editor) редактор дээр ашиглагдах файл болон стилийг дуудах.
- * 
+ *
  * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
  * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
-function ub_enqueue_block_editor_script() {
+function ace_enqueue_block_editor_script() {
 	wp_enqueue_style( 'ace-editor-google-fonts', 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&display=swap', array(), null );
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
@@ -229,13 +240,13 @@ function ub_enqueue_block_editor_script() {
 				'wp-blocks',
 				'wp-edit-post',
 			),
-			UB_VERSION,
+			ACE_VERSION,
 			true
 		);
-		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( ACE_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
 	}
 }
-add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
+add_action( 'enqueue_block_assets', 'ace_enqueue_block_editor_script' );
 
 /**
  * TinyMCE (Classic Editor) редактор дээр Tailwind Typography-ийн классуудыг нэмэх.
@@ -243,23 +254,23 @@ add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
  * @param array $settings TinyMCE-ийн тохиргоонууд.
  * @return array Шинэчилсэн тохиргоо.
  */
-function ub_tinymce_add_class( $settings ) {
-	$settings['body_class'] = UB_TYPOGRAPHY_CLASSES;
+function ace_tinymce_add_class( $settings ) {
+	$settings['body_class'] = ACE_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'ub_tinymce_add_class' );
+add_filter( 'tiny_mce_before_init', 'ace_tinymce_add_class' );
 
 /**
  * Гарчгийн (Heading) түвшингүүдийг Tailwind Typography-д нийцүүлэн хязгаарлах.
- * 
- * Редактор дээр H1-ийг зөвхөн нэг байлгах, H5/H6-г дизайнд тохируулан 
+ *
+ * Редактор дээр H1-ийг зөвхөн нэг байлгах, H5/H6-г дизайнд тохируулан
  * хасах зорилгоор Default сонголтыг H2, H3, H4 болгож өөрчилнө.
  *
  * @param array  $args Блок бүртгэх үеийн аргументууд.
  * @param string $block_type Блокны нэр (core/heading гэх мэт).
  * @return array Шинэчилсэн аргументууд.
  */
-function ub_modify_heading_levels( $args, $block_type ) {
+function ace_modify_heading_levels( $args, $block_type ) {
 	if ( 'core/heading' !== $block_type ) {
 		return $args;
 	}
@@ -269,7 +280,7 @@ function ub_modify_heading_levels( $args, $block_type ) {
 
 	return $args;
 }
-add_filter( 'register_block_type_args', 'ub_modify_heading_levels', 10, 2 );
+add_filter( 'register_block_type_args', 'ace_modify_heading_levels', 10, 2 );
 
 /**
  * Custom template tags for this theme.

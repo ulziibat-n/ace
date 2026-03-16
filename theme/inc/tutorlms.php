@@ -16,7 +16,7 @@ add_filter( 'tutor_lms_should_display_sidebar', '__return_false' );
 /**
  * Custom styling for TutorLMS elements to match ACE theme
  */
-function ub_tutor_lms_custom_css() {
+function ace_tutor_lms_custom_css() {
     ?>
     <style>
         :root {
@@ -37,4 +37,4 @@ function ub_tutor_lms_custom_css() {
     </style>
     <?php
 }
-add_action( 'wp_head', 'ub_tutor_lms_custom_css' );
+add_action( 'wp_head', 'ace_tutor_lms_custom_css' );

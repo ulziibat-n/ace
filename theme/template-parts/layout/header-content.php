@@ -4,7 +4,7 @@
  */
 ?>
 
-<header id="masthead" class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
+<header id="masthead" class="relative z-50 ">
 	<div class="container mx-auto px-4">
 		<div class="flex items-center gap-8 py-4">
 			
@@ -29,7 +29,7 @@
 						'theme_location'  => 'menu-1',
 						'menu_id'         => 'primary-menu',
 						'container'       => false,
-						'menu_class'      => 'flex items-center gap-8 text-sm font-bold text-neutral-600 hover:text-neutral-900 transition-colors',
+						'menu_class'      => 'flex items-center gap-4',
 						'list_item_class' => 'inline-block', // Custom filter needed or handle in CSS.
 					)
 				);

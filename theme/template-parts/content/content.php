@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ub
+ * @package ace
  */
 
 ?>
@@ -24,9 +24,9 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php ub_post_thumbnail(); ?>
+	<?php ace_post_thumbnail(); ?>
 
-	<div <?php ub_content_class( 'entry-content' ); ?>>
+	<div <?php ace_content_class( 'entry-content' ); ?>>
 		<?php
 		the_content();
 
@@ -40,7 +40,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php ub_entry_footer(); ?>
+		<?php ace_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-${ID} -->

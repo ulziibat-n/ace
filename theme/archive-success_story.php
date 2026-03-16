@@ -29,7 +29,7 @@ get_header();
             </div>
             
             <div class="mt-16">
-                <?php ub_the_posts_navigation(); ?>
+                <?php ace_the_posts_navigation(); ?>
             </div>
         <?php else : ?>
             <div class="text-center py-20">

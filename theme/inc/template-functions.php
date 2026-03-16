@@ -1,21 +1,21 @@
 <?php
 /**
- * WordPress-ийн стандарт функцүүдийг сайжруулах болон theme-д зориулсан 
+ * WordPress-ийн стандарт функцүүдийг сайжруулах болон theme-д зориулсан
  * нэмэлт функцүүдийг агуулсан файл.
  *
- * @package ub
+ * @package ace
  */
 
 /**
- * Ганц пост, хуудас эсвэл хавсралт (attachment) ачаалах үед 
+ * Ганц пост, хуудас эсвэл хавсралт (attachment) ачаалах үед
  * Pingback URL-ийг автоматаар илрүүлэх header нэмэх.
  */
-function ub_pingback_header() {
+function ace_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'ub_pingback_header' );
+add_action( 'wp_head', 'ace_pingback_header' );
 
 /**
  * Сэтгэгдэл бичих формын үндсэн талбаруудын тохиргоог өөрчлөх.
@@ -23,7 +23,7 @@ add_action( 'wp_head', 'ub_pingback_header' );
  * @param array $defaults Сэтгэгдлийн формын анхны аргументууд.
  * @return array Шинэчилсэн талбаруудын жагсаалт.
  */
-function ub_comment_form_defaults( $defaults ) {
+function ace_comment_form_defaults( $defaults ) {
 	$comment_field = $defaults['comment_field'];
 
 	// Adjust height of comment form.
@@ -31,12 +31,12 @@ function ub_comment_form_defaults( $defaults ) {
 
 	return $defaults;
 }
-add_filter( 'comment_form_defaults', 'ub_comment_form_defaults' );
+add_filter( 'comment_form_defaults', 'ace_comment_form_defaults' );
 
 /**
  * Архивын хуудасны гарчгийг (Category, Tag, Author гэх мэт) засаж харуулах.
  */
-function ub_get_the_archive_title() {
+function ace_get_the_archive_title() {
 	if ( is_category() ) {
 		$title = __( 'Category Archives: ', 'ace' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_tag() ) {
@@ -68,19 +68,19 @@ function ub_get_the_archive_title() {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'ub_get_the_archive_title' );
+add_filter( 'get_the_archive_title', 'ace_get_the_archive_title' );
 
 /**
  * Тухайн постны Featured Image (Thumbnail) харагдах боломжтой эсэхийг шалгах.
  */
-function ub_can_show_post_thumbnail() {
-	return apply_filters( 'ub_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
+function ace_can_show_post_thumbnail() {
+	return apply_filters( 'ace_can_show_post_thumbnail', ! post_password_required() && ! is_attachment() && has_post_thumbnail() );
 }
 
 /**
  * Theme-д ашиглагдах Аватар зургийн хэмжээг тодорхойлох.
  */
-function ub_get_avatar_size() {
+function ace_get_avatar_size() {
 	return 60;
 }
 
@@ -89,7 +89,7 @@ function ub_get_avatar_size() {
  *
  * @param string $more_string Холбоос дотор харагдах текст.
  */
-function ub_continue_reading_link( $more_string ) {
+function ace_continue_reading_link( $more_string ) {
 
 	if ( ! is_admin() ) {
 		$continue_reading = sprintf(
@@ -105,22 +105,22 @@ function ub_continue_reading_link( $more_string ) {
 }
 
 // Filter the excerpt more link.
-add_filter( 'excerpt_more', 'ub_continue_reading_link' );
+add_filter( 'excerpt_more', 'ace_continue_reading_link' );
 
 // Filter the content more link.
-add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
+add_filter( 'the_content_more_link', 'ace_continue_reading_link' );
 
 /**
  * Сэтгэгдлийг HTML5 стандартаар харуулах функц.
  *
- * WordPress-ийн стандарт сэтгэгдлийн гаралтыг өөрчилж, Tailwind Typography 
+ * WordPress-ийн стандарт сэтгэгдлийн гаралтыг өөрчилж, Tailwind Typography
  * болон дизайны онцлогт нийцүүлэн засаж харуулдаг.
  *
  * @param WP_Comment $comment Харуулах сэтгэгдэл.
  * @param array      $args    Нэмэлт аргументууд.
  * @param int        $depth   Сэтгэгдлийн түвшин (хариу бичих үед).
  */
-function ub_html5_comment( $comment, $args, $depth ) {
+function ace_html5_comment( $comment, $args, $depth ) {
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
 	$commenter          = wp_get_current_commenter();
@@ -181,7 +181,7 @@ function ub_html5_comment( $comment, $args, $depth ) {
 				<?php endif; ?>
 			</footer><!-- .comment-meta -->
 
-			<div <?php ub_content_class( 'comment-content' ); ?>>
+			<div <?php ace_content_class( 'comment-content' ); ?>>
 				<?php comment_text(); ?>
 			</div><!-- .comment-content -->
 
@@ -206,54 +206,54 @@ function ub_html5_comment( $comment, $args, $depth ) {
 }
 
 /**
- * 	Typography-ийн классуудыг нэмэх.
+ *  Typography-ийн классуудыг нэмэх.
  *
  * @param mixed $html Логоны HTML код.
  * @return array|string Шинэчилсэн HTML код.
  */
-function ub_custom_logo_class( $html ) {
+function ace_custom_logo_class( $html ) {
 	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
-    $html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[5rem] [&_img]:h-auto', $html );
-    return $html;
+	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[4rem] [&_img]:h-auto', $html );
+	return $html;
 }
-add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
+add_filter( 'get_custom_logo', 'ace_custom_logo_class' );
 
 /**
  * <body> элементэд нэмэлт CSS классуудыг нэмэх функц.
- * 
- * Энэ функц нь WordPress-ийн 'body_class' шүүлтүүрийг (filter) ашиглан 
- * вэб сайтын хуудас бүрийн онцлогоос хамаарч (жишээ нь: нүүр хуудас, 
+ *
+ * Энэ функц нь WordPress-ийн 'body_class' шүүлтүүрийг (filter) ашиглан
+ * вэб сайтын хуудас бүрийн онцлогоос хамаарч (жишээ нь: нүүр хуудас,
  * ганц болон олон пост харагдах үед) <body> таг дээр тусгай классуудыг
  * автоматаар нэмж өгдөг. Энэ нь CSS загварчлалыг илүү уян хатан болгоно.
  *
  * @param array $classes Одоо байгаа body классуудын жагсаалт.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function ub_body_classes( $classes ) {
-	// Энд нэмэлт нөхцөлт классуудыг нэмж болно
+function ace_body_classes( $classes ) {
+	// Энд нэмэлт нөхцөлт классуудыг нэмж болно.
 	$classes[] = 'font-sans bg-white';
 	return $classes;
 }
-add_filter( 'body_class', 'ub_body_classes' );
+add_filter( 'body_class', 'ace_body_classes' );
 
 /**
  * Цэсний элементүүдэд (<li>) нэмэлт CSS классуудыг нэмэх функц.
- * 
- * Энэ функц нь WordPress-ийн 'nav_menu_css_class' шүүлтүүрийг ашиглан 
- * вэб сайтын цэсний элемент бүр дээр Tailwind CSS эсвэл өөр бусад 
+ *
+ * Энэ функц нь WordPress-ийн 'nav_menu_css_class' шүүлтүүрийг ашиглан
+ * вэб сайтын цэсний элемент бүр дээр Tailwind CSS эсвэл өөр бусад
  * тусгай классуудыг нэмж өгөх боломжийг олгоно.
  *
- * @param array    $classes Одоо байгаа цэсний элементийн классууд.
- * @param WP_Post  $item    Цэсний элементийн объект.
- * @param array    $args    wp_nav_menu() функцын аргументууд.
- * @param int      $depth   Цэсний түвшин.
+ * @param array   $classes Одоо байгаа цэсний элементийн классууд.
+ * @param WP_Post $item    Цэсний элементийн объект.
+ * @param array   $args    wp_nav_menu() функцын аргументууд.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
-    // Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно
-    if ( 'menu-1' === $args->theme_location ) { $classes[] = 'group [&_a]:text-slate-700 [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-primary [&_a]:group-[.current-menu-item]:text-primary'; }
-    
-    return $classes;
-}
-add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 4 );
+function ace_nav_menu_classes( $classes, $item, $args ) {
+	// Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно.
+	if ( 'menu-1' === $args->theme_location ) {
+		$classes[] = 'group [&_a]:text-slate-700 [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-primary [&_a]:group-[.current-menu-item]:text-primary [&_a]:text-xs [&_a]:uppercase';
+	}
 
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'ace_nav_menu_classes', 10, 3 );

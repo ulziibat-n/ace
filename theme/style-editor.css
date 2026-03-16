@@ -1,12 +1,12 @@
 /*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
 /*!
-Theme Name: ub
+Theme Name: ACE EDU
 Theme URI: https://aceedu.mn
 Description: ACE Education - Custom WordPress Theme
 Version: 0.2.0
 Author: Ulziibat Nansaltsog
 Author URI: https://ulziibat.tech
-Text Domain: ub
+Text Domain: ace
 Requires at least: 6.9
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -27,7 +27,6 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
   --color-slate-700: oklch(37.2% 0.044 257.287);
-  --color-slate-900: oklch(20.8% 0.042 265.755);
   --color-neutral-50: oklch(98.5% 0 0);
   --color-neutral-100: oklch(97% 0 0);
   --color-neutral-200: oklch(92.2% 0 0);
@@ -79,7 +78,6 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --radius-3xl: 1.5rem;
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --blur-sm: 8px;
-  --blur-md: 12px;
   --blur-3xl: 64px;
   --aspect-video: 16 / 9;
   --default-transition-duration: 150ms;
@@ -1242,14 +1240,6 @@ body {
     background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
   }
 }
-.bg-white\/80 {
-  background-color: color-mix(in srgb, #fff 80%, transparent);
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .bg-white\/80 {
-    background-color: color-mix(in oklab, var(--color-white) 80%, transparent);
-  }
-}
 .object-contain {
   object-fit: contain;
 }
@@ -1526,11 +1516,6 @@ body {
 .filter {
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
 }
-.backdrop-blur-md {
-  --tw-backdrop-blur: blur(var(--blur-md));
-  -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
-}
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(var(--blur-sm));
   -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
@@ -1713,11 +1698,6 @@ body {
   }
 }
 @media (hover: hover) {
-  .hover\:text-neutral-900:hover {
-    color: var(--color-neutral-900);
-  }
-}
-@media (hover: hover) {
   .hover\:text-primary:hover {
     color: var(--color-primary);
   }
@@ -1775,11 +1755,6 @@ body {
 @media (width >= 48rem) {
   .md\:block {
     display: block;
-  }
-}
-@media (width >= 48rem) {
-  .md\:h-24 {
-    height: calc(var(--spacing) * 24);
   }
 }
 @media (width >= 48rem) {
@@ -1891,6 +1866,10 @@ body {
 .prose-a\:text-primary :is(a):not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *)) {
   color: var(--color-primary);
 }
+.\[\&_a\]\:text-xs a {
+  font-size: var(--text-xs);
+  line-height: var(--tw-leading, var(--text-xs--line-height));
+}
 .\[\&_a\]\:font-bold a {
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
@@ -1898,8 +1877,8 @@ body {
 .\[\&_a\]\:text-slate-700 a {
   color: var(--color-slate-700);
 }
-.\[\&_a\]\:text-slate-900 a {
-  color: var(--color-slate-900);
+.\[\&_a\]\:uppercase a {
+  text-transform: uppercase;
 }
 .\[\&_a\]\:transition-colors a {
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
@@ -1928,17 +1907,8 @@ body {
 .\[\&_img\]\:w-full img {
   width: 100%;
 }
-.\[\&_img\]\:max-w-\[5rem\] img {
-  max-width: 5rem;
-}
-.\[\&_img\]\:max-w-\[6rem\] img {
-  max-width: 6rem;
-}
-.\[\&_img\]\:max-w-\[7\.5rem\] img {
-  max-width: 7.5rem;
-}
-.\[\&_img\]\:max-w-\[7rem\] img {
-  max-width: 7rem;
+.\[\&_img\]\:max-w-\[4rem\] img {
+  max-width: 4rem;
 }
 :is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *))):where(blockquote) {
   border-left-style: solid;
