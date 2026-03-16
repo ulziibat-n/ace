@@ -20,12 +20,12 @@
 		<?php endif; ?>
 		
 		<?php
-		$cities = get_the_terms( get_the_ID(), 'city' );
-		if ( ! empty( $cities ) ) :
+		$ub_cities = get_the_terms( get_the_ID(), 'city' );
+		if ( ! empty( $ub_cities ) ) :
 			?>
 			<div class="absolute top-4 left-4">
 				<span class="bg-primary/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-					<?php echo esc_html( $cities[0]->name ); ?>
+					<?php echo esc_html( $ub_cities[0]->name ); ?>
 				</span>
 			</div>
 		<?php endif; ?>
@@ -45,12 +45,12 @@
 		<div class="mt-auto flex items-center justify-between pt-4 border-t border-neutral-100">
 			<div class="flex flex-wrap gap-2">
 				<?php
-				$levels = get_the_terms( get_the_ID(), 'study_level' );
-				if ( ! empty( $levels ) ) :
-					foreach ( array_slice( $levels, 0, 2 ) as $level ) :
+				$ub_levels = get_the_terms( get_the_ID(), 'study_level' );
+				if ( ! empty( $ub_levels ) ) :
+					foreach ( array_slice( $ub_levels, 0, 2 ) as $ub_level ) :
 						?>
 						<span class="text-[10px] uppercase tracking-wider font-bold text-neutral-400 bg-neutral-100 px-2 py-0.5 rounded">
-							<?php echo esc_html( $level->name ); ?>
+							<?php echo esc_html( $ub_level->name ); ?>
 						</span>
 						<?php
 					endforeach;

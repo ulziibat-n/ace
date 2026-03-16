@@ -68,7 +68,7 @@
 			?>
 			<div class="mt-12 pt-8 border-t border-neutral-100">
 				<a href="<?php echo esc_url( home_url( '/registration' ) ); ?>" class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
-					<?php _e( 'Бүртгүүлэх', 'aceedu' ); ?>
+					<?php esc_html_e( 'Бүртгүүлэх', 'aceedu' ); ?>
 				</a>
 			</div>
 		</div>
