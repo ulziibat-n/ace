@@ -19,7 +19,7 @@
  */
 .page-title,
 .entry-title {
-	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold;
+	@apply mb-16 text-4xl font-bold max-w-content;
 }
 
 /**
@@ -32,7 +32,7 @@
 .entry-footer,
 .post-navigation,
 #comments {
-	@apply max-w-content mx-auto mb-6;
+	@apply mx-auto mb-6 max-w-content;
 }
 
 /**
@@ -48,7 +48,7 @@
 .page-content > *,
 .entry-content > * {
 	/* Content width from the `theme.json` file */
-	@apply max-w-content mx-auto;
+	@apply mx-auto max-w-content;
 }
 
 .entry-content > .alignwide {

@@ -1,0 +1,35 @@
+/**
+ * Tailwind Typography (prose) customizations.
+ *
+ * This file contains overrides and custom styles for the .prose class,
+ * ensuring consistency between the editor and the front-end.
+ */
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(hr) {
+	@apply my-12 border-foreground/10;
+}
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(blockquote) {
+    @apply text-xl not-italic font-bold leading-tight;
+}
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(blockquote.is-style) {
+    @apply text-2xl not-italic font-bold leading-snug;
+}
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(blockquote p:first-of-type)::before, 
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(blockquote p:first-of-type)::after {
+    @apply content-[''];
+} 
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(li) {
+    @apply my-1;
+}
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where([class~='lead'],[class~='is-style-lead']) {
+    @apply leading-snug;
+}
+
+:is(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *))):where(figure img) {
+    @apply overflow-hidden rounded-md
+}

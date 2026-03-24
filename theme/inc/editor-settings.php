@@ -2,31 +2,39 @@
 /**
  * Gutenberg Editor Settings
  * Distract-free and clean editing experience.
+ *
+ * @package aceedu
  */
 
 /**
  * Limit allowed block types to keep the editor clean.
  * We remove Design (except Separator), Widgets, Theme, and Embeds categories.
+ *
+ * @param array                   $allowed_block_types List of allowed block types.
+ * @param WP_Block_Editor_Context $editor_context      The current block editor context.
+ *
+ * @return array List of allowed block types.
  */
 function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
-	
-	// List of allowed core blocks
+
+	// List of allowed core blocks.
 	$allowed_blocks = array(
-		// Essential Text Blocks
+		// Essential Text Blocks.
 		'core/paragraph',
 		'core/heading',
 		'core/list',
 		'core/list-item',
 		'core/quote',
-		
-		// Essential Media
+
+		// Essential Media.
 		'core/image',
-		'core/gallery',
-		
-		// Specifically requested from Design category
+		'core/embed',
+		'core/table',
+
+		// Specifically requested from Design category.
 		'core/separator',
-		
-		// Custom ACF Blocks
+
+		// Custom ACF Blocks.
 		'acf/hero',
 		'acf/roadmap',
 		'acf/faq',
@@ -37,13 +45,37 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 
 	// In the future, if you add more ACF blocks, they must be added to this list
 	// or we can dynamically pull all acf/ blocks.
-	
 	return $allowed_blocks;
 }
 add_filter( 'allowed_block_types_all', 'ub_allowed_block_types', 10, 2 );
 
 /**
- * Remove Core Block Patterns to prevent clutter
+ * Блокуудын alignment тохиргоог өөрчлөх.
+ * Full width сонголтыг хасаж, зөвхөн Wide үлдээх. (Editor UI-аас хасах)
+ */
+add_action(
+	'admin_head',
+	function () {
+		echo '<style>
+		button[aria-label="Full width"],
+		.components-popover__content button[aria-label="Full width"],
+		.block-editor-block-card__alignment-option[data-alignment="full"] {
+			display: none !important;
+		}
+	</style>';
+	}
+);
+
+/**
+ * Блокуудын өгөгдмөл загваруудыг хасах.
+ */
+function ub_unregister_block_styles() {
+	unregister_block_style( 'core/image', 'rounded' );
+}
+add_action( 'init', 'ub_unregister_block_styles' );
+
+/**
+ * Remove Core Block Patterns to prevent clutter.
  */
 function ub_remove_core_block_patterns() {
 	remove_theme_support( 'core-block-patterns' );

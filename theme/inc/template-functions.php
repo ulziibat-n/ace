@@ -137,7 +137,7 @@ add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
  */
 function ub_body_classes( $classes ) {
 	// Энд нэмэлт нөхцөлт классуудыг нэмж болно.
-	$classes[] = 'font-sans bg-white';
+	$classes[] = '';
 	return $classes;
 }
 add_filter( 'body_class', 'ub_body_classes' );
@@ -149,9 +149,9 @@ add_filter( 'body_class', 'ub_body_classes' );
  * вэб сайтын цэсний элемент бүр дээр Tailwind CSS эсвэл өөр бусад
  * тусгай классуудыг нэмж өгөх боломжийг олгоно.
  *
- * @param array   $classes Одоо байгаа цэсний элементийн классууд.
- * @param WP_Post $item    Цэсний элементийн объект.
- * @param array   $args    wp_nav_menu() функцын аргументууд.
+ * @param array     $classes Одоо байгаа цэсний элементийн классууд.
+ * @param \WP_Post  $item    Цэсний элементийн объект.
+ * @param \stdClass $args    wp_nav_menu() функцын аргументууд.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
 function ub_nav_menu_classes( $classes, $item, $args ) {
@@ -159,8 +159,8 @@ function ub_nav_menu_classes( $classes, $item, $args ) {
 	if ( 'menu-1' === $args->theme_location ) {
 		$classes[] = 'group [&_a]:text-primary [&_a]:block [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-secondary [&_a]:group-[.current-menu-item]:text-secondary [&_a]:text-xs [&_a]:uppercase';
 
-		// If it's a sub-menu item
-		if ( in_array( 'sub-menu-item', $classes ) || $item->menu_item_parent > 0 ) {
+		// If it's a sub-menu item.
+		if ( in_array( 'sub-menu-item', $classes, true ) || $item->menu_item_parent > 0 ) {
 			$classes[] = '[&_a]:px-6 [&_a]:py-2 [&_a]:normal-case [&_a]:font-medium [&_a]:text-slate-600 [&_a]:hover:bg-slate-50';
 		}
 	}
@@ -175,8 +175,8 @@ add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 3 );
 /**
  * Дэд цэсний (sub-menu) <ul> элемент дээр нэмэлт CSS классуудыг нэмэх функц.
  *
- * @param array $classes Одоо байгаа дэд цэсний классууд.
- * @param array $args    wp_nav_menu() функцын аргументууд.
+ * @param array    $classes Одоо байгаа дэд цэсний классууд.
+ * @param stdClass $args    wp_nav_menu() функцын аргументууд.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
 function ub_nav_menu_submenu_classes( $classes, $args ) {
@@ -190,10 +190,10 @@ add_filter( 'nav_menu_submenu_css_class', 'ub_nav_menu_submenu_classes', 10, 2 )
 /**
  * Цэсний тайлбарыг (description) дэд цэсний элементүүд дээр харуулах функц.
  *
- * @param string   $item_output Цэсний элементийн HTML код.
- * @param WP_Post  $item        Цэсний элементийн объект.
- * @param int      $depth       Цэсний түвшин.
- * @param stdClass $args        wp_nav_menu() функцын аргументууд.
+ * @param string    $item_output Цэсний элементийн HTML код.
+ * @param WP_Post   $item        Цэсний элементийн объект.
+ * @param int       $depth       Цэсний түвшин.
+ * @param \stdClass $args        wp_nav_menu() функцын аргументууд.
  * @return string Шинэчилсэн HTML код.
  */
 function ub_nav_menu_description( $item_output, $item, $depth, $args ) {
@@ -246,8 +246,32 @@ function ub_disable_unused_features() {
 		},
 		100
 	);
+
+	// Author archive (зохиогчийн хуудас) хаах.
+	add_action(
+		'template_redirect',
+		function () {
+			if ( is_author() ) {
+				wp_safe_redirect( home_url(), 301 );
+				exit;
+			}
+		}
+	);
 }
 ub_disable_unused_features();
+
+/**
+ * Author archive (зохиогчийн хуудас)-ыг хайлтын системээс нуух.
+ */
+add_filter(
+	'wp_robots',
+	function ( $robots ) {
+		if ( is_author() ) {
+			return wp_robots_no_robots( $robots );
+		}
+		return $robots;
+	}
+);
 
 /**
  * Вэб сайтын гадна талд (Front-end) ашиглагдах CSS болон JS файлуудыг дуудах.
@@ -258,6 +282,56 @@ ub_disable_unused_features();
 function ub_scripts() {
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
+
+	// Swiper-ийг зөвхөн single post үед ачаалах.
+	if ( is_single() ) {
+		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
+
+		// Swiper-ийг идэвхжүүлэх inline script.
+		$ub_swiper_init = "
+			document.addEventListener('DOMContentLoaded', function() {
+				if (typeof Swiper !== 'undefined') {
+					function setSameHeight(swiper) {
+						let maxHeight = 0;
+						if (swiper.slides && swiper.slides.length > 0) {
+							swiper.slides.forEach(slide => {
+								slide.style.height = 'auto';
+							});
+							swiper.slides.forEach(slide => {
+								if (slide.offsetHeight > maxHeight) maxHeight = slide.offsetHeight;
+							});
+							swiper.slides.forEach(slide => {
+								slide.style.height = maxHeight + 'px';
+							});
+						}
+					}
+
+					new Swiper('[data-related-posts-carousel]', {
+						slidesPerView: 'auto',
+						spaceBetween: 10,
+						navigation: {
+							nextEl: '[data-related-posts-carousel-next]',
+							prevEl: '[data-related-posts-carousel-prev]'
+						},
+						mousewheel: {
+							forceToAxis: true
+						},
+						grabCursor: true,
+						on: {
+							init: function() {
+								setSameHeight(this);
+							},
+							resize: function() {
+								setSameHeight(this);
+							}
+						}
+					});
+				}
+			});
+		";
+		wp_add_inline_script( 'swiper', $ub_swiper_init );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ub_scripts' );
 

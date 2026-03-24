@@ -127,6 +127,11 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		add_theme_support( 'disable-custom-colors' );
 		add_theme_support( 'editor-gradient-presets', array() );
 		add_theme_support( 'disable-custom-gradients' );
+		add_theme_support( 'editor-color-palette', array() );
+
+		// Disable custom font sizes and presets.
+		add_theme_support( 'disable-custom-font-sizes' );
+		add_theme_support( 'editor-font-sizes', array() );
 	}
 endif;
 add_action( 'after_setup_theme', 'ub_setup' );

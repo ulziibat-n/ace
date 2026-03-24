@@ -6,16 +6,16 @@
  */
 ?>
 
-<header id="masthead" class="relative z-50 ">
-	<div class="container mx-auto px-4">
-		<div class="flex items-center gap-8 py-6 relative">
+<header id="masthead" class="relative z-50">
+	<div class="container px-4 mx-auto">
+		<div class="flex relative gap-8 items-center py-6">
 			<!-- Logo -->
 			<div class="shrink-0">
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
 				<?php else : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="flex items-center gap-2">
-						<span class="text-2xl font-black tracking-tighter text-neutral-900 flex items-center gap-1">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="flex gap-2 items-center">
+						<span class="flex gap-1 items-center text-2xl font-black tracking-tighter text-neutral-900">
 							<span class="text-primary">ACE</span>EDU
 						</span>
 					</a>
@@ -23,7 +23,7 @@
 			</div>
 
 			<!-- Desktop Navigation -->
-			<nav id="site-navigation" class="hidden lg:flex items-center gap-8" aria-label="<?php esc_attr_e( 'Үндсэн цэс', 'aceedu' ); ?>">
+			<nav id="site-navigation" class="hidden gap-8 items-center lg:flex" aria-label="<?php esc_attr_e( 'Үндсэн цэс', 'aceedu' ); ?>">
 				<?php
 				wp_nav_menu(
 					array(
@@ -38,7 +38,7 @@
 				?>
 			</nav>
 
-			<div class="flex items-stretch gap-1 ml-auto mr-0">
+			<div class="flex gap-1 items-stretch mr-0 ml-auto">
 				<?php ub_language_switcher(); ?>
 
 				<?php
@@ -47,7 +47,7 @@
 				<?php if ( $ub_header_button ) : ?>
 					<a href="<?php echo esc_url( $ub_header_button['url'] ); ?>" 
 						target="<?php echo esc_attr( $ub_header_button['target'] ? $ub_header_button['target'] : '_self' ); ?>"
-						class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-xs text-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20">
+						class="px-4 py-2 text-xs font-bold text-white shadow-lg transition-all duration-300 bg-primary hover:bg-primary-dark rounded-xs shadow-primary/20">
 						<?php echo esc_html( $ub_header_button['title'] ); ?>
 					</a>
 				<?php endif; ?>
@@ -68,13 +68,13 @@
 				)
 			);
 			?>
-			<div class="mt-12 pt-8 border-t border-neutral-100 flex flex-col gap-8">
+			<div class="flex flex-col gap-8 pt-8 mt-12 border-t border-neutral-100">
 				<?php ub_language_switcher(); ?>
 				
 				<?php if ( $header_button ) : ?>
 					<a href="<?php echo esc_url( $header_button['url'] ); ?>" 
 						target="<?php echo esc_attr( $header_button['target'] ? $header_button['target'] : '_self' ); ?>"
-						class="block w-full text-center bg-primary text-white py-5 rounded-2xl font-black text-xl">
+						class="block py-5 w-full text-xl font-black text-center text-white rounded-2xl bg-primary">
 						<?php echo esc_html( $header_button['title'] ); ?>
 					</a>
 				<?php endif; ?>
@@ -82,21 +82,3 @@
 		</div>
 	</div>
 </header>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const toggle = document.getElementById('mobile-menu-toggle');
-		const menu = document.getElementById('mobile-menu');
-		const openIcon = toggle.querySelector('.menu-open');
-		const closeIcon = toggle.querySelector('.menu-close');
-
-		toggle.addEventListener('click', function() {
-			const expanded = toggle.getAttribute('aria-expanded') === 'true';
-			toggle.setAttribute('aria-expanded', !expanded);
-			menu.classList.toggle('hidden');
-			openIcon.classList.toggle('hidden');
-			closeIcon.classList.toggle('hidden');
-			document.body.classList.toggle('overflow-hidden');
-		});
-	});
-</script>

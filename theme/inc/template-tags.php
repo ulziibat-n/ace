@@ -447,3 +447,109 @@ if ( ! function_exists( 'ub_language_switcher' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists( 'ub_display_primary_category' ) ) :
+	/**
+	 * Yoast SEO-ийн үндсэн ангиллыг (Primary Category) хэвлэх функц.
+	 *
+	 * Хэрэв Yoast SEO дээр үндсэн ангилал сонгогдоогүй бол тухайн постны
+	 * сонгогдсон ангилалуудаас хамгийн эхнийхийг харуулна.
+	 *
+	 * @param string $ub_class Нэмэлт CSS класс.
+	 */
+	function ub_display_primary_category( $ub_class = '' ) {
+		// Yoast SEO-ийн үндсэн ангиллын ID-г мета өгөгдлөөс авах.
+		$ub_primary_cat_id  = get_post_meta( get_the_ID(), '_yoast_wpseo_primary_category', true );
+		$ub_target_category = null;
+
+		if ( $ub_primary_cat_id ) {
+			$ub_target_category = get_term( $ub_primary_cat_id, 'category' );
+		}
+
+		// Хэрэв Yoast-ийн ангилал байхгүй бол нийт ангиллуудаас эхнийхийг авах.
+		if ( ! $ub_target_category || is_wp_error( $ub_target_category ) ) {
+			$ub_categories = get_the_category();
+			if ( ! empty( $ub_categories ) ) {
+				$ub_target_category = $ub_categories[0];
+			}
+		}
+
+		// Ангилал олдсон бол линк болон нэрийг хэвлэх.
+		if ( $ub_target_category ) {
+			printf(
+				'<a href="%1$s" class="%2$s">%3$s</a>',
+				esc_url( get_category_link( $ub_target_category->term_id ) ),
+				esc_attr( $ub_class ),
+				esc_html( $ub_target_category->name )
+			);
+		}
+	}
+endif;
+
+if ( ! function_exists( 'ub_get_toc_and_content' ) ) :
+	/**
+	 * Контент доторх h2, h3 тагуудад random ID оноож, Table of Contents (TOC) үүсгэх функц.
+	 *
+	 * @param string $ub_content Постны контент.
+	 * @return array TOC-ийн HTML болон зассан контентыг агуулсан массив.
+	 */
+	function ub_get_toc_and_content( $ub_content, $ub_post_id = 0 ) {
+		if ( ! $ub_post_id ) {
+			$ub_post_id = get_the_ID();
+		}
+
+		$ub_cache_key = 'ub_toc_' . $ub_post_id;
+		$ub_cached    = get_transient( $ub_cache_key );
+
+		if ( false !== $ub_cached ) {
+			return $ub_cached;
+		}
+
+		// Зөвхөн h2 гарчгуудыг хайж олох regex.
+		$ub_regex = '/<(h2)(.*?)>(.*?)<\/h2>/i';
+		$ub_toc   = '';
+
+		// Гарчгуудыг боловсруулах.
+		$ub_content = preg_replace_callback(
+			$ub_regex,
+			function ( $ub_matches ) use ( &$ub_toc ) {
+				$ub_tag   = $ub_matches[1]; // h2.
+				$ub_attrs = $ub_matches[2]; // Бусад атрибутууд.
+				$ub_title = wp_strip_all_tags( $ub_matches[3] ); // Гарчгийн текст.
+
+				// Санамсаргүй ID үүсгэх.
+				$ub_random_id = 'toc-' . wp_generate_password( 7, false );
+
+				// TOC жагсаалтад нэмэх.
+				$ub_li_class = '';
+				$ub_toc     .= sprintf(
+					'<li class="%1$s"><a href="#%2$s" class="">%3$s</a></li>',
+					esc_attr( $ub_li_class ),
+					esc_attr( $ub_random_id ),
+					esc_html( $ub_title )
+				);
+
+				// Контент дахь гарчигт ID-г нэмж буцаах.
+				return sprintf( '<%1$s id="%2$s"%3$s>%4$s</%1$s>', $ub_tag, $ub_random_id, $ub_attrs, $ub_matches[3] );
+			},
+			$ub_content
+		);
+
+		$ub_result = array(
+			'toc'     => $ub_toc,
+			'content' => $ub_content,
+		);
+
+		// Кэшийг 12 цагаар хадгалах.
+		set_transient( $ub_cache_key, $ub_result, 12 * HOUR_IN_SECONDS );
+
+		return $ub_result;
+	}
+endif;
+
+/**
+ * Пост хадгалах үед TOC кэшийг цэвэрлэх.
+ */
+add_action( 'save_post', function ( $ub_post_id ) {
+	delete_transient( 'ub_toc_' . $ub_post_id );
+} );

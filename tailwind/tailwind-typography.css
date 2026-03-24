@@ -29,17 +29,17 @@
  * you can do so here. In your `./theme/functions.php file, you will need to
  * replace `-neutral` with `-ace`.
  */
-@utility prose-ace {
+@utility prose {
 	--tw-prose-body: --theme(--color-foreground, initial);
 	--tw-prose-headings: --theme(--color-foreground, initial);
 	--tw-prose-lead: --theme(--color-foreground, initial);
 	--tw-prose-links: --theme(--color-primary, initial);
 	--tw-prose-bold: --theme(--color-foreground, initial);
 	--tw-prose-counters: --theme(--color-foreground, initial);
-	--tw-prose-bullets: --theme(--color-foreground, initial);
+	--tw-prose-bullets: --theme(--color-primary, initial);
 	--tw-prose-hr: --theme(--color-foreground, initial);
 	--tw-prose-quotes: --theme(--color-foreground, initial);
-	--tw-prose-quote-borders: --theme(--color-primary, initial);
+	--tw-prose-quote-borders: --theme(--color-secondary, initial);
 	--tw-prose-captions: --theme(--color-foreground, initial);
 	--tw-prose-kbd: --theme(--color-foreground, initial);
 	--tw-prose-kbd-shadows: --theme(--color-foreground, initial);

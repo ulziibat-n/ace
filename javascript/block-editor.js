@@ -28,6 +28,10 @@ wp.domReady(() => {
 		label: 'Lead',
 	});
 
+	// Unregister stretchy variations.
+	wp.blocks.unregisterBlockVariation( 'core/paragraph', 'stretchy-paragraph' );
+	wp.blocks.unregisterBlockVariation( 'core/heading', 'stretchy-heading' );
+
 	// Add additional block editor modifications here. For example, you could
 	// register another block style:
 	//
