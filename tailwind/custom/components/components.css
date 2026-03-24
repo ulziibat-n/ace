@@ -8,6 +8,11 @@
  *  — from https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes
  */
 
+ .container {
+	max-width: var(--container) !important;
+	margin-inline: auto;
+ }
+
 /**
  * Post title styles
  *
@@ -40,19 +45,22 @@
  *
  * If you are controlling the width of your content area with styles applied
  * to its container, you can delete the following styles whose selectors begin
- * with `.page-content >` and `.entry-content >`. For more details, please see
- * the following:
- *
- * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+ * with `.page-content >` and `.entry-content >`.
  */
-.page-content > *,
+
 .entry-content > * {
-	/* Content width from the `theme.json` file */
 	@apply mx-auto max-w-content;
 }
 
-.entry-content > .alignwide {
-	/* Wide width from the `theme.json` file */
+.page-content > * {
+	@apply mx-auto max-w-page;
+}
+
+.page-wide > * {
+	@apply mx-auto max-w-wide;
+}
+
+.page-content > .alignwide {
 	@apply max-w-wide;
 }
 

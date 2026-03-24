@@ -16,9 +16,6 @@
 	--color-primary: #085399;
 	--color-secondary: #EC1B24;
 
-	--container-content: 48rem;
-	--container-wide: 80rem;
-
 	/**
 	 * Use Google Sans as our primary font.
 	 */
@@ -28,4 +25,37 @@
 		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
 }
+
+:root {
+    --container: calc(100% - 2rem);
+    --container-content: calc(100% - 2rem);
+	--container-wide: calc(100% - 2rem);
+
+    @media (min-width: 40rem) { 
+		--container: 38rem;
+		--container-content: 38rem;
+		--container-wide: 40rem;
+	}
+
+    @media (min-width: 48rem) { 
+		--container: 46rem;
+		--container-content: 48rem;	
+		--container-wide: 48rem;
+	}
+    @media (min-width: 64rem) { 
+		--container: 62rem;
+		--container-content: 48rem;
+		--container-wide: 64rem;
+	}
+    @media (min-width: 80rem) { 
+		--container: 78rem;
+		--container-content: 48rem;	
+		--container-wide: 80rem;
+	}
+    @media (min-width: 96rem) { 
+		--container: 94rem;
+		--container-content: 48rem;
+	}
+}
+
 

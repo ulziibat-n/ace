@@ -7,7 +7,7 @@
 ?>
 
 <header id="masthead" class="relative z-50">
-	<div class="container px-4 mx-auto">
+	<div class="container">
 		<div class="flex relative gap-8 items-center py-6">
 			<!-- Logo -->
 			<div class="shrink-0">

@@ -8,7 +8,7 @@
 ?>
 
 <footer id="colophon" class="bg-slate-900 text-white pt-20 pb-10">
-	<div class="container mx-auto px-4">
+	<div class="container">
 		<div class="flex flex-col gap-4">
 			<div class="flex gap-16">
 				<div class="flex flex-col">

@@ -43,6 +43,9 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// Enable excerpts for pages.
+		add_post_type_support( 'page', 'excerpt' );
+
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
@@ -95,43 +98,6 @@ if ( ! function_exists( 'ub_setup' ) ) :
 
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
-
-		// Custom color palette for the editor.
-		add_theme_support(
-			'editor-color-palette',
-			array(
-				array(
-					'name'  => __( 'Primary', 'aceedu' ),
-					'slug'  => 'primary',
-					'color' => '#1e3a8a',
-				),
-				array(
-					'name'  => __( 'Secondary', 'aceedu' ),
-					'slug'  => 'secondary',
-					'color' => '#f59e0b',
-				),
-				array(
-					'name'  => __( 'Slate', 'aceedu' ),
-					'slug'  => 'slate',
-					'color' => '#1e293b',
-				),
-				array(
-					'name'  => __( 'White', 'aceedu' ),
-					'slug'  => 'white',
-					'color' => '#ffffff',
-				),
-			)
-		);
-
-		// Disable custom colors and gradients to keep design consistent.
-		add_theme_support( 'disable-custom-colors' );
-		add_theme_support( 'editor-gradient-presets', array() );
-		add_theme_support( 'disable-custom-gradients' );
-		add_theme_support( 'editor-color-palette', array() );
-
-		// Disable custom font sizes and presets.
-		add_theme_support( 'disable-custom-font-sizes' );
-		add_theme_support( 'editor-font-sizes', array() );
 	}
 endif;
 add_action( 'after_setup_theme', 'ub_setup' );

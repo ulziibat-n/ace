@@ -23,19 +23,19 @@ get_header();
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
-	<section class="overflow-hidden relative py-16 lg:py-32 w-full bg-slate-100">
-		<div class="container px-4 mx-auto">
-			<div class="flex justify-between items-end gap-8 mb-12">
+	<section class="overflow-hidden relative py-16 w-full lg:py-32 bg-slate-100">
+		<div class="container">
+			<div class="flex gap-8 justify-between items-end mb-12">
 				<div class="max-w-xl grow">
 					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl"><?php esc_html_e( 'Холбоотой нийтлэлүүд', 'ace' ); ?></h2>
 					<p class="font-medium leading-tight text-foreground/60"><?php esc_html_e( 'Таны сонирхсон сэдвээрх бусад хэрэгтэй мэдээллүүдийг эндээс уншаарай.', 'ace' ); ?></p>
 				</div>
 				<!-- Carousel Navigation -->
-				<div class=" gap-2 items-center pb-2 flex shrink">
-					<button data-related-posts-carousel-prev class="flex justify-center bg-white shadow-sm shadow-primary/5 cursor-pointer items-center w-12 h-12 rounded-full border transition-all group border-white hover:bg-primary hover:border-primary">
+				<div class="flex gap-2 items-center pb-2 shrink">
+					<button data-related-posts-carousel-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border border-white shadow-sm transition-all cursor-pointer shadow-primary/5 group hover:bg-primary hover:border-primary">
 						<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 					</button>
-					<button data-related-posts-carousel-next class="flex justify-center bg-white shadow-sm shadow-primary/5 cursor-pointer items-center w-12 h-12 rounded-full border transition-all group border-white hover:bg-primary hover:border-primary">
+					<button data-related-posts-carousel-next class="flex justify-center items-center w-12 h-12 bg-white rounded-full border border-white shadow-sm transition-all cursor-pointer shadow-primary/5 group hover:bg-primary hover:border-primary">
 						<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 					</button>
 				</div>
