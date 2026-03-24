@@ -39,13 +39,6 @@
 				get_the_title()
 			)
 		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div>' . __( 'Pages:', 'aceedu' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- .entry-content -->
 

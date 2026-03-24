@@ -47,7 +47,8 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => __( 'Үндсэн цэс', 'aceedu' ),
-				'menu-2' => __( 'Доод талын цэс', 'aceedu' ),
+				'menu-2' => __( 'Компани', 'aceedu' ),
+				'menu-3' => __( 'Үйлчилгээ', 'aceedu' ),
 			)
 		);
 

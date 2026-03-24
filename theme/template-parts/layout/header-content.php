@@ -8,8 +8,7 @@
 
 <header id="masthead" class="relative z-50 ">
 	<div class="container mx-auto px-4">
-		<div class="flex items-center gap-8 py-4">
-			
+		<div class="flex items-center gap-8 py-6 relative">
 			<!-- Logo -->
 			<div class="shrink-0">
 				<?php if ( has_custom_logo() ) : ?>
@@ -31,6 +30,7 @@
 						'theme_location'  => 'menu-1',
 						'menu_id'         => 'primary-menu',
 						'container'       => false,
+						'depth'           => 2,
 						'menu_class'      => 'flex items-center gap-4',
 						'list_item_class' => 'inline-block', // Custom filter needed or handle in CSS.
 					)
@@ -38,7 +38,7 @@
 				?>
 			</nav>
 
-			<div class="flex items-center gap-4 ml-auto mr-0">
+			<div class="flex items-stretch gap-1 ml-auto mr-0">
 				<?php ub_language_switcher(); ?>
 
 				<?php
@@ -47,7 +47,7 @@
 				<?php if ( $ub_header_button ) : ?>
 					<a href="<?php echo esc_url( $ub_header_button['url'] ); ?>" 
 						target="<?php echo esc_attr( $ub_header_button['target'] ? $ub_header_button['target'] : '_self' ); ?>"
-						class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xs text-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20">
+						class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-xs text-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20">
 						<?php echo esc_html( $ub_header_button['title'] ); ?>
 					</a>
 				<?php endif; ?>
@@ -63,6 +63,7 @@
 				array(
 					'theme_location' => 'menu-1',
 					'container'      => false,
+					'depth'          => 2,
 					'menu_class'     => 'flex flex-col gap-6 text-2xl font-black text-neutral-900',
 				)
 			);

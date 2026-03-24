@@ -119,7 +119,7 @@ add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
  */
 function ub_custom_logo_class( $html ) {
 	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
-	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[4rem] [&_img]:h-auto', $html );
+	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[3.5rem] [&_img]:h-auto', $html );
 	return $html;
 }
 add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
@@ -157,12 +157,56 @@ add_filter( 'body_class', 'ub_body_classes' );
 function ub_nav_menu_classes( $classes, $item, $args ) {
 	// Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно.
 	if ( 'menu-1' === $args->theme_location ) {
-		$classes[] = 'group [&_a]:text-slate-700 [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-primary [&_a]:group-[.current-menu-item]:text-primary [&_a]:text-xs [&_a]:uppercase';
+		$classes[] = 'group [&_a]:text-primary [&_a]:block [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-secondary [&_a]:group-[.current-menu-item]:text-secondary [&_a]:text-xs [&_a]:uppercase';
+
+		// If it's a sub-menu item
+		if ( in_array( 'sub-menu-item', $classes ) || $item->menu_item_parent > 0 ) {
+			$classes[] = '[&_a]:px-6 [&_a]:py-2 [&_a]:normal-case [&_a]:font-medium [&_a]:text-slate-600 [&_a]:hover:bg-slate-50';
+		}
+	}
+
+	if ( 'menu-2' === $args->theme_location || 'menu-3' === $args->theme_location ) {
+		$classes[] = 'block [&_a]:hover:text-white [&_a]:transition-colors [&_a]:font-semibold [&_a]:text-[0.6875rem]';
 	}
 
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 3 );
+/**
+ * Дэд цэсний (sub-menu) <ul> элемент дээр нэмэлт CSS классуудыг нэмэх функц.
+ *
+ * @param array $classes Одоо байгаа дэд цэсний классууд.
+ * @param array $args    wp_nav_menu() функцын аргументууд.
+ * @return array Шинэчилсэн классуудын жагсаалт.
+ */
+function ub_nav_menu_submenu_classes( $classes, $args ) {
+	if ( 'menu-1' === $args->theme_location ) {
+		$classes[] = 'absolute left-0 top-full hidden w-full group-hover:block bg-slate-50 min-w-[200px] rounded-xs py-4 animate-in fade-in slide-in-from-top-1 duration-200 z-50';
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_submenu_css_class', 'ub_nav_menu_submenu_classes', 10, 2 );
+
+/**
+ * Цэсний тайлбарыг (description) дэд цэсний элементүүд дээр харуулах функц.
+ *
+ * @param string   $item_output Цэсний элементийн HTML код.
+ * @param WP_Post  $item        Цэсний элементийн объект.
+ * @param int      $depth       Цэсний түвшин.
+ * @param stdClass $args        wp_nav_menu() функцын аргументууд.
+ * @return string Шинэчилсэн HTML код.
+ */
+function ub_nav_menu_description( $item_output, $item, $depth, $args ) {
+	if ( 'menu-1' === $args->theme_location && $depth > 0 && ! empty( $item->description ) ) {
+		$item_output = str_replace(
+			'</a>',
+			'<span class="block text-[0.625rem] text-slate-400 font-normal normal-case mt-0.5 leading-tight">' . esc_html( $item->description ) . '</span></a>',
+			$item_output
+		);
+	}
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'ub_nav_menu_description', 10, 4 );
 
 
 /**
@@ -242,6 +286,52 @@ function ub_enqueue_block_editor_script() {
 			true
 		);
 		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+	}
+
+	// Block editor дахь font-face @font-face-ийн зам admin context дотор
+	// харьцангуй URL-аар зөв ачаалагддаггүй тул абсолют URL-ийг inline CSS-ээр inject хийнэ.
+	if ( is_admin() ) {
+		$ub_font_uri = get_template_directory_uri() . '/fonts';
+		$ub_font_css = "
+			@font-face {
+				font-family: 'Google Sans';
+				src: url('{$ub_font_uri}/GoogleSans-Regular.woff2') format('woff2'),
+					 url('{$ub_font_uri}/GoogleSans-Regular.woff') format('woff');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'Google Sans';
+				src: url('{$ub_font_uri}/GoogleSans-Medium.woff2') format('woff2'),
+					 url('{$ub_font_uri}/GoogleSans-Medium.woff') format('woff');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'Google Sans';
+				src: url('{$ub_font_uri}/GoogleSans-SemiBold.woff2') format('woff2'),
+					 url('{$ub_font_uri}/GoogleSans-SemiBold.woff') format('woff');
+				font-weight: 600;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'Google Sans';
+				src: url('{$ub_font_uri}/GoogleSans-Bold.woff2') format('woff2'),
+					 url('{$ub_font_uri}/GoogleSans-Bold.woff') format('woff');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
+			body, .editor-styles-wrapper {
+				font-family: 'Google Sans', ui-sans-serif, system-ui, sans-serif;
+			}
+		";
+		wp_register_style( 'ace-editor-fonts', false, array(), UB_VERSION );
+		wp_enqueue_style( 'ace-editor-fonts' );
+		wp_add_inline_style( 'ace-editor-fonts', $ub_font_css );
 	}
 }
 add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );

@@ -159,27 +159,6 @@ if ( ! function_exists( 'ub_entry_footer' ) ) :
 				);
 			}
 		}
-
-		// Comment count.
-		if ( ! is_singular() ) {
-			ub_comment_count();
-		}
-
-		// Edit post link.
-		edit_post_link(
-			sprintf(
-				wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Edit <span class="sr-only">%s</span>', 'aceedu' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			)
-		);
 	}
 endif;
 
@@ -347,7 +326,7 @@ if ( ! function_exists( 'ub_html5_comment' ) ) :
 		}
 		?>
 		<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		printf( '<%s id="comment-%d" %s>', esc_attr( $tag ), get_comment_ID(), get_comment_class( $comment->has_children ? 'parent' : '', $comment ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<%s id="comment-%d" class="%s">', esc_attr( $tag ), get_comment_ID(), esc_attr( implode( ' ', get_comment_class( $comment->has_children ? 'parent' : '', $comment ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 				<footer class="comment-meta">
@@ -438,7 +417,7 @@ if ( ! function_exists( 'ub_language_switcher' ) ) :
 
 		$current_language_slug = falang_current_language();
 		?>
-		<div class="flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+		<div class="flex items-center gap-2 text-[0.625rem] font-bold tracking-widest uppercase px-4 py-2 bg-slate-50/70 hover:bg-slate-50 transition-colors duration-300 rounded-xs">
 			<?php
 			$count = count( $languages );
 			$i     = 0;
@@ -460,12 +439,9 @@ if ( ! function_exists( 'ub_language_switcher' ) ) :
 				}
 				?>
 				<a href="<?php echo esc_url( $url ); ?>"
-					class="transition-all duration-300 <?php echo $is_active ? 'text-primary' : 'text-neutral-400 hover:text-neutral-900'; ?>">
+					class="transition-all duration-300 <?php echo $is_active ? 'text-primary' : 'text-slate-400 hover:text-slate-600'; ?>">
 					<?php echo esc_html( $display_name ); ?>
 				</a>
-				<?php if ( $i < $count ) : ?>
-					<span class="w-1 h-1 rounded-full bg-neutral-200"></span>
-				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 		<?php
