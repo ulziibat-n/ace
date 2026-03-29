@@ -50,9 +50,7 @@ get_header();
 				?>
 			</div>
 
-			<div class="mt-12">
-				<?php ub_the_posts_navigation(); ?>
-			</div>
+			<div class="mt-12 empty:hidden"><?php ub_the_posts_navigation(); ?></div>
 
 		<?php else : ?>
 
