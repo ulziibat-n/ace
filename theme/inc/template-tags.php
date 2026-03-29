@@ -240,8 +240,8 @@ if ( ! function_exists( 'ub_the_posts_navigation' ) ) :
 		the_posts_pagination(
 			array(
 				'mid_size'  => 2,
-				'prev_text' => __( 'Newer posts', 'aceedu' ),
-				'next_text' => __( 'Older posts', 'aceedu' ),
+				'prev_text' => '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg><span class="sr-only">' . esc_html__( 'Өмнөх', 'aceedu' ) . '</span>',
+				'next_text' => '<span class="sr-only">' . esc_html__( 'Дараах', 'aceedu' ) . '</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>',
 			)
 		);
 	}

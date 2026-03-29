@@ -75,3 +75,33 @@
 .entry-content > .alignright {
 	@apply float-right ml-8;
 }
+
+/**
+ * Pagination styles
+ */
+.navigation.pagination {
+	@apply my-12;
+}
+
+.navigation.pagination .nav-links {
+	@apply flex items-center justify-start gap-2;
+}
+
+.navigation.pagination .page-numbers {
+	@apply flex items-center justify-center min-w-10 h-10 px-3 
+	       text-sm font-bold transition-all duration-200 
+	       bg-white rounded-sm text-foreground/60 hover:text-primary hover:shadow-sm;
+}
+
+.navigation.pagination .page-numbers.current {
+	@apply bg-primary text-white shadow-md hover:text-white;
+}
+
+.navigation.pagination .page-numbers.dots {
+	@apply bg-transparent hover:shadow-none hover:text-foreground/60;
+}
+
+.navigation.pagination .prev.page-numbers,
+.navigation.pagination .next.page-numbers {
+	@apply px-4 text-primary bg-white;
+}
