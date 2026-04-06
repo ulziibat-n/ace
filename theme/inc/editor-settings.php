@@ -19,32 +19,31 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 
 	// List of allowed core blocks.
 	$allowed_blocks = array(
-		// Essential Text Blocks.
 		'core/paragraph',
 		'core/heading',
 		'core/list',
 		'core/list-item',
 		'core/quote',
-
-		// Essential Media.
 		'core/image',
-		'core/embed',
 		'core/table',
-
-		// Specifically requested from Design category.
 		'core/separator',
+	);
 
-		// Custom ACF Blocks.
+	// Custom ACF Blocks.
+	$acf_blocks = array(
 		'acf/hero',
 		'acf/roadmap',
 		'acf/faq',
 		'acf/social-proof',
 		'acf/feature-grid',
 		'acf/contact-form',
+		'acf/cta-banner',
 	);
 
-	// In the future, if you add more ACF blocks, they must be added to this list
-	// or we can dynamically pull all acf/ blocks.
+	foreach ( $acf_blocks as $block ) {
+		$allowed_blocks[] = $block;
+	}
+
 	return $allowed_blocks;
 }
 add_filter( 'allowed_block_types_all', 'ub_allowed_block_types', 10, 2 );

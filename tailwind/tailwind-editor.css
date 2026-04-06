@@ -28,4 +28,21 @@
  * Add your editor styles below:
  */
 
+/* Remove default margin-top from headings in editor to match frontend section spacing */
+.editor-styles-wrapper :where(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *))):where(h1, h2, h3, h4, h5, h6) {
+	margin-top: 0 !important;
+}
+
+/* Remove default vertical spacing between consecutive alignfull blocks in the editor */
+.editor-styles-wrapper .wp-block[data-align="full"] {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+/* Ensure no gap between adjacent blocks in the editor's main content area */
+.editor-styles-wrapper .is-root-container > .wp-block {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
 

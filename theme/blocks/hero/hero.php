@@ -6,6 +6,8 @@
  * @param string $content The block inner HTML (empty).
  * @param bool $is_preview True during AJAX preview.
  * @param  (int|string) $post_id The post ID this block is saved to.
+ *
+ * @package aceedu
  */
 
 $ub_id = 'hero-' . $block['id'];
@@ -46,16 +48,16 @@ if ( ! $ub_slides ) {
 						</div>
 					<?php endif; ?>
 
-					<div class="container relative z-30 px-6 lg:px-12 pt-48 pb-16 lg:pt-72 lg:pb-32">
+					<div class="container relative z-30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 						<div class="max-w-4xl flex flex-col">
 							<?php if ( $ub_title ) : ?>
-								<h1 class="text-4xl font-bold leading-tight lg:text-6xl mb-0 animate-fade-in-up">
+								<h1 class="text-4xl font-bold leading-tight lg:text-6xl mb-0 animate-fade-in-up text-white">
 									<?php echo esc_html( $ub_title ); ?>
 								</h1>
 							<?php endif; ?>
 
 							<?php if ( $ub_description ) : ?>
-								<p class="mt-8 text-lg text-neutral-200 max-w-2xl animate-fade-in-up delay-100">
+								<p class="mt-8 text-lg max-w-2xl animate-fade-in-up delay-100 text-white">
 									<?php echo esc_html( $ub_description ); ?>
 								</p>
 							<?php endif; ?>
@@ -63,9 +65,9 @@ if ( ! $ub_slides ) {
 							<?php if ( $ub_button ) : ?>
 								<div class="mt-10 animate-fade-in-up delay-200">
 									<a href="<?php echo esc_url( $ub_button['url'] ); ?>" 
-										target="<?php echo esc_attr( $ub_button['target'] ?: '_self' ); ?>"
-										class="inline-block bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-sm font-bold transition-all duration-300 transform hover:-translate-y-1">
-										<?php echo esc_html( $ub_button['title'] ); ?>
+										target="<?php echo esc_attr( $ub_button['target'] ? $ub_button['target'] : '_self' ); ?>"
+										class="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20 transform hover:-translate-y-1 no-underline">
+										<span class="uppercase leading-none text-xs"><?php echo esc_html( $ub_button['title'] ); ?></span>
 									</a>
 								</div>
 							<?php endif; ?>

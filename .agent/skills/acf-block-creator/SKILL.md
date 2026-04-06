@@ -1,6 +1,6 @@
 ---
 name: acf-block-creator
-description: Custom ACF Gutenberg block үүгсэх чадвартай skill. Зураг эсвэл тайлбар дээр үндэслэн ACF blocks үүсгэнэ.
+description: Custom ACF Gutenberg block үүсгэх чадвартай skill. Зураг эсвэл тайлбар дээр үндэслэн ACF blocks үүсгэнэ.
 ---
 
 # ACF Gutenberg Block Creator
@@ -11,53 +11,60 @@ description: Custom ACF Gutenberg block үүгсэх чадвартай skill. �
 
 1. **Анализ хийх**: Хавсаргасан зураг эсвэл текстийг шинжилж, ямар талбарууд (ACF fields) шаардлагатай болохыг тодорхойлно.
 2. **Блокын хавтас үүсгэх**: `theme/blocks/[slug]/` хавтсыг үүсгэнэ.
-3. **Metadata (block.json)**: Блокын нэр, гарчиг, тохиргоог `block.json` файлд бичнэ. Уг файл нь `acf-blocks.php`-ээр дамжин автоматаар бүртгэгдэнэ.
+3. **Metadata (block.json)**: Блокын нэр, гарчиг, тохиргоог `block.json` файлд бичнэ.
 4. **Template ([slug].php)**: Блокын PHP бүтцийг боловсруулна.
 5. **ACF JSON үүсгэх**: Талбаруудын тохиргоог `theme/acf-json/group_[unique_id].json` хэлбэрээр үүсгэж, блоктой холбоно.
+6. **Editor Settings**: Шинэ блокыг `theme/inc/editor-settings.php` файл дахь зөвшөөрөгдөх блокуудын жагсаалтад нэмнэ.
 
 ## Техникийн шаардлагууд
 
 ### 1. Файлын бүтэц
-- `theme/blocks/[slug]/block.json` (Registration)
+- `theme/blocks/[slug]/block.json` (Registration & Post Type restriction)
 - `theme/blocks/[slug]/[slug].php` (PHP Template)
-- `theme/blocks/[slug]/[slug].css` (Optional - хэрэв Tailwind-ээс гадуур css хэрэгтэй бол)
 - `theme/acf-json/group_[unique_id].json` (Field sync)
 
-### 2. Layout & Design
+### 2. Layout & Post Type Restriction
+- **Post Type**: Блокыг зөвхөн тодорхой төрлийн хуудсанд ашиглах бол `block.json` файл дотор `"postTypes": ["page"]` гэж заана.
 - **Full Width**: Хэрэв өөрөөр заагаагүй бол бүх блок `alignfull` класс болон `section` бүтэцтэй байна.
-- **Container**: Блокын агуулга нь `container mx-auto px-6 lg:px-12` гэсэн класс дотор байрлана.
-- **Variable Naming**: Template-ийн үндсэн түвшинд зарлагдаж буй хувьсагчид заавал `$ub_` prefix-тэй байна. (Жишээ: `$ub_title`, `$ub_image`).
-- **Typography & Spacing**: Сайтын ерөнхий загвар хэв маягийг (Tailwind config-д заасан colors, fonts, spacing) чанд баримтална.
-- **Preview Mode**: Блок хоосон байх үед Admin editor дээр placeholder харуулна.
+- **Container**: Блокын агуулга нь зөвхөн `.container` класс дотор байрлана. (mx-auto, px-6 гэх мэт классууд хэрэггүй).
 
-### 3. ACF Field Group
-- `key`: `group_` + санамсаргүй ID.
-- `location`: `acf/block == acf/[slug]`.
-- Талбарууд нь цэгцтэй, `repeater`, `image` (array), `link` (array) зэрэг тохиромжтой төрлүүдийг ашиглана.
+### 3. Кодын стандарт (PHP & Tailwind)
+- **Variable Naming**: Template-ийн үндсэн түвшинд зарлагдаж буй хувьсагчид заавал `$ub_` prefix-тэй байна. (Жишээ: `$ub_title`).
+- **Short Ternaries**: `?:` ашиглахыг хориглоно. Оронд нь `? :` (бүрэн ternary) эсвэл `if` ашиглана.
+- **Inline Comments**: Мөр доторх тайлбар бүр заавал цэгээр ( . ) төгсөх ёстой.
+- **@package**: PHP файлын DocBlock-д `@package aceedu` заавал оруулна.
+- **Preview Mode**: Блок хоосон байх үед Admin editor дээр placeholder харуулна.
 
 ## Жишээ код (Template)
 
 ```php
 <?php
-$ub_id         = 'block-slug-' . $block['id'];
-$ub_class_name = 'block-slug alignfull ' . ( $block['className'] ?? '' );
+/**
+ * Block Description.
+ *
+ * @package aceedu
+ */
 
-// Fields
-$ub_title       = get_field( 'title' );
-$ub_description = get_field( 'description' );
+$ub_id         = 'block-slug-' . $block['id'];
+$ub_class_name = 'block-slug alignfull ' . ( isset( $block['className'] ) ? $block['className'] : '' );
+
+// Fields.
+$ub_title = get_field( 'title' );
+
+if ( ! $ub_title ) {
+	$ub_title = 'Өгөгдмөл гарчиг';
+}
 
 if ( ! $ub_title && $is_preview ) {
-	echo '<div class="p-12 text-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-sm">Блокын мэдээллийг оруулна уу.</div>';
+	echo '<div class="p-12 text-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-sm">Мэдээллээ оруулна уу.</div>';
 	return;
 }
 ?>
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> py-12 lg:py-24">
-	<div class="container mx-auto px-6 lg:px-12">
-		<div class="max-w-3xl flex flex-col items-center mx-auto text-center">
-			<h2 class="text-3xl lg:text-5xl font-bold mb-6"><?php echo esc_html( $ub_title ); ?></h2>
-			<div class="text-lg text-neutral-600"><?php echo wp_kses_post( $ub_description ); ?></div>
-		</div>
+	<div class="container">
+		<!-- Content. -->
+		<h2 class="text-3xl lg:text-5xl font-bold"><?php echo esc_html( $ub_title ); ?></h2>
 	</div>
 </section>
 ```

@@ -1,0 +1,19 @@
+{
+    "name": "acf/cta-banner",
+    "title": "CTA Баннер",
+    "description": "Гарчиг, тайлбар болон хоёр товчлуур бүхий мэдээллийн баннер.",
+    "category": "ace-blocks",
+    "icon": "megaphone",
+    "keywords": ["cta", "banner", "ace", "buttons"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "cta-banner.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "postTypes": ["page"]
+}
