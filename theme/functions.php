@@ -96,6 +96,9 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
+		// Add support for wide and full-width blocks.
+		add_theme_support( 'align-wide' );
+
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
 	}

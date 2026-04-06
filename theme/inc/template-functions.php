@@ -275,15 +275,15 @@ function ub_scripts() {
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
 
-	// Swiper-ийг зөвхөн single post үед ачаалах.
-	if ( is_single() ) {
-		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
+	// Swiper-ийг ачаалах.
+	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
 
-		// Swiper-ийг идэвхжүүлэх inline script.
-		$ub_swiper_init = "
-			document.addEventListener('DOMContentLoaded', function() {
-				if (typeof Swiper !== 'undefined') {
+	$ub_swiper_init = "
+		document.addEventListener('DOMContentLoaded', function() {
+			if (typeof Swiper !== 'undefined') {
+				// Related Posts Carousel
+				if (document.querySelector('[data-related-posts-carousel]')) {
 					function setSameHeight(swiper) {
 						let maxHeight = 0;
 						if (swiper.slides && swiper.slides.length > 0) {
@@ -320,10 +320,34 @@ function ub_scripts() {
 						}
 					});
 				}
-			});
-		";
-		wp_add_inline_script( 'swiper', $ub_swiper_init );
-	}
+
+				// Hero Slider
+				if (document.querySelector('[data-hero-slider]')) {
+					new Swiper('[data-hero-slider]', {
+						loop: true,
+						speed: 1000,
+						autoplay: {
+							delay: 5000,
+							disableOnInteraction: false
+						},
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true
+						},
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev'
+						},
+						effect: 'fade',
+						fadeEffect: {
+							crossFade: true
+						}
+					});
+				}
+			}
+		});
+	";
+	wp_add_inline_script( 'swiper', $ub_swiper_init );
 }
 add_action( 'wp_enqueue_scripts', 'ub_scripts' );
 

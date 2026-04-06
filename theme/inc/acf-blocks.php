@@ -25,8 +25,11 @@ add_action( 'init', 'ub_register_acf_blocks' );
 
 /**
  * Add Block Categories
+ *
+ * @param array $categories Existing block categories.
+ * @return array Modified block categories.
  */
-function ub_block_categories( $categories, $post ) {
+function ub_block_categories( $categories ) {
 	return array_merge(
 		$categories,
 		array(
@@ -37,4 +40,4 @@ function ub_block_categories( $categories, $post ) {
 		)
 	);
 }
-add_filter( 'block_categories_all', 'ub_block_categories', 10, 2 );
+add_filter( 'block_categories_all', 'ub_block_categories', 10, 1 );

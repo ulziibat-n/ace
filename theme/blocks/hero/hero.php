@@ -8,61 +8,111 @@
  * @param  (int|string) $post_id The post ID this block is saved to.
  */
 
-$id = 'hero-' . $block['id'];
+$ub_id = 'hero-' . $block['id'];
 if ( ! empty( $block['anchor'] ) ) {
-	$id = $block['anchor'];
+	$ub_id = $block['anchor'];
 }
 
-$align_class = $block['align'] ? 'align' . $block['align'] : '';
+$ub_class_name = 'hero-block alignfull';
+if ( ! empty( $block['className'] ) ) {
+	$ub_class_name .= ' ' . $block['className'];
+}
 
-// ACF Fields
-$title    = get_field( 'title' ) ?: 'Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас.';
-$subtitle = get_field( 'subtitle' ) ?: 'ACE EDU WORLD нь Солонгост сурах хүсэлтэй залууст нэг цогц зөвлөгөө өгдөг Korean study hub юм.';
-$image    = get_field( 'image' );
-$variant  = get_field( 'variant' ) ?: 'home';
-$ctas     = get_field( 'ctas' );
+$ub_slides = get_field( 'slides' );
 
+if ( ! $ub_slides ) {
+	if ( $is_preview ) {
+		echo '<div class="p-12 text-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-sm">Херо: Слайдуудаа оруулна уу.</div>';
+	}
+	return;
+}
 ?>
 
-<section id="<?php echo esc_attr( $id ); ?>" class="relative overflow-hidden bg-neutral-900 text-white <?php echo esc_attr( $align_class ); ?>">
-	<?php if ( $image ) : ?>
-		<div class="absolute inset-0 opacity-40">
-			<?php echo wp_get_attachment_image( $image, 'full', false, array( 'class' => 'w-full h-full object-cover' ) ); ?>
-		</div>
-	<?php endif; ?>
+<section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> relative overflow-hidden bg-neutral-900 text-white">
+	<div class="swiper hero-swiper" data-hero-slider>
+		<div class="swiper-wrapper">
+			<?php foreach ( $ub_slides as $ub_slide ) : ?>
+				<?php
+				$ub_image       = $ub_slide['image'];
+				$ub_title       = $ub_slide['title'];
+				$ub_description = $ub_slide['description'];
+				$ub_button      = $ub_slide['button'];
+				?>
+				<div class="swiper-slide relative min-h-[600px] md:min-h-[700px] lg:min-h-[850px] flex flex-col justify-end">
+					<?php if ( $ub_image ) : ?>
+						<div class="absolute inset-0 z-0">
+							<?php echo wp_get_attachment_image( $ub_image['ID'], 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
+							<div class="absolute inset-0 z-20 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
+						</div>
+					<?php endif; ?>
 
-	<div class="relative z-10 container py-24 md:py-32 lg:py-48">
-		<div class="max-w-3xl">
-			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-				<?php echo esc_html( $title ); ?>
-			</h1>
-			<p class="text-lg md:text-xl text-neutral-300 mb-10 max-w-2xl">
-				<?php echo esc_html( $subtitle ); ?>
-			</p>
-			
-			<?php if ( $ctas ) : ?>
-				<div class="flex flex-wrap gap-4">
-					<?php foreach ( $ctas as $cta ) : ?>
-						<?php
-						$link       = $cta['link'];
-						$is_primary = $cta['primary'];
-						if ( $link ) :
-							?>
-							<a href="<?php echo esc_url( $link['url'] ); ?>" 
-								target="<?php echo esc_attr( $link['target'] ?: '_self' ); ?>"
-								class="<?php echo $is_primary ? 'bg-primary hover:bg-primary-dark text-white' : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'; ?> px-8 py-4 rounded-full font-bold transition-all duration-300">
-								<?php echo esc_html( $link['title'] ); ?>
-							</a>
-						<?php endif; ?>
-					<?php endforeach; ?>
+					<div class="container relative z-30 px-6 lg:px-12 pt-48 pb-16 lg:pt-72 lg:pb-32">
+						<div class="max-w-4xl flex flex-col">
+							<?php if ( $ub_title ) : ?>
+								<h1 class="text-4xl font-bold leading-tight lg:text-6xl mb-0 animate-fade-in-up">
+									<?php echo esc_html( $ub_title ); ?>
+								</h1>
+							<?php endif; ?>
+
+							<?php if ( $ub_description ) : ?>
+								<p class="mt-8 text-lg text-neutral-200 max-w-2xl animate-fade-in-up delay-100">
+									<?php echo esc_html( $ub_description ); ?>
+								</p>
+							<?php endif; ?>
+							
+							<?php if ( $ub_button ) : ?>
+								<div class="mt-10 animate-fade-in-up delay-200">
+									<a href="<?php echo esc_url( $ub_button['url'] ); ?>" 
+										target="<?php echo esc_attr( $ub_button['target'] ?: '_self' ); ?>"
+										class="inline-block bg-primary hover:bg-primary-dark text-white px-10 py-4 rounded-sm font-bold transition-all duration-300 transform hover:-translate-y-1">
+										<?php echo esc_html( $ub_button['title'] ); ?>
+									</a>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
 				</div>
-			<?php else : ?>
-				<div class="flex flex-wrap gap-4">
-					<a href="#register" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold transition-all duration-300">
-						Үнэгүй зөвлөгөө авах
-					</a>
-				</div>
-			<?php endif; ?>
+			<?php endforeach; ?>
 		</div>
+		
+		<!-- Swiper Navigation/Pagination -->
+		<div class="swiper-pagination bottom-12! left-10! w-auto!"></div>
+		<div class="swiper-button-next right-10! text-white! after:text-2xl!"></div>
+		<div class="swiper-button-prev left-10! text-white! after:text-2xl!"></div>
 	</div>
 </section>
+
+<style>
+	.hero-block .swiper-pagination-bullet {
+		background-color: white;
+		opacity: 0.5;
+		transition: all 0.3s ease;
+	}
+	.hero-block .swiper-pagination-bullet-active {
+		background-color: var(--color-primary);
+		width: 80px;
+		opacity: 1;
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const heroSwiper = new Swiper('.hero-swiper', {
+			loop: true,
+			effect: 'slide',
+			speed: 800,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+	});
+</script>

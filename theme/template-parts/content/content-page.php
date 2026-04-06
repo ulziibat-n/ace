@@ -51,7 +51,11 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 		</header><!-- .entry-header -->
 		<?php
 	endif;
-	$ub_page_content_class .= ' py-16 lg:py-32 prose';
+	if ( $ub_page_title ) {
+		$ub_page_content_class .= ' py-16 lg:py-32 prose';
+	} else {
+		$ub_page_content_class .= ' max-w-full';
+	}
 	?>
 	<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
 		<?php
