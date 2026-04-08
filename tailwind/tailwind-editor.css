@@ -40,9 +40,22 @@
 }
 
 /* Ensure no gap between adjacent blocks in the editor's main content area */
+.editor-styles-wrapper {
+	margin: 0;
+	padding: 0;
+}
+.editor-styles-wrapper .is-root-container {
+	padding: 0;
+}
 .editor-styles-wrapper .is-root-container > .wp-block {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+
+.editor-styles-wrapper .is-root-container > .wp-block.acf-block-component {
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
 }
 
 

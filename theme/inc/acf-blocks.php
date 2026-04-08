@@ -41,3 +41,26 @@ function ub_block_categories( $categories ) {
 	);
 }
 add_filter( 'block_categories_all', 'ub_block_categories', 10, 1 );
+
+/**
+ * Бүх ACF блокуудыг автоматаар бүтэн өргөнөөр харуулах болон сонголт хийх хэсгийг нуух.
+ * Энэ нь ирээдүйд шинэ блокууд нэмэгдэхэд автоматаар ажиллана.
+ *
+ * @param array  $args Блокны аргументууд.
+ * @param string $block_type Блокны нэр (acf/faq г.м).
+ * @return array Шинэчилсэн аргументууд.
+ */
+function ub_force_acf_blocks_alignment( $args, $block_type ) {
+	if ( strpos( $block_type, 'acf/' ) === 0 ) {
+		// Зөвхөн 'full' өргөнийг зөвшөөрөх.
+		$args['supports']['align'] = array( 'full' );
+
+		// Анхдагч өргөнийг 'full' болгож тохируулах.
+		$args['attributes']['align'] = array(
+			'type'    => 'string',
+			'default' => 'full',
+		);
+	}
+	return $args;
+}
+add_filter( 'register_block_type_args', 'ub_force_acf_blocks_alignment', 20, 2 );

@@ -22,9 +22,17 @@ if ( ! empty( $block['className'] ) ) {
 
 $ub_slides = get_field( 'slides' );
 
+// Dynamic dummy content from block.json if fields are empty in preview.
+if ( $is_preview && empty( $ub_slides ) ) {
+	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
+	if ( ! empty( $ub_example_data['slides'] ) ) {
+		$ub_slides = $ub_example_data['slides'];
+	}
+}
+
 if ( ! $ub_slides ) {
 	if ( $is_preview ) {
-		echo '<div class="p-12 text-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-sm">Херо: Слайдуудаа оруулна уу.</div>';
+		echo '<div class="p-12 text-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-sm">Херо: Слайдуудаа оруулна уу. "Example" дата block.json-оос уншигдаж байна уу?</div>';
 	}
 	return;
 }
@@ -35,39 +43,52 @@ if ( ! $ub_slides ) {
 		<div class="swiper-wrapper">
 			<?php foreach ( $ub_slides as $ub_slide ) : ?>
 				<?php
-				$ub_image       = $ub_slide['image'];
-				$ub_title       = $ub_slide['title'];
-				$ub_description = $ub_slide['description'];
-				$ub_button      = $ub_slide['button'];
+				$ub_image       = isset( $ub_slide['image'] ) ? $ub_slide['image'] : null;
+				$ub_title       = isset( $ub_slide['title'] ) ? $ub_slide['title'] : '';
+				$ub_description = isset( $ub_slide['description'] ) ? $ub_slide['description'] : '';
+				$ub_button      = isset( $ub_slide['button'] ) ? $ub_slide['button'] : null;
+				
+				// Handle case where image might be an ID or array.
+				$ub_image_id = 0;
+				$ub_image_url = '';
+				if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
+					$ub_image_id = $ub_image['ID'];
+				} elseif ( is_numeric( $ub_image ) ) {
+					$ub_image_id = $ub_image;
+				} elseif ( is_array( $ub_image ) && isset( $ub_image['url'] ) ) {
+					$ub_image_url = $ub_image['url'];
+				}
 				?>
 				<div class="swiper-slide relative min-h-[600px] md:min-h-[700px] lg:min-h-[850px] flex flex-col justify-end">
-					<?php if ( $ub_image ) : ?>
-						<div class="absolute inset-0 z-0">
-							<?php echo wp_get_attachment_image( $ub_image['ID'], 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
-							<div class="absolute inset-0 z-20 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
-						</div>
-					<?php endif; ?>
+					<div class="absolute inset-0 z-0">
+						<?php if ( $ub_image_id ) : ?>
+							<?php echo wp_get_attachment_image( $ub_image_id, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
+						<?php elseif ( $ub_image_url ) : ?>
+							<img src="<?php echo esc_url( $ub_image_url ); ?>" class="w-full h-full absolute inset-0 z-10 object-cover" alt="">
+						<?php endif; ?>
+						<div class="absolute inset-0 z-20 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
+					</div>
 
 					<div class="container relative z-30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 						<div class="max-w-4xl flex flex-col">
 							<?php if ( $ub_title ) : ?>
-								<h1 class="text-4xl font-bold leading-tight lg:text-6xl mb-0 animate-fade-in-up text-white">
+								<h1 class="text-3xl font-bold leading-tight lg:text-5xl mb-0 animate-fade-in-up text-white">
 									<?php echo esc_html( $ub_title ); ?>
 								</h1>
 							<?php endif; ?>
 
 							<?php if ( $ub_description ) : ?>
-								<p class="mt-8 text-lg max-w-2xl animate-fade-in-up delay-100 text-white">
+								<p class="mt-8 text-base lg:text-lg max-w-2xl animate-fade-in-up delay-100 text-white">
 									<?php echo esc_html( $ub_description ); ?>
 								</p>
 							<?php endif; ?>
 							
-							<?php if ( $ub_button ) : ?>
+							<?php if ( $ub_button && isset( $ub_button['url'] ) ) : ?>
 								<div class="mt-10 animate-fade-in-up delay-200">
 									<a href="<?php echo esc_url( $ub_button['url'] ); ?>" 
-										target="<?php echo esc_attr( $ub_button['target'] ? $ub_button['target'] : '_self' ); ?>"
+										target="<?php echo esc_attr( isset( $ub_button['target'] ) ? $ub_button['target'] : '_self' ); ?>"
 										class="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-xs font-bold transition-all duration-300 shadow-lg shadow-primary/20 transform hover:-translate-y-1 no-underline">
-										<span class="uppercase leading-none text-xs"><?php echo esc_html( $ub_button['title'] ); ?></span>
+										<span class="uppercase leading-none text-xs"><?php echo esc_html( isset( $ub_button['title'] ) ? $ub_button['title'] : 'Дэлгэрэнгүй' ); ?></span>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -99,22 +120,25 @@ if ( ! $ub_slides ) {
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-		const heroSwiper = new Swiper('.hero-swiper', {
-			loop: true,
-			effect: 'slide',
-			speed: 800,
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		});
+		// ACF will re-run scripts in editor, so we check if swiper exists
+		if (typeof Swiper !== 'undefined') {
+			const heroSwiper = new Swiper('.hero-swiper', {
+				loop: true,
+				effect: 'fade',
+				speed: 800,
+				autoplay: {
+					delay: 5000,
+					disableOnInteraction: false,
+				},
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		}
 	});
 </script>

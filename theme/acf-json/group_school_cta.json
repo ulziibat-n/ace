@@ -1,0 +1,56 @@
+{
+    "key": "group_school_cta",
+    "title": "Холбоо барих \/ CTA",
+    "local": "php",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "fields": {
+        "field_cta_title": {
+            "key": "field_cta_title",
+            "name": "inquiry_cta_title",
+            "type": "text",
+            "parent": "group_school_cta",
+            "label": "CTA Гарчиг",
+            "default_value": "Сургуулиа сонгоход тань тусламж хэрэгтэй байна уу?",
+            "instructions": "Хуудасны доод хэсэгт харагдах зөвлөгөө авах хэсгийн гарчиг",
+            "menu_order": 0
+        },
+        "field_cta_text": {
+            "key": "field_cta_text",
+            "name": "inquiry_cta_text",
+            "type": "textarea",
+            "parent": "group_school_cta",
+            "label": "CTA Текст",
+            "rows": 2,
+            "instructions": "Гарчгийн доор харагдах уриалга текст",
+            "default_value": "Манай туршлагатай зөвлөхүүд танд хамгийн тохиромжтой хувилбарыг сонгоход туслах болно.",
+            "menu_order": 1
+        },
+        "field_messenger_link": {
+            "key": "field_messenger_link",
+            "name": "messenger_link",
+            "type": "url",
+            "parent": "group_school_cta",
+            "label": "Messenger линк",
+            "instructions": "Facebook Messenger холбоос (жишээ: https:\/\/m.me\/yourpage)",
+            "menu_order": 2
+        },
+        "field_kakao_link": {
+            "key": "field_kakao_link",
+            "name": "kakao_link",
+            "type": "url",
+            "parent": "group_school_cta",
+            "label": "KakaoTalk линк",
+            "instructions": "KakaoTalk холбоос (жишээ: https:\/\/pf.kakao.com\/... эсвэл id)",
+            "menu_order": 3
+        }
+    }
+}

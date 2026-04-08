@@ -332,7 +332,7 @@ function ub_scripts() {
 						},
 						pagination: {
 							el: '.swiper-pagination',
-							clickable: true
+							clickable: true,
 						},
 						navigation: {
 							nextEl: '.swiper-button-next',
@@ -341,6 +341,39 @@ function ub_scripts() {
 						effect: 'fade',
 						fadeEffect: {
 							crossFade: true
+						}
+					});
+				}
+
+				// Testimonials Carousel
+				if (document.querySelector('[data-testimonials-slider]')) {
+					new Swiper('[data-testimonials-slider]', {
+						loop: false,
+						speed: 600,
+						spaceBetween: 10,
+						slidesPerView: 1,
+						autoplay: {
+							delay: 7000,
+							disableOnInteraction: false
+						},
+						pagination: {
+							el: '.swiper-pagination',
+							type: 'progressbar'
+						},
+						navigation: {
+							nextEl: '[data-testimonials-carousel-next]',
+							prevEl: '[data-testimonials-carousel-prev]'
+						},
+						breakpoints: {
+							640: {
+								slidesPerView: 2
+							},
+							1024: {
+								slidesPerView: 3
+							},
+							1280: {
+								slidesPerView: 4
+							}
 						}
 					});
 				}
@@ -357,6 +390,7 @@ add_action( 'wp_enqueue_scripts', 'ub_scripts' );
  * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
  * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
+
 function ub_enqueue_block_editor_script() {
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
@@ -365,21 +399,26 @@ function ub_enqueue_block_editor_script() {
 		$current_screen->is_block_editor() &&
 		'widgets' !== $current_screen->id
 	) {
+		// Enqueue block editor script.
 		wp_enqueue_script(
 			'ace-editor',
 			get_template_directory_uri() . '/js/block-editor.min.js',
-			array(
-				'wp-blocks',
-				'wp-edit-post',
-			),
+			array( 'wp-blocks', 'wp-edit-post' ),
 			UB_VERSION,
 			true
 		);
 		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+
+		// Enqueue Swiper assets for block editor preview.
+		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
+
+		// Inline init for hero slider in editor.
+		$hero_swiper_init = "document.addEventListener('DOMContentLoaded', function() { if (typeof Swiper !== 'undefined' && document.querySelector('[data-hero-slider]')) { new Swiper('.hero-swiper', { loop: true, effect: 'fade', speed: 800, autoplay: { delay: 5000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } }); } if (typeof Swiper !== 'undefined' && document.querySelector('[data-testimonials-slider]')) { new Swiper('[data-testimonials-slider]', { loop: false, speed: 600, spaceBetween: 10, slidesPerView: 1, autoplay: { delay: 7000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-testimonials-carousel-next]', prevEl: '[data-testimonials-carousel-prev]' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } } }); } });";
+		wp_add_inline_script( 'swiper', $hero_swiper_init );
 	}
 
-	// Block editor дахь font-face @font-face-ийн зам admin context дотор
-	// харьцангуй URL-аар зөв ачаалагддаггүй тул абсолют URL-ийг inline CSS-ээр inject хийнэ.
+	// Block editor font-face injection (admin context).
 	if ( is_admin() ) {
 		$ub_font_uri = get_template_directory_uri() . '/fonts';
 		$ub_font_css = "
@@ -426,6 +465,7 @@ function ub_enqueue_block_editor_script() {
 }
 add_action( 'enqueue_block_assets', 'ub_enqueue_block_editor_script' );
 
+
 /**
  * TinyMCE (Classic Editor) редактор дээр Tailwind Typography-ийн классуудыг нэмэх.
  *
@@ -459,3 +499,26 @@ function ub_modify_heading_levels( $args, $block_type ) {
 	return $args;
 }
 add_filter( 'register_block_type_args', 'ub_modify_heading_levels', 10, 2 );
+
+/**
+ * ACF блокын жишээ өгөгдлийг block.json-оос унших функц.
+ *
+ * @param array $block Блокны объект.
+ * @return array Жишээ өгөгдөл.
+ */
+function ub_get_block_example_data( $block ) {
+	$example_data    = array();
+	$block_slug      = str_replace( 'acf/', '', $block['name'] );
+	$json_path       = get_template_directory() . '/blocks/' . $block_slug . '/block.json';
+
+	if ( file_exists( $json_path ) ) {
+		$json_content = file_get_contents( $json_path );
+		$json_data    = json_decode( $json_content, true );
+
+		if ( ! empty( $json_data['example']['attributes']['data'] ) ) {
+			$example_data = $json_data['example']['attributes']['data'];
+		}
+	}
+
+	return $example_data;
+}

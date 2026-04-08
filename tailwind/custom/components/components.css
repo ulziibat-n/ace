@@ -105,3 +105,15 @@
 .navigation.pagination .next.page-numbers {
 	@apply px-4 text-primary bg-white;
 }
+
+/**
+ * Swiper Progress Bar Pagination
+ */
+.swiper-pagination-progressbar {
+	@apply h-[3px] bg-slate-200 rounded-full overflow-hidden w-full max-w-[320px] mx-auto;
+	position: relative !important;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	@apply bg-primary rounded-full;
+}

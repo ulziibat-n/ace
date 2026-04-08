@@ -32,11 +32,63 @@ wp.domReady(() => {
 	wp.blocks.unregisterBlockVariation( 'core/paragraph', 'stretchy-paragraph' );
 	wp.blocks.unregisterBlockVariation( 'core/heading', 'stretchy-heading' );
 
-	// Add additional block editor modifications here. For example, you could
-	// register another block style:
-	//
-	// wp.blocks.registerBlockStyle( 'core/quote', {
-	// 	name: 'fancy-quote',
-	// 	label: 'Fancy Quote',
-	// } );
 });
+
+/**
+ * Initialize ACF block previews in the editor
+ */
+const initializeBlock = ($block) => {
+	const heroSlider = $block.find('[data-hero-slider]');
+	if (heroSlider.length && typeof Swiper !== 'undefined') {
+		new Swiper(heroSlider[0], {
+			loop: true,
+			effect: 'fade',
+			speed: 800,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+	}
+
+	const testimonialsSlider = $block.find('[data-testimonials-slider]');
+	if (testimonialsSlider.length && typeof Swiper !== 'undefined') {
+		new Swiper(testimonialsSlider[0], {
+			loop: false,
+			speed: 600,
+			spaceBetween: 10,
+			slidesPerView: 1,
+			autoplay: {
+				delay: 7000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'progressbar',
+			},
+			navigation: {
+				nextEl: '[data-testimonials-carousel-next]',
+				prevEl: '[data-testimonials-carousel-prev]',
+			},
+			breakpoints: {
+				640: { slidesPerView: 2 },
+				1024: { slidesPerView: 3 },
+				1280: { slidesPerView: 4 },
+			},
+		});
+	}
+};
+
+// Initialize blocks on editor load or preview update.
+if (window.acf) {
+	window.acf.addAction('render_block_preview/type=hero', initializeBlock);
+	window.acf.addAction('render_block_preview/type=testimonials', initializeBlock);
+}

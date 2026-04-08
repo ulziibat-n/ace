@@ -1,0 +1,33 @@
+@layer components {
+    /* School Card Enhancements */
+    .school-card {
+        @apply transition-all duration-500 ease-out;
+    }
+
+    /* Animation for Mobile Sticky CTA */
+    @keyframes bounce-subtle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+    .animate-bounce-subtle {
+        animation: bounce-subtle 3s infinite ease-in-out;
+    }
+
+    /* FAQ Interactivity */
+    .faq-item.active .faq-trigger svg {
+        @apply rotate-180 text-primary;
+    }
+    .faq-item.active {
+        @apply border-primary/20 bg-blue-50/30;
+    }
+
+    /* Sticky Nav Active State helper */
+    .nav-link-active {
+        @apply text-primary border-primary;
+    }
+
+    /* Custom range for typography in school single */
+    .school-single .prose {
+        @apply max-w-none;
+    }
+}

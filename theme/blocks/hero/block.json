@@ -11,9 +11,35 @@
         "renderTemplate": "hero.php"
     },
     "supports": {
-        "align": ["full"],
+        "align": false,
         "anchor": true,
         "jsx": true,
         "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "slides": [
+                    {
+                        "title": "Амжилттай ирээдүйнхээ анхны алхмыг бидэнтэй хамт",
+                        "description": "Бид танд Солонгос улсын хамгийн шилдэг сургуулиудад суралцахад мэргэжлийн түвшинд тусалж байна.",
+                        "button": {
+                            "title": "Бүртгүүлэх",
+                            "url": "#"
+                        },
+                        "image": {
+                            "url": "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

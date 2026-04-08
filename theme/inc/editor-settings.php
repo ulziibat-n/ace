@@ -38,6 +38,7 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 		'acf/feature-grid',
 		'acf/contact-form',
 		'acf/cta-banner',
+		'acf/testimonials',
 	);
 
 	foreach ( $acf_blocks as $block ) {

@@ -1,0 +1,120 @@
+{
+    "key": "group_school_tuition",
+    "title": "Төлбөр & Тусламж",
+    "local": "php",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 30,
+    "fields": {
+        "field_tuition_language": {
+            "key": "field_tuition_language",
+            "name": "tuition_language_course",
+            "type": "text",
+            "parent": "group_school_tuition",
+            "label": "Хэлний бэлтгэлийн төлбөр",
+            "instructions": "Ойролцоогоор нэг улирлын төлбөр (жишээ: 1,200,000 ₩)",
+            "menu_order": 0
+        },
+        "field_tuition_undergrad": {
+            "key": "field_tuition_undergrad",
+            "name": "tuition_undergraduate",
+            "type": "text",
+            "parent": "group_school_tuition",
+            "label": "Бакалаврын төлбөр",
+            "instructions": "Ойролцоогоор нэг семестрийн төлбөр (жишээ: 4,500,000 ₩)",
+            "menu_order": 1
+        },
+        "field_scholarship_info": {
+            "key": "field_scholarship_info",
+            "name": "scholarship_info",
+            "type": "wysiwyg",
+            "parent": "group_school_tuition",
+            "label": "Тэтгэлэгийн мэдээлэл",
+            "instructions": "Тэтгэлэг болон хөнгөлөлтийн ерөнхий тайлбар",
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "menu_order": 2
+        },
+        "field_dormitory_info": {
+            "key": "field_dormitory_info",
+            "name": "dormitory_info",
+            "type": "wysiwyg",
+            "parent": "group_school_tuition",
+            "label": "Дотуур байрны мэдээлэл",
+            "instructions": "Дотуур байрны нөхцөл, өрөөний сонголтын тайлбар",
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "menu_order": 3
+        },
+        "field_meal_fee": {
+            "key": "field_meal_fee",
+            "name": "meal_fee",
+            "type": "text",
+            "parent": "group_school_tuition",
+            "label": "Хоолны төлбөр",
+            "instructions": "Сургуулийн гуанзны нэг удаагийн хоолны дундаж төлбөр",
+            "menu_order": 4
+        },
+        "field_dormitory_fee": {
+            "key": "field_dormitory_fee",
+            "name": "dormitory_fee",
+            "type": "text",
+            "parent": "group_school_tuition",
+            "label": "Дотуур байрны төлбөр",
+            "instructions": "Сар эсвэл улирлын төлбөр (жишээ: 350,000 ₩ \/ сар)",
+            "menu_order": 5
+        },
+        "field_dormitory_gallery": {
+            "key": "field_dormitory_gallery",
+            "name": "dormitory_gallery",
+            "type": "gallery",
+            "parent": "group_school_tuition",
+            "label": "Дотуур байрны зургийн сан",
+            "return_format": "id",
+            "instructions": "Дотуур байрны орчин, өрөөний зургууд",
+            "menu_order": 6
+        },
+        "field_scholarships_list": {
+            "key": "field_scholarships_list",
+            "name": "scholarships_list",
+            "type": "repeater",
+            "parent": "group_school_tuition",
+            "label": "Тэтгэлэгийн нөхцөлүүд",
+            "instructions": "Тэтгэлэг авах боломжтой нөхцөлүүдийг хүснэгт хэлбэрээр оруулна",
+            "layout": "table",
+            "button_label": "Нэмэх",
+            "menu_order": 7
+        },
+        "field_tuition_bachelor_list": {
+            "key": "field_tuition_bachelor_list",
+            "name": "tuition_bachelor_list",
+            "type": "repeater",
+            "parent": "group_school_tuition",
+            "label": "Бакалаврын төлбөр (Мэргэжлээр)",
+            "instructions": "Мэргэжил тус бүрийн сургалтын төлбөрийг хайлт хийхэд зориулж оруулна",
+            "layout": "table",
+            "button_label": "Мэргэжил нэмэх",
+            "menu_order": 8
+        },
+        "field_tuition_master_list": {
+            "key": "field_tuition_master_list",
+            "name": "tuition_master_list",
+            "type": "repeater",
+            "parent": "group_school_tuition",
+            "label": "Магистр \/ Докторын төлбөр (Мэргэжлээр)",
+            "instructions": "Мастер \/ Докторын мэргэжил тус бүрийн төлбөр",
+            "layout": "table",
+            "button_label": "Мэргэжил нэмэх",
+            "menu_order": 9
+        }
+    }
+}
