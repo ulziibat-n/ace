@@ -1,0 +1,32 @@
+{
+    "name": "acf/page-header",
+    "title": "Хуудасны толгой",
+    "description": "Дотоод хуудасны гарчиг болон breadcrumb хэсэг.",
+    "category": "ace-blocks",
+    "icon": "heading",
+    "keywords": ["page", "header", "title", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "page-header.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "mode": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "custom_title": "Бидний тухай"
+            }
+        }
+    },
+    "postTypes": ["page"]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "acf/feature-cards",
+    "title": "Давуу талууд (Картаар)",
+    "description": "Үйлчилгээний давуу талуудыг карт хэлбэрээр харуулах хэсэг.",
+    "category": "ace-blocks",
+    "icon": "grid-view",
+    "keywords": ["features", "cards", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "feature-cards.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "section_title": "Бидний давуу тал",
+                "cards": [
+                    {
+                        "title": "Мэргэжлийн хамт олон",
+                        "description": "10 гаруй жилийн туршлагатай зөвлөхүүд таныг хөтөлнө."
+                    },
+                    {
+                        "title": "Шуурхай бүртгэл",
+                        "description": "Сургуульдаа хамгийн богино хугацаанд бүртгүүлэх боломж."
+                    }
+                ]
+            }
+        }
+    },
+    "postTypes": ["page"]
+}

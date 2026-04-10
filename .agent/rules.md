@@ -73,3 +73,29 @@ $ub_title = get_the_title();
 // Хэдэн арав мөрийн дараа...
 if ( $ub_header_button ) { ... }
 ```
+
+## 5. Дизайн Систем (Design System)
+
+Шинээр блок болон хуудас хөгжүүлэхдээ `DESIGN_SYSTEM.md` файлд заасан стандартыг чанд мөрдөнө.
+
+### 5.1 Өнгө (Colors)
+- Үндсэн өнгө: `--color-primary` (Blue)
+- Туслах өнгө: `--color-secondary` (Red)
+- Background: `bg-white`, `bg-slate-50`, `bg-slate-100` ашиглана.
+- Hardcoded hex value ашиглахыг хориглоно. Tailwind variables ашиглана.
+
+### 5.2 Типограф (Typography)
+- Font: **Google Sans**
+- Section Header: `text-2xl lg:text-3xl font-bold tracking-tight`
+- Body Text: `text-base font-medium leading-relaxed`
+- Meta Text: `text-[0.65rem] font-bold uppercase`
+
+### 5.3 Компонент загвар (Component Patterns)
+- **Buttons**:
+    - Primary (Blue): `bg-primary`, `rounded-xs`, `px-4 py-2`, `text-xs font-bold`, `shadow-lg shadow-primary/20`.
+    - White (CTA): `bg-white`, `text-primary`, `px-6 py-2`, `min-w-[140px]`, `shadow-xl shadow-black/5`.
+    - Outline: `bg-transparent`, `border-2 border-white/30`, `min-w-[140px]`.
+    - Доторх текст: `uppercase leading-none text-xs`.
+- **Cards**: `bg-white`, `rounded-sm`, `border-slate-50`, `hover:shadow-md`.
+- **Spacing**: Section padding-д `py-16 lg:py-24` эсвэл `py-32` ашиглана.
+- **Container**: Давхар гадуур нь заавал `.container` класс ашиглана.

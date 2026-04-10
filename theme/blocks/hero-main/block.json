@@ -1,0 +1,33 @@
+{
+    "name": "acf/hero-main",
+    "title": "Үндсэн Hero хэсэг",
+    "description": "Нүүр хуудасны хамгийн дээд хэсэгт байрлах премиум баннер.",
+    "category": "ace-blocks",
+    "icon": "cover-image",
+    "keywords": ["hero", "main", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero-main.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "super_title": "ACE EDU WORLD",
+                "headline": "Дэлхийн боловсролыг таны гарт",
+                "description": "БНСУ-д суралцах хамгийн дөт зам, мэргэжлийн зөвлөх үйлчилгээ."
+            }
+        }
+    },
+    "postTypes": ["page"]
+}

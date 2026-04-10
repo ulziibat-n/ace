@@ -1,19 +1,17 @@
 {
     "name": "acf/cta-banner",
-    "title": "CTA Баннер",
-    "description": "Гарчиг, тайлбар болон холбоо барих товч бүхий баннер.",
+    "title": "CTA Баннер (Premium)",
+    "description": "Шууд хөрвүүлэлт хийхэд зориулсан Navy эсвэл Amber суурьтай баннер.",
     "category": "ace-blocks",
     "icon": "megaphone",
-    "keywords": ["cta", "banner", "call to action", "ace"],
+    "keywords": ["cta", "banner", "ace"],
     "acf": {
         "mode": "preview",
         "renderTemplate": "cta-banner.php"
     },
     "supports": {
-        "align": false,
-        "anchor": true,
-        "jsx": true,
-        "mode": false
+        "align": ["full"],
+        "mode": true
     },
     "attributes": {
         "align": {
@@ -25,16 +23,8 @@
         "attributes": {
             "mode": "preview",
             "data": {
-                "cta_title": "Таны Солонгос дахь ирээдүй эндээс эхэлнэ",
-                "cta_description": "Өнөөдөр анхны алхмаа хийж, мэргэжлийн зөвлөхтэйгөө холбогдоорой.",
-                "cta_link_1": {
-                    "title": "Чат бичих",
-                    "url": "#"
-                },
-                "cta_link_2": {
-                    "title": "8800-****",
-                    "url": "#"
-                }
+                "cta_message": "Таны Солонгос дахь ирээдүй эндээс эхэлнэ",
+                "style_type": "navy"
             }
         }
     },

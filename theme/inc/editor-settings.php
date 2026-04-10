@@ -32,13 +32,18 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 	// Custom ACF Blocks.
 	$acf_blocks = array(
 		'acf/hero',
+		'acf/hero-main',
 		'acf/roadmap',
 		'acf/faq',
 		'acf/social-proof',
 		'acf/feature-grid',
+		'acf/feature-cards',
 		'acf/contact-form',
 		'acf/cta-banner',
+		'acf/process-timeline',
 		'acf/testimonials',
+		'acf/page-header',
+		'acf/design-system',
 	);
 
 	foreach ( $acf_blocks as $block ) {

@@ -1,0 +1,42 @@
+{
+    "name": "acf/process-timeline",
+    "title": "Бүртгэлийн алхмууд",
+    "description": "Суралцах эсвэл бүртгүүлэх алхмуудыг харуулсан timeline.",
+    "category": "ace-blocks",
+    "icon": "media-spreadsheet",
+    "keywords": ["process", "timeline", "steps", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "process-timeline.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "steps": [
+                    {
+                        "step_label": "01",
+                        "title": "Зөвлөгөө авах",
+                        "description": "Манай мэргэжлийн зөвлөхүүдтэй уулзаж чиглэлээ тогтооно."
+                    },
+                    {
+                        "step_label": "02",
+                        "title": "Материал бүрдүүлэлт",
+                        "description": "Сургуульд шаардлагатай бичиг баримтуудыг цуглуулна."
+                    }
+                ]
+            }
+        }
+    },
+    "postTypes": ["page"]
+}

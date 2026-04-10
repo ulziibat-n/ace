@@ -1,0 +1,75 @@
+{
+	"key": "group_ace_hero_main",
+	"title": "Блок: Үндсэн Hero",
+	"fields": [
+		{
+			"key": "field_hm_super_title",
+			"label": "Дээд гарчиг (Badge)",
+			"name": "super_title",
+			"type": "text"
+		},
+		{
+			"key": "field_hm_headline",
+			"label": "Үндсэн гарчиг",
+			"name": "headline",
+			"type": "textarea",
+			"required": 1,
+			"rows": 2
+		},
+		{
+			"key": "field_hm_description",
+			"label": "Тайлбар текст",
+			"name": "description",
+			"type": "textarea",
+			"rows": 3
+		},
+		{
+			"key": "field_hm_left_cta",
+			"label": "Зүүн CTA товч",
+			"name": "left_cta",
+			"type": "link"
+		},
+		{
+			"key": "field_hm_right_cta",
+			"label": "Баруун CTA товч",
+			"name": "right_cta",
+			"type": "link"
+		},
+		{
+			"key": "field_hm_bg_image",
+			"label": "Арын зураг",
+			"name": "bg_image",
+			"type": "image",
+			"return_format": "array"
+		},
+		{
+			"key": "field_hm_overlay_opacity",
+			"label": "Overlay харанхуйлалт",
+			"name": "overlay_opacity",
+			"type": "select",
+			"choices": {
+				"0": "0%",
+				"10": "10%",
+				"20": "20%",
+				"30": "30%",
+				"40": "40%",
+				"50": "50%",
+				"60": "60%",
+				"70": "70%",
+				"80": "80%",
+				"90": "90%"
+			},
+			"default_value": "60"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/hero-main"
+			}
+		]
+	],
+	"active": true
+}
