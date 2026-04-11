@@ -1,0 +1,55 @@
+/**
+ * Trust Signals Block Styles
+ * 
+ * Handles dynamic styling for active/highlighted slides in the Swiper carousel.
+ */
+
+.block-trust-signals__card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Default State (Inactive Slides) */
+.block-trust-signals .swiper-slide .block-trust-signals__card {
+    background-color: #f8fafc; /* slate-50 */
+    color: #085399; /* Navy primary */
+    border: 1px solid #f1f5f9; /* slate-100 */
+}
+
+.block-trust-signals .swiper-slide .block-trust-signals__card .block-trust-signals__number {
+    color: #085399;
+}
+
+.block-trust-signals .swiper-slide .block-trust-signals__card .block-trust-signals__label {
+    color: #0f172a; /* slate-900 */
+}
+
+.block-trust-signals .swiper-slide .block-trust-signals__card .block-trust-signals__grid-pattern {
+    opacity: 0.03;
+}
+
+/* Highlighted State (Active Slide) */
+.block-trust-signals .swiper-slide-active .block-trust-signals__card {
+    background-color: #085399; /* Navy primary */
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 25px 50px -12px rgba(8, 83, 153, 0.25); /* Shadow colored to match Navy */
+}
+
+.block-trust-signals .swiper-slide-active .block-trust-signals__card .block-trust-signals__number {
+    color: #ffffff;
+}
+
+.block-trust-signals .swiper-slide-active .block-trust-signals__card .block-trust-signals__label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.block-trust-signals .swiper-slide-active .block-trust-signals__card .block-trust-signals__grid-pattern {
+    opacity: 0.1;
+}
+
+/* Responsive adjustments for Swiper centering */
+.block-trust-signals .swiper-slide {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s;
+}

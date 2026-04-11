@@ -1,0 +1,102 @@
+{
+    "key": "group_trust_signals",
+    "title": "Блок: Итгэлцлийн үзүүлэлтүүд",
+    "fields": [
+        {
+            "key": "field_ts_title",
+            "label": "Секцийн гарчиг",
+            "name": "ts_title",
+            "type": "text",
+            "default_value": "Бидний амжилт тоогоор"
+        },
+        {
+            "key": "field_ts_description",
+            "label": "Секцийн тайлбар",
+            "name": "ts_description",
+            "type": "textarea",
+            "instructions": "Гарчгийн доор харагдах тайлбар текст.",
+            "default_value": "Бидний амжилтын гол үзүүлэлт бол оюутнуудын маань бодит үр дүн юм.",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_ts_header_width",
+            "label": "Гарчиг хэсгийн өргөн (Max Width)",
+            "name": "ts_header_width",
+            "type": "range",
+            "instructions": "Гарчиг болон тайлбар хэсгийн хамгийн их өргөнийг тохируулна.",
+            "default_value": 600,
+            "min": 400,
+            "max": 1200,
+            "step": 10,
+            "append": "px"
+        },
+        {
+            "key": "field_ts_stats",
+            "label": "Тоон үзүүлэлтүүд",
+            "name": "ts_stats",
+            "type": "repeater",
+            "instructions": "Дээд тал нь 4 үзүүлэлт нэмэхийг зөвлөж байна. Та нэгийг нь 'Онцлох' (Highlight) болгож ялгаж болно.",
+            "required": 0,
+            "min": 0,
+            "max": 4,
+            "layout": "block",
+            "button_label": "Үзүүлэлт нэмэх",
+            "sub_fields": [
+                {
+                    "key": "field_ts_is_highlighted",
+                    "label": "Онцлох (Highlight)?",
+                    "name": "is_highlighted",
+                    "type": "true_false",
+                    "instructions": "Энэ картыг брэндийн өнгөөр (Navy) ялгаж харуулах уу?",
+                    "ui": 1,
+                    "default_value": 0
+                },
+                {
+                    "key": "field_ts_stat_number",
+                    "label": "Тоо / Утга",
+                    "name": "stat_number",
+                    "type": "text",
+                    "instructions": "Жишээ: 800+",
+                    "required": 1
+                },
+                {
+                    "key": "field_ts_stat_label",
+                    "label": "Тайлбар",
+                    "name": "stat_label",
+                    "type": "text",
+                    "instructions": "Жишээ: Амжилттай оюутан",
+                    "required": 1
+                },
+                {
+                    "key": "field_ts_stat_icon",
+                    "label": "Дүрс (SVG эсвэл зураг)",
+                    "name": "stat_icon",
+                    "type": "image",
+                    "instructions": "Дөрвөлжин хэмжээтэй (1:1) дүрс эсвэл SVG файл оруулна уу.",
+                    "required": 0,
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/trust-signals"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

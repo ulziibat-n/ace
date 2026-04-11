@@ -1,0 +1,52 @@
+{
+    "name": "acf/trust-signals",
+    "title": "Итгэлцлийн үзүүлэлтүүд (Trust Signals)",
+    "description": "Тоо баримт болон амжилтын үзүүлэлтүүдийг харуулах блок.",
+    "category": "ace-blocks",
+    "icon": "awards",
+    "keywords": ["trust", "numbers", "stats", "social proof", "ace"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "trust-signals.php"
+    },
+    "script": "trust-signals-js",
+    "style": "trust-signals-css",
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "ts_title": "Бидний амжилт тоогоор",
+                "ts_stats": [
+                    {
+                        "stat_number": "800+",
+                        "stat_label": "Амжилттай суралцсан оюутан"
+                    },
+                    {
+                        "stat_number": "45+",
+                        "stat_label": "БНСУ-ын Их, дээд сургууль"
+                    },
+                    {
+                        "stat_number": "98%",
+                        "stat_label": "Виз гаралтын баталгаа"
+                    },
+                    {
+                        "stat_number": "8+",
+                        "stat_label": "Жилийн бодит туршлага"
+                    }
+                ]
+            }
+        }
+    }
+}
