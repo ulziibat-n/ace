@@ -150,3 +150,8 @@ require get_template_directory() . '/inc/options-page-config.php';
  * TutorLMS Integration.
  */
 require get_template_directory() . '/inc/tutorlms.php';
+
+/**
+ * Lead Form Handler.
+ */
+require get_template_directory() . '/inc/lead-forms.php';

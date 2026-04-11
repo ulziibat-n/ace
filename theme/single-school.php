@@ -227,7 +227,7 @@ while ( have_posts() ) :
 				</div>
 			</div>
 			
-			<div class="prose prose-slate max-w-none mb-8">
+			<div class="singular-content mb-8">
 				<?php the_field( 'dormitory_info' ); ?>
 			</div>
 
@@ -287,7 +287,7 @@ while ( have_posts() ) :
 							<span class="font-bold text-slate-900 text-sm group-hover:text-primary transition-colors"><?php the_sub_field( 'question' ); ?></span>
 							<svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 						</button>
-						<div class="faq-content hidden px-5 pb-5 text-slate-600 prose prose-sm max-w-none">
+						<div class="faq-content hidden px-5 pb-5 text-slate-600 singular-content">
 							<?php the_sub_field( 'answer' ); ?>
 						</div>
 					</div>
@@ -385,9 +385,9 @@ while ( have_posts() ) :
 						<div class="relative lg:sticky lg:top-8 space-y-12">
 							
 							<!-- TOC -->
-							<div class="pb-12 mb-12 border-b lg:leading-none prose prose-a:no-underline lg:text-xs lg:prose-li:pl-0 lg:prose-ul:ml-0 lg:prose-ul:pl-3.5 lg:prose-li:my-2 prose-a:text-foreground border-foreground/5 lg:pl-8 lg:mb-0 lg:pb-0 lg:border-0">
-								<h3 class="font-bold text-lg lg:uppercase lg:text-xs mb-4"><?php esc_html_e( 'Агуулга', 'ace' ); ?></h3>
-								<ul data-content-toc class="mt-2">
+							<div class="pb-12 mb-12 border-b lg:leading-none singular-content lg:text-xs lg:pl-8 lg:mb-0 lg:pb-0 lg:border-0">
+								<h3 class="font-black text-xl lg:uppercase lg:text-xs tracking-widest mb-4"><?php esc_html_e( 'Агуулга', 'ace' ); ?></h3>
+								<ul data-content-toc class="mt-4 list-none pl-0 space-y-2">
 									<?php echo $ub_toc_data['toc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</ul>
 							</div>
@@ -434,11 +434,11 @@ while ( have_posts() ) :
 
 					<!-- Main Content -->
 					<div class="relative w-full lg:w-3/4">
-						<div class="leading-relaxed lg:mx-auto lg:max-w-content prose prose-slate max-w-none">
-							<?php
-							echo $ub_toc_data['content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							?>
-						</div>
+					<div class="singular-content lg:mx-auto lg:max-content-width">
+						<?php
+						echo $ub_toc_data['content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						?>
+					</div>
 
 						<!-- Inquiry Section (Refined CTA Banner) -->
 						<div class="mt-20">

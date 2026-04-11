@@ -17,7 +17,7 @@ if ( ! defined( 'UB_VERSION' ) ) {
 if ( ! defined( 'UB_TYPOGRAPHY_CLASSES' ) ) {
 	define(
 		'UB_TYPOGRAPHY_CLASSES',
-		'prose prose-neutral max-w-none prose-a:text-primary'
+		'singular-content'
 	);
 }
 
@@ -325,22 +325,30 @@ function ub_scripts() {
 				if (document.querySelector('[data-hero-slider]')) {
 					new Swiper('[data-hero-slider]', {
 						loop: true,
-						speed: 1000,
+						speed: 1200,
 						autoplay: {
-							delay: 5000,
+							delay: 6000,
 							disableOnInteraction: false
 						},
 						pagination: {
 							el: '.swiper-pagination',
-							clickable: true,
+							type: 'progressbar'
 						},
 						navigation: {
-							nextEl: '.swiper-button-next',
-							prevEl: '.swiper-button-prev'
+							nextEl: '[data-hero-carousel-next]',
+							prevEl: '[data-hero-carousel-prev]'
 						},
 						effect: 'fade',
 						fadeEffect: {
 							crossFade: true
+						},
+						on: {
+							autoplayTimeLeft(s, time, progress) {
+								const slider = s.el;
+								if (slider) {
+									slider.style.setProperty('--hero-autoplay-progress', (1 - progress).toFixed(3));
+								}
+							}
 						}
 					});
 				}
@@ -351,11 +359,7 @@ function ub_scripts() {
 						loop: false,
 						speed: 600,
 						spaceBetween: 10,
-						slidesPerView: 1,
-						autoplay: {
-							delay: 7000,
-							disableOnInteraction: false
-						},
+						slidesPerView: 'auto',
 						pagination: {
 							el: '.swiper-pagination',
 							type: 'progressbar'
@@ -363,17 +367,6 @@ function ub_scripts() {
 						navigation: {
 							nextEl: '[data-testimonials-carousel-next]',
 							prevEl: '[data-testimonials-carousel-prev]'
-						},
-						breakpoints: {
-							640: {
-								slidesPerView: 2
-							},
-							1024: {
-								slidesPerView: 3
-							},
-							1280: {
-								slidesPerView: 4
-							}
 						}
 					});
 				}
@@ -390,7 +383,6 @@ add_action( 'wp_enqueue_scripts', 'ub_scripts' );
  * Редактор дээр вэб сайтын гадна талтай ижилхэн харагдуулахын тулд
  * фонт болон Tailwind-ийн тусгай тохиргоог энд оруулж өгдөг.
  */
-
 function ub_enqueue_block_editor_script() {
 	$current_screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 
@@ -414,7 +406,7 @@ function ub_enqueue_block_editor_script() {
 		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
 
 		// Inline init for hero slider in editor.
-		$hero_swiper_init = "document.addEventListener('DOMContentLoaded', function() { if (typeof Swiper !== 'undefined' && document.querySelector('[data-hero-slider]')) { new Swiper('.hero-swiper', { loop: true, effect: 'fade', speed: 800, autoplay: { delay: 5000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } }); } if (typeof Swiper !== 'undefined' && document.querySelector('[data-testimonials-slider]')) { new Swiper('[data-testimonials-slider]', { loop: false, speed: 600, spaceBetween: 10, slidesPerView: 1, autoplay: { delay: 7000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-testimonials-carousel-next]', prevEl: '[data-testimonials-carousel-prev]' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } } }); } });";
+		$hero_swiper_init = "document.addEventListener('DOMContentLoaded', function() { if (typeof Swiper !== 'undefined' && document.querySelector('[data-hero-slider]')) { new Swiper('[data-hero-slider]', { loop: true, effect: 'fade', speed: 1200, autoplay: { delay: 6000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-hero-carousel-next]', prevEl: '[data-hero-carousel-prev]' }, on: { autoplayTimeLeft(s, time, progress) { const slider = s.el; if (slider) { slider.style.setProperty('--hero-autoplay-progress', (1 - progress).toFixed(3)); } } } }); } if (typeof Swiper !== 'undefined' && document.querySelector('[data-testimonials-slider]')) { new Swiper('[data-testimonials-slider]', { loop: false, speed: 600, spaceBetween: 10, slidesPerView: 1, autoplay: { delay: 7000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-testimonials-carousel-next]', prevEl: '[data-testimonials-carousel-prev]' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } } }); } });";
 		wp_add_inline_script( 'swiper', $hero_swiper_init );
 	}
 
@@ -507,9 +499,9 @@ add_filter( 'register_block_type_args', 'ub_modify_heading_levels', 10, 2 );
  * @return array Жишээ өгөгдөл.
  */
 function ub_get_block_example_data( $block ) {
-	$example_data    = array();
-	$block_slug      = str_replace( 'acf/', '', $block['name'] );
-	$json_path       = get_template_directory() . '/blocks/' . $block_slug . '/block.json';
+	$example_data = array();
+	$block_slug   = str_replace( 'acf/', '', $block['name'] );
+	$json_path    = get_template_directory() . '/blocks/' . $block_slug . '/block.json';
 
 	if ( file_exists( $json_path ) ) {
 		$json_content = file_get_contents( $json_path );

@@ -1,0 +1,22 @@
+{
+    "name": "acf/hero-registration",
+    "title": "Hero Section: Бүртгэл (Split Form)",
+    "description": "Зүүн талдаа мэдээлэл, баруун талдаа бүртгэлийн форм бүхий Hero хэсэг.",
+    "category": "ace-blocks",
+    "icon": "forms",
+    "keywords": ["hero", "registration", "form", "split"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero-registration.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    }
+}

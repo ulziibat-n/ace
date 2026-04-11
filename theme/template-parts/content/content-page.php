@@ -52,7 +52,7 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 		<?php
 	endif;
 	if ( $ub_page_title ) {
-		$ub_page_content_class .= ' py-16 lg:py-32 prose';
+		$ub_page_content_class .= ' py-16 lg:py-32 singular-content';
 	} else {
 		$ub_page_content_class .= ' max-w-full';
 	}

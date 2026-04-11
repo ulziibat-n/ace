@@ -47,16 +47,16 @@
 						$ub_post_content = apply_filters( 'the_content', get_the_content() );
 						$ub_toc_data     = ub_get_toc_and_content( $ub_post_content );
 						?>
-						<div class="pb-12 mb-12 border-b lg:leading-none prose prose-a:no-underline lg:text-xs lg:prose-li:pl-0 lg:prose-ul:ml-0 lg:prose-ul:pl-3.5 lg:prose-li:my-2 prose-a:text-foreground border-foreground/5 lg:pl-8 lg:mb-0 lg:pb-0 lg:border-0">
-							<h3 class="font-bold text-[1.5em] lg:uppercase lg:text-xs"><?php esc_html_e( 'Агуулга', 'ace' ); ?></h3>
-							<ul data-content-toc class="mt-2">
+						<div class="pb-12 mb-12 border-b lg:leading-none singular-content lg:text-xs lg:pl-8 lg:mb-0 lg:pb-0 lg:border-0">
+							<h3 class="font-black text-xl lg:uppercase lg:text-xs tracking-widest"><?php esc_html_e( 'Агуулга', 'ace' ); ?></h3>
+							<ul data-content-toc class="mt-4 list-none pl-0 space-y-2">
 								<?php echo $ub_toc_data['toc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="relative w-full lg:w-3/4">
-					<div class="leading-relaxed lg:mx-auto lg:max-w-content prose">
+					<div class="singular-content lg:mx-auto lg:max-content-width">
 						<?php
 						echo $ub_toc_data['content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						?>

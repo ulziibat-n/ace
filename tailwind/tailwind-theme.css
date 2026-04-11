@@ -14,6 +14,7 @@
 	 * Design tokens previously in theme.json are now defined here directly.
      */
 	--color-primary: #085399;
+	--color-primary-dark: #063d70;
 	--color-secondary: #EC1B24;
 
 	/**
