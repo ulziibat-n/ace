@@ -31,19 +31,19 @@ if ( $is_preview && empty( $ub_title ) && empty( $ub_items ) ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> py-16 lg:py-24 bg-white">
+<section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> bg-white py-16 lg:py-24">
 	<div class="container">
 		<!-- Header -->
-		<div class="flex flex-col items-center text-center mb-16 px-4">
+		<div class="mb-16 flex flex-col items-center px-4 text-center">
 			<?php if ( $ub_title ) : ?>
-				<h2 class="text-2xl lg:text-3xl font-black text-slate-900 leading-tight mb-4 mx-auto" 
+				<h2 class="mx-auto mb-4 text-2xl leading-tight font-black text-slate-900 lg:text-3xl" 
 					style="max-width: <?php echo esc_attr( $ub_title_mw ); ?>px;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
 			<?php endif; ?>
 
 			<?php if ( $ub_description ) : ?>
-				<p class="text-base text-slate-500 mx-auto" 
+				<p class="mx-auto text-base text-slate-500" 
 					style="max-width: <?php echo esc_attr( $ub_description_mw ); ?>px;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
@@ -51,7 +51,7 @@ if ( $is_preview && empty( $ub_title ) && empty( $ub_items ) ) {
 		</div>
 
 		<!-- Accordion Items -->
-		<div class="max-w-4xl mx-auto flex flex-col gap-4">
+		<div class="mx-auto flex max-w-4xl flex-col gap-4">
 			<?php if ( $ub_items ) : ?>
 				<?php foreach ( $ub_items as $ub_item ) : ?>
 					<?php 
@@ -59,18 +59,18 @@ if ( $is_preview && empty( $ub_title ) && empty( $ub_items ) ) {
 					$ub_answer   = isset( $ub_item['answer'] ) ? $ub_item['answer'] : '';
 					?>
 					<?php if ( $ub_question ) : ?>
-						<details class="group bg-slate-50 rounded-xl transition-all duration-300 hover:bg-slate-100/50">
-							<summary class="flex items-center justify-between py-4 px-5 cursor-pointer list-none list-item-none [&::-webkit-details-marker]:hidden">
-								<h3 class="text-base font-bold text-slate-900 pr-8">
+						<details class="group rounded-xl bg-slate-50 transition-all duration-300 hover:bg-slate-100/50">
+							<summary class="list-item-none flex cursor-pointer list-none items-center justify-between px-5 py-4 [&::-webkit-details-marker]:hidden">
+								<h3 class="pr-8 text-base font-bold text-slate-900">
 									<?php echo esc_html( $ub_question ); ?>
 								</h3>
 								<div class="shrink-0 transition-transform duration-300 group-open:rotate-180">
-									<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
 									</svg>
 								</div>
 							</summary>
-							<div class="px-5 pb-4 pt-0 animate-fade-in text-slate-600 leading-relaxed text-base prose prose-sm prose-slate max-w-none">
+							<div class="animate-fade-in prose prose-sm max-w-none px-5 pt-0 pb-4 text-base leading-relaxed text-slate-600 prose-slate">
 								<?php echo wp_kses_post( $ub_answer ); ?>
 							</div>
 						</details>

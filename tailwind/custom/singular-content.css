@@ -8,56 +8,77 @@
 .singular-content {
 	/* Paragraphs */
 	& > p {
-		@apply text-base font-medium leading-relaxed text-slate-700 mt-[1.25em] mb-[1.25em] first:mt-0 last:mb-0 max-w-2xl mx-auto;
+		@apply mx-auto mt-[1.25em] mb-[1.25em] max-w-2xl text-base leading-relaxed font-medium text-slate-700 first:mt-0 last:mb-0;
 	}
 
 	/* Headings - Using Google Sans + Black weight */
-	& > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
-		@apply font-black tracking-tight text-slate-950 mt-[2em] mb-[1em] first:mt-0 last:mb-0 mx-auto max-w-2xl leading-snug leading-none;
+	& > h1,
+	& > h2,
+	& > h3,
+	& > h4,
+	& > h5,
+	& > h6 {
+		@apply mx-auto mt-[2em] mb-[1em] max-w-2xl leading-none leading-snug font-black tracking-tight text-slate-950 first:mt-0 last:mb-0;
 	}
 
-	& > h1 { @apply text-4xl leading-none lg:text-5xl; }
-	& > h2 { @apply text-2xl leading-none lg:text-3xl; }
-	& > h3 { @apply text-xl leading-none lg:text-2xl; }
-	& > h4 { @apply text-lg leading-none lg:text-xl; }
-	& > h5 { @apply text-base leading-none lg:text-lg; }
-	& > h6 { @apply text-xs tracking-widest leading-none uppercase lg:text-sm; }
+	& > h1 {
+		@apply text-4xl leading-none lg:text-5xl;
+	}
+	& > h2 {
+		@apply text-2xl leading-none lg:text-3xl;
+	}
+	& > h3 {
+		@apply text-xl leading-none lg:text-2xl;
+	}
+	& > h4 {
+		@apply text-lg leading-none lg:text-xl;
+	}
+	& > h5 {
+		@apply text-base leading-none lg:text-lg;
+	}
+	& > h6 {
+		@apply text-xs leading-none tracking-widest uppercase lg:text-sm;
+	}
 
 	/* Lists */
 	& > ul {
-		@apply list-disc list-outside pl-[1.625em] mt-[1.25em] mb-[1.25em] space-y-[0.5em] text-slate-700 mx-auto max-w-2xl;
+		@apply mx-auto mt-[1.25em] mb-[1.25em] max-w-2xl list-outside list-disc space-y-[0.5em] pl-[1.625em] text-slate-700;
 	}
 
 	& > ol {
-		@apply list-decimal list-outside pl-[1.625em] mt-[1.25em] mb-[1.25em] space-y-[0.5em] text-slate-700 mx-auto max-w-2xl;
+		@apply mx-auto mt-[1.25em] mb-[1.25em] max-w-2xl list-outside list-decimal space-y-[0.5em] pl-[1.625em] text-slate-700;
 	}
 
-	& > ul li, & > ol li {
+	& > ul li,
+	& > ol li {
 		@apply pl-[0.375em] leading-relaxed;
 	}
 
 	/* Nested Lists */
-	& > ul ul, & > ul ol, & > ol ul, & > ol ol {
+	& > ul ul,
+	& > ul ol,
+	& > ol ul,
+	& > ol ol {
 		@apply mt-[0.75em] mb-[0.75em];
 	}
 
 	/* Blockquotes */
 	& > blockquote.wp-block-quote {
-		@apply relative my-[1.6em] pl-[1.25em] border-l-4 border-secondary bg-slate-50/50 mx-auto max-w-2xl;
-		
+		@apply relative mx-auto my-[1.6em] max-w-2xl border-l-4 border-secondary bg-slate-50/50 pl-[1.25em];
+
 		p {
-			@apply mt-0 mb-0 text-2xl font-bold leading-none leading-snug text-slate-800;
+			@apply mt-0 mb-0 text-2xl leading-none leading-snug font-bold text-slate-800;
 		}
 
 		cite {
-			@apply block mt-[1em] text-xs font-black uppercase text-slate-400 not-italic tracking-[0.2em];
+			@apply mt-[1em] block text-xs font-black tracking-[0.2em] text-slate-400 uppercase not-italic;
 		}
 	}
 
 	/* Tables & Gutenberg Table Blocks - Premium Minimalist Overhaul */
 	& > table,
 	& > figure.wp-block-table {
-		@apply overflow-hidden mx-auto my-10 max-w-2xl;
+		@apply mx-auto my-10 max-w-2xl overflow-hidden;
 	}
 
 	& > table,
@@ -68,13 +89,13 @@
 			@apply border-b-2 border-slate-200/80;
 		}
 
-		th, 
+		th,
 		thead td {
-			@apply px-4 py-3 font-bold align-bottom text-slate-950;
+			@apply px-4 py-3 align-bottom font-bold text-slate-950;
 		}
 
 		td {
-			@apply px-4 py-4 align-top border-t-0 border-r-0 border-b border-l-0 transition-colors duration-200 border-slate-100/80;
+			@apply border-t-0 border-r-0 border-b border-l-0 border-slate-100/80 px-4 py-4 align-top transition-colors duration-200;
 		}
 
 		tbody tr:hover td {
@@ -84,32 +105,33 @@
 
 	/* HR */
 	& > hr {
-		@apply my-[3em] border-t border-slate-100  mx-auto max-w-2xl;
+		@apply mx-auto my-[3em] max-w-2xl border-t border-slate-100;
 	}
 
 	/* Links within content */
-	& > p a, & > li a {
-		@apply font-bold no-underline border-b transition-all text-primary border-primary/20 hover:border-primary/60 hover:text-primary-dark;
+	& > p a,
+	& > li a {
+		@apply border-b border-primary/20 font-bold text-primary no-underline transition-all hover:border-primary/60 hover:text-primary-dark;
 	}
 
 	/* Images & Figures */
 	& > figure {
-		@apply my-[2em] mx-auto max-w-2xl;
+		@apply mx-auto my-[2em] max-w-2xl;
 
 		img {
-			@apply w-full h-auto rounded-sm shadow-xl;
+			@apply h-auto w-full rounded-sm shadow-xl;
 		}
 
 		figcaption {
-			@apply mt-[1em] text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.2em];
+			@apply mt-[1em] text-center text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase;
 		}
 	}
 }
 
 /* Ensure WordPress block compatibility */
 .singular-content .wp-block-quote {
-    @apply mt-[1.6em] mb-[1.6em];
+	@apply mt-[1.6em] mb-[1.6em];
 }
 .singular-content .wp-block-table {
-    @apply my-[2em];
+	@apply my-[2em];
 }

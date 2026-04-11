@@ -7,22 +7,21 @@
  * https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities
  */
 
-
 @utility max-w-page {
-    width: 100%;
-    margin-right: auto;
-    margin-left: calc((100% - var(--container)) / 2);
-    max-width: var(--container-content);
+	width: 100%;
+	margin-right: auto;
+	margin-left: calc((100% - var(--container)) / 2);
+	max-width: var(--container-content);
 }
 
 @utility max-w-wide {
-    width: 100%;
-    margin-inline: auto;
-    max-width: var(--container);
+	width: 100%;
+	margin-inline: auto;
+	max-width: var(--container);
 }
 
 @utility max-w-content {
-    width: 100%;
-    margin-inline: auto;
-    max-width: var(--container-content);
+	width: 100%;
+	margin-inline: auto;
+	max-width: var(--container-content);
 }

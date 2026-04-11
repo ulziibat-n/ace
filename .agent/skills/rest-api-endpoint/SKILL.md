@@ -1,18 +1,19 @@
 ---
 name: rest-api-endpoint
 description: >
-  Trigger when: creating custom REST API endpoints, extending WP REST API,
-  building headless WordPress APIs, AJAX alternatives
+    Trigger when: creating custom REST API endpoints, extending WP REST API,
+    building headless WordPress APIs, AJAX alternatives
 triggers:
-  - "REST API"
-  - "API endpoint"
-  - "custom endpoint"
-  - "wp_ajax alternative"
+    - 'REST API'
+    - 'API endpoint'
+    - 'custom endpoint'
+    - 'wp_ajax alternative'
 ---
 
 ## REST API Endpoint Protocol
 
 ### Standard Endpoint Template
+
 <?php
 declare(strict_types=1);
 

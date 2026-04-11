@@ -288,7 +288,6 @@ function ub_register_assets() {
 	// Block Styles with Swiper dependency
 	wp_register_style( 'hero-css', get_template_directory_uri() . '/blocks/hero/hero.css', array( 'swiper' ), UB_VERSION );
 	wp_register_style( 'testimonials-css', get_template_directory_uri() . '/blocks/testimonials/testimonials.css', array( 'swiper' ), UB_VERSION );
-	wp_register_style( 'trust-signals-css', get_template_directory_uri() . '/blocks/trust-signals/trust-signals.css', array( 'swiper' ), UB_VERSION );
 }
 add_action( 'init', 'ub_register_assets', 5 );
 

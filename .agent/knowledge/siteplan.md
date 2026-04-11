@@ -10,176 +10,176 @@
 Зорилго: Сайтын бүрэн sitemap + хуудас бүрийн section structure + section бүрийн контентын задаргаа, UX, copywriting чиглэл, visual чиглэлийг НАРИЙВЧИЛСАН байдлаар гаргах.
 
 1. Бүрэн SITEMAP (3 түвшин хүртэл)
-1.1. Нэгдсэн жагсаалт
-Бүх хуудсыг Level 1 → Level 2 → Level 3 байдлаар жагсаа. Үүнд:
-Одоогийн 6 цэс
-Нэмэлт стратегийн хуудсууд (жишээ:
-Тэтгэлэг
-Амжилтын түүх / Testimonials
-Блог / Guide
-FAQ (хөтөлбөр/виз/амьдрал гэх мэт ангиллаар)
-Event / Webinar / Expo хуудсууд).​
-1.2. IA тайлбар
-Хэсэг бүрийн хажууд яагаад энэ цэс/хуудас хэрэгтэй, funnel дээр ямар үүрэгтэйг 1–2 өгүүлбэрээр тайлбарла.​
-1.3. Navigation
-Top navigation дээр гарч ирэх цэс, drop-down menu-гийн бүтцийг тодорхой бич.
-Footer navigation (secondary links, social, contact, quick CTA) хэсгийг тусад нь тодорхой бич.​
+   1.1. Нэгдсэн жагсаалт
+   Бүх хуудсыг Level 1 → Level 2 → Level 3 байдлаар жагсаа. Үүнд:
+   Одоогийн 6 цэс
+   Нэмэлт стратегийн хуудсууд (жишээ:
+   Тэтгэлэг
+   Амжилтын түүх / Testimonials
+   Блог / Guide
+   FAQ (хөтөлбөр/виз/амьдрал гэх мэт ангиллаар)
+   Event / Webinar / Expo хуудсууд).​
+   1.2. IA тайлбар
+   Хэсэг бүрийн хажууд яагаад энэ цэс/хуудас хэрэгтэй, funnel дээр ямар үүрэгтэйг 1–2 өгүүлбэрээр тайлбарла.​
+   1.3. Navigation
+   Top navigation дээр гарч ирэх цэс, drop-down menu-гийн бүтцийг тодорхой бич.
+   Footer navigation (secondary links, social, contact, quick CTA) хэсгийг тусад нь тодорхой бич.​
 2. НҮҮР ХУУДАС – section бүрийн дэлгэрэнгүй
-Хуудас: Нүүр
-2.1. Section list + зорилго
-Нүүр хуудасны бүх section-ийг дээрээс доош дарааллаар гарга. Жишээ (чи үүнээс илүү/өргөн болгож болно):​
-Hero (ACE value prop + 2 CTA + short form эсвэл button)
-“Яагаад ACE?” – 3–4 key differentiator
-Гол packaged үйлчилгээ (GKS, TOPIK, CV/Interview, On-ground support)
-Roadmap: “Солонгост сурахад хүрэх 3–5 алхам”
-Social proof – статистик + testimonial slider + partner logos
-“Програм \& Тэтгэлгийн guide-ууд” – 2–4 удирдамж контент highlight
-Live/Webinar/Event highlight – Facebook live, webinar, expo-н integration
-FAQ preview – 4–6 гол асуулт
-Final CTA + богино lead form
-Footer (contact, social, map, working hours).​
-2.2. Section бүрийн нарийвчилсан задаргаа
-Section тус бүр дээр дараахийг бич:
-Зорилго: Funnel дээр ямар үүрэгтэй вэ (awareness, consideration, conversion).
-Primary контент:
-Гарчиг (headline-ийн 2–3 боломжит жишээ)
-Дэд гарчиг/тайлбарын чиглэл (1–2 жишээ өгүүлбэр)
-Bullet-ээр илэрхийлэх гол мессежүүд
-UX элементүүд:
-Button, short form, card, slider, icon grid, стат блок гэх мэт ямар component ашиглах
-Desktop vs mobile дээр ямар layout логиктой байх
-Visual direction:
-Ямар төрлийн зураг, видео, icon ашиглах
-Photo style (real student, campus, Korea city, classroom г.м.)
-CTA copy жишээ:
-Тухайн section дээр 2–3 өөр CTA текстийн жишээ.
-Жишээ – Hero section дээр:
-Зорилго: ACE-ийн premium, structured, Korea-focused positioning-ийг 3 секундын дотор ойлгуулж, lead авах гол CTA-г санал болгох.​
-Контент: 3 headline хувилбар, 3 subheadline хувилбар, 2 CTA хувилбар (primary + secondary).
-UX: single-column hero, form эсвэл button, sticky header CTA тухай.
-Visual: background campus + student + Korea cityscape, өнгө/тонality.
+   Хуудас: Нүүр
+   2.1. Section list + зорилго
+   Нүүр хуудасны бүх section-ийг дээрээс доош дарааллаар гарга. Жишээ (чи үүнээс илүү/өргөн болгож болно):​
+   Hero (ACE value prop + 2 CTA + short form эсвэл button)
+   “Яагаад ACE?” – 3–4 key differentiator
+   Гол packaged үйлчилгээ (GKS, TOPIK, CV/Interview, On-ground support)
+   Roadmap: “Солонгост сурахад хүрэх 3–5 алхам”
+   Social proof – статистик + testimonial slider + partner logos
+   “Програм \& Тэтгэлгийн guide-ууд” – 2–4 удирдамж контент highlight
+   Live/Webinar/Event highlight – Facebook live, webinar, expo-н integration
+   FAQ preview – 4–6 гол асуулт
+   Final CTA + богино lead form
+   Footer (contact, social, map, working hours).​
+   2.2. Section бүрийн нарийвчилсан задаргаа
+   Section тус бүр дээр дараахийг бич:
+   Зорилго: Funnel дээр ямар үүрэгтэй вэ (awareness, consideration, conversion).
+   Primary контент:
+   Гарчиг (headline-ийн 2–3 боломжит жишээ)
+   Дэд гарчиг/тайлбарын чиглэл (1–2 жишээ өгүүлбэр)
+   Bullet-ээр илэрхийлэх гол мессежүүд
+   UX элементүүд:
+   Button, short form, card, slider, icon grid, стат блок гэх мэт ямар component ашиглах
+   Desktop vs mobile дээр ямар layout логиктой байх
+   Visual direction:
+   Ямар төрлийн зураг, видео, icon ашиглах
+   Photo style (real student, campus, Korea city, classroom г.м.)
+   CTA copy жишээ:
+   Тухайн section дээр 2–3 өөр CTA текстийн жишээ.
+   Жишээ – Hero section дээр:
+   Зорилго: ACE-ийн premium, structured, Korea-focused positioning-ийг 3 секундын дотор ойлгуулж, lead авах гол CTA-г санал болгох.​
+   Контент: 3 headline хувилбар, 3 subheadline хувилбар, 2 CTA хувилбар (primary + secondary).
+   UX: single-column hero, form эсвэл button, sticky header CTA тухай.
+   Visual: background campus + student + Korea cityscape, өнгө/тонality.
 3. “БИДНИЙ ТУХАЙ” – section-by-section
-Хуудас: Бидний тухай
-3.1. Section жагсаалт
-Жишээ (чи нэмэх/өөрчлөх эрхтэй):
-Brand story / ACE-ийн түүх
-Mission, Vision, Values
-“Our approach” – бид яаж ажилладаг вэ (high-touch, premium, structured)​
-Team – key хүмүүсийн танилцуулга
-Timeline / milestones – intake, оюутан, сургууль, event
-Media \& community – Unread/медиад гарсан, expo, live, community activities​
-Social proof (ACE-ийн онцгой кейсүүд)
-Final CTA – “Манай түүхийг уншсан бол, одоо өөрийн түүхээ эхлүүлье” форм/товч.
-3.2. Section бүрийн дэлгэрэнгүй
-Тайлбар:
-Зорилго
-Ямар төрлийн текст (storytelling, bullet fact, quote)
-Хэдэн мөр/хэмжээний copy байвал зохимжтой
-Visual:
-Storytelling хэсэгт – архив зураг, event, backstage
-Team – portrait, role, Korea-н холбоотой detail
-Timeline – visual timeline, icon, жил г.м.
+   Хуудас: Бидний тухай
+   3.1. Section жагсаалт
+   Жишээ (чи нэмэх/өөрчлөх эрхтэй):
+   Brand story / ACE-ийн түүх
+   Mission, Vision, Values
+   “Our approach” – бид яаж ажилладаг вэ (high-touch, premium, structured)​
+   Team – key хүмүүсийн танилцуулга
+   Timeline / milestones – intake, оюутан, сургууль, event
+   Media \& community – Unread/медиад гарсан, expo, live, community activities​
+   Social proof (ACE-ийн онцгой кейсүүд)
+   Final CTA – “Манай түүхийг уншсан бол, одоо өөрийн түүхээ эхлүүлье” форм/товч.
+   3.2. Section бүрийн дэлгэрэнгүй
+   Тайлбар:
+   Зорилго
+   Ямар төрлийн текст (storytelling, bullet fact, quote)
+   Хэдэн мөр/хэмжээний copy байвал зохимжтой
+   Visual:
+   Storytelling хэсэгт – архив зураг, event, backstage
+   Team – portrait, role, Korea-н холбоотой detail
+   Timeline – visual timeline, icon, жил г.м.
 4. “СУРГУУЛИУД” – listing + шүүлтүүр
-Хуудас: Сургуулиуд (listing page)
-4.1. Section жагсаалт
-Hero – curated partner network-ийн мессеж
-Filter/Search – хот, сургуулийн төрөл, түвшин, чиглэлээр шүүх
-School cards grid – сургуулиудын жагсаалт
-“Why these partners?” – curator’s note / trust блок​
-Student stories / testimonials (сургуультай холбосон кейсүүд)
-Final CTA + short “Recommend me a school” form.
-4.2. School card-ийн бүтэц
-Card бүр дээрх талбар: нэр, логотип, хот, төрөл, чиглэл, scholarship overview, CTA.
-Card-ийн copy: 2–3 сургуульд зориулсан жишээ текст (нэг card дээр 1–2 өгүүлбэр).​
-4.3. Шүүлтүүр UX
-Аль filter-ийг default харуулах, ямар label ашиглах, mobile дээр filter яаж харагдах.
+   Хуудас: Сургуулиуд (listing page)
+   4.1. Section жагсаалт
+   Hero – curated partner network-ийн мессеж
+   Filter/Search – хот, сургуулийн төрөл, түвшин, чиглэлээр шүүх
+   School cards grid – сургуулиудын жагсаалт
+   “Why these partners?” – curator’s note / trust блок​
+   Student stories / testimonials (сургуультай холбосон кейсүүд)
+   Final CTA + short “Recommend me a school” form.
+   4.2. School card-ийн бүтэц
+   Card бүр дээрх талбар: нэр, логотип, хот, төрөл, чиглэл, scholarship overview, CTA.
+   Card-ийн copy: 2–3 сургуульд зориулсан жишээ текст (нэг card дээр 1–2 өгүүлбэр).​
+   4.3. Шүүлтүүр UX
+   Аль filter-ийг default харуулах, ямар label ашиглах, mobile дээр filter яаж харагдах.
 5. “СУРГУУЛИЙН ДЭЛГЭРЭНГҮЙ” – template
-Хуудас: /schools/[slug]
-5.1. Section жагсаалт
-Hero: сургуулийн нэр, logo, хот/улс, positioning copy, CTA.
-Overview: товч түүх, хэмжээ, ерөнхий онцлог.
-Programs \& levels: ACE-ээр дамжуулан авах боломжтой хөтөлбөрүүдийн жагсаалт.​
-Scholarship \& cost overview.
-Student life \& city.
-Admission \& requirements summary (ерөнхий, яг албан нөхцөл биш, түвшинтэй).
-ACE-ийн дэмжлэг (энэ сургуульд ACE юу хийж өгдөг вэ).
-Testimonials / case stories.
-FAQ (сургуульд хамаарах 5–7 асуулт).
-Final CTA + lead form.
-5.2. Section бүрийн нарийвчилсан контент
-Hero: 3 headline, 2 subheadline жишээ, 2 CTA текстийн жишээ.
-Overview: 2–3 өгүүлбэрийн skeleton (tone: premium, trust).​
-Programs: structure (program name, level, duration, language, main outcomes).
-Scholarship: энэ сургуульд ACE-ийн оюутнуудын ерөнхий scholarship pattern (full/partial), текстийн хэлбэр.
-ACE support: 4–6 bullet, copy жишээ.
+   Хуудас: /schools/[slug]
+   5.1. Section жагсаалт
+   Hero: сургуулийн нэр, logo, хот/улс, positioning copy, CTA.
+   Overview: товч түүх, хэмжээ, ерөнхий онцлог.
+   Programs \& levels: ACE-ээр дамжуулан авах боломжтой хөтөлбөрүүдийн жагсаалт.​
+   Scholarship \& cost overview.
+   Student life \& city.
+   Admission \& requirements summary (ерөнхий, яг албан нөхцөл биш, түвшинтэй).
+   ACE-ийн дэмжлэг (энэ сургуульд ACE юу хийж өгдөг вэ).
+   Testimonials / case stories.
+   FAQ (сургуульд хамаарах 5–7 асуулт).
+   Final CTA + lead form.
+   5.2. Section бүрийн нарийвчилсан контент
+   Hero: 3 headline, 2 subheadline жишээ, 2 CTA текстийн жишээ.
+   Overview: 2–3 өгүүлбэрийн skeleton (tone: premium, trust).​
+   Programs: structure (program name, level, duration, language, main outcomes).
+   Scholarship: энэ сургуульд ACE-ийн оюутнуудын ерөнхий scholarship pattern (full/partial), текстийн хэлбэр.
+   ACE support: 4–6 bullet, copy жишээ.
 6. “ҮЙЛЧИЛГЭЭ” – packaged services
-Хуудас: Үйлчилгээ (services overview) + service detail
-6.1. Services overview page
-Section жагсаалт:
-Hero – “ACE-ийн packaged services” positioning
-Service category cards – GKS, TOPIK, CV/Interview, Visa \& on-ground support гэх мэт​
-“Яаж хамт ажилладаг вэ?” – алхмууд
-Testimonials (үйлчилгээнүүдтэй холбосон)
-FAQ (үйлчилгээтэй холбоотой)
-Final CTA + зөвлөгөө авах form.
-6.2. Service detail template (жишээ: GKS тэтгэлэг)
-Section-ууд:
-Hero – GKS focused copy, CTA
-Who is this for?
-What’s included? (modules, sessions, support)
-Process / roadmap (алхмууд)
-Outcomes (оноо, acceptance, clarity)
-Testimonials
-FAQ
-Final CTA.
-Section бүрт:
-Copy skeleton (2–4 өгүүлбэрийн жишээ)
-Visual чиглэл (icon, timeline illustration, photo)
+   Хуудас: Үйлчилгээ (services overview) + service detail
+   6.1. Services overview page
+   Section жагсаалт:
+   Hero – “ACE-ийн packaged services” positioning
+   Service category cards – GKS, TOPIK, CV/Interview, Visa \& on-ground support гэх мэт​
+   “Яаж хамт ажилладаг вэ?” – алхмууд
+   Testimonials (үйлчилгээнүүдтэй холбосон)
+   FAQ (үйлчилгээтэй холбоотой)
+   Final CTA + зөвлөгөө авах form.
+   6.2. Service detail template (жишээ: GKS тэтгэлэг)
+   Section-ууд:
+   Hero – GKS focused copy, CTA
+   Who is this for?
+   What’s included? (modules, sessions, support)
+   Process / roadmap (алхмууд)
+   Outcomes (оноо, acceptance, clarity)
+   Testimonials
+   FAQ
+   Final CTA.
+   Section бүрт:
+   Copy skeleton (2–4 өгүүлбэрийн жишээ)
+   Visual чиглэл (icon, timeline illustration, photo)
 7. “ОНЛАЙН ХИЧЭЭЛ + LMS”
-Хуудас: Онлайн хичээл (overview) + түвшин тус бүр
-7.1. Онлайн хичээл overview page
-Section жагсаалт:
-Hero – “Солонгос хэлний онлайн академи” positioning.
-Why online with ACE? – 3–5 давуу тал (LMS, багш, feedback).​
-Levels overview – 3 шатны card (түвшин, outcome, suitable for).
-How LMS works – скриншот concept, UX bullet-үүд.
-Testimonials / results (жишээ: TOPIK оноо өсөлт).
-FAQ (онлайн сургалт, төлбөр, цагийн сонголт).
-Final CTA + registration form.
-7.2. Level detail (1, 2, 3-р шат) template
-Section бүрийн:
-Outcome, syllabus summary, format (video/live/assignment), supportive elements (Q\&A, quiz, feedback).
-Copy skeleton, visual санал.
+   Хуудас: Онлайн хичээл (overview) + түвшин тус бүр
+   7.1. Онлайн хичээл overview page
+   Section жагсаалт:
+   Hero – “Солонгос хэлний онлайн академи” positioning.
+   Why online with ACE? – 3–5 давуу тал (LMS, багш, feedback).​
+   Levels overview – 3 шатны card (түвшин, outcome, suitable for).
+   How LMS works – скриншот concept, UX bullet-үүд.
+   Testimonials / results (жишээ: TOPIK оноо өсөлт).
+   FAQ (онлайн сургалт, төлбөр, цагийн сонголт).
+   Final CTA + registration form.
+   7.2. Level detail (1, 2, 3-р шат) template
+   Section бүрийн:
+   Outcome, syllabus summary, format (video/live/assignment), supportive elements (Q\&A, quiz, feedback).
+   Copy skeleton, visual санал.
 8. “ТЭТГЭЛЭГ”, “АМЖИЛТЫН ТҮҮХ”, “БЛОГ/GUIDE”, “FAQ”, “EVENT”
-8.1. Тэтгэлэг page
-GKS overview, partial scholarships, general guide, CTA lead form, recommended guides list.​
-8.2. Амжилтын түүх / Testimonials
-Case study cards (storytelling structure: Before → Process → Outcome), social proof grid, YouTube/Facebook live embed, CTA “Өөрийн түүхийг эхлүүлье”.​
-8.3. Блог / Guide
-Category structure (GKS, TOPIK, Major choice, Life in Korea, Visa/Accommodation).
-Article card structure, featured guides section, internal CTA (“Guide уншаад зөвлөгөө авах”).​
-8.4. FAQ
-Category-based FAQ (Тэтгэлэг, Хөтөлбөр, Виз, Амьдрал, Санхүү).
-Interactive FAQ UX (accordion), “асуулт асуух” CTA.
-8.5. Event / Webinar page
-Upcoming events, past events recap, registration CTA, Facebook live integration.​
+   8.1. Тэтгэлэг page
+   GKS overview, partial scholarships, general guide, CTA lead form, recommended guides list.​
+   8.2. Амжилтын түүх / Testimonials
+   Case study cards (storytelling structure: Before → Process → Outcome), social proof grid, YouTube/Facebook live embed, CTA “Өөрийн түүхийг эхлүүлье”.​
+   8.3. Блог / Guide
+   Category structure (GKS, TOPIK, Major choice, Life in Korea, Visa/Accommodation).
+   Article card structure, featured guides section, internal CTA (“Guide уншаад зөвлөгөө авах”).​
+   8.4. FAQ
+   Category-based FAQ (Тэтгэлэг, Хөтөлбөр, Виз, Амьдрал, Санхүү).
+   Interactive FAQ UX (accordion), “асуулт асуух” CTA.
+   8.5. Event / Webinar page
+   Upcoming events, past events recap, registration CTA, Facebook live integration.​
 9. “ХАРИЛЦАХ” – lead capture төв
-Хуудас: Харилцах
-9.1. Section жагсаалт
-Contact info + map + working hours.
-Main lead form (нэр, утас, FB/IG линк, education level, target year, interest).
-Social channel CTA (Facebook, Reels, Live, Group).
-Micro-FAQ (“Хэзээ хариу өгөх вэ?”, “Зөвлөгөө үнэгүй юу?” гэх мэт).
-9.2. Form UX
-Fields, field labels, helper text, privacy reassurance текстийн жишээ өг.
+   Хуудас: Харилцах
+   9.1. Section жагсаалт
+   Contact info + map + working hours.
+   Main lead form (нэр, утас, FB/IG линк, education level, target year, interest).
+   Social channel CTA (Facebook, Reels, Live, Group).
+   Micro-FAQ (“Хэзээ хариу өгөх вэ?”, “Зөвлөгөө үнэгүй юу?” гэх мэт).
+   9.2. Form UX
+   Fields, field labels, helper text, privacy reassurance текстийн жишээ өг.
 10. Funnel-тай холбосон тайлбар
-Facebook → ямар page (homepage/guide/service) → ямар section (CTA/form) → ямар action гэдгийг 2–3 funnel-ийн жишээгээр тайлбарла.​
-Жишээлбэл:
-FB Reels (GKS tips) → GKS guide page → Үйлчилгээ: GKS package → Lead form.
+    Facebook → ямар page (homepage/guide/service) → ямар section (CTA/form) → ямар action гэдгийг 2–3 funnel-ийн жишээгээр тайлбарла.​
+    Жишээлбэл:
+    FB Reels (GKS tips) → GKS guide page → Үйлчилгээ: GKS package → Lead form.
 
 Доорх blueprint-ийг яг Figma / Notion-д шууд буулгаад хөгжүүлэлт рүү шилжих хэмжээний түвшинд задлая.[^1_1]
 
-***
+---
 
 ## 1. Бүрэн sitemap (3 түвшин хүртэл)
 
@@ -256,7 +256,7 @@ FB Reels (GKS tips) → GKS guide page → Үйлчилгээ: GKS package → L
 
 Энэ IA нь Сэц Оюу + MBG-ийн funnel-ориентэй, логик бүтцийг ACE-ийн “Солонгос only + Korean study hub” байршуулалттай хослуулсан.[^1_1]
 
-***
+---
 
 ### 1.2 IA тайлбар (функц, funnel role)
 
@@ -275,7 +275,7 @@ FB Reels (GKS tips) → GKS guide page → Үйлчилгээ: GKS package → L
 - Онлайн бүртгэл: Main conversion hub (MBG “apply.mbg.mn” reference), бүх хуудаснаас primary CTA очих form.[^1_1]
 - Харилцах: Classic “contact” гэхээс илүү “consultation booking” hub.[^1_1]
 
-***
+---
 
 ### 1.3 Navigation бүтэц
 
@@ -306,7 +306,6 @@ Mobile:
 
 - Hamburger → full-screen drawer menu, сайтын гол цэсүүдийг нэг багц дээр, primary button “Бүртгүүлэх” drawer-ийн доод sticky хэсэгт.[^1_1]
 
-
 #### Footer navigation
 
 - Column 1 – Brand
@@ -333,7 +332,7 @@ Mobile:
     - Text CTA: “Facebook live, зөвлөгөөг алгасахгүй дагаарай”
     - Mini CTA button: Messenger-ээр асуух
 
-***
+---
 
 ## 2. Нүүр хуудас – section-by-section
 
@@ -341,20 +340,20 @@ Mobile:
 
 Дараалал:
 
-1) Hero – Value prop + primary CTA + short form
-2) “Солонгост сурах замнал” roadmap (3–4 алхам карт)
-3) Яагаад ACE? – differentiator icon grid
-4) Гол packaged үйлчилгээ (GKS, TOPIK, CV/Interview, On-ground support)
-5) Social proof – статистик + testimonial slider + partner logos
-6) Програм \& тэтгэлгийн guide-ууд (highlight cards)
-7) Live/Webinar/Event highlight (FB integration)
-8) FAQ preview (4–6 асуулт)
-9) Final CTA + богино lead form
-10) Footer
+1. Hero – Value prop + primary CTA + short form
+2. “Солонгост сурах замнал” roadmap (3–4 алхам карт)
+3. Яагаад ACE? – differentiator icon grid
+4. Гол packaged үйлчилгээ (GKS, TOPIK, CV/Interview, On-ground support)
+5. Social proof – статистик + testimonial slider + partner logos
+6. Програм \& тэтгэлгийн guide-ууд (highlight cards)
+7. Live/Webinar/Event highlight (FB integration)
+8. FAQ preview (4–6 асуулт)
+9. Final CTA + богино lead form
+10. Footer
 
 Энэ бүтэц нь Сэц Оюу/MBG-ийн сайн практикийг аваад, ACE-ийн GKS/тэтгэлэг+онлайн контентын funnel-тэй уялдуулж байгаа.[^1_1]
 
-***
+---
 
 ### 2.2 Section нарийвчилсан задаргаа
 
@@ -369,10 +368,12 @@ Mobile:
 1. “Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас.”
 2. “GKS, хэлний бэлтгэл, бакалавр – Солонгосын замналыг чинь бид менежмент хийе.”
 3. “Солонгост сурах зорилгоо бодит төлөвлөгөө болгоё.”
+
 - Subheadline хувилбар:
 
 1. “ACE EDU WORLD нь Солонгост сурах хүсэлтэй 17–30 насны залууст хэлний сургалт, тэтгэлэг, виз, амьдралын бэлтгэлийг нэг цогцоор нь төлөвлөж өгдөг Korean study hub юм.”
 2. “GKS болон их сургуулийн тэтгэлэгт чиглэсэн structured бэлтгэл, бодит кейс дээр суурилсан зөвлөгөөгөөр таны замналыг эрсдэл багатай, тодорхой болгоно.”
+
 - Гол мессеж bullet-ууд:
     - Солонгос only – хэлний бэлтгэлээс магистр хүртэл бүх шат
     - GKS болон их сургуулийн тэтгэлэгт тусгай бэлтгэлтэй
@@ -410,7 +411,7 @@ CTA copy жишээ:
     - “Хөтөлбөрүүдийг үзэх”
     - “Солонгост сурах замналыг харах”
 
-***
+---
 
 #### 2.2.2 “Солонгост сурах замнал” roadmap
 
@@ -446,7 +447,7 @@ CTA:
 - “Өөрийн шатанд тохирсон замналыг тодорхойлуулах”
 - “Зөвлөхтэй ярилцаад өөртөө таарах алхмуудыг харах”
 
-***
+---
 
 #### 2.2.3 “Яагаад ACE?” – differentiators
 
@@ -478,7 +479,7 @@ CTA:
 - “ACE-ийн хандлагыг дэлгэрэнгүй харах”
 - “ACE-ийн амжилтын түүхүүдийг үзэх”
 
-***
+---
 
 #### 2.2.4 Гол packaged үйлчилгээ
 
@@ -517,7 +518,7 @@ CTA:
     - “Дэлгэрэнгүй”
     - “Энэ үйлчилгээний талаар асуух”
 
-***
+---
 
 #### 2.2.5 Social proof – stats + testimonial + partners
 
@@ -549,7 +550,7 @@ CTA:
 - “Бүх амжилтын түүхийг үзэх”
 - “Өөрийн боломжийг шалгуулах”
 
-***
+---
 
 #### 2.2.6 Програм \& тэтгэлгийн guide highlight
 
@@ -574,7 +575,7 @@ CTA:
 - “Guide-уудын жагсаалтыг үзэх”
 - Article card дээр: “Guide уншаад зөвлөгөө авах”
 
-***
+---
 
 #### 2.2.7 Live / Webinar / Event highlight
 
@@ -601,7 +602,7 @@ CTA:
 - “Бүртгүүлэх”
 - “Facebook дээр дагах”
 
-***
+---
 
 #### 2.2.8 FAQ preview
 
@@ -621,7 +622,7 @@ UX:
 - Accordion component.
 - “Бүх FAQ-г харах” линк.
 
-***
+---
 
 #### 2.2.9 Final CTA + богино lead form
 
@@ -660,42 +661,42 @@ Visual:
 
 - Soft background, reassuring image (consult session, advisor + student).
 
-***
+---
 
 ## 3. “Бидний тухай” – section structure
 
 ### 3.1 Section жагсаалт
 
-1) Hero / Brand story intro
-2) ACE-ийн түүх (storytelling)
-3) Mission, Vision, Values
-4) Our approach (high-touch, premium, structured)
-5) Team – key хүмүүс
-6) Timeline / milestones
-7) Media \& community (Unread style references, expo, lives)
-8) Social proof – онцгой кейсүүд
-9) Final CTA – “Өөрийн түүхээ эхлүүлье”
+1. Hero / Brand story intro
+2. ACE-ийн түүх (storytelling)
+3. Mission, Vision, Values
+4. Our approach (high-touch, premium, structured)
+5. Team – key хүмүүс
+6. Timeline / milestones
+7. Media \& community (Unread style references, expo, lives)
+8. Social proof – онцгой кейсүүд
+9. Final CTA – “Өөрийн түүхээ эхлүүлье”
 
 ### 3.2 Section бүрийн деталь
 
-1) Hero / Brand story intro
+1. Hero / Brand story intro
 
 - Зорилго: Premium имидж, founder’s vision-с үүдэлтэй trust.
 - Текст: 3–4 өгүүлбэр, storytelling tone.
 - Visual: Founder/lead team portrait, Korea city/campus background.
 
-2) ACE-ийн түүх
+2. ACE-ийн түүх
 
 - Зорилго: Storytelling – яагаад энэ байгууллага үүссэн, ямар асуудлыг шийдэж байна вэ.
 - Текст: 2–3 параграф, нийт 150–250 үг.
 - Visual: Архив зураг, event, classroom, FB live screen capture.
 
-3) Mission, Vision, Values
+3. Mission, Vision, Values
 
 - Текст: Bullet + short paragraph (mission 1 өгүүлбэр, vision 1–2 өгүүлбэр, values 3–5 bullet).
 - Visual: Simple icons.
 
-4) Our approach
+4. Our approach
 
 - Зорилго: Process \& philosophy.
 - Текст: 3–4 bullet:
@@ -705,44 +706,44 @@ Visual:
     - Continuous support in Korea
 - Visual: Diagram / 3-step flow (Consult → Plan → Apply → Support).
 
-5) Team
+5. Team
 
 - Текст: Each member – name, role, short 1–2 өгүүлбэр (Солонгост сурсан/ажилласан highlight).
 - Visual: Portraits, subtle Korea detail (badge, background).
 
-6) Timeline / milestones
+6. Timeline / milestones
 
 - Зорилго: Years in operation, intakes, partnerships.
 - Текст: Year + short note (2019 – эхний intake; 2023 – X оюутан; 2025 – Y сургуультай хамтын ажиллагаа).
 - Visual: Horizontal timeline.
 
-7) Media \& community
+7. Media \& community
 
 - Текст: Unread/медиа, FB community, expo participation-ийг 3–4 bullet.
 - Visual: Media logos, expo photos, FB live thumbnails.
 
-8) Social proof highlights
+8. Social proof highlights
 
 - 2–3 “hero” кейсийг илүү урт card хэлбэрээр: Before → Process → Outcome.
 - Visual: Student photo, short quote.
 
-9) Final CTA
+9. Final CTA
 
 - Copy: “Манай түүхийг уншсан бол, одоо өөрийн түүхээ эхлүүлье.”
 - CTA: “Зөвлөгөөний цаг авах” button / small form.
 
-***
+---
 
 ## 4. “Сургуулиуд” – listing + filter
 
 ### 4.1 Section жагсаалт
 
-1) Hero – “Curated partner network”
-2) Filter/Search – хот, сургуулийн төрөл, түвшин, чиглэл
-3) School cards grid
-4) “Why these partners?” note
-5) Student stories / testimonials related to schools
-6) Final CTA + “Recommend me a school” form
+1. Hero – “Curated partner network”
+2. Filter/Search – хот, сургуулийн төрөл, түвшин, чиглэл
+3. School cards grid
+4. “Why these partners?” note
+5. Student stories / testimonials related to schools
+6. Final CTA + “Recommend me a school” form
 
 ### 4.2 School card-ийн бүтэц
 
@@ -761,7 +762,6 @@ Copy skeleton:
 - “Сөүл хотын төвд байрлах, [major]-аараа хүчтэй, олон улсын оюутанд ээлтэй кампус.”
 - “Engineering, IT чиглэлээр тэтгэлэг олгодог, TOPIK 3+ түвшний оюутанд тохиромжтой сургууль.”
 
-
 ### 4.3 Filter UX
 
 - Default filters:
@@ -774,22 +774,22 @@ Copy skeleton:
     - “Filter” button → full-screen modal with checkboxes.
 - Label tone: энгийн, ойлгомжтой (“Хот”, “Түвшин”, “Чиглэл”).
 
-***
+---
 
 ## 5. “Сургуулийн дэлгэрэнгүй” template (/schools/[slug])
 
 ### 5.1 Section жагсаалт
 
-1) Hero: School name, logo, city/country, positioning copy, CTA
-2) Overview
-3) Programs \& levels (ACE-р дамжуулан авах боломжтой хөтөлбөрүүд)
-4) Scholarship \& cost overview
-5) Student life \& city
-6) Admission \& requirements summary
-7) ACE support (энд ACE юу хийж өгдөг вэ)
-8) Testimonials / case stories (сургуультай холбосон)
-9) FAQ – 5–7 асуулт
-10) Final CTA + lead form
+1. Hero: School name, logo, city/country, positioning copy, CTA
+2. Overview
+3. Programs \& levels (ACE-р дамжуулан авах боломжтой хөтөлбөрүүд)
+4. Scholarship \& cost overview
+5. Student life \& city
+6. Admission \& requirements summary
+7. ACE support (энд ACE юу хийж өгдөг вэ)
+8. Testimonials / case stories (сургуультай холбосон)
+9. FAQ – 5–7 асуулт
+10. Final CTA + lead form
 
 ### 5.2 Контент skeleton
 
@@ -800,10 +800,12 @@ Hero:
 1. “[School name] – Солонгосын [city]-ийн зүрхэнд байрлах, [field]-ээрээ хүчтэй их сургууль.”
 2. “Солонгост [major] сурахыг хүсвэл [School name] нэг гол сонголт.”
 3. “ACE-ийн оюутнуудын хамгийн их сонгодог сургуулиудын нэг.”
+
 - Subheadline:
 
 1. “Олон улсын оюутанд ээлтэй кампус, scholarship боломж өндөр, [TOPIK/English] шаардлагатай structure-тэй элсэлт.”
 2. “ACE EDU WORLD-ээр дамжуулан хэлний бэлтгэлээс бакалавр/Master хүртэлх замналыг төлөвлөх боломжтой.”
+
 - CTA:
     - “Энэ сургуульд сурах боломжоо шалгуулах”
     - “Зөвлөхтэй ярилцаж school match авах”
@@ -841,7 +843,7 @@ Form:
 
 - Short lead form, school pre-filled hidden field.
 
-***
+---
 
 ## 6. “Үйлчилгээ” – overview + detail template
 
@@ -849,12 +851,12 @@ Form:
 
 Sections:
 
-1) Hero – “ACE-ийн packaged services”
-2) Service category cards (GKS, TOPIK, CV/Interview, Visa \& Support, Full Journey)
-3) “Яаж хамт ажилладаг вэ?” (process steps)
-4) Testimonials (service-linked)
-5) FAQ (үйлчилгээтэй холбоотой)
-6) Final CTA + consult form
+1. Hero – “ACE-ийн packaged services”
+2. Service category cards (GKS, TOPIK, CV/Interview, Visa \& Support, Full Journey)
+3. “Яаж хамт ажилладаг вэ?” (process steps)
+4. Testimonials (service-linked)
+5. FAQ (үйлчилгээтэй холбоотой)
+6. Final CTA + consult form
 
 Hero copy:
 
@@ -867,19 +869,18 @@ Process section:
     - Inquiry → Consultation → Plan → Execution
 - Each step 1–2 өгүүлбэр тайлбар.
 
-
 ### 6.2 Service detail template (жишээ: GKS package)
 
 Sections:
 
-1) Hero – GKS focused copy, CTA
-2) Who is this for?
-3) What’s included?
-4) Process / roadmap
-5) Outcomes
-6) Testimonials
-7) FAQ
-8) Final CTA
+1. Hero – GKS focused copy, CTA
+2. Who is this for?
+3. What’s included?
+4. Process / roadmap
+5. Outcomes
+6. Testimonials
+7. FAQ
+8. Final CTA
 
 Copy skeleton (GKS):
 
@@ -905,7 +906,7 @@ Visual direction:
 
 - Timeline illustration, checklist icon, document review photo.
 
-***
+---
 
 ## 7. “Онлайн хичээл + LMS”
 
@@ -913,13 +914,13 @@ Visual direction:
 
 Sections:
 
-1) Hero – “Солонгос хэлний онлайн академи”
-2) Why online with ACE? – 3–5 давуу тал
-3) Levels overview – 3 card (Level 1–3)
-4) How LMS works (screenshot concept, UX bullet)
-5) Testimonials / results (TOPIK score improvements)
-6) FAQ
-7) Final CTA + registration form
+1. Hero – “Солонгос хэлний онлайн академи”
+2. Why online with ACE? – 3–5 давуу тал
+3. Levels overview – 3 card (Level 1–3)
+4. How LMS works (screenshot concept, UX bullet)
+5. Testimonials / results (TOPIK score improvements)
+6. FAQ
+7. Final CTA + registration form
 
 Level cards:
 
@@ -927,7 +928,6 @@ Level cards:
     - Target (absolute beginner, TOPIK 2-3 etc.)
     - Outcome (TOPIK X, daily conversation etc.)
     - Format (video/live, assignments, Q\&A)
-
 
 ### 7.2 Level detail template
 
@@ -943,7 +943,7 @@ Visual:
 
 - LMS screen mockup, mobile-first.
 
-***
+---
 
 ## 8. Тусгай цэсүүд (“Тэтгэлэг”, “Амжилтын түүх”, “Блог”, “FAQ”, “Event”)
 
@@ -951,63 +951,63 @@ Visual:
 
 Sections:
 
-1) Hero – GKS + scholarship overview
-2) GKS overview (guidance, албан бус)
-3) Их сургуулийн тэтгэлэг (general patterns)
-4) ACE scholarships/discounts
-5) Recommended guides list (related blog posts)
-6) CTA lead form (“Тэтгэлэг авах боломжоо шалгуулах”)
+1. Hero – GKS + scholarship overview
+2. GKS overview (guidance, албан бус)
+3. Их сургуулийн тэтгэлэг (general patterns)
+4. ACE scholarships/discounts
+5. Recommended guides list (related blog posts)
+6. CTA lead form (“Тэтгэлэг авах боломжоо шалгуулах”)
 
 ### 8.2 Амжилтын түүх
 
 Sections:
 
-1) Hero – “Before → After” messaging
-2) Case study cards (summary)
-3) Filter (GKS / Bachelor / Language + Parent stories)
-4) Detail page structure (/stories/[slug]):
+1. Hero – “Before → After” messaging
+2. Case study cards (summary)
+3. Filter (GKS / Bachelor / Language + Parent stories)
+4. Detail page structure (/stories/[slug]):
     - Before
     - Process (ACE involvement)
     - Outcome
-5) Video embed from FB / YouTube
-6) CTA – “Өөрийн түүхээ эхлүүлье”
+5. Video embed from FB / YouTube
+6. CTA – “Өөрийн түүхээ эхлүүлье”
 
 ### 8.3 Блог / Guide
 
 Sections:
 
-1) Hero – category chips
-2) Featured guides
-3) Article cards grid
-4) “Guide уншаад зөвлөгөө авах” inline CTA
+1. Hero – category chips
+2. Featured guides
+3. Article cards grid
+4. “Guide уншаад зөвлөгөө авах” inline CTA
 
 ### 8.4 FAQ
 
 Sections:
 
-1) Category tabs (Тэтгэлэг, Хөтөлбөр, Виз, Амьдрал, Санхүү)
-2) Accordion lists
-3) “Асуулт асуух” CTA → contact form / Messenger
+1. Category tabs (Тэтгэлэг, Хөтөлбөр, Виз, Амьдрал, Санхүү)
+2. Accordion lists
+3. “Асуулт асуух” CTA → contact form / Messenger
 
 ### 8.5 Event / Webinar
 
 Sections:
 
-1) Upcoming events – card list
-2) Registration CTA
-3) Past events – recap cards + video
-4) “Facebook дээр огноо, live-ийг дагах” CTA
+1. Upcoming events – card list
+2. Registration CTA
+3. Past events – recap cards + video
+4. “Facebook дээр огноо, live-ийг дагах” CTA
 
-***
+---
 
 ## 9. “Харилцах” – lead capture төв
 
 ### 9.1 Section жагсаалт
 
-1) Contact info + map + working hours
-2) Main lead form
-3) Social channel CTA
-4) Micro-FAQ (“Хэзээ хариу өгөх вэ?” гэх мэт)
+1. Contact info + map + working hours
+2. Main lead form
+3. Social channel CTA
+4. Micro-FAQ (“Хэзээ хариу өгөх вэ?” гэх мэт)
 
 Form fields:
 
@@ -1024,24 +1024,24 @@ Helper text / privacy:
 - “Таны үлдээсэн мэдээлэлд үндэслэн хамгийн тохирох зөвлөх таньтай холбогдоно.”
 - “Бид 24 цагийн дотор эргэж холбогдохыг хичээдэг.”
 
-***
+---
 
 ## 10. Funnel-тай холбосон 3 жишээ
 
-1) FB Reels (GKS tips) → GKS guide
+1. FB Reels (GKS tips) → GKS guide
     - FB reels description: “GKS-ийн талаар дэлгэрэнгүй: aceedu.mn/scholarships/gks”[^1_1]
     - Landing: GKS overview guide page
     - On page: дунд хэсэгт “Өөрийн GKS боломжоо үнэгүй шалгуулах” CTA → service detail → short form (GKS package consult)
-2) FB Live (Солонгост амьдралын зардал) → Life in Korea guide
+2. FB Live (Солонгост амьдралын зардал) → Life in Korea guide
     - FB Live event description-д линк: aceedu.mn/guide/life-in-korea-costs[^1_1]
     - Landing: guide article + related FAQ preview
     - CTA: “Өөрийн төсөвт таарах хот, сургуулийн зөвлөмж авах” → recommend-me-a-school form (on Schools page)
-3) FB Post (Language course promotion) → Онлайн хичээл Level 1
+3. FB Post (Language course promotion) → Онлайн хичээл Level 1
     - Post CTA: “Онлайн анхны түвшний курсийн мэдээлэл, бүртгэл: aceedu.mn/online/level-1”[^1_1]
     - Landing: Level 1 detail page
     - CTA: “Энэ түвшинд бүртгүүлэх” → online course registration form (LMS integrate)
 
-***
+---
 
 Хамгийн түрүүнд чамд хэрэгтэй нь: IA-г зөвхөн lead grow vs brand premium хоёрын алийг нь илүү приоритетлох дээр tweak хийх – хоёрын аль нь ACE-ийн хувьд \#1 зорилго байх ёстойг товч хэлээд өгвөл CTA-гийн tone, form-уудын “агрессив / зөөлөн” байдлыг нарийвчлаад өгье.
 <span style="display:none">[^1_2][^1_3][^1_4][^1_5]</span>
@@ -1057,4 +1057,3 @@ Helper text / privacy:
 [^1_4]: GKS.MN-MONKOR-Nariivchilsan-Veb-Saityn-Analiz.pdf
 
 [^1_5]: SETSOYU.MN-NARIIVChILSAN-VEB-SAIT-ANALIZ-2.pdf
-

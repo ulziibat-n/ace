@@ -1,5 +1,4 @@
-ub
-==
+# ub
 
 ACE Education - Custom WordPress Theme
 
@@ -29,35 +28,35 @@ Or [deploy with the tool of your choice](https://underscoretw.com/docs/deploymen
 
 ### Fundamentals
 
-* [Installation](https://underscoretw.com/docs/installation/)  
+- [Installation](https://underscoretw.com/docs/installation/)  
   Generate your custom theme, install it in WordPress and run your first Tailwind builds
-* [Development](https://underscoretw.com/docs/development/)  
-  Watch for changes, build for production and learn more about how _tw, WordPress and Tailwind work together
-* [Deployment](https://underscoretw.com/docs/deployment/)  
+- [Development](https://underscoretw.com/docs/development/)  
+  Watch for changes, build for production and learn more about how \_tw, WordPress and Tailwind work together
+- [Deployment](https://underscoretw.com/docs/deployment/)  
   Share your new WordPress theme with the world
-* [Troubleshooting](https://underscoretw.com/docs/troubleshooting/)  
+- [Troubleshooting](https://underscoretw.com/docs/troubleshooting/)  
   Find solutions to potential issues and answers to frequently asked questions
 
 ### In Depth
 
-* [Using Tailwind Typography](https://underscoretw.com/docs/tailwind-typography/)  
+- [Using Tailwind Typography](https://underscoretw.com/docs/tailwind-typography/)  
   Customize front-end and back-end typographic styles
-* [JavaScript Bundling with esbuild](https://underscoretw.com/docs/esbuild/)  
+- [JavaScript Bundling with esbuild](https://underscoretw.com/docs/esbuild/)  
   Install and bundle JavaScript libraries (very quickly)
-* [Adding custom fonts](https://underscoretw.com/docs/custom-fonts/)
+- [Adding custom fonts](https://underscoretw.com/docs/custom-fonts/)
   Host your fonts yourself or use a third party—and then add those fonts to your WordPress theme
-* [Linting and Code Formatting](https://underscoretw.com/docs/linting-code-formatting/)  
+- [Linting and Code Formatting](https://underscoretw.com/docs/linting-code-formatting/)  
   Catch bugs and stop thinking about formatting
-* [Keeping your theme up-to-date](https://underscoretw.com/docs/updating/)
+- [Keeping your theme up-to-date](https://underscoretw.com/docs/updating/)
   How to update (and whether or not you should)
 
 ### Extras
 
-* [On Tailwind and WordPress](https://underscoretw.com/docs/wordpress-tailwind/)  
+- [On Tailwind and WordPress](https://underscoretw.com/docs/wordpress-tailwind/)  
   Understand how WordPress and Tailwind work together
-* [Styling HTML from outside the theme](https://underscoretw.com/docs/styling-html-from-outside-the-theme/)
+- [Styling HTML from outside the theme](https://underscoretw.com/docs/styling-html-from-outside-the-theme/)
   Work with WordPress core, plugins and JavaScript libraries
-* [Managing Styles for Custom Blocks](https://underscoretw.com/docs/custom-blocks/)  
+- [Managing Styles for Custom Blocks](https://underscoretw.com/docs/custom-blocks/)  
   Learn strategies for using Tailwind in theme-specific custom blocks
-* [Setting Up Browsersync](https://underscoretw.com/docs/browsersync/)  
+- [Setting Up Browsersync](https://underscoretw.com/docs/browsersync/)  
   Add live reloads and synchronized cross-device testing to your workflow

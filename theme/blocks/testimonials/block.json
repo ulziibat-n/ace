@@ -1,42 +1,42 @@
 {
-  "apiVersion": 2,
-  "name": "acf/testimonials",
-  "title": "Амжилтын түүх (Carousel)",
-  "description": "Оюутнуудын амжилтын түүхийг Swiper slider-аар харуулна.",
-  "style": "testimonials-css",
-  "script": "testimonials-js",
-  "category": "ace-blocks",
-  "icon": "testimonial",
-  "keywords": ["testimonials", "carousel", "swiper", "ace"],
-  "acf": {
-    "mode": "preview",
-    "renderTemplate": "testimonials.php"
-  },
-  "supports": {
-    "align": ["full"],
-    "html": false,
-    "anchor": true
-  },
-  "attributes": {
-    "align": {
-      "type": "string",
-      "default": "full"
-    }
-  },
-  "example": {
-    "attributes": {
-      "mode": "preview",
-      "data": {
-        "title": "Оюутнуудын амжилтын түүх",
-        "description": "Манай сургалтын төвөөр дамжуулан хүссэн сургуульдаа элсэн орсон оюутнууд.",
-        "testimonials": [
-          {
-            "name": "Бат-Эрдэнэ",
-            "school": "Seoul National University",
-            "quote": "Энэ сургалтын төвд суралцсанаар би хүссэн оноогоо авч чадсан."
-          }
-        ]
-      }
-    }
-  }
+	"apiVersion": 2,
+	"name": "acf/testimonials",
+	"title": "Амжилтын түүх (Carousel)",
+	"description": "Оюутнуудын амжилтын түүхийг Swiper slider-аар харуулна.",
+	"style": "testimonials-css",
+	"script": "testimonials-js",
+	"category": "ace-blocks",
+	"icon": "testimonial",
+	"keywords": ["testimonials", "carousel", "swiper", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "testimonials.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"title": "Оюутнуудын амжилтын түүх",
+				"description": "Манай сургалтын төвөөр дамжуулан хүссэн сургуульдаа элсэн орсон оюутнууд.",
+				"testimonials": [
+					{
+						"name": "Бат-Эрдэнэ",
+						"school": "Seoul National University",
+						"quote": "Энэ сургалтын төвд суралцсанаар би хүссэн оноогоо авч чадсан."
+					}
+				]
+			}
+		}
+	}
 }

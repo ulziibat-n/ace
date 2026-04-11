@@ -1,123 +1,123 @@
 {
-    "key": "group_school_general",
-    "title": "Ерөнхий мэдээлэл",
-    "local": "php",
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "school"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "fields": {
-        "field_school_name_en": {
-            "key": "field_school_name_en",
-            "name": "school_name_en",
-            "type": "text",
-            "parent": "group_school_general",
-            "label": "Сургуулийн нэр (EN)",
-            "required": 1,
-            "instructions": "Сургуулийн албан ёсны англи нэр (жишээ: Yonsei University)",
-            "menu_order": 0
-        },
-        "field_school_name_ko": {
-            "key": "field_school_name_ko",
-            "name": "school_name_ko",
-            "type": "text",
-            "parent": "group_school_general",
-            "label": "Сургуулийн нэр (KO)",
-            "instructions": "Сургуулийн солонгос нэр (жишээ: 연세대학교)",
-            "menu_order": 1
-        },
-        "field_short_intro": {
-            "key": "field_short_intro",
-            "name": "short_intro",
-            "type": "textarea",
-            "parent": "group_school_general",
-            "label": "Богино танилцуулга",
-            "instructions": "Жагсаалт болон карт дээр харагдах 2-3 өгүүлбэр бүхий товч танилцуулга",
-            "rows": 3,
-            "menu_order": 2
-        },
-        "field_hero_title": {
-            "key": "field_hero_title",
-            "name": "hero_title",
-            "type": "text",
-            "parent": "group_school_general",
-            "label": "Hero гарчиг",
-            "instructions": "Сургуулийн дэлгэрэнгүй хуудасны дээд хэсэгт харагдах том гарчиг",
-            "menu_order": 3
-        },
-        "field_hero_subtitle": {
-            "key": "field_hero_subtitle",
-            "name": "hero_subtitle",
-            "type": "textarea",
-            "parent": "group_school_general",
-            "label": "Hero дэд гарчиг",
-            "rows": 2,
-            "instructions": "Гарчгийн доор харагдах нэмэлт тайлбар текст",
-            "menu_order": 4
-        },
-        "field_official_website": {
-            "key": "field_official_website",
-            "name": "official_website",
-            "type": "url",
-            "parent": "group_school_general",
-            "label": "Албан ёсны вэбсайт",
-            "instructions": "Сургуулийн албан ёсны вэб хуудасны хаяг (http:\/\/...)",
-            "menu_order": 5
-        },
-        "field_brochure_url": {
-            "key": "field_brochure_url",
-            "name": "brochure_url",
-            "type": "url",
-            "parent": "group_school_general",
-            "label": "Брошур линк",
-            "instructions": "Танилцуулга брошур эсвэл PDF файлын хаяг",
-            "menu_order": 6
-        },
-        "field_school_logo": {
-            "key": "field_school_logo",
-            "name": "logo",
-            "type": "image",
-            "parent": "group_school_general",
-            "label": "Лого",
-            "return_format": "id",
-            "instructions": "Сургуулийн лого (PNG эсвэл SVG форматтай, тунгалаг дэвсгэртэй бол сайн)",
-            "menu_order": 7
-        },
-        "field_hero_image": {
-            "key": "field_hero_image",
-            "name": "hero_image",
-            "type": "image",
-            "parent": "group_school_general",
-            "label": "Hero зураг",
-            "return_format": "id",
-            "instructions": "Хуудасны дээд хэсэгт харагдах гол дэвсгэр зураг",
-            "menu_order": 8
-        },
-        "field_is_featured": {
-            "key": "field_is_featured",
-            "name": "is_featured",
-            "type": "true_false",
-            "parent": "group_school_general",
-            "label": "Онцлох эсэх?",
-            "ui": 1,
-            "instructions": "Хэрэв идэвхжүүлбэл нүүр хуудас болон жагсаалтын эхэнд онцгойлж харагдана",
-            "menu_order": 9
-        },
-        "field_school_gallery": {
-            "key": "field_school_gallery",
-            "name": "school_gallery",
-            "type": "gallery",
-            "parent": "group_school_general",
-            "label": "Сургуулийн зургийн сан",
-            "return_format": "id",
-            "instructions": "Сургуулийн орчин, хичээлийн байр зэргийг харуулсан зургууд",
-            "menu_order": 10
-        }
-    }
+	"key": "group_school_general",
+	"title": "Ерөнхий мэдээлэл",
+	"local": "php",
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "school"
+			}
+		]
+	],
+	"menu_order": 0,
+	"fields": {
+		"field_school_name_en": {
+			"key": "field_school_name_en",
+			"name": "school_name_en",
+			"type": "text",
+			"parent": "group_school_general",
+			"label": "Сургуулийн нэр (EN)",
+			"required": 1,
+			"instructions": "Сургуулийн албан ёсны англи нэр (жишээ: Yonsei University)",
+			"menu_order": 0
+		},
+		"field_school_name_ko": {
+			"key": "field_school_name_ko",
+			"name": "school_name_ko",
+			"type": "text",
+			"parent": "group_school_general",
+			"label": "Сургуулийн нэр (KO)",
+			"instructions": "Сургуулийн солонгос нэр (жишээ: 연세대학교)",
+			"menu_order": 1
+		},
+		"field_short_intro": {
+			"key": "field_short_intro",
+			"name": "short_intro",
+			"type": "textarea",
+			"parent": "group_school_general",
+			"label": "Богино танилцуулга",
+			"instructions": "Жагсаалт болон карт дээр харагдах 2-3 өгүүлбэр бүхий товч танилцуулга",
+			"rows": 3,
+			"menu_order": 2
+		},
+		"field_hero_title": {
+			"key": "field_hero_title",
+			"name": "hero_title",
+			"type": "text",
+			"parent": "group_school_general",
+			"label": "Hero гарчиг",
+			"instructions": "Сургуулийн дэлгэрэнгүй хуудасны дээд хэсэгт харагдах том гарчиг",
+			"menu_order": 3
+		},
+		"field_hero_subtitle": {
+			"key": "field_hero_subtitle",
+			"name": "hero_subtitle",
+			"type": "textarea",
+			"parent": "group_school_general",
+			"label": "Hero дэд гарчиг",
+			"rows": 2,
+			"instructions": "Гарчгийн доор харагдах нэмэлт тайлбар текст",
+			"menu_order": 4
+		},
+		"field_official_website": {
+			"key": "field_official_website",
+			"name": "official_website",
+			"type": "url",
+			"parent": "group_school_general",
+			"label": "Албан ёсны вэбсайт",
+			"instructions": "Сургуулийн албан ёсны вэб хуудасны хаяг (http:\/\/...)",
+			"menu_order": 5
+		},
+		"field_brochure_url": {
+			"key": "field_brochure_url",
+			"name": "brochure_url",
+			"type": "url",
+			"parent": "group_school_general",
+			"label": "Брошур линк",
+			"instructions": "Танилцуулга брошур эсвэл PDF файлын хаяг",
+			"menu_order": 6
+		},
+		"field_school_logo": {
+			"key": "field_school_logo",
+			"name": "logo",
+			"type": "image",
+			"parent": "group_school_general",
+			"label": "Лого",
+			"return_format": "id",
+			"instructions": "Сургуулийн лого (PNG эсвэл SVG форматтай, тунгалаг дэвсгэртэй бол сайн)",
+			"menu_order": 7
+		},
+		"field_hero_image": {
+			"key": "field_hero_image",
+			"name": "hero_image",
+			"type": "image",
+			"parent": "group_school_general",
+			"label": "Hero зураг",
+			"return_format": "id",
+			"instructions": "Хуудасны дээд хэсэгт харагдах гол дэвсгэр зураг",
+			"menu_order": 8
+		},
+		"field_is_featured": {
+			"key": "field_is_featured",
+			"name": "is_featured",
+			"type": "true_false",
+			"parent": "group_school_general",
+			"label": "Онцлох эсэх?",
+			"ui": 1,
+			"instructions": "Хэрэв идэвхжүүлбэл нүүр хуудас болон жагсаалтын эхэнд онцгойлж харагдана",
+			"menu_order": 9
+		},
+		"field_school_gallery": {
+			"key": "field_school_gallery",
+			"name": "school_gallery",
+			"type": "gallery",
+			"parent": "group_school_general",
+			"label": "Сургуулийн зургийн сан",
+			"return_format": "id",
+			"instructions": "Сургуулийн орчин, хичээлийн байр зэргийг харуулсан зургууд",
+			"menu_order": 10
+		}
+	}
 }

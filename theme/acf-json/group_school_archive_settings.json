@@ -1,48 +1,48 @@
 {
-    "key": "group_school_archive_settings",
-    "title": "Сургуулиуд хуудасны тохиргоо",
-    "local": "php",
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "theme-general-settings"
-            }
-        ]
-    ],
-    "fields": {
-        "field_school_archive_title": {
-            "key": "field_school_archive_title",
-            "name": "school_archive_title",
-            "type": "text",
-            "parent": "group_school_archive_settings",
-            "label": "Гарчиг",
-            "instructions": "Сургуулиудын жагсаалт хуудасны үндсэн гарчиг (жишээ: Сургуулиуд)",
-            "default_value": "Сургуулиуд",
-            "menu_order": 0
-        },
-        "field_school_archive_description": {
-            "key": "field_school_archive_description",
-            "name": "school_archive_description",
-            "type": "textarea",
-            "parent": "group_school_archive_settings",
-            "label": "Тайлбар",
-            "instructions": "Гарчгийн доор харагдах богино тайлбар текст",
-            "rows": 3,
-            "default_value": "БНСУ-ын шилдэг Их Дээд Сургуулиудын нэгдсэн мэдээлэл.",
-            "menu_order": 1
-        },
-        "field_school_archive_bg": {
-            "key": "field_school_archive_bg",
-            "name": "school_archive_bg",
-            "type": "image",
-            "parent": "group_school_archive_settings",
-            "label": "Header Background Image",
-            "instructions": "Хуудасны дээд хэсэгт харагдах дэвсгэр зураг",
-            "return_format": "id",
-            "preview_size": "medium",
-            "menu_order": 2
-        }
-    }
+	"key": "group_school_archive_settings",
+	"title": "Сургуулиуд хуудасны тохиргоо",
+	"local": "php",
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "theme-general-settings"
+			}
+		]
+	],
+	"fields": {
+		"field_school_archive_title": {
+			"key": "field_school_archive_title",
+			"name": "school_archive_title",
+			"type": "text",
+			"parent": "group_school_archive_settings",
+			"label": "Гарчиг",
+			"instructions": "Сургуулиудын жагсаалт хуудасны үндсэн гарчиг (жишээ: Сургуулиуд)",
+			"default_value": "Сургуулиуд",
+			"menu_order": 0
+		},
+		"field_school_archive_description": {
+			"key": "field_school_archive_description",
+			"name": "school_archive_description",
+			"type": "textarea",
+			"parent": "group_school_archive_settings",
+			"label": "Тайлбар",
+			"instructions": "Гарчгийн доор харагдах богино тайлбар текст",
+			"rows": 3,
+			"default_value": "БНСУ-ын шилдэг Их Дээд Сургуулиудын нэгдсэн мэдээлэл.",
+			"menu_order": 1
+		},
+		"field_school_archive_bg": {
+			"key": "field_school_archive_bg",
+			"name": "school_archive_bg",
+			"type": "image",
+			"parent": "group_school_archive_settings",
+			"label": "Header Background Image",
+			"instructions": "Хуудасны дээд хэсэгт харагдах дэвсгэр зураг",
+			"return_format": "id",
+			"preview_size": "medium",
+			"menu_order": 2
+		}
+	}
 }

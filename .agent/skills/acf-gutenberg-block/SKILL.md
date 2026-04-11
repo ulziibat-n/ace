@@ -1,44 +1,46 @@
 ---
 name: acf-gutenberg-block
 description: >
-  Trigger when: creating new Gutenberg block, adding ACF fields to block,
-  building block templates, registering block styles/scripts
+    Trigger when: creating new Gutenberg block, adding ACF fields to block,
+    building block templates, registering block styles/scripts
 triggers:
-  - "new block"
-  - "create block"  
-  - "ACF block"
-  - "Gutenberg block"
+    - 'new block'
+    - 'create block'
+    - 'ACF block'
+    - 'Gutenberg block'
 ---
 
 ## Step-by-Step Block Creation Protocol
 
 ### Step 1: block.json (REQUIRED FIRST)
+
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "site/{block-name}",
-  "title": "Block Display Name",
-  "category": "site-blocks",
-  "icon": "admin-generic",
-  "description": "Block purpose",
-  "supports": {
-    "html": false,
-    "align": ["wide", "full"],
-    "color": { "background": true, "text": true },
-    "spacing": { "padding": true, "margin": true }
-  },
-  "attributes": {
-    "align": { "type": "string", "default": "wide" }
-  },
-  "acf": {
-    "mode": "preview",
-    "renderTemplate": "render.php"
-  },
-  "editorScript": "file:./block.js",
-  "style": "file:./block.css"
+"$schema": "https://schemas.wp.org/trunk/block.json",
+"apiVersion": 3,
+"name": "site/{block-name}",
+"title": "Block Display Name",
+"category": "site-blocks",
+"icon": "admin-generic",
+"description": "Block purpose",
+"supports": {
+"html": false,
+"align": ["wide", "full"],
+"color": { "background": true, "text": true },
+"spacing": { "padding": true, "margin": true }
+},
+"attributes": {
+"align": { "type": "string", "default": "wide" }
+},
+"acf": {
+"mode": "preview",
+"renderTemplate": "render.php"
+},
+"editorScript": "file:./block.js",
+"style": "file:./block.css"
 }
 
 ### Step 2: render.php Pattern
+
 <?php
 declare(strict_types=1);
 /**
@@ -72,6 +74,7 @@ if (empty($title) && !defined('REST_REQUEST')) { return; }
 </div>
 
 ### Step 3: Registration (inc/blocks/block-{name}.php)
+
 <?php
 declare(strict_types=1);
 

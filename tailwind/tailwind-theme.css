@@ -15,12 +15,15 @@
      */
 	--color-primary: #085399;
 	--color-primary-dark: #063d70;
-	--color-secondary: #EC1B24;
+	--color-secondary: #ec1b24;
 
 	/**
 	 * Use Google Sans as our primary font.
 	 */
-	--font-sans: "Google Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-sans:
+		"Google Sans", ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono:
 		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -28,35 +31,33 @@
 }
 
 :root {
-    --container: calc(100% - 2rem);
-    --container-content: calc(100% - 2rem);
+	--container: calc(100% - 2rem);
+	--container-content: calc(100% - 2rem);
 	--container-wide: calc(100% - 2rem);
 
-    @media (min-width: 40rem) { 
+	@media (min-width: 40rem) {
 		--container: 38rem;
 		--container-content: 38rem;
 		--container-wide: 40rem;
 	}
 
-    @media (min-width: 48rem) { 
+	@media (min-width: 48rem) {
 		--container: 46rem;
-		--container-content: 48rem;	
+		--container-content: 48rem;
 		--container-wide: 48rem;
 	}
-    @media (min-width: 64rem) { 
+	@media (min-width: 64rem) {
 		--container: 62rem;
 		--container-content: 48rem;
 		--container-wide: 64rem;
 	}
-    @media (min-width: 80rem) { 
+	@media (min-width: 80rem) {
 		--container: 78rem;
-		--container-content: 48rem;	
+		--container-content: 48rem;
 		--container-wide: 80rem;
 	}
-    @media (min-width: 96rem) { 
+	@media (min-width: 96rem) {
 		--container: 94rem;
 		--container-content: 48rem;
 	}
 }
-
-

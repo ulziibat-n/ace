@@ -8,10 +8,10 @@
  *  — from https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes
  */
 
- .container {
+.container {
 	@apply mx-auto px-6 lg:px-12;
 	max-width: var(--container) !important;
- }
+}
 
 /**
  * Post title styles
@@ -24,7 +24,7 @@
  */
 .page-title,
 .entry-title {
-	@apply mb-16 text-4xl font-bold max-w-content;
+	@apply max-w-content mb-16 text-4xl font-bold;
 }
 
 /**
@@ -37,7 +37,7 @@
 .entry-footer,
 .post-navigation,
 #comments {
-	@apply mx-auto mb-6 max-w-content;
+	@apply max-w-content mx-auto mb-6;
 }
 
 /**
@@ -49,7 +49,7 @@
  */
 
 .entry-content > * {
-	@apply mx-auto max-w-content;
+	@apply max-w-content mx-auto;
 }
 
 .page-content > * {
@@ -57,7 +57,7 @@
 }
 
 .page-wide > *:not(.alignfull) {
-	@apply mx-auto max-w-wide;
+	@apply max-w-wide mx-auto;
 }
 
 .page-content > *.alignwide {
@@ -88,9 +88,7 @@
 }
 
 .navigation.pagination .page-numbers {
-	@apply flex items-center justify-center min-w-10 h-10 px-3 
-	       text-sm font-bold transition-all duration-200 
-	       bg-white rounded-sm text-foreground/60 hover:text-primary hover:shadow-sm;
+	@apply flex h-10 min-w-10 items-center justify-center rounded-sm bg-white px-3 text-sm font-bold text-foreground/60 transition-all duration-200 hover:text-primary hover:shadow-sm;
 }
 
 .navigation.pagination .page-numbers.current {
@@ -98,22 +96,22 @@
 }
 
 .navigation.pagination .page-numbers.dots {
-	@apply bg-transparent hover:shadow-none hover:text-foreground/60;
+	@apply bg-transparent hover:text-foreground/60 hover:shadow-none;
 }
 
 .navigation.pagination .prev.page-numbers,
 .navigation.pagination .next.page-numbers {
-	@apply px-4 text-primary bg-white;
+	@apply bg-white px-4 text-primary;
 }
 
 /**
  * Swiper Progress Bar Pagination
  */
 .swiper-pagination-progressbar {
-	@apply h-[3px] bg-slate-200 rounded-full overflow-hidden w-full max-w-[320px] mx-auto;
+	@apply mx-auto h-[3px] w-full max-w-[320px] overflow-hidden rounded-full bg-slate-200;
 	position: relative !important;
 }
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-	@apply bg-primary rounded-full;
+	@apply rounded-full bg-primary;
 }

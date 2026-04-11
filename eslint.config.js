@@ -32,7 +32,11 @@ export default [
 		},
 	},
 	{
-		files: ['javascript/**/*.js', 'theme/blocks/**/*.js', 'theme/assets/js/**/*.js'],
+		files: [
+			'javascript/**/*.js',
+			'theme/blocks/**/*.js',
+			'theme/assets/js/**/*.js',
+		],
 		languageOptions: {
 			globals: {
 				...globals.browser,

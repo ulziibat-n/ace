@@ -2,16 +2,16 @@
 	"name": "acf/design-system",
 	"title": "Design System",
 	"description": "Displays the site's design system tokens and style guide.",
-	"style": [ "file:./design-system.css" ],
+	"style": ["file:./design-system.css"],
 	"category": "formatting",
 	"icon": "layout",
-	"keywords": [ "design", "system", "styleguide" ],
+	"keywords": ["design", "system", "styleguide"],
 	"acf": {
 		"mode": "preview",
 		"renderTemplate": "design-system.php"
 	},
 	"supports": {
-		"align": [ "full" ],
+		"align": ["full"],
 		"anchor": true
 	},
 	"attributes": {

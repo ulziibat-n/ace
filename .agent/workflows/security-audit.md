@@ -10,6 +10,7 @@ Scan the entire codebase for:
 6. **Output encoding** — find get_field() results echoed directly
 
 For each issue found:
+
 - Report: FILE:LINE → ISSUE TYPE → CURRENT CODE → FIXED CODE
 - Severity: CRITICAL / HIGH / MEDIUM / LOW
 - Fix: provide corrected code immediately

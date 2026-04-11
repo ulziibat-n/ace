@@ -1,78 +1,78 @@
 {
-    "key": "group_school_classification",
-    "title": "Ангилал & Хурдан мэдээлэл",
-    "local": "php",
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "school"
-            }
-        ]
-    ],
-    "menu_order": 10,
-    "fields": {
-        "field_accreditation_status": {
-            "key": "field_accreditation_status",
-            "name": "accreditation_status",
-            "type": "select",
-            "parent": "group_school_classification",
-            "label": "Магадлан итгэмжлэл",
-            "instructions": "Сургуулийн Солонгос улсын боловсролын яамнаас олгосон магадлан итгэмжлэлийн статус",
-            "choices": {
-                "certified": "Магадлан итгэмжлэгдсэн",
-                "excellent": "Шилдэг магадлан итгэмжлэгдсэн",
-                "none": "Байхгүй"
-            },
-            "menu_order": 0
-        },
-        "field_visa_note": {
-            "key": "field_visa_note",
-            "name": "visa_note",
-            "type": "text",
-            "parent": "group_school_classification",
-            "label": "Визаны тэмдэглэл",
-            "instructions": "Визатай холбоотой онцлох мэдээлэл (жишээ: 100% виза олголт)",
-            "menu_order": 1
-        },
-        "field_visa_success_rate_text": {
-            "key": "field_visa_success_rate_text",
-            "name": "visa_success_rate_text",
-            "type": "text",
-            "parent": "group_school_classification",
-            "label": "Виза амжилтын хувь",
-            "instructions": "Сүүлийн үеийн виза гаралтын статистик (жишээ: 98.5%)",
-            "menu_order": 2
-        },
-        "field_ranking_korea": {
-            "key": "field_ranking_korea",
-            "name": "ranking_korea_text",
-            "type": "text",
-            "parent": "group_school_classification",
-            "label": "Солонгос дахь эрэмбэ",
-            "instructions": "Солонгосын их дээд сургуулиудын доторх эрэмбэ (жишээ: Top 10)",
-            "menu_order": 3
-        },
-        "field_ranking_global": {
-            "key": "field_ranking_global",
-            "name": "ranking_global_text",
-            "type": "text",
-            "parent": "group_school_classification",
-            "label": "Дэлхийн эрэмбэ",
-            "instructions": "QS эсвэл бусад дэлхийн үнэлгээний эрэмбэ",
-            "menu_order": 4
-        },
-        "field_key_badges": {
-            "key": "field_key_badges",
-            "name": "key_badges",
-            "type": "repeater",
-            "parent": "group_school_classification",
-            "label": "Оноо \/ Бэжүүд",
-            "instructions": "Картан дээр харагдах жижиг онцлох тэмдэглэгээнүүд",
-            "layout": "table",
-            "button_label": "Бэж нэмэх",
-            "menu_order": 5
-        }
-    }
+	"key": "group_school_classification",
+	"title": "Ангилал & Хурдан мэдээлэл",
+	"local": "php",
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "school"
+			}
+		]
+	],
+	"menu_order": 10,
+	"fields": {
+		"field_accreditation_status": {
+			"key": "field_accreditation_status",
+			"name": "accreditation_status",
+			"type": "select",
+			"parent": "group_school_classification",
+			"label": "Магадлан итгэмжлэл",
+			"instructions": "Сургуулийн Солонгос улсын боловсролын яамнаас олгосон магадлан итгэмжлэлийн статус",
+			"choices": {
+				"certified": "Магадлан итгэмжлэгдсэн",
+				"excellent": "Шилдэг магадлан итгэмжлэгдсэн",
+				"none": "Байхгүй"
+			},
+			"menu_order": 0
+		},
+		"field_visa_note": {
+			"key": "field_visa_note",
+			"name": "visa_note",
+			"type": "text",
+			"parent": "group_school_classification",
+			"label": "Визаны тэмдэглэл",
+			"instructions": "Визатай холбоотой онцлох мэдээлэл (жишээ: 100% виза олголт)",
+			"menu_order": 1
+		},
+		"field_visa_success_rate_text": {
+			"key": "field_visa_success_rate_text",
+			"name": "visa_success_rate_text",
+			"type": "text",
+			"parent": "group_school_classification",
+			"label": "Виза амжилтын хувь",
+			"instructions": "Сүүлийн үеийн виза гаралтын статистик (жишээ: 98.5%)",
+			"menu_order": 2
+		},
+		"field_ranking_korea": {
+			"key": "field_ranking_korea",
+			"name": "ranking_korea_text",
+			"type": "text",
+			"parent": "group_school_classification",
+			"label": "Солонгос дахь эрэмбэ",
+			"instructions": "Солонгосын их дээд сургуулиудын доторх эрэмбэ (жишээ: Top 10)",
+			"menu_order": 3
+		},
+		"field_ranking_global": {
+			"key": "field_ranking_global",
+			"name": "ranking_global_text",
+			"type": "text",
+			"parent": "group_school_classification",
+			"label": "Дэлхийн эрэмбэ",
+			"instructions": "QS эсвэл бусад дэлхийн үнэлгээний эрэмбэ",
+			"menu_order": 4
+		},
+		"field_key_badges": {
+			"key": "field_key_badges",
+			"name": "key_badges",
+			"type": "repeater",
+			"parent": "group_school_classification",
+			"label": "Оноо \/ Бэжүүд",
+			"instructions": "Картан дээр харагдах жижиг онцлох тэмдэглэгээнүүд",
+			"layout": "table",
+			"button_label": "Бэж нэмэх",
+			"menu_order": 5
+		}
+	}
 }

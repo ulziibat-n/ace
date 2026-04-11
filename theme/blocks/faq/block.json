@@ -1,44 +1,44 @@
 {
-    "name": "acf/faq",
-    "title": "Түгээмэл асуултууд (FAQ)",
-    "description": "Асуулт, хариулт бүхий аккордион хэлбэртэй хэсэг.",
-    "category": "ace-blocks",
-    "icon": "editor-help",
-    "keywords": ["faq", "question", "answer", "ace", "accordion"],
-    "acf": {
-        "mode": "preview",
-        "renderTemplate": "faq.php"
-    },
-    "supports": {
-        "align": false,
-        "anchor": true,
-        "jsx": true,
-        "mode": false
-    },
-    "attributes": {
-        "align": {
-            "type": "string",
-            "default": "full"
-        }
-    },
-    "example": {
-        "attributes": {
-            "mode": "preview",
-            "data": {
-                "faq_title": "Түгээмэл асуултууд",
-                "faq_description": "Таны эргэлзээг арилгах хамгийн түгээмэл асуултуудын хариулт.",
-                "faq_items": [
-                    {
-                        "question": "БНСУ-д суралцахад насны хязгаар бий юу?",
-                        "answer": "Ерөнхийдөө 18-35 насны хүмүүст тохиромжтой байдаг ч сургууль, хөтөлбөрөөс хамаарч өөр өөр байж болно."
-                    },
-                    {
-                        "question": "Төлбөрөө хэрхэн төлөх вэ?",
-                        "answer": "Сургуулийн төлбөрийг ярилцлагад тэнцсэн тохиолдолд шууд сургуулийн данс руу шилжүүлнэ."
-                    }
-                ]
-            }
-        }
-    },
-    "postTypes": ["page"]
+	"name": "acf/faq",
+	"title": "Түгээмэл асуултууд (FAQ)",
+	"description": "Асуулт, хариулт бүхий аккордион хэлбэртэй хэсэг.",
+	"category": "ace-blocks",
+	"icon": "editor-help",
+	"keywords": ["faq", "question", "answer", "ace", "accordion"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "faq.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"faq_title": "Түгээмэл асуултууд",
+				"faq_description": "Таны эргэлзээг арилгах хамгийн түгээмэл асуултуудын хариулт.",
+				"faq_items": [
+					{
+						"question": "БНСУ-д суралцахад насны хязгаар бий юу?",
+						"answer": "Ерөнхийдөө 18-35 насны хүмүүст тохиромжтой байдаг ч сургууль, хөтөлбөрөөс хамаарч өөр өөр байж болно."
+					},
+					{
+						"question": "Төлбөрөө хэрхэн төлөх вэ?",
+						"answer": "Сургуулийн төлбөрийг ярилцлагад тэнцсэн тохиолдолд шууд сургуулийн данс руу шилжүүлнэ."
+					}
+				]
+			}
+		}
+	},
+	"postTypes": ["page"]
 }

@@ -1,96 +1,96 @@
 {
-    "key": "group_660dbaabbccde",
-    "title": "Блок: CTA Баннер",
-    "fields": [
-        {
-            "key": "field_660dbaabbccdf",
-            "label": "Гарчиг",
-            "name": "cta_title",
-            "type": "text",
-            "instructions": "Баннерын үндсэн том гарчиг.",
-            "required": 0,
-            "default_value": "Таны Солонгос дахь ирээдүй эндээс эхэлнэ",
-            "placeholder": "Гарчиг бичнэ үү"
-        },
-        {
-            "key": "field_660dbaabbcce0",
-            "label": "Тайлбар",
-            "name": "cta_description",
-            "type": "textarea",
-            "instructions": "Гарчгийн доорх нэмэлт тайлбар текст.",
-            "required": 0,
-            "default_value": "Өнөөдөр анхны алхмаа хийж, мэргэжлийн зөвлөхтэйгөө холбогдоорой.",
-            "rows": 3,
-            "placeholder": "Тайлбар бичнэ үү"
-        },
-        {
-            "key": "field_660dbaabbcce1",
-            "label": "Товчлуур 1 (Чат)",
-            "name": "cta_link_1",
-            "type": "link",
-            "instructions": "Цагаан дэвсгэртэй үндсэн товчлуур.",
-            "required": 0,
-            "return_format": "array"
-        },
-        {
-            "key": "field_660dbaabbcce2",
-            "label": "Товчлуур 2 (Утас)",
-            "name": "cta_link_2",
-            "type": "link",
-            "instructions": "Хүрээтэй хоёрдогч товчлуур.",
-            "required": 0,
-            "return_format": "array"
-        },
-        {
-            "key": "field_660dbaabbcce3",
-            "label": "Дэлхийн дүрс харуулах",
-            "name": "cta_show_globe",
-            "type": "true_false",
-            "instructions": "Баруун талд байгаа бүдэг дэлхийн дүрсийг харуулах уу?",
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Тийм",
-            "ui_off_text": "Үгүй"
-        },
-        {
-            "key": "field_660dbaabbcce4",
-            "label": "Гарчгийн өргөн (Max Width)",
-            "name": "cta_title_max_width",
-            "type": "range",
-            "instructions": "Гарчгийн хамгийн их өргөнийг пикселээр тохируулна уу.",
-            "required": 0,
-            "default_value": 960,
-            "min": 500,
-            "max": 960,
-            "step": 10,
-            "append": "px"
-        },
-        {
-            "key": "field_660dbaabbcce5",
-            "label": "Тайлбарын өргөн (Max Width)",
-            "name": "cta_description_max_width",
-            "type": "range",
-            "instructions": "Тайлбарын хамгийн их өргөнийг пикселээр тохируулна уу.",
-            "required": 0,
-            "default_value": 720,
-            "min": 500,
-            "max": 960,
-            "step": 10,
-            "append": "px"
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf/cta-banner"
-            }
-        ]
-    ],
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1712411944
+	"key": "group_660dbaabbccde",
+	"title": "Блок: CTA Баннер",
+	"fields": [
+		{
+			"key": "field_660dbaabbccdf",
+			"label": "Гарчиг",
+			"name": "cta_title",
+			"type": "text",
+			"instructions": "Баннерын үндсэн том гарчиг.",
+			"required": 0,
+			"default_value": "Таны Солонгос дахь ирээдүй эндээс эхэлнэ",
+			"placeholder": "Гарчиг бичнэ үү"
+		},
+		{
+			"key": "field_660dbaabbcce0",
+			"label": "Тайлбар",
+			"name": "cta_description",
+			"type": "textarea",
+			"instructions": "Гарчгийн доорх нэмэлт тайлбар текст.",
+			"required": 0,
+			"default_value": "Өнөөдөр анхны алхмаа хийж, мэргэжлийн зөвлөхтэйгөө холбогдоорой.",
+			"rows": 3,
+			"placeholder": "Тайлбар бичнэ үү"
+		},
+		{
+			"key": "field_660dbaabbcce1",
+			"label": "Товчлуур 1 (Чат)",
+			"name": "cta_link_1",
+			"type": "link",
+			"instructions": "Цагаан дэвсгэртэй үндсэн товчлуур.",
+			"required": 0,
+			"return_format": "array"
+		},
+		{
+			"key": "field_660dbaabbcce2",
+			"label": "Товчлуур 2 (Утас)",
+			"name": "cta_link_2",
+			"type": "link",
+			"instructions": "Хүрээтэй хоёрдогч товчлуур.",
+			"required": 0,
+			"return_format": "array"
+		},
+		{
+			"key": "field_660dbaabbcce3",
+			"label": "Дэлхийн дүрс харуулах",
+			"name": "cta_show_globe",
+			"type": "true_false",
+			"instructions": "Баруун талд байгаа бүдэг дэлхийн дүрсийг харуулах уу?",
+			"message": "",
+			"default_value": 1,
+			"ui": 1,
+			"ui_on_text": "Тийм",
+			"ui_off_text": "Үгүй"
+		},
+		{
+			"key": "field_660dbaabbcce4",
+			"label": "Гарчгийн өргөн (Max Width)",
+			"name": "cta_title_max_width",
+			"type": "range",
+			"instructions": "Гарчгийн хамгийн их өргөнийг пикселээр тохируулна уу.",
+			"required": 0,
+			"default_value": 960,
+			"min": 500,
+			"max": 960,
+			"step": 10,
+			"append": "px"
+		},
+		{
+			"key": "field_660dbaabbcce5",
+			"label": "Тайлбарын өргөн (Max Width)",
+			"name": "cta_description_max_width",
+			"type": "range",
+			"instructions": "Тайлбарын хамгийн их өргөнийг пикселээр тохируулна уу.",
+			"required": 0,
+			"default_value": 720,
+			"min": 500,
+			"max": 960,
+			"step": 10,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/cta-banner"
+			}
+		]
+	],
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1712411944
 }

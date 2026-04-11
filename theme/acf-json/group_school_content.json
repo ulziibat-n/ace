@@ -1,49 +1,49 @@
 {
-    "key": "group_school_content",
-    "title": "Дэлгэрэнгүй контент",
-    "local": "php",
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "school"
-            }
-        ]
-    ],
-    "menu_order": 40,
-    "fields": {
-        "field_why_choose": {
-            "key": "field_why_choose",
-            "name": "why_choose_this_school",
-            "type": "wysiwyg",
-            "parent": "group_school_content",
-            "label": "Яагаад энэ сургуулийг сонгох вэ?",
-            "instructions": "Сургуулийн гол давуу тал, онцлогийн тухай дэлгэрэнгүй эх бичвэр",
-            "toolbar": "basic",
-            "tabs": "visual",
-            "media_upload": 0,
-            "menu_order": 0
-        },
-        "field_strengths": {
-            "key": "field_strengths",
-            "name": "strengths_repeater",
-            "type": "repeater",
-            "parent": "group_school_content",
-            "label": "Давуу талууд",
-            "instructions": "Симбол бүхий богино давуу талуудын жагсаалт",
-            "layout": "block",
-            "menu_order": 1
-        },
-        "field_faq": {
-            "key": "field_faq",
-            "name": "faq_repeater",
-            "type": "repeater",
-            "parent": "group_school_content",
-            "label": "Түгээмэл асуултууд",
-            "instructions": "Сургуультай холбоотой түгээмэл асуулт, хариултууд",
-            "layout": "row",
-            "menu_order": 2
-        }
-    }
+	"key": "group_school_content",
+	"title": "Дэлгэрэнгүй контент",
+	"local": "php",
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "school"
+			}
+		]
+	],
+	"menu_order": 40,
+	"fields": {
+		"field_why_choose": {
+			"key": "field_why_choose",
+			"name": "why_choose_this_school",
+			"type": "wysiwyg",
+			"parent": "group_school_content",
+			"label": "Яагаад энэ сургуулийг сонгох вэ?",
+			"instructions": "Сургуулийн гол давуу тал, онцлогийн тухай дэлгэрэнгүй эх бичвэр",
+			"toolbar": "basic",
+			"tabs": "visual",
+			"media_upload": 0,
+			"menu_order": 0
+		},
+		"field_strengths": {
+			"key": "field_strengths",
+			"name": "strengths_repeater",
+			"type": "repeater",
+			"parent": "group_school_content",
+			"label": "Давуу талууд",
+			"instructions": "Симбол бүхий богино давуу талуудын жагсаалт",
+			"layout": "block",
+			"menu_order": 1
+		},
+		"field_faq": {
+			"key": "field_faq",
+			"name": "faq_repeater",
+			"type": "repeater",
+			"parent": "group_school_content",
+			"label": "Түгээмэл асуултууд",
+			"instructions": "Сургуультай холбоотой түгээмэл асуулт, хариултууд",
+			"layout": "row",
+			"menu_order": 2
+		}
+	}
 }

@@ -19,17 +19,17 @@ get_header();
 	if ( is_home() && ! is_front_page() ) :
 		$ub_posts_page_id = get_option( 'page_for_posts' );
 		?>
-		<header class="relative entry-header group">
-			<div class="relative w-full text-white bg-slate-900">
+		<header class="entry-header group relative">
+			<div class="relative w-full bg-slate-900 text-white">
 				<?php if ( has_post_thumbnail( $ub_posts_page_id ) ) : ?>
 					<?php echo get_the_post_thumbnail( $ub_posts_page_id, 'full', array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 				<?php endif; ?>
-				<div class="relative z-20 pt-48 pb-16 w-full lg:pt-72 lg:pb-32 to-slate-950/30 bg-linear-to-t from-slate-950/95">
+				<div class="relative z-20 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 					<div class="max-w-page">
 						<div class="flex flex-col">
-							<h1 class="text-4xl font-bold leading-tight lg:text-6xl"><?php single_post_title(); ?></h1>
+							<h1 class="text-4xl leading-tight font-bold lg:text-6xl"><?php single_post_title(); ?></h1>
 							<?php if ( get_the_archive_description() ) : ?>
-								<p class="mt-8 text-lg opacity-80 max-w-content ml-0!"><?php echo get_the_archive_description(); ?></p>
+								<p class="max-w-content mt-8 ml-0! text-lg opacity-80"><?php echo get_the_archive_description(); ?></p>
 							<?php endif; ?>
 						</div>
 					</div>
@@ -40,14 +40,14 @@ get_header();
 	endif;
 	?>
 
-	<section id="primary" class="bg-slate-100 min-h-screen">
+	<section id="primary" class="min-h-screen bg-slate-100">
 		<main id="main" class="container py-24">
 
 		<?php
 		if ( have_posts() ) {
 			?>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[10px]">
+			<div class="grid grid-cols-1 gap-[10px] md:grid-cols-2 lg:grid-cols-4">
 				<?php
 				// Load posts loop.
 				while ( have_posts() ) {

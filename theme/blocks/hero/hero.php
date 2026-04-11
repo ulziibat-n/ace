@@ -59,41 +59,41 @@ if ( ! $ub_slides ) {
 					$ub_image_url = $ub_image['url'];
 				}
 				?>
-				<div class="flex! overflow-hidden relative flex-col justify-end swiper-slide group/slide pt-76 lg:pt-60">
-					<div class="absolute inset-0 z-0 transition-transform duration-8000 ease-out scale-110 group-[.swiper-slide-active]/slide:scale-100">
+				<div class="swiper-slide group/slide relative flex! flex-col justify-end overflow-hidden pt-76 lg:pt-60">
+					<div class="absolute inset-0 z-0 scale-110 transition-transform duration-8000 ease-out group-[.swiper-slide-active]/slide:scale-100">
 						<?php if ( $ub_image_id ) : ?>
 							<?php echo wp_get_attachment_image( $ub_image_id, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 						<?php elseif ( $ub_image_url ) : ?>
-							<img src="<?php echo esc_url( $ub_image_url ); ?>" class="object-cover absolute inset-0 z-10 w-full h-full" alt="">
+							<img src="<?php echo esc_url( $ub_image_url ); ?>" class="absolute inset-0 z-10 h-full w-full object-cover" alt="">
 						<?php endif; ?>
 					</div>
 
-						<div class="overflow-hidden relative z-10 mt-auto mb-0">
+						<div class="relative z-10 mt-auto mb-0 overflow-hidden">
 							<!-- Gradient Backdrop Blur Overlay -->
-							<div class="absolute inset-0 z-0 backdrop-blur-xs mask-[linear-gradient(to_top,black_40%,transparent_100%)] pointer-events-none"></div>
+							<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
 							
-							<div class="absolute inset-0 z-0 to-slate-950/0 bg-linear-to-t from-slate-950/70"></div>
+							<div class="absolute inset-0 z-0 bg-linear-to-t from-slate-950/70 to-slate-950/0"></div>
 							
-							<div class="container relative z-10 py-20 w-full lg:py-32">
-								<div class="flex flex-col max-w-4xl">
+							<div class="relative z-10 container w-full py-20 lg:py-32">
+								<div class="flex max-w-4xl flex-col">
 									<?php if ( $ub_title ) : ?>
-										<h2 class="opacity-0 translate-y-4 transition-all duration-500 delay-50 group-[.swiper-slide-active]/slide:opacity-100 group-[.swiper-slide-active]/slide:translate-y-0 text-4xl font-bold leading-none lg:text-6xl text-white">
+										<h2 class="translate-y-4 text-4xl leading-none font-bold text-white opacity-0 transition-all delay-50 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100 lg:text-6xl">
 											<?php echo esc_html( $ub_title ); ?>
 										</h2>
 									<?php endif; ?>
 									<?php if ( $ub_description ) : ?>
-										<p class="opacity-0 translate-y-4 transition-all duration-500 delay-200 group-[.swiper-slide-active]/slide:opacity-100 group-[.swiper-slide-active]/slide:translate-y-0 mt-8 max-w-2xl text-base text-white lg:text-lg">
+										<p class="mt-8 max-w-2xl translate-y-4 text-base text-white opacity-0 transition-all delay-200 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100 lg:text-lg">
 											<?php echo esc_html( $ub_description ); ?>
 										</p>
 									<?php endif; ?>
 							
 									<?php if ( $ub_button && isset( $ub_button['url'] ) ) : ?>
-										<div class="opacity-0 translate-y-4 transition-all duration-500 delay-350 group-[.swiper-slide-active]/slide:opacity-100 group-[.swiper-slide-active]/slide:translate-y-0 flex flex-col items-start mt-10">
+										<div class="mt-10 flex translate-y-4 flex-col items-start opacity-0 transition-all delay-350 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100">
 											<a href="<?php echo esc_url( $ub_button['url'] ); ?>"
 												target="<?php echo esc_attr( isset( $ub_button['target'] ) ? $ub_button['target'] : '_self' ); ?>"
-												class="flex gap-4 items-center px-4 py-2 text-xs font-bold text-white no-underline shadow-lg transition-all duration-300 bg-primary hover:bg-primary-dark rounded-xs shadow-primary/20">
+												class="flex items-center gap-4 rounded-xs bg-primary px-4 py-2 text-xs font-bold text-white no-underline shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-primary-dark">
 												<span class="text-xs leading-none"><?php echo esc_html( isset( $ub_button['title'] ) ? $ub_button['title'] : 'Дэлгэрэнгүй' ); ?></span>
-												<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
+												<svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
 											</a>
 										</div>
 									<?php endif; ?>
@@ -105,15 +105,15 @@ if ( ! $ub_slides ) {
 		</div>
 		
 		<!-- Swiper Navigation/Pagination - Aligned with Testimonials Style -->
-		<div class="container flex absolute bottom-0 left-1/2 z-40 flex-row gap-8 justify-between items-end -translate-x-1/2 pointer-events-none">
-			<div class="swiper-pagination static! ml-0 grow max-w-xs overflow-hidden rounded-none pointer-events-auto [&_span]:rounded-none!" style="--swiper-pagination-progressbar-bg-color:rgba(255,255,255,0.9);--swiper-theme-color:var(--color-primary);"></div>
+		<div class="pointer-events-none absolute bottom-0 left-1/2 z-40 container flex -translate-x-1/2 flex-row items-end justify-between gap-8">
+			<div class="swiper-pagination pointer-events-auto static! ml-0 max-w-xs grow overflow-hidden rounded-none [&_span]:rounded-none!" style="--swiper-pagination-progressbar-bg-color:rgba(255,255,255,0.9);--swiper-theme-color:var(--color-primary);"></div>
 			
-			<div class="flex gap-2 items-center pb-8 pointer-events-auto">
-				<button data-hero-carousel-prev class="flex justify-center items-center w-12 h-12 rounded-full border shadow-sm backdrop-blur-md transition-all cursor-pointer bg-white/10 border-white/20 group hover:bg-white hover:border-white">
-					<svg class="w-5 h-5 text-white transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+			<div class="pointer-events-auto flex items-center gap-2 pb-8">
+				<button data-hero-carousel-prev class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-sm backdrop-blur-md transition-all hover:border-white hover:bg-white">
+					<svg class="h-5 w-5 text-white transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 				</button>
-				<button data-hero-carousel-next class="flex justify-center items-center w-12 h-12 rounded-full border shadow-sm backdrop-blur-md transition-all cursor-pointer bg-white/10 border-white/20 group hover:bg-white hover:border-white">
-					<svg class="w-5 h-5 text-white transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+				<button data-hero-carousel-next class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-sm backdrop-blur-md transition-all hover:border-white hover:bg-white">
+					<svg class="h-5 w-5 text-white transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 				</button>
 			</div>
 		</div>

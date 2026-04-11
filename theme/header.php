@@ -11,7 +11,7 @@
  */
 
 ?><!doctype html>
-<html <?php language_attributes(); ?> class="font-sans leading-tight lg:leading-relaxed bg-white text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px]">
+<html <?php language_attributes(); ?> class="bg-white font-sans text-[13px] leading-tight md:text-[14px] lg:text-[15px] lg:leading-relaxed xl:text-[16px]">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

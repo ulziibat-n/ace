@@ -29,9 +29,8 @@ wp.domReady(() => {
 	});
 
 	// Unregister stretchy variations.
-	wp.blocks.unregisterBlockVariation( 'core/paragraph', 'stretchy-paragraph' );
-	wp.blocks.unregisterBlockVariation( 'core/heading', 'stretchy-heading' );
-
+	wp.blocks.unregisterBlockVariation('core/paragraph', 'stretchy-paragraph');
+	wp.blocks.unregisterBlockVariation('core/heading', 'stretchy-heading');
 });
 
 /**
@@ -90,5 +89,8 @@ const initializeBlock = ($block) => {
 // Initialize blocks on editor load or preview update.
 if (window.acf) {
 	window.acf.addAction('render_block_preview/type=hero', initializeBlock);
-	window.acf.addAction('render_block_preview/type=testimonials', initializeBlock);
+	window.acf.addAction(
+		'render_block_preview/type=testimonials',
+		initializeBlock
+	);
 }

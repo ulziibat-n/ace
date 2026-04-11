@@ -23,17 +23,17 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 <main id="primary" class="site-main">
 
 	<!-- Hero Section (Matches archive.php) -->
-	<header class="relative entry-header group">
-		<div class="relative w-full text-white bg-slate-900">
+	<header class="entry-header group relative">
+		<div class="relative w-full bg-slate-900 text-white">
 			<?php if ( $ub_archive_bg ) : ?>
 				<?php echo wp_get_attachment_image( $ub_archive_bg, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 			<?php endif; ?>
-			<div class="relative z-30 pt-48 pb-16 w-full lg:pt-72 lg:pb-32 to-slate-950/30 bg-linear-to-t from-slate-950/95">
+			<div class="relative z-30 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 				<div class="max-w-page">
 					<div class="flex flex-col">
-						<h1 class="text-4xl font-bold leading-tight lg:text-6xl"><?php echo esc_html( $ub_archive_title ); ?></h1>
+						<h1 class="text-4xl leading-tight font-bold lg:text-6xl"><?php echo esc_html( $ub_archive_title ); ?></h1>
 						<?php if ( $ub_archive_desc ) : ?>
-							<div class="mt-8 text-lg max-w-content ml-0!">
+							<div class="max-w-content mt-8 ml-0! text-lg">
 								<p><?php echo esc_html( $ub_archive_desc ); ?></p>
 							</div>
 						<?php endif; ?>
@@ -44,34 +44,34 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 	</header>
 
 	<!-- Main Content Area -->
-	<section class="bg-slate-100 min-h-screen py-16 lg:py-24">
+	<section class="min-h-screen bg-slate-100 py-16 lg:py-24">
 		<div class="container">
-			<div class="flex flex-col lg:flex-row gap-12">
+			<div class="flex flex-col gap-12 lg:flex-row">
 				
 				<!-- Sidebar Filters (1/4) -->
 				<aside class="w-full lg:w-1/4">
 					<div class="lg:sticky lg:top-8">
-						<div class="bg-white rounded-xs border border-slate-200/60 p-6 md:p-8">
-							<h3 class="text-sm font-black text-slate-900 mb-6 flex items-center gap-2 uppercase tracking-widest italic">
-								<svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+						<div class="rounded-xs border border-slate-200/60 bg-white p-6 md:p-8">
+							<h3 class="mb-6 flex items-center gap-2 text-sm font-black tracking-widest text-slate-900 uppercase italic">
+								<svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
 								<?php esc_html_e( 'Шүүлтүүр', 'ace' ); ?>
 							</h3>
 							
 							<form action="<?php echo esc_url( get_post_type_archive_link( 'school' ) ); ?>" method="GET" class="space-y-6">
 								<!-- Search -->
 								<div>
-									<label for="s_school" class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2"><?php esc_html_e( 'Хайлт', 'ace' ); ?></label>
+									<label for="s_school" class="mb-2 block text-[10px] font-black tracking-widest text-slate-400 uppercase"><?php esc_html_e( 'Хайлт', 'ace' ); ?></label>
 									<div class="relative">
 										<input type="text" name="s_school" id="s_school" value="<?php echo esc_attr( $ub_search_query ); ?>" 
-											class="w-full pl-4 pr-4 py-3 bg-slate-50 border-slate-200 focus:border-primary focus:ring-0 rounded-xs text-sm text-slate-900 transition-all placeholder:text-slate-300" 
+											class="w-full rounded-xs border-slate-200 bg-slate-50 py-3 pr-4 pl-4 text-sm text-slate-900 transition-all placeholder:text-slate-300 focus:border-primary focus:ring-0" 
 											placeholder="Сургуулийн нэр...">
 									</div>
 								</div>
 
 								<!-- Location Filter -->
 								<div>
-									<label for="location" class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2"><?php esc_html_e( 'Байршил', 'ace' ); ?></label>
-									<select name="location" id="location" class="w-full py-3 px-4 bg-slate-50 border-slate-200 focus:border-primary focus:ring-0 rounded-xs text-sm text-slate-900 appearance-none cursor-pointer">
+									<label for="location" class="mb-2 block text-[10px] font-black tracking-widest text-slate-400 uppercase"><?php esc_html_e( 'Байршил', 'ace' ); ?></label>
+									<select name="location" id="location" class="w-full cursor-pointer appearance-none rounded-xs border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-primary focus:ring-0">
 										<option value=""><?php esc_html_e( 'Бүх байршил', 'ace' ); ?></option>
 										<?php foreach ( $ub_locations as $ub_loc ) : ?>
 											<option value="<?php echo esc_attr( $ub_loc->slug ); ?>" <?php selected( $ub_current_location, $ub_loc->slug ); ?>><?php echo esc_html( $ub_loc->name ); ?></option>
@@ -81,8 +81,8 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 
 								<!-- Guarantor Filter -->
 								<div>
-									<label for="guarantor" class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2"><?php esc_html_e( 'Батлан даагч', 'ace' ); ?></label>
-									<select name="guarantor" id="guarantor" class="w-full py-3 px-4 bg-slate-50 border-slate-200 focus:border-primary focus:ring-0 rounded-xs text-sm text-slate-900 appearance-none cursor-pointer">
+									<label for="guarantor" class="mb-2 block text-[10px] font-black tracking-widest text-slate-400 uppercase"><?php esc_html_e( 'Батлан даагч', 'ace' ); ?></label>
+									<select name="guarantor" id="guarantor" class="w-full cursor-pointer appearance-none rounded-xs border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 focus:border-primary focus:ring-0">
 										<option value=""><?php esc_html_e( 'Бүх төрөл', 'ace' ); ?></option>
 										<?php foreach ( $ub_guarantors as $ub_guar ) : ?>
 											<option value="<?php echo esc_attr( $ub_guar->slug ); ?>" <?php selected( $ub_current_guarantor, $ub_guar->slug ); ?>><?php echo esc_html( $ub_guar->name ); ?></option>
@@ -91,13 +91,13 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 								</div>
 
 								<!-- Buttons -->
-								<div class="pt-4 space-y-3">
-									<button type="submit" class="w-full inline-flex items-center justify-center bg-primary text-white px-6 py-4 rounded-xs font-bold transition-all duration-300 hover:bg-slate-900 shadow-lg shadow-primary/20 no-underline uppercase text-xs tracking-widest">
+								<div class="space-y-3 pt-4">
+									<button type="submit" class="inline-flex w-full items-center justify-center rounded-xs bg-primary px-6 py-4 text-xs font-bold tracking-widest text-white uppercase no-underline shadow-lg shadow-primary/20 transition-all duration-300 hover:bg-slate-900">
 										<?php esc_html_e( 'Шүүлтүүр хэрэглэх', 'ace' ); ?>
 									</button>
 									
 									<?php if ( $ub_current_location || $ub_current_guarantor || $ub_search_query ) : ?>
-										<a href="<?php echo esc_url( get_post_type_archive_link( 'school' ) ); ?>" class="w-full inline-flex items-center justify-center bg-slate-100 text-slate-600 px-6 py-3 rounded-xs font-bold transition-all duration-300 hover:bg-slate-200 no-underline uppercase text-[10px] tracking-widest">
+										<a href="<?php echo esc_url( get_post_type_archive_link( 'school' ) ); ?>" class="inline-flex w-full items-center justify-center rounded-xs bg-slate-100 px-6 py-3 text-[10px] font-bold tracking-widest text-slate-600 uppercase no-underline transition-all duration-300 hover:bg-slate-200">
 											<?php esc_html_e( 'Цэвэрлэх', 'ace' ); ?>
 										</a>
 									<?php endif; ?>
@@ -111,7 +111,7 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 				<div class="w-full lg:w-3/4">
 					
 					<!-- Results Info -->
-					<div class="flex items-center justify-between mb-8 px-2">
+					<div class="mb-8 flex items-center justify-between px-2">
 						<div>
 							<?php
 							global $wp_query;
@@ -125,7 +125,7 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 
 					<!-- Grid -->
 					<?php if ( have_posts() ) : ?>
-						<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[10px]">
+						<div class="grid grid-cols-1 gap-[10px] md:grid-cols-2 lg:grid-cols-3">
 							<?php
 							while ( have_posts() ) :
 								the_post();
@@ -141,12 +141,12 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 
 					<?php else : ?>
 						<!-- No Content -->
-						<div class="bg-white rounded-xs p-16 text-center border border-slate-200/60">
-							<div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300">
-								<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+						<div class="rounded-xs border border-slate-200/60 bg-white p-16 text-center">
+							<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-slate-50 text-slate-300">
+								<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
 							</div>
-							<h3 class="text-xl font-bold text-slate-900 mb-2 italic uppercase"><?php esc_html_e( 'Илэрц олдсонгүй', 'ace' ); ?></h3>
-							<p class="text-slate-500 text-sm"><?php esc_html_e( 'Та хайлтын үг эсвэл шүүлтүүрээ өөрчилж үзнэ үү.', 'ace' ); ?></p>
+							<h3 class="mb-2 text-xl font-bold text-slate-900 uppercase italic"><?php esc_html_e( 'Илэрц олдсонгүй', 'ace' ); ?></h3>
+							<p class="text-sm text-slate-500"><?php esc_html_e( 'Та хайлтын үг эсвэл шүүлтүүрээ өөрчилж үзнэ үү.', 'ace' ); ?></p>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -156,33 +156,33 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 	</section>
 
 	<!-- Lead Capture Section (Refined CTA Banner) -->
-	<section id="help-cta" class="relative overflow-hidden bg-primary text-white py-16 lg:py-24">
-		<div class="absolute right-[-10%] top-[-10%] w-[400px] h-[400px] lg:w-[600px] lg:h-[600px] opacity-10 pointer-events-none">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full text-white">
+	<section id="help-cta" class="relative overflow-hidden bg-primary py-16 text-white lg:py-24">
+		<div class="pointer-events-none absolute top-[-10%] right-[-10%] h-[400px] w-[400px] opacity-10 lg:h-[600px] lg:w-[600px]">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-full w-full text-white">
 				<circle cx="12" cy="12" r="10"></circle>
 				<line x1="2" y1="12" x2="22" y2="12"></line>
 				<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
 			</svg>
 		</div>
 
-		<div class="container relative z-10">
-			<div class="max-w-4xl mx-auto text-center flex flex-col items-center">
-				<h2 class="text-2xl lg:text-4xl font-black mb-6 text-white no-anchor italic uppercase tracking-tight">
+		<div class="relative z-10 container">
+			<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+				<h2 class="no-anchor mb-6 text-2xl font-black tracking-tight text-white uppercase italic lg:text-4xl">
 					<?php esc_html_e( 'Сургуулиа сонгоход тань тусламж хэрэгтэй байна уу?', 'ace' ); ?>
 				</h2>
-				<p class="text-blue-100/80 text-lg mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+				<p class="mx-auto mb-12 max-w-2xl text-lg leading-relaxed font-medium text-blue-100/80">
 					<?php esc_html_e( 'Манай туршлагатай зөвлөхүүд танд хамгийн тохиромжтой хувилбарыг сонгоход туслах болно.', 'ace' ); ?>
 				</p>
 
 				<!-- Buttons Container (Matches cta-banner block exactly) -->
-				<div class="flex flex-col sm:flex-row gap-4 mt-4 items-center justify-center">
-					<a href="/contact" class="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-xs font-bold transition-all duration-300 hover:scale-105 shadow-2xl shadow-black/10 no-underline border border-white min-w-[200px]">
-						<svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-						<span class="uppercase font-bold tracking-widest text-xs"><?php esc_html_e( 'Зөвлөгөө авах', 'ace' ); ?></span>
+				<div class="mt-4 flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<a href="/contact" class="inline-flex min-w-[200px] items-center justify-center rounded-xs border border-white bg-white px-8 py-4 font-bold text-primary no-underline shadow-2xl shadow-black/10 transition-all duration-300 hover:scale-105">
+						<svg class="mr-3 h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+						<span class="text-xs font-bold tracking-widest uppercase"><?php esc_html_e( 'Зөвлөгөө авах', 'ace' ); ?></span>
 					</a>
-					<a href="#" class="inline-flex items-center justify-center bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xs font-bold transition-all duration-300 hover:bg-white/10 no-underline min-w-[200px]">
-						<svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-						<span class="uppercase font-bold tracking-widest text-xs"><?php esc_html_e( 'Холбогдох', 'ace' ); ?></span>
+					<a href="#" class="inline-flex min-w-[200px] items-center justify-center rounded-xs border-2 border-white/30 bg-transparent px-8 py-4 font-bold text-white no-underline transition-all duration-300 hover:bg-white/10">
+						<svg class="mr-3 h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+						<span class="text-xs font-bold tracking-widest uppercase"><?php esc_html_e( 'Холбогдох', 'ace' ); ?></span>
 					</a>
 				</div>
 			</div>

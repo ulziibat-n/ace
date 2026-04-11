@@ -19,16 +19,19 @@ description: Custom ACF Gutenberg block үүсгэх чадвартай skill. �
 ## Техникийн шаардлагууд
 
 ### 1. Файлын бүтэц
+
 - `theme/blocks/[slug]/block.json` (Registration & Post Type restriction)
 - `theme/blocks/[slug]/[slug].php` (PHP Template)
 - `theme/acf-json/group_[unique_id].json` (Field sync)
 
 ### 2. Layout & Post Type Restriction
+
 - **Post Type**: Блокыг зөвхөн тодорхой төрлийн хуудсанд ашиглах бол `block.json` файл дотор `"postTypes": ["page"]` гэж заана.
 - **Full Width**: Хэрэв өөрөөр заагаагүй бол бүх блок `alignfull` класс болон `section` бүтэцтэй байна.
 - **Container**: Блокын агуулга нь зөвхөн `.container` класс дотор байрлана. (mx-auto, px-6 гэх мэт классууд хэрэггүй).
 
 ### 3. Кодын стандарт (PHP & Tailwind)
+
 - **Variable Naming**: Template-ийн үндсэн түвшинд зарлагдаж буй хувьсагчид заавал `$ub_` prefix-тэй байна. (Жишээ: `$ub_title`).
 - **Short Ternaries**: `?:` ашиглахыг хориглоно. Оронд нь `? :` (бүрэн ternary) эсвэл `if` ашиглана.
 - **Inline Comments**: Мөр доторх тайлбар бүр заавал цэгээр ( . ) төгсөх ёстой.
@@ -70,6 +73,7 @@ if ( ! $ub_title && $is_preview ) {
 ```
 
 ## Чухал санамж
+
 - Блокыг үүсгэсний дараа `theme/acf-json/` дотор шинэ JSON файл үүссэн эсэхийг заавал шалга.
 - Талбаруудын нэрийг (slug) утга учиртай, ойлгомжтой өгөх.
 - Өнгө, зай хэмжээг `theme/tailwind.css` болон бусад тохиргоотой уялдуулна.
