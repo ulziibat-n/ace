@@ -1630,6 +1630,9 @@ body {
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
 }
+.cursor-default {
+  cursor: default;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -2046,6 +2049,15 @@ body {
 }
 .mask-\[linear-gradient\(to_top\,black_40\%\,transparent_100\%\)\] {
   mask-image: linear-gradient(to top,black 40%,transparent 100%);
+}
+.bg-cover {
+  background-size: cover;
+}
+.bg-center {
+  background-position: center;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 .fill-current {
   fill: currentcolor;
@@ -2487,6 +2499,9 @@ body {
 }
 .opacity-80 {
   opacity: 80%;
+}
+.opacity-90 {
+  opacity: 90%;
 }
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
@@ -3014,6 +3029,12 @@ body {
   .md\:text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+}
+@media (width >= 48rem) {
+  .md\:text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
 }
 @media (width >= 48rem) {
