@@ -91,7 +91,7 @@ if ( ! $ub_slides ) {
 										<div class="opacity-0 translate-y-4 transition-all duration-500 delay-350 group-[.swiper-slide-active]/slide:opacity-100 group-[.swiper-slide-active]/slide:translate-y-0 flex flex-col items-start mt-10">
 											<a href="<?php echo esc_url( $ub_button['url'] ); ?>"
 												target="<?php echo esc_attr( isset( $ub_button['target'] ) ? $ub_button['target'] : '_self' ); ?>"
-												class="flex gap-4 items-center px-4 py-2 text-xs font-bold text-white shadow-lg transition-all duration-300 bg-primary hover:bg-primary-dark rounded-xs shadow-primary/20">
+												class="flex gap-4 items-center px-4 py-2 text-xs font-bold text-white no-underline shadow-lg transition-all duration-300 bg-primary hover:bg-primary-dark rounded-xs shadow-primary/20">
 												<span class="text-xs leading-none"><?php echo esc_html( isset( $ub_button['title'] ) ? $ub_button['title'] : 'Дэлгэрэнгүй' ); ?></span>
 												<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
 											</a>
@@ -106,7 +106,7 @@ if ( ! $ub_slides ) {
 		
 		<!-- Swiper Navigation/Pagination - Aligned with Testimonials Style -->
 		<div class="container flex absolute bottom-0 left-1/2 z-40 flex-row gap-8 justify-between items-end -translate-x-1/2 pointer-events-none">
-			<div class="swiper-pagination static! ml-0 grow max-w-xs overflow-hidden rounded-none pointer-events-auto [&_span]:rounded-none!" style="--swiper-pagination-progressbar-bg-color:rgba(255,255,255,0.9);--swiper-theme-color:#EC1B24;"></div>
+			<div class="swiper-pagination static! ml-0 grow max-w-xs overflow-hidden rounded-none pointer-events-auto [&_span]:rounded-none!" style="--swiper-pagination-progressbar-bg-color:rgba(255,255,255,0.9);--swiper-theme-color:var(--color-primary);"></div>
 			
 			<div class="flex gap-2 items-center pb-8 pointer-events-auto">
 				<button data-hero-carousel-prev class="flex justify-center items-center w-12 h-12 rounded-full border shadow-sm backdrop-blur-md transition-all cursor-pointer bg-white/10 border-white/20 group hover:bg-white hover:border-white">
@@ -120,11 +120,3 @@ if ( ! $ub_slides ) {
 	</div>
 </section>
 
-<style>
-/* Swiper Autoplay Progress Override */
-.hero-block .swiper-pagination-progressbar-fill {
-	transform: scaleX(var(--hero-autoplay-progress, 0)) !important;
-	transform-origin: left !important;
-	transition: none !important;
-}
-</style>

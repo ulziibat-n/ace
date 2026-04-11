@@ -271,124 +271,43 @@ add_filter(
  * Энэ функцээр дамжуулан Google Fonts, үндсэн style.css болон
  * бусад JavaScript файлуудыг зөв дарааллаар нь вэб сайт руу оруулдаг.
  */
+/**
+ * Register global assets that may be or used as dependencies by blocks.
+ * Registered here on 'init' so handles are available to block.json and backend.
+ */
+function ub_register_assets() {
+	// Swiper Assets
+	wp_register_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
+	wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
+
+	// Block Scripts with Swiper dependency
+	wp_register_script( 'hero-js', get_template_directory_uri() . '/blocks/hero/hero.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'testimonials-js', get_template_directory_uri() . '/blocks/testimonials/testimonials.js', array( 'swiper' ), UB_VERSION, true );
+
+	// Block Styles with Swiper dependency
+	wp_register_style( 'hero-css', get_template_directory_uri() . '/blocks/hero/hero.css', array( 'swiper' ), UB_VERSION );
+	wp_register_style( 'testimonials-css', get_template_directory_uri() . '/blocks/testimonials/testimonials.css', array( 'swiper' ), UB_VERSION );
+}
+add_action( 'init', 'ub_register_assets', 5 );
+
 function ub_scripts() {
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
 
-	// Swiper-ийг ачаалах.
-	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
-	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
+	// Register Modular Component Scripts
+	wp_register_script( 
+		'related-posts-script', 
+		get_template_directory_uri() . '/assets/js/related-posts.js', 
+		array( 'swiper' ), 
+		UB_VERSION, 
+		true 
+	);
 
-	$ub_swiper_init = "
-		document.addEventListener('DOMContentLoaded', function() {
-			if (typeof Swiper !== 'undefined') {
-				// Бүх слайдын өндрийг хамгийн өндөр слайдтай адил болгох функц
-				function setSameHeight(swiper) {
-					let maxHeight = 0;
-					if (swiper.slides && swiper.slides.length > 0) {
-						swiper.slides.forEach(slide => {
-							slide.style.height = 'auto';
-						});
-						swiper.slides.forEach(slide => {
-							if (slide.offsetHeight > maxHeight) maxHeight = slide.offsetHeight;
-						});
-						swiper.slides.forEach(slide => {
-							slide.style.height = maxHeight + 'px';
-						});
-					}
-				}
-
-				// Related Posts Carousel
-				if (document.querySelector('[data-related-posts-carousel]')) {
-					new Swiper('[data-related-posts-carousel]', {
-						slidesPerView: 'auto',
-						spaceBetween: 10,
-						navigation: {
-							nextEl: '[data-related-posts-carousel-next]',
-							prevEl: '[data-related-posts-carousel-prev]'
-						},
-						mousewheel: {
-							forceToAxis: true
-						},
-						grabCursor: true,
-						on: {
-							init: function() {
-								setSameHeight(this);
-							},
-							resize: function() {
-								setSameHeight(this);
-							}
-						}
-					});
-				}
-
-				// Hero Slider
-				if (document.querySelector('[data-hero-slider]')) {
-					new Swiper('[data-hero-slider]', {
-						loop: true,
-						speed: 1200,
-						autoplay: {
-							delay: 6000,
-							disableOnInteraction: false
-						},
-						pagination: {
-							el: '.swiper-pagination',
-							type: 'progressbar'
-						},
-						navigation: {
-							nextEl: '[data-hero-carousel-next]',
-							prevEl: '[data-hero-carousel-prev]'
-						},
-						effect: 'fade',
-						fadeEffect: {
-							crossFade: true
-						},
-						on: {
-							init: function() {
-								setSameHeight(this);
-							},
-							resize: function() {
-								setSameHeight(this);
-							},
-							autoplayTimeLeft(s, time, progress) {
-								const slider = s.el;
-								if (slider) {
-									slider.style.setProperty('--hero-autoplay-progress', (1 - progress).toFixed(3));
-								}
-							}
-						}
-					});
-				}
-
-				// Testimonials Carousel
-				if (document.querySelector('[data-testimonials-slider]')) {
-					new Swiper('[data-testimonials-slider]', {
-						loop: false,
-						speed: 600,
-						spaceBetween: 10,
-						slidesPerView: 'auto',
-						pagination: {
-							el: '.swiper-pagination',
-							type: 'progressbar'
-						},
-						navigation: {
-							nextEl: '[data-testimonials-carousel-next]',
-							prevEl: '[data-testimonials-carousel-prev]'
-						},
-						on: {
-							init: function() {
-								setSameHeight(this);
-							},
-							resize: function() {
-								setSameHeight(this);
-							}
-						}
-					});
-				}
-			}
-		});
-	";
-	wp_add_inline_script( 'swiper', $ub_swiper_init );
+	// Conditionally Enqueue Related Posts Carousel assets
+	if ( is_singular( array( 'post', 'school' ) ) ) {
+		wp_enqueue_style( 'swiper' );
+		wp_enqueue_script( 'related-posts-script' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ub_scripts' );
 
@@ -414,15 +333,11 @@ function ub_enqueue_block_editor_script() {
 			UB_VERSION,
 			true
 		);
-		wp_add_inline_script( 'ace-editor', "tailwindTypographyClasses = '" . esc_attr( UB_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
-
 		// Enqueue Swiper assets for block editor preview.
 		wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
 		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
 
-		// Inline init for hero slider in editor.
-		$hero_swiper_init = "document.addEventListener('DOMContentLoaded', function() { if (typeof Swiper !== 'undefined' && document.querySelector('[data-hero-slider]')) { new Swiper('[data-hero-slider]', { loop: true, effect: 'fade', speed: 1200, autoplay: { delay: 6000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-hero-carousel-next]', prevEl: '[data-hero-carousel-prev]' }, on: { autoplayTimeLeft(s, time, progress) { const slider = s.el; if (slider) { slider.style.setProperty('--hero-autoplay-progress', (1 - progress).toFixed(3)); } } } }); } if (typeof Swiper !== 'undefined' && document.querySelector('[data-testimonials-slider]')) { new Swiper('[data-testimonials-slider]', { loop: false, speed: 600, spaceBetween: 10, slidesPerView: 1, autoplay: { delay: 7000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', type: 'progressbar' }, navigation: { nextEl: '[data-testimonials-carousel-next]', prevEl: '[data-testimonials-carousel-prev]' }, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } } }); } });";
-		wp_add_inline_script( 'swiper', $hero_swiper_init );
+		// Swiper assets are enqueued; block-level assets will handle necessary initializations.
 	}
 
 	// Block editor font-face injection (admin context).

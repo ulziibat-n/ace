@@ -1,0 +1,12 @@
+/**
+ * Hero Block Styling
+ */
+
+.hero-block {
+    /* Swiper Autoplay Progress Override */
+    .swiper-pagination-progressbar-fill {
+        transform: scaleX(var(--hero-autoplay-progress, 0)) !important;
+        transform-origin: left !important;
+        transition: none !important;
+    }
+}
