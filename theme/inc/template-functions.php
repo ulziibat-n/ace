@@ -282,23 +282,24 @@ function ub_scripts() {
 	$ub_swiper_init = "
 		document.addEventListener('DOMContentLoaded', function() {
 			if (typeof Swiper !== 'undefined') {
+				// Бүх слайдын өндрийг хамгийн өндөр слайдтай адил болгох функц
+				function setSameHeight(swiper) {
+					let maxHeight = 0;
+					if (swiper.slides && swiper.slides.length > 0) {
+						swiper.slides.forEach(slide => {
+							slide.style.height = 'auto';
+						});
+						swiper.slides.forEach(slide => {
+							if (slide.offsetHeight > maxHeight) maxHeight = slide.offsetHeight;
+						});
+						swiper.slides.forEach(slide => {
+							slide.style.height = maxHeight + 'px';
+						});
+					}
+				}
+
 				// Related Posts Carousel
 				if (document.querySelector('[data-related-posts-carousel]')) {
-					function setSameHeight(swiper) {
-						let maxHeight = 0;
-						if (swiper.slides && swiper.slides.length > 0) {
-							swiper.slides.forEach(slide => {
-								slide.style.height = 'auto';
-							});
-							swiper.slides.forEach(slide => {
-								if (slide.offsetHeight > maxHeight) maxHeight = slide.offsetHeight;
-							});
-							swiper.slides.forEach(slide => {
-								slide.style.height = maxHeight + 'px';
-							});
-						}
-					}
-
 					new Swiper('[data-related-posts-carousel]', {
 						slidesPerView: 'auto',
 						spaceBetween: 10,
@@ -343,6 +344,12 @@ function ub_scripts() {
 							crossFade: true
 						},
 						on: {
+							init: function() {
+								setSameHeight(this);
+							},
+							resize: function() {
+								setSameHeight(this);
+							},
 							autoplayTimeLeft(s, time, progress) {
 								const slider = s.el;
 								if (slider) {
@@ -367,6 +374,14 @@ function ub_scripts() {
 						navigation: {
 							nextEl: '[data-testimonials-carousel-next]',
 							prevEl: '[data-testimonials-carousel-prev]'
+						},
+						on: {
+							init: function() {
+								setSameHeight(this);
+							},
+							resize: function() {
+								setSameHeight(this);
+							}
 						}
 					});
 				}
