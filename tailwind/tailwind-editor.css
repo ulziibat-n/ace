@@ -76,4 +76,9 @@
 	margin-top: 0 !important;
 }
 
+/* Reduce Hero Block top padding in the editor to prevent excessive vertical height while editing */
+.editor-styles-wrapper .hero-block .swiper-slide {
+    padding-top: 5rem !important; /* Reduce from default pt-76 */
+}
+
 

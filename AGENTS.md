@@ -15,6 +15,7 @@ This document serves as the master rulebook for all AI agents working on this en
 9. **MONGOLIAN COMMENTS**: Бүх кодны комментийг заавал МОНГОЛ хэл дээр бичнэ. Inline коммент (`//`) нь заавал цэгээр (.) төгссөн байна.
 10. **CODE QUALITY CONTROL**: Даалгавар эсвэл фичер дуусгах бүрт заавал `pnpm run lint-fix` команд ажиллуулж, кодыг автоматаар цэгцэлнэ. Энэ нь Tailwind-ийн шинэ стандарт (canonical classes) болон JS-ийн стандартыг баталгаажуулна.
 11. **MONGOLIAN COMMITS**: Бүх Git commit мессежүүдийг заавал МОНГОЛ хэл дээр бичнэ. Мессеж нь товч бөгөөд утга төгс байна.
+12. **EDITOR FIDELITY & USABILITY**: Блок редактор дээрх харагдац нь Frontend-тэй ижил байхаас гадна, хэт их хоосон зай (padding/margin) үүсгэхгүй байх ёстой. Үүний тулд `tailwind-editor.css` дээр `:where()` ашиглан ерөнхий гарчгуудын зайг reset хийж, блокийн өндрийг редакторт зориулж оновчтой болгоно.
 
 ## Naming Conventions
 - Function prefix: `site_`
