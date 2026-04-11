@@ -1,10 +1,7 @@
-node_modules
-vendor
-.DS_Store
-**/.DS_Store
-
-# Compiled assets
+# Ignore compiled assets
 theme/style.css
 theme/style-editor.css
 tailwind-intellisense.css
 theme/js/*.min.js
+node_modules/
+vendor/

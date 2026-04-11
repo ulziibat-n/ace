@@ -1,0 +1,9 @@
+# Ignore compiled assets from Agent search and analysis
+theme/style.css
+theme/style-editor.css
+tailwind-intellisense.css
+theme/js/*.min.js
+node_modules/
+vendor/
+.git/
+*.zip

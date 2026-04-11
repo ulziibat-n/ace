@@ -2642,11 +2642,6 @@ body {
   -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
 }
-.transition {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-}
 .transition-all {
   transition-property: all;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -3848,8 +3843,13 @@ body {
 .entry-header, .entry-content {
   padding-inline: calc(var(--spacing) * 8);
 }
-.editor-styles-wrapper :where(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *))):where(h1, h2, h3, h4, h5, h6) {
+.editor-styles-wrapper :where(h1, h2, h3, h4, h5, h6), .editor-styles-wrapper :where(.singular-content > h1, .singular-content > h2, .singular-content > h3, .singular-content > h4, .singular-content > h5, .singular-content > h6), .editor-styles-wrapper :where(.prose :not(:where([class~='not-prose'],[class~='not-prose'] *,[class~='acf-block-body']:not([class~='acf-block-preview']) *))):where(h1, h2, h3, h4, h5, h6) {
   margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.editor-styles-wrapper .singular-content > :where(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .editor-styles-wrapper .wp-block[data-align="full"] {
   margin-top: 0 !important;
@@ -3870,6 +3870,13 @@ body {
   margin: 0;
   width: 100%;
   max-width: 100%;
+}
+.editor-styles-wrapper .wp-block-post-title {
+  font-size: 2.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  margin-bottom: 2rem !important;
+  margin-top: 0 !important;
 }
 .singular-content > p {
   margin-inline: auto;

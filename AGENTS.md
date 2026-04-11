@@ -12,6 +12,8 @@ This document serves as the master rulebook for all AI agents working on this en
 6. **STRICT SQL RULE**: Never execute direct SQL queries like `DROP`, `DELETE`, or `TRUNCATE` via the terminal or direct `$wpdb` calls for bulk deletion. Any data deletion must be handled through native WordPress functions (e.g., `wp_delete_post`, `wp_delete_attachment`) to ensure hooks and cleanup are triggered correctly.
 7. **Modular Block Assets**: All custom Gutenberg blocks must use modular, block-level JS and CSS files registered via `block.json`. Avoid adding block-specific logic to global files like `template-functions.php`.
 8. **STRICT VANILLA JS**: All JavaScript MUST be written in pure Vanilla JS (ES2022+). **jQuery is STRICTLY FORBIDDEN** for any new features or block assets. Use native DOM APIs (`document.querySelector`, `addEventListener`, etc.) and ensure the code works in both the block editor and frontend without jQuery dependencies.
+9. **MONGOLIAN COMMENTS**: Бүх кодны комментийг заавал МОНГОЛ хэл дээр бичнэ. Inline коммент (`//`) нь заавал цэгээр (.) төгссөн байна.
+10. **CODE QUALITY CONTROL**: Даалгавар эсвэл фичер дуусгах бүрт заавал `pnpm run lint-fix` команд ажиллуулж, кодыг автоматаар цэгцэлнэ. Энэ нь Tailwind-ийн шинэ стандарт (canonical classes) болон JS-ийн стандартыг баталгаажуулна.
 
 ## Naming Conventions
 - Function prefix: `site_`

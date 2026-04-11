@@ -14,7 +14,12 @@ const tailwindRules = tailwindRulesConfig?.rules || {};
 
 export default [
 	{
-		ignores: ['**/*.min.js', '**/vendor/'],
+		ignores: [
+			'**/*.min.js',
+			'**/vendor/',
+			'theme/style.css',
+			'theme/style-editor.css',
+		],
 	},
 	{
 		files: ['**/*.js'],
@@ -27,11 +32,15 @@ export default [
 		},
 	},
 	{
-		files: ['javascript/**/*.js'],
+		files: ['javascript/**/*.js', 'theme/blocks/**/*.js', 'theme/assets/js/**/*.js'],
 		languageOptions: {
 			globals: {
 				...globals.browser,
 				wp: 'readonly',
+				acf: 'readonly',
+				Swiper: 'readonly',
+				jQuery: 'readonly',
+				$: 'readonly',
 			},
 		},
 	},
