@@ -36,10 +36,10 @@
 			"label": "Тоон үзүүлэлтүүд",
 			"name": "ts_stats",
 			"type": "repeater",
-			"instructions": "Дээд тал нь 4 үзүүлэлт нэмэхийг зөвлөж байна. Та нэгийг нь 'Онцлох' (Highlight) болгож ялгаж болно.",
+			"instructions": "Дээд тал нь 10 үзүүлэлт нэмэх боломжтой.",
 			"required": 0,
 			"min": 0,
-			"max": 4,
+			"max": 10,
 			"layout": "block",
 			"button_label": "Үзүүлэлт нэмэх",
 			"sub_fields": [
@@ -70,31 +70,14 @@
 				},
 				{
 					"key": "field_ts_stat_icon",
-					"label": "Дүрс сонгох (Remix Line)",
+					"label": "Дүрс (Зураг эсвэл SVG)",
 					"name": "stat_icon",
-					"type": "select",
-					"instructions": "Секцийн агуулгад тохирох дүрсийг сонгоно уу.",
+					"type": "image",
+					"instructions": "Дөрвөлжин хэмжээтэй (1:1) дүрс эсвэл SVG файл оруулна уу.",
 					"required": 0,
-					"choices": {
-						"graduation-cap-line": "Graduation Cap (Оюутан)",
-						"user-line": "Student (Суралцагч)",
-						"bank-line": "Bank (Байгууллага)",
-						"building-4-line": "Buildings (Сургууль)",
-						"passport-line": "Passport (Виз)",
-						"globe-line": "Globe (Олон улс)",
-						"medal-line": "Medal (Амжилт)",
-						"award-line": "Award (Гэрчилгээ)",
-						"calendar-line": "Calendar (Хугацаа)",
-						"community-line": "Users (Олон нийт)",
-						"hotel-line": "Building (Барилга)"
-					},
-					"default_value": "graduation-cap-line",
-					"allow_null": 0,
-					"multiple": 0,
-					"ui": 1,
-					"ajax": 0,
-					"return_format": "value",
-					"placeholder": ""
+					"return_format": "id",
+					"preview_size": "thumbnail",
+					"library": "all"
 				}
 			]
 		}
