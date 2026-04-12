@@ -55,6 +55,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --container-lg: 32rem;
   --container-xl: 36rem;
   --container-2xl: 42rem;
+  --container-3xl: 48rem;
   --container-4xl: 56rem;
   --text-xs: 0.75rem;
   --text-xs--line-height: calc(1 / 0.75);
@@ -1567,6 +1568,9 @@ body {
 .max-w-2xl {
   max-width: var(--container-2xl);
 }
+.max-w-3xl {
+  max-width: var(--container-3xl);
+}
 .max-w-4xl {
   max-width: var(--container-4xl);
 }
@@ -2185,6 +2189,9 @@ body {
 }
 .pb-5 {
   padding-bottom: calc(var(--spacing) * 5);
+}
+.pb-6 {
+  padding-bottom: calc(var(--spacing) * 6);
 }
 .pb-8 {
   padding-bottom: calc(var(--spacing) * 8);

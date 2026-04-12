@@ -2,8 +2,6 @@
 	"apiVersion": 2,
 	"name": "acf/testimonials",
 	"title": "Амжилтын түүх (Carousel)",
-	"description": "Оюутнуудын амжилтын түүхийг Swiper slider-аар харуулна.",
-	"style": "testimonials-css",
 	"script": "testimonials-js",
 	"category": "ace-blocks",
 	"icon": "testimonial",
