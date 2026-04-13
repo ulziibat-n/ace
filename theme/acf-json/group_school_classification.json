@@ -72,7 +72,15 @@
 			"instructions": "Картан дээр харагдах жижиг онцлох тэмдэглэгээнүүд",
 			"layout": "table",
 			"button_label": "Бэж нэмэх",
-			"menu_order": 5
+			"menu_order": 5,
+			"sub_fields": [
+				{
+					"key": "field_badge_text",
+					"label": "Текст",
+					"name": "text",
+					"type": "text"
+				}
+			]
 		}
 	}
 }

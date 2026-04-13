@@ -33,7 +33,22 @@
 			"label": "Давуу талууд",
 			"instructions": "Симбол бүхий богино давуу талуудын жагсаалт",
 			"layout": "block",
-			"menu_order": 1
+			"menu_order": 1,
+			"sub_fields": [
+				{
+					"key": "field_strength_title",
+					"label": "Гарчиг",
+					"name": "title",
+					"type": "text"
+				},
+				{
+					"key": "field_strength_desc",
+					"label": "Тайлбар",
+					"name": "description",
+					"type": "textarea",
+					"rows": 2
+				}
+			]
 		},
 		"field_faq": {
 			"key": "field_faq",
@@ -43,7 +58,23 @@
 			"label": "Түгээмэл асуултууд",
 			"instructions": "Сургуультай холбоотой түгээмэл асуулт, хариултууд",
 			"layout": "row",
-			"menu_order": 2
+			"menu_order": 2,
+			"sub_fields": [
+				{
+					"key": "field_faq_q",
+					"label": "Асуулт",
+					"name": "question",
+					"type": "text"
+				},
+				{
+					"key": "field_faq_a",
+					"label": "Хариулт",
+					"name": "answer",
+					"type": "textarea",
+					"rows": 3,
+					"instructions": "Ойлгомжтой товч хариулт"
+				}
+			]
 		}
 	}
 }

@@ -92,7 +92,23 @@
 			"instructions": "Тэтгэлэг авах боломжтой нөхцөлүүдийг хүснэгт хэлбэрээр оруулна",
 			"layout": "table",
 			"button_label": "Нэмэх",
-			"menu_order": 7
+			"menu_order": 7,
+			"sub_fields": [
+				{
+					"key": "field_sch_condition",
+					"label": "Нөхцөл",
+					"name": "condition",
+					"type": "text",
+					"instructions": "Жишээ: TOPIK 3 буюу түүнээс дээш"
+				},
+				{
+					"key": "field_sch_benefit",
+					"label": "Төлбөр \/ Хөнгөлөлт",
+					"name": "benefit",
+					"type": "text",
+					"instructions": "Жишээ: 30 ~ 100%"
+				}
+			]
 		},
 		"field_tuition_bachelor_list": {
 			"key": "field_tuition_bachelor_list",
@@ -103,7 +119,21 @@
 			"instructions": "Мэргэжил тус бүрийн сургалтын төлбөрийг хайлт хийхэд зориулж оруулна",
 			"layout": "table",
 			"button_label": "Мэргэжил нэмэх",
-			"menu_order": 8
+			"menu_order": 8,
+			"sub_fields": [
+				{
+					"key": "field_bac_dept",
+					"label": "Тэнхим \/ Мэргэжил",
+					"name": "department",
+					"type": "text"
+				},
+				{
+					"key": "field_bac_fee",
+					"label": "Төлбөр",
+					"name": "fee",
+					"type": "text"
+				}
+			]
 		},
 		"field_tuition_master_list": {
 			"key": "field_tuition_master_list",
@@ -114,7 +144,21 @@
 			"instructions": "Мастер \/ Докторын мэргэжил тус бүрийн төлбөр",
 			"layout": "table",
 			"button_label": "Мэргэжил нэмэх",
-			"menu_order": 9
+			"menu_order": 9,
+			"sub_fields": [
+				{
+					"key": "field_mas_dept",
+					"label": "Тэнхим \/ Мэргэжил",
+					"name": "department",
+					"type": "text"
+				},
+				{
+					"key": "field_mas_fee",
+					"label": "Төлбөр",
+					"name": "fee",
+					"type": "text"
+				}
+			]
 		}
 	}
 }

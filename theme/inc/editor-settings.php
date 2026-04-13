@@ -49,6 +49,8 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 		'acf/value-prop',
 		'acf/schools-carousel',
 		'acf/posts-carousel',
+		'acf/hero-about',
+		'acf/mission-vision-values',
 	);
 
 	foreach ( $acf_blocks as $block ) {

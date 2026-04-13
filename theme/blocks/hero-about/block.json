@@ -1,0 +1,37 @@
+{
+	"name": "acf/hero-about",
+	"title": "Бидний тухай - Hero",
+	"description": "Бидний тухай хуудасны толгой хэсэг (Гарчиг, тайлбар, зураг/видео).",
+	"category": "ace-blocks",
+	"icon": "superhero",
+	"keywords": ["бидний тухай", "about", "hero", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "hero-about.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_hero_about_title": "Зүгээр нэг зуучлагч биш, Таны ирээдүйн карьерын чиглүүлэгч.",
+				"ub_hero_about_description": "Бид залууст Солонгос улсад суралцах мөрөөдлөө бодит болгоход нь хэлний бэлтгэлээс эхлээд их сургуулиа төгсөх хүртэл нь алхам тутамд нь хамт байж, мэргэжлийн менторшип үзүүлдэг.",
+				"ub_hero_about_visual_type": "image",
+				"ub_hero_about_image": {
+					"url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+				}
+			}
+		}
+	}
+}

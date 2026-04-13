@@ -1,0 +1,128 @@
+{
+	"key": "group_ace_hero_about",
+	"title": "Блок: Hero About (Бидний тухай)",
+	"fields": [
+		{
+			"key": "field_hero_about_title",
+			"label": "Үндсэн гарчиг (Headline H1)",
+			"name": "ub_hero_about_title",
+			"type": "textarea",
+			"required": 1,
+			"default_value": "Зүгээр нэг зуучлагч биш, Таны ирээдүйн карьерын чиглүүлэгч.",
+			"rows": 2
+		},
+		{
+			"key": "field_hero_about_description",
+			"label": "Дэд гарчиг (Sub-headline)",
+			"name": "ub_hero_about_description",
+			"type": "textarea",
+			"required": 1,
+			"default_value": "Бид залууст Солонгос улсад суралцах мөрөөдлөө бодит болгоход нь хэлний бэлтгэлээс эхлээд их сургуулиа төгсөх хүртэл нь алхам тутамд нь хамт байж, мэргэжлийн менторшип үзүүлдэг.",
+			"rows": 3
+		},
+		{
+			"key": "field_hero_about_visual_type",
+			"label": "Визуал төрөл",
+			"name": "ub_hero_about_visual_type",
+			"type": "select",
+			"choices": {
+				"image": "Зураг",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"ui": 1,
+			"ajax": 0
+		},
+		{
+			"key": "field_hero_about_image",
+			"label": "Hero зураг",
+			"name": "ub_hero_about_image",
+			"type": "image",
+			"conditional_logic": [
+				[
+					{
+						"field": "field_hero_about_visual_type",
+						"operator": "==",
+						"value": "image"
+					}
+				]
+			],
+			"return_format": "array",
+			"preview_size": "medium"
+		},
+		{
+			"key": "field_hero_about_video_file",
+			"label": "Видео файл (MP4)",
+			"name": "ub_hero_about_video_file",
+			"type": "file",
+			"conditional_logic": [
+				[
+					{
+						"field": "field_hero_about_visual_type",
+						"operator": "==",
+						"value": "video"
+					}
+				]
+			],
+			"return_format": "array",
+			"library": "all",
+			"min_size": "",
+			"max_size": "",
+			"mime_types": "mp4"
+		},
+		{
+			"key": "field_hero_about_video_url",
+			"label": "YouTube URL",
+			"name": "ub_hero_about_video_url",
+			"type": "url",
+			"conditional_logic": [
+				[
+					{
+						"field": "field_hero_about_visual_type",
+						"operator": "==",
+						"value": "video"
+					}
+				]
+			],
+			"placeholder": "https://www.youtube.com/watch?v=..."
+		},
+		{
+			"key": "field_hero_about_primary_cta",
+			"label": "Үйлдлийн товч (CTA)",
+			"name": "ub_hero_about_primary_cta",
+			"type": "link"
+		},
+		{
+			"key": "field_hero_about_title_max_width",
+			"label": "Гарчгийн өргөн (Max Width)",
+			"name": "ub_hero_about_title_max_width",
+			"type": "range",
+			"default_value": 896,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		},
+		{
+			"key": "field_hero_about_description_max_width",
+			"label": "Тайлбар текстийн өргөн (Max Width)",
+			"name": "ub_hero_about_description_max_width",
+			"type": "range",
+			"default_value": 672,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/hero-about"
+			}
+		]
+	],
+	"active": true
+}

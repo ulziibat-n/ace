@@ -4,7 +4,6 @@
  */
 
 $ub_school_id   = get_the_ID();
-$ub_logo        = get_field( 'logo', $ub_school_id );
 $ub_short_intro = get_field( 'short_intro', $ub_school_id );
 $ub_location    = get_the_terms( $ub_school_id, 'school_location' );
 $ub_guarantor   = get_the_terms( $ub_school_id, 'guarantor_requirement' );
@@ -32,12 +31,6 @@ $ub_is_featured = get_field( 'is_featured', $ub_school_id );
 			</div>
 		<?php endif; ?>
 		
-		<!-- Logo Overlay -->
-		<?php if ( $ub_logo ) : ?>
-			<div class="absolute bottom-4 left-4 z-20 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xs border border-slate-100 bg-white p-1 shadow-lg">
-				<?php echo wp_get_attachment_image( $ub_logo, 'thumbnail', false, array( 'class' => 'max-w-full max-h-full object-contain' ) ); ?>
-			</div>
-		<?php endif; ?>
 
 
 		<div class="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent"></div>

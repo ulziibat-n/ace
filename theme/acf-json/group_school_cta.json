@@ -23,6 +23,20 @@
 			"instructions": "Хуудасны доод хэсэгт харагдах зөвлөгөө авах хэсгийн гарчиг",
 			"menu_order": 0
 		},
+		"field_cta_title_max_width": {
+			"key": "field_cta_title_max_width",
+			"name": "inquiry_cta_title_max_width",
+			"type": "range",
+			"parent": "group_school_cta",
+			"label": "CTA Гарчгийн өргөн (Max Width)",
+			"instructions": "Гарчгийн хамгийн их өргөнийг пикселээр тохируулна уу.",
+			"default_value": 768,
+			"min": 320,
+			"max": 768,
+			"step": 8,
+			"append": "px",
+			"menu_order": 1
+		},
 		"field_cta_text": {
 			"key": "field_cta_text",
 			"name": "inquiry_cta_text",
@@ -32,25 +46,43 @@
 			"rows": 2,
 			"instructions": "Гарчгийн доор харагдах уриалга текст",
 			"default_value": "Манай туршлагатай зөвлөхүүд танд хамгийн тохиромжтой хувилбарыг сонгоход туслах болно.",
-			"menu_order": 1
+			"menu_order": 2
+		},
+		"field_cta_text_max_width": {
+			"key": "field_cta_text_max_width",
+			"name": "inquiry_cta_text_max_width",
+			"type": "range",
+			"parent": "group_school_cta",
+			"label": "CTA Текстийн өргөн (Max Width)",
+			"instructions": "Текстийн хамгийн их өргөнийг пикселээр тохируулна уу.",
+			"default_value": 640,
+			"min": 320,
+			"max": 768,
+			"step": 8,
+			"append": "px",
+			"menu_order": 3
 		},
 		"field_messenger_link": {
 			"key": "field_messenger_link",
 			"name": "messenger_link",
-			"type": "url",
+			"type": "link",
 			"parent": "group_school_cta",
-			"label": "Messenger линк",
-			"instructions": "Facebook Messenger холбоос (жишээ: https:\/\/m.me\/yourpage)",
-			"menu_order": 2
+			"label": "Товчлуур 1",
+			"return_format": "array",
+			"instructions": "Жишээ: Messenger холбоос",
+			"status": "active",
+			"menu_order": 4
 		},
 		"field_kakao_link": {
 			"key": "field_kakao_link",
 			"name": "kakao_link",
-			"type": "url",
+			"type": "link",
 			"parent": "group_school_cta",
-			"label": "KakaoTalk линк",
-			"instructions": "KakaoTalk холбоос (жишээ: https:\/\/pf.kakao.com\/... эсвэл id)",
-			"menu_order": 3
+			"label": "Товчлуур 2",
+			"return_format": "array",
+			"instructions": "Жишээ: KakaoTalk холбоос",
+			"status": "active",
+			"menu_order": 5
 		}
 	}
 }

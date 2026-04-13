@@ -77,17 +77,8 @@
 			"parent": "group_school_general",
 			"label": "Брошур линк",
 			"instructions": "Танилцуулга брошур эсвэл PDF файлын хаяг",
+			"status": "active",
 			"menu_order": 6
-		},
-		"field_school_logo": {
-			"key": "field_school_logo",
-			"name": "logo",
-			"type": "image",
-			"parent": "group_school_general",
-			"label": "Лого",
-			"return_format": "id",
-			"instructions": "Сургуулийн лого (PNG эсвэл SVG форматтай, тунгалаг дэвсгэртэй бол сайн)",
-			"menu_order": 7
 		},
 		"field_hero_image": {
 			"key": "field_hero_image",

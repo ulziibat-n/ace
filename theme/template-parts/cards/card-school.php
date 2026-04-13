@@ -10,7 +10,6 @@ $ub_card_class = isset( $args['class'] ) ? $args['class'] : '';
 $ub_post_id    = get_the_ID();
 
 // ACF Fields.
-$ub_logo    = get_field( 'logo', $ub_post_id );
 $ub_name_ko = get_field( 'school_name_ko', $ub_post_id );
 $ub_tuition = get_field( 'tuition_language_course', $ub_post_id );
 
@@ -43,13 +42,8 @@ $ub_location  = ( ! empty( $ub_locations ) && ! is_wp_error( $ub_locations ) ) ?
 	<!-- Content Container -->
 	<div class="flex flex-col p-6 grow">
 		
-		<!-- Logo & Korean Name -->
-		<div class="flex gap-4 justify-between items-center mb-4">
-			<?php if ( $ub_logo ) : ?>
-				<div class="w-10 h-10 shrink-0">
-					<?php echo wp_get_attachment_image( $ub_logo, 'thumbnail', false, array( 'class' => 'h-full w-full object-contain' ) ); ?>
-				</div>
-			<?php endif; ?>
+		<!-- Korean Name -->
+		<div class="flex flex-wrap gap-2 mb-4">
 			<?php if ( $ub_name_ko ) : ?>
 				<span class="text-[0.7rem] font-medium text-foreground/40 bg-slate-50 px-2 py-0.5 rounded-xs">
 					<?php echo esc_html( $ub_name_ko ); ?>

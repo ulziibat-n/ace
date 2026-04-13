@@ -1,0 +1,49 @@
+{
+	"name": "acf/mission-vision-values",
+	"title": "Эрхэм зорилго, Алсын хараа, Үнэт зүйлс",
+	"description": "Брэндийн философийг (Mission, Vision, Values) харуулах 3 багана бүхий блок.",
+	"category": "ace-blocks",
+	"icon": "lightbulb",
+	"style": "swiper",
+	"script": "mvv-js",
+	"keywords": ["mission", "vision", "values", "about", "philosopy", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "mission-vision-values.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_mvv_headline": "Бидний үнэт зүйлс ба философи",
+				"ub_mvv_description": "Бид залуусын ирээдүйн сайн сайхны төлөө Солонгосын академик боловсролын гүүр нь болон ажиллаж байна.",
+				"ub_mvv_items": [
+					{
+						"title": "Эрхэм зорилго (Mission)",
+						"description": "Монгол залууст дэлхийн түвшний боловсрол эзэмших гүүр нь болох."
+					},
+					{
+						"title": "Алсын хараа (Vision)",
+						"description": "Солонгосын боловсролын зуучлал, хэлний сургалтын салбарт хамгийн өндөр үр дүнтэй, салбартаа тэргүүлэгч академи болох."
+					},
+					{
+						"title": "Үнэт зүйлс (Values)",
+						"description": "Ил тод байдал, Үр дүнд чиглэсэн арга барил, Тасралтгүй халамж (Care)."
+					}
+				]
+			}
+		}
+	}
+}

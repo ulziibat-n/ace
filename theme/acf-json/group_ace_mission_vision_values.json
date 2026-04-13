@@ -1,0 +1,85 @@
+{
+	"key": "group_ace_mission_vision_values",
+	"title": "Блок: Эрхэм зорилго, Алсын хараа, Үнэт зүйлс",
+	"fields": [
+		{
+			"key": "field_mvv_headline",
+			"label": "Үндсэн гарчиг",
+			"name": "ub_mvv_headline",
+			"type": "text",
+			"default_value": "Бидний үнэт зүйлс ба философи"
+		},
+		{
+			"key": "field_mvv_description",
+			"label": "Дэд тайлбар",
+			"name": "ub_mvv_description",
+			"type": "textarea",
+			"rows": 2
+		},
+		{
+			"key": "field_mvv_items",
+			"label": "Картууд",
+			"name": "ub_mvv_items",
+			"type": "repeater",
+			"layout": "block",
+			"button_label": "Карт нэмэх",
+			"sub_fields": [
+				{
+					"key": "field_mvv_icon",
+					"label": "Икон (Зураг)",
+					"name": "icon",
+					"type": "image",
+					"return_format": "id",
+					"preview_size": "thumbnail"
+				},
+				{
+					"key": "field_mvv_title",
+					"label": "Гарчиг",
+					"name": "title",
+					"type": "text",
+					"required": 1
+				},
+				{
+					"key": "field_mvv_description",
+					"label": "Тайлбар",
+					"name": "description",
+					"type": "textarea",
+					"rows": 3,
+					"required": 1
+				}
+			]
+		},
+		{
+			"key": "field_mvv_title_max_width",
+			"label": "Гарчгийн өргөн (Max Width)",
+			"name": "ub_mvv_title_max_width",
+			"type": "range",
+			"default_value": 768,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		},
+		{
+			"key": "field_mvv_description_max_width",
+			"label": "Тайлбар текстийн өргөн (Max Width)",
+			"name": "ub_mvv_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/mission-vision-values"
+			}
+		]
+	],
+	"active": true
+}
