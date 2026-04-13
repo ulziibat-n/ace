@@ -2,25 +2,19 @@
 	"name": "acf/trust-signals",
 	"title": "Итгэлцлийн үзүүлэлтүүд (Trust Signals)",
 	"description": "Тоо баримт болон амжилтын үзүүлэлтүүдийг харуулах блок.",
+	"script": "trust-signals-js",
 	"category": "ace-blocks",
-	"icon": "awards",
-	"keywords": ["trust", "numbers", "stats", "social proof", "ace"],
+	"icon": "chart-bar",
+	"keywords": ["trust", "signals", "ace", "stats", "numbers"],
 	"acf": {
 		"mode": "preview",
 		"renderTemplate": "trust-signals.php"
 	},
-	"script": "trust-signals-js",
 	"supports": {
 		"align": ["full"],
+		"html": false,
 		"anchor": true,
-		"jsx": true,
 		"mode": false
-	},
-	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "full"
-		}
 	},
 	"example": {
 		"attributes": {

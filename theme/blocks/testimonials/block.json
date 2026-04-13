@@ -5,21 +5,16 @@
 	"script": "testimonials-js",
 	"category": "ace-blocks",
 	"icon": "testimonial",
-	"keywords": ["testimonials", "carousel", "swiper", "ace"],
+	"keywords": ["testimonials", "quotes", "reviews", "ace", "students"],
 	"acf": {
 		"mode": "preview",
 		"renderTemplate": "testimonials.php"
 	},
 	"supports": {
 		"align": ["full"],
-		"html": false,
-		"anchor": true
-	},
-	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "full"
-		}
+		"anchor": true,
+		"jsx": true,
+		"mode": false
 	},
 	"example": {
 		"attributes": {

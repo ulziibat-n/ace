@@ -27,36 +27,24 @@ if ( ! empty( $block['className'] ) ) {
 }
 
 // ACF Fields.
-$ub_title        = get_field( 'ts_title' ) ? get_field( 'ts_title' ) : __( 'Бидний амжилт тоогоор', 'aceedu' );
-$ub_description  = get_field( 'ts_description' ) ? get_field( 'ts_description' ) : __( 'Бидний амжилтын гол үзүүлэлт бол оюутнуудын маань бодит үр дүн юм.', 'aceedu' );
+$ub_title        = get_field( 'ts_title' );
+$ub_description  = get_field( 'ts_description' );
 $ub_header_width = get_field( 'ts_header_width' ) ? get_field( 'ts_header_width' ) : 600;
 $ub_stats        = get_field( 'ts_stats' );
 
-// Default stats for preview or if empty.
-if ( empty( $ub_stats ) ) {
-	$ub_stats = array(
-		array(
-			'stat_number' => '800+',
-			'stat_label'  => __( 'Амжилттай суралцсан оюутан', 'aceedu' ),
-			'stat_icon'   => 0,
-		),
-		array(
-			'stat_number' => '45+',
-			'stat_label'  => __( 'БНСУ-ын Их, дээд сургууль', 'aceedu' ),
-			'stat_icon'   => 0,
-		),
-		array(
-			'stat_number' => '98%',
-			'stat_label'  => __( 'Виз гаралтын баталгаа', 'aceedu' ),
-			'stat_icon'   => 0,
-		),
-		array(
-			'stat_number' => '8+',
-			'stat_label'  => __( 'Жилийн бодит туршлага', 'aceedu' ),
-			'stat_icon'   => 0,
-		),
-	);
+// Dynamic dummy content from block.json if fields are empty in preview.
+if ( $is_preview && empty( $ub_stats ) ) {
+	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
+	if ( ! empty( $ub_example_data ) ) {
+		$ub_title       = ! empty( $ub_title ) ? $ub_title : ( isset( $ub_example_data['ts_title'] ) ? $ub_example_data['ts_title'] : '' );
+		$ub_description = ! empty( $ub_description ) ? $ub_description : ( isset( $ub_example_data['ts_description'] ) ? $ub_example_data['ts_description'] : '' );
+		$ub_stats       = isset( $ub_example_data['ts_stats'] ) ? $ub_example_data['ts_stats'] : array();
+	}
 }
+
+// Final Fallback for labels if still empty.
+$ub_title       = ! empty( $ub_title ) ? $ub_title : 'Бидний амжилт тоогоор';
+$ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний амжилтын гол үзүүлэлт бол оюутнуудын маань бодит үр дүн юм.';
 ?>
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">

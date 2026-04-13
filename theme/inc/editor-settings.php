@@ -44,6 +44,7 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 		'acf/testimonials',
 		'acf/trust-signals',
 		'acf/page-header',
+		'acf/core-pathways',
 		'acf/design-system',
 	);
 

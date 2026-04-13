@@ -1,0 +1,45 @@
+{
+    "apiVersion": 2,
+    "name": "acf/core-pathways",
+    "title": "Core Pathways & Services",
+    "description": "ACE EDU-ийн багц үйлчилгээнүүдийг харуулах блок.",
+    "script": "core-pathways-js",
+    "category": "ace-blocks",
+    "icon": "businessperson",
+    "keywords": ["services", "pathways", "ace", "package"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "core-pathways.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "cp_title": "ACE-ийн packaged services",
+                "cp_services": [
+                    {
+                        "title": "GKS & тэтгэлгийн бэлтгэл",
+                        "description": "GKS болон их сургуулийн тэтгэлэгт шаардлагатай эссе, судалгааны proposal, CV, ярилцлагын бэлтгэлийг нэг цогцоор нь хийж өгнө.",
+                        "cta_text": "Дэлгэрэнгүй"
+                    },
+                    {
+                        "title": "TOPIK бэлтгэл & хэлний сургалт",
+                        "description": "TOPIK оноогоо зорилтот түвшинд хүргэх онлайн+танхимын холимог хөтөлбөр.",
+                        "cta_text": "Дэлгэрэнгүй"
+                    },
+                    {
+                        "title": "Виз, бүртгэл, онгоцны дараах дэмжлэг",
+                        "description": "Амьдрах орчин болон бичиг баримтын цогц үйлчилгээ.",
+                        "cta_text": "Дэлгэрэнгүй"
+                    }
+                ]
+            }
+        }
+    }
+}

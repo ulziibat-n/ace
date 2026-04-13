@@ -16,8 +16,22 @@ $ub_title        = get_field( 'title' );
 $ub_description  = get_field( 'description' );
 $ub_link         = get_field( 'link' );
 
+// Dynamic dummy content from block.json if fields are empty in preview.
+if ( $is_preview && empty( $ub_testimonials ) ) {
+	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
+	if ( ! empty( $ub_example_data ) ) {
+		$ub_title       = ! empty( $ub_title ) ? $ub_title : ( isset( $ub_example_data['title'] ) ? $ub_example_data['title'] : '' );
+		$ub_description = ! empty( $ub_description ) ? $ub_description : ( isset( $ub_example_data['description'] ) ? $ub_example_data['description'] : '' );
+		$ub_testimonials = isset( $ub_example_data['testimonials'] ) ? $ub_example_data['testimonials'] : array();
+	}
+}
+
+// Final Fallback for labels if still empty.
+$ub_title       = ! empty( $ub_title ) ? $ub_title : 'Бидний бахархал';
+$ub_description = ! empty( $ub_description ) ? $ub_description : 'ACE EDU төвөөр дамжуулан Солонгос улсад амжилттай суралцаж буй оюутнуудын сэтгэгдэл.';
+
 if ( empty( $ub_testimonials ) && $is_preview ) {
-	echo '<div class="p-12 text-center rounded-sm border-2 border-dashed bg-slate-100 border-slate-300">Мэдээллээ оруулна уу.</div>';
+	echo '<div class="p-12 text-center border-2 border-dashed rounded-sm bg-slate-100 border-slate-300">Testimonials: Мэдээллээ оруулна уу.</div>';
 	return;
 }
 

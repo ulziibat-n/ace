@@ -20,6 +20,9 @@ function ub_register_acf_blocks() {
 			}
 		}
 	}
+
+	// Шинэ блокуудыг гараар бүртгэх (loop алдаа гарсан үед баталгаажуулах).
+	register_block_type( get_template_directory() . '/blocks/core-pathways' );
 }
 add_action( 'init', 'ub_register_acf_blocks' );
 
