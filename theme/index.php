@@ -24,12 +24,17 @@ get_header();
 				<?php if ( has_post_thumbnail( $ub_posts_page_id ) ) : ?>
 					<?php echo get_the_post_thumbnail( $ub_posts_page_id, 'full', array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 				<?php endif; ?>
-				<div class="relative z-20 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
-					<div class="max-w-page">
+				<div class="relative z-20 pt-48 pb-16 w-full overflow-hidden lg:pt-72 lg:pb-32">
+					<!-- Gradient Backdrop Blur Overlay -->
+					<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
+					
+					<div class="absolute inset-0 z-0 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
+					
+					<div class="container relative z-10">
 						<div class="flex flex-col">
-							<h1 class="text-4xl leading-tight font-bold lg:text-6xl"><?php single_post_title(); ?></h1>
+							<h1 class="text-4xl font-bold leading-tight text-white lg:text-6xl"><?php single_post_title(); ?></h1>
 							<?php if ( get_the_archive_description() ) : ?>
-								<p class="max-w-content mt-8 ml-0! text-lg opacity-80"><?php echo get_the_archive_description(); ?></p>
+								<p class="max-w-content mt-8 ml-0! text-lg text-white/90"><?php echo get_the_archive_description(); ?></p>
 							<?php endif; ?>
 						</div>
 					</div>

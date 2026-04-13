@@ -315,10 +315,15 @@ while ( have_posts() ) :
 					echo wp_get_attachment_image( $ub_hero_image, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) );
 				endif;
 				?>
-				<div class="relative z-20 pt-96 pb-20 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 lg:pb-32">
-					<div class="container">
+				<div class="relative z-20 pt-96 pb-20 w-full overflow-hidden lg:pb-32">
+					<!-- Gradient Backdrop Blur Overlay -->
+					<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
+					
+					<div class="absolute inset-0 z-0 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
+					
+					<div class="container relative z-10">
 						<div class="w-full lg:w-3/4">
-							<div class="flex flex-col items-start lg:max-w-content lg:mx-auto">
+							<div class="flex flex-col items-start lg:mx-auto lg:max-w-content">
 								<div class="flex gap-3 items-center mb-6">
 									<?php if ( $ub_logo ) : ?>
 										<div class="p-1.5 w-12 h-12 bg-white shadow-xl rounded-xs">
@@ -335,12 +340,12 @@ while ( have_posts() ) :
 									</div>
 								</div>
 
-								<h1 class="text-4xl font-bold leading-tight lg:text-5xl"><?php the_title(); ?></h1>
+								<h1 class="text-4xl font-bold leading-tight lg:text-5xl text-white"><?php the_title(); ?></h1>
 								<?php if ( $ub_en_name ) : ?>
-									<p class="mt-8 text-lg"><?php echo esc_html( $ub_en_name ); ?></p>
+									<p class="mt-8 text-lg text-white/90"><?php echo esc_html( $ub_en_name ); ?></p>
 								<?php endif; ?>
 								
-								<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 text-[0.625rem] font-bold tracking-widest uppercase">
+								<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 text-[0.625rem] font-bold tracking-widest uppercase text-white/60">
 									<div class="flex gap-2 items-center">
 										<span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
 										<?php esc_html_e( 'Элсэлт нээлттэй', 'aceedu' ); ?>
@@ -357,8 +362,8 @@ while ( have_posts() ) :
 										<span class="opacity-30">|</span>
 										<div class="flex gap-2 items-center">
 											<svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-											<span class="mr-1 font-medium lowercase text-white/60"><?php esc_html_e( 'Эрэмбэ:', 'aceedu' ); ?></span>
-											<span class="text-white"><?php echo esc_html( $ub_ranking_korea ); ?></span>
+											<span class="mr-1 font-medium lowercase text-white/40"><?php esc_html_e( 'Эрэмбэ:', 'aceedu' ); ?></span>
+											<span class="text-white/80"><?php echo esc_html( $ub_ranking_korea ); ?></span>
 										</div>
 									<?php endif; ?>
 
@@ -366,8 +371,8 @@ while ( have_posts() ) :
 										<span class="opacity-30">|</span>
 										<div class="flex gap-2 items-center">
 											<svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-											<span class="mr-1 font-medium lowercase text-white/60"><?php esc_html_e( 'Виза:', 'aceedu' ); ?></span>
-											<span class="text-white"><?php echo esc_html( $ub_visa_rate ); ?></span>
+											<span class="mr-1 font-medium lowercase text-white/40"><?php esc_html_e( 'Виза:', 'aceedu' ); ?></span>
+											<span class="text-white/80"><?php echo esc_html( $ub_visa_rate ); ?></span>
 										</div>
 									<?php endif; ?>
 								</div>
