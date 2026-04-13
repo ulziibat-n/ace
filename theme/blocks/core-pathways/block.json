@@ -12,31 +12,50 @@
         "renderTemplate": "core-pathways.php"
     },
     "supports": {
-        "align": false,
+        "align": ["full"],
         "anchor": true,
         "jsx": true,
         "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
     },
     "example": {
         "attributes": {
             "mode": "preview",
             "data": {
                 "cp_title": "ACE-ийн packaged services",
+                "cp_description": "Солонгос улсад суралцах таны мөрөөдлийг бодит болгохын тулд бид анкет боловсруулалтаас эхлээд визний зөвлөгөө хүртэлх бүх шатанд тусална.",
                 "cp_services": [
                     {
                         "title": "GKS & тэтгэлгийн бэлтгэл",
                         "description": "GKS болон их сургуулийн тэтгэлэгт шаардлагатай эссе, судалгааны proposal, CV, ярилцлагын бэлтгэлийг нэг цогцоор нь хийж өгнө.",
-                        "cta_text": "Дэлгэрэнгүй"
+                        "cta_link": {
+                            "url": "#",
+                            "title": "Дэлгэрэнгүй",
+                            "target": "_self"
+                        }
                     },
                     {
                         "title": "TOPIK бэлтгэл & хэлний сургалт",
                         "description": "TOPIK оноогоо зорилтот түвшинд хүргэх онлайн+танхимын холимог хөтөлбөр.",
-                        "cta_text": "Дэлгэрэнгүй"
+                        "cta_link": {
+                            "url": "#",
+                            "title": "Дэлгэрэнгүй",
+                            "target": "_self"
+                        }
                     },
                     {
                         "title": "Виз, бүртгэл, онгоцны дараах дэмжлэг",
                         "description": "Амьдрах орчин болон бичиг баримтын цогц үйлчилгээ.",
-                        "cta_text": "Дэлгэрэнгүй"
+                        "cta_link": {
+                            "url": "#",
+                            "title": "Дэлгэрэнгүй",
+                            "target": "_self"
+                        }
                     }
                 ]
             }

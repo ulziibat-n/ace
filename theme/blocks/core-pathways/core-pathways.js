@@ -41,6 +41,7 @@
 			speed: 600,
 			spaceBetween: 10,
 			slidesPerView: 'auto',
+			centeredSlides: false,
 			pagination: {
 				el: block.querySelector('.swiper-pagination'),
 				type: 'progressbar',

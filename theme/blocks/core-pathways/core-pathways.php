@@ -21,7 +21,8 @@ if ( ! empty( $block['anchor'] ) ) {
 	$ub_id = $block['anchor'];
 }
 
-$ub_class_name = 'block-core-pathways alignfull bg-slate-50 relative w-full overflow-hidden py-16 lg:py-24 ' . ( isset( $block['className'] ) ? $block['className'] : '' );
+$ub_align      = ! empty( $block['align'] ) ? 'align' . $block['align'] : 'alignfull';
+$ub_class_name = 'block-core-pathways ' . $ub_align . ' bg-slate-50 relative w-full overflow-hidden py-16 lg:py-24 ' . ( isset( $block['className'] ) ? $block['className'] : '' );
 
 // ACF Fields.
 $ub_title       = get_field( 'cp_title' );
@@ -62,7 +63,7 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Солонго
 					<div class="inline-block">
 						<a href="<?php echo esc_url( $ub_link['url'] ); ?>" 
 							target="<?php echo esc_attr( $ub_link['target'] ? $ub_link['target'] : '_self' ); ?>"
-							class="inline-flex gap-4 items-center px-4 py-2 text-xs font-bold text-white border shadow-lg transition-all duration-300 rounded-xs bg-primary border-primary shadow-primary/20 hover:bg-primary-dark">
+							class="inline-flex gap-4 items-center px-4 py-2 text-xs font-bold text-white no-underline border shadow-lg transition-all duration-300 rounded-xs bg-primary border-primary shadow-primary/20 hover:bg-primary-dark">
 							<?php echo esc_html( $ub_link['title'] ); ?>
 							<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
 						</a>
@@ -94,43 +95,39 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Солонго
 
 						$ub_bg_url = $ub_s_icon ? wp_get_attachment_image_url( $ub_s_icon, 'large' ) : 'https://placehold.co/600x800/085399/FFFFFF?text=ACE+EDU';
 						?>
-						<div class="swiper-slide flex h-auto! w-full max-w-[320px] flex-col">
-							<div class="flex overflow-hidden relative flex-col justify-end p-8 pt-56 h-full rounded-sm transition-all duration-500 group/item grow bg-primary/10 hover:shadow-xl">
+						<div class="swiper-slide flex h-auto! w-full max-w-[360px] flex-col">
+							<div class="box-border flex overflow-hidden relative flex-col justify-end p-8 pt-72 w-full h-full rounded-sm transition-all duration-500 group/item grow bg-primary/10 hover:shadow-xl">
+									<!-- Background Image. -->
+									<div class="absolute inset-0 z-0">
+										<img src="<?php echo esc_url( $ub_bg_url ); ?>" alt="<?php echo esc_attr( $ub_s_title ); ?>" class="absolute inset-0 object-cover w-full h-full! transition-transform duration-[2s] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover/item:scale-105" />
+										<!-- Overlay Gradient with Backdrop Blur (Bottom 50%). -->
+										<div class="absolute inset-x-0 bottom-0 top-1/2 to-transparent bg-linear-to-t from-slate-900/95 via-slate-900/20 backdrop-blur-sm mask-[linear-gradient(to_top,black_40%,transparent_100%)]"></div>
+									</div>
+									<!-- Content (White Text on Overlay). -->
+									<div class="flex relative z-10 flex-col w-full h-full">
+										<div class="mt-auto w-full">
+											<h3 class="mb-3 text-base font-bold leading-none text-white"><?php echo esc_html( $ub_s_title ); ?></h3>
 								
-								<!-- Background Image. -->
-								<div class="absolute inset-0 z-0">
-									<img src="<?php echo esc_url( $ub_bg_url ); ?>" alt="<?php echo esc_attr( $ub_s_title ); ?>" class="absolute inset-0 object-cover w-full h-full! transition-transform duration-[2s] group-hover/item:scale-105" />
-									<!-- Overlay Gradient. -->
-									<div class="absolute inset-0 to-transparent bg-linear-to-t from-slate-900/90 via-slate-900/40"></div>
-								</div>
-
-								<!-- Content (White Text on Overlay). -->
-								<div class="flex relative z-10 flex-col h-full">
-									<div class="mt-auto">
-										<h3 class="mb-3 text-base font-bold leading-none text-white"><?php echo esc_html( $ub_s_title ); ?></h3>
-										
-										<?php if ( $ub_s_desc ) : ?>
-											<p class="mb-6 text-sm font-medium leading-tight text-white/80 line-clamp-3"><?php echo esc_html( $ub_s_desc ); ?></p>
-										<?php endif; ?>
-
-										<!-- CTA. -->
-										<?php if ( ! empty( $ub_s_link ) ) : ?>
-											<a href="<?php echo esc_url( $ub_s_link['url'] ); ?>" 
-												target="<?php echo esc_attr( $ub_s_link['target'] ? $ub_s_link['target'] : '_self' ); ?>"
-												class="inline-flex gap-3 items-center text-xs font-bold text-white underline transition-all hover:gap-4 underline-offset-4 decoration-primary/50">
-												<?php echo esc_html( $ub_s_link['title'] ? $ub_s_link['title'] : __( 'Дэлгэрэнгүй', 'aceedu' ) ); ?>
-												<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
-											</a>
-										<?php else : ?>
-											<span class="inline-flex gap-3 items-center text-xs font-bold text-white underline transition-all cursor-pointer hover:gap-4 underline-offset-4 decoration-primary/50">
-												<?php esc_html_e( 'Дэлгэрэнгүй', 'aceedu' ); ?>
-												<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
-											</span>
-										<?php endif; ?>
+											<?php if ( $ub_s_desc ) : ?>
+												<p class="mb-4 text-sm font-medium leading-tight text-white/80 line-clamp-3"><?php echo esc_html( $ub_s_desc ); ?></p>
+											<?php endif; ?>
+											<!-- CTA. -->
+											<?php if ( ! empty( $ub_s_link ) ) : ?>
+												<a href="<?php echo esc_url( $ub_s_link['url'] ); ?>"
+													target="<?php echo esc_attr( $ub_s_link['target'] ? $ub_s_link['target'] : '_self' ); ?>"
+													class="inline-flex gap-3 items-center text-xs font-bold text-white no-underline transition-all hover:gap-4">
+													<?php echo esc_html( $ub_s_link['title'] ? $ub_s_link['title'] : __( 'Дэлгэрэнгүй', 'aceedu' ) ); ?>
+													<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
+												</a>
+											<?php else : ?>
+												<span class="inline-flex gap-3 items-center text-xs font-bold text-white no-underline transition-all cursor-pointer hover:gap-4">
+													<?php esc_html_e( 'Дэлгэрэнгүй', 'aceedu' ); ?>
+													<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
+												</span>
+											<?php endif; ?>
+										</div>
 									</div>
 								</div>
-
-							</div>
 						</div>
 					<?php endforeach; ?>
 				<?php endif; ?>

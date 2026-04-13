@@ -101,6 +101,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --blur-xs: 4px;
+  --blur-sm: 8px;
   --blur-md: 12px;
   --aspect-video: 16 / 9;
   --default-transition-duration: 150ms;
@@ -584,11 +585,17 @@ body {
 .inset-0 {
   inset: calc(var(--spacing) * 0);
 }
+.inset-x-0 {
+  inset-inline: calc(var(--spacing) * 0);
+}
 .start {
   inset-inline-start: var(--spacing);
 }
 .end {
   inset-inline-end: var(--spacing);
+}
+.top-1\/2 {
+  top: calc(1 / 2 * 100%);
 }
 .top-4 {
   top: calc(var(--spacing) * 4);
@@ -1427,6 +1434,9 @@ body {
 .ml-auto {
   margin-left: auto;
 }
+.box-border {
+  box-sizing: border-box;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -1571,6 +1581,9 @@ body {
 .w-\[3\.5rem\] {
   width: 3.5rem;
 }
+.w-\[280px\] {
+  width: 280px;
+}
 .w-\[400px\] {
   width: 400px;
 }
@@ -1601,6 +1614,9 @@ body {
 .max-w-\[320px\] {
   max-width: 320px;
 }
+.max-w-\[360px\] {
+  max-width: 360px;
+}
 .max-w-\[calc\(\(96rem-30px\)\/4\)\] {
   max-width: calc((96rem - 30px) / 4);
 }
@@ -1627,6 +1643,9 @@ body {
 }
 .min-w-\[200px\] {
   min-width: 200px;
+}
+.flex-shrink {
+  flex-shrink: 1;
 }
 .shrink {
   flex-shrink: 1;
@@ -1734,6 +1753,9 @@ body {
 }
 .gap-4 {
   gap: calc(var(--spacing) * 4);
+}
+.gap-5 {
+  gap: calc(var(--spacing) * 5);
 }
 .gap-6 {
   gap: calc(var(--spacing) * 6);
@@ -2049,6 +2071,17 @@ body {
 .from-slate-900\/90 {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
+.from-slate-900\/95 {
+  --tw-gradient-from: color-mix(in srgb, oklch(20.8% 0.042 265.755) 95%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .from-slate-900\/95 {
+    --tw-gradient-from: color-mix(in oklab, var(--color-slate-900) 95%, transparent);
+  }
+}
+.from-slate-900\/95 {
+  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+}
 .from-slate-950\/60 {
   --tw-gradient-from: color-mix(in srgb, oklch(12.9% 0.042 264.695) 60%, transparent);
 }
@@ -2082,6 +2115,54 @@ body {
 .from-slate-950\/95 {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
+.via-slate-900\/0 {
+  --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 0%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .via-slate-900\/0 {
+    --tw-gradient-via: color-mix(in oklab, var(--color-slate-900) 0%, transparent);
+  }
+}
+.via-slate-900\/0 {
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
+.via-slate-900\/5 {
+  --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 5%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .via-slate-900\/5 {
+    --tw-gradient-via: color-mix(in oklab, var(--color-slate-900) 5%, transparent);
+  }
+}
+.via-slate-900\/5 {
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
+.via-slate-900\/10 {
+  --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 10%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .via-slate-900\/10 {
+    --tw-gradient-via: color-mix(in oklab, var(--color-slate-900) 10%, transparent);
+  }
+}
+.via-slate-900\/10 {
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
+.via-slate-900\/20 {
+  --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 20%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .via-slate-900\/20 {
+    --tw-gradient-via: color-mix(in oklab, var(--color-slate-900) 20%, transparent);
+  }
+}
+.via-slate-900\/20 {
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
 .via-slate-900\/40 {
   --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 40%, transparent);
 }
@@ -2091,6 +2172,18 @@ body {
   }
 }
 .via-slate-900\/40 {
+  --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
+.via-slate-900\/50 {
+  --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 50%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .via-slate-900\/50 {
+    --tw-gradient-via: color-mix(in oklab, var(--color-slate-900) 50%, transparent);
+  }
+}
+.via-slate-900\/50 {
   --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-via-stops);
 }
@@ -2120,8 +2213,20 @@ body {
   --tw-gradient-to: transparent;
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
+.mask-\[linear-gradient\(to_top\,black_10\%\,transparent_100\%\)\] {
+  mask-image: linear-gradient(to top,black 10%,transparent 100%);
+}
+.mask-\[linear-gradient\(to_top\,black_15\%\,transparent_100\%\)\] {
+  mask-image: linear-gradient(to top,black 15%,transparent 100%);
+}
+.mask-\[linear-gradient\(to_top\,black_25\%\,transparent_100\%\)\] {
+  mask-image: linear-gradient(to top,black 25%,transparent 100%);
+}
 .mask-\[linear-gradient\(to_top\,black_40\%\,transparent_100\%\)\] {
   mask-image: linear-gradient(to top,black 40%,transparent 100%);
+}
+.mask-\[linear-gradient\(to_top\,black_60\%\,transparent_100\%\)\] {
+  mask-image: linear-gradient(to top,black 60%,transparent 100%);
 }
 .fill-current {
   fill: currentcolor;
@@ -2236,6 +2341,9 @@ body {
 }
 .pt-56 {
   padding-top: calc(var(--spacing) * 56);
+}
+.pt-72 {
+  padding-top: calc(var(--spacing) * 72);
 }
 .pt-76 {
   padding-top: calc(var(--spacing) * 76);
@@ -2723,6 +2831,11 @@ body {
   -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
 }
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(var(--blur-sm));
+  -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+}
 .backdrop-blur-xs {
   --tw-backdrop-blur: blur(var(--blur-xs));
   -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
@@ -2785,6 +2898,10 @@ body {
 .duration-\[2s\] {
   --tw-duration: 2s;
   transition-duration: 2s;
+}
+.ease-\[cubic-bezier\(0\.25\,0\.46\,0\.45\,0\.94\)\] {
+  --tw-ease: cubic-bezier(0.25,0.46,0.45,0.94);
+  transition-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .ease-in-out {
   --tw-ease: var(--ease-in-out);
@@ -3229,6 +3346,11 @@ body {
 @media (width >= 48rem) {
   .md\:hidden {
     display: none;
+  }
+}
+@media (width >= 48rem) {
+  .md\:w-\[320px\] {
+    width: 320px;
   }
 }
 @media (width >= 48rem) {

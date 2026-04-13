@@ -79,7 +79,7 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 				foreach ( $ub_stats as $ub_index => $ub_stat ) :
 					$ub_icon_id = isset( $ub_stat['stat_icon'] ) ? $ub_stat['stat_icon'] : 0;
 					?>
-					<div class="swiper-slide h-auto! w-full max-w-[300px]">
+					<div class="swiper-slide h-auto! flex! w-full max-w-[300px]">
 						<div class="block-trust-signals__card w-full relative group p-8 rounded-sm overflow-hidden bg-white flex flex-col justify-between h-full border border-primary/10 shadow-sm shadow-primary/0 transition-all duration-500 in-[.swiper-slide-active]:bg-primary in-[.swiper-slide-active]:text-white in-[.swiper-slide-active]:border-transparent in-[.swiper-slide-active]:shadow-primary/10 in-[.swiper-slide-active]:shadow-md italic:not-italic">
 
 							<!-- Top Icon (Upload). -->
