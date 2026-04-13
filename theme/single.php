@@ -27,7 +27,7 @@ get_header();
 		<div class="container">
 			<div class="mb-12 flex items-end justify-between gap-8">
 				<div class="max-w-xl grow">
-					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl"><?php esc_html_e( 'Холбоотой нийтлэлүүд', 'ace' ); ?></h2>
+					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl leading-none"><?php esc_html_e( 'Холбоотой нийтлэлүүд', 'ace' ); ?></h2>
 					<p class="leading-tight font-medium text-foreground/60"><?php esc_html_e( 'Таны сонирхсон сэдвээрх бусад хэрэгтэй мэдээллүүдийг эндээс уншаарай.', 'ace' ); ?></p>
 				</div>
 				<!-- Carousel Navigation -->

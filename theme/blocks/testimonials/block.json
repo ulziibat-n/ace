@@ -28,7 +28,9 @@
 						"school": "Seoul National University",
 						"quote": "Энэ сургалтын төвд суралцсанаар би хүссэн оноогоо авч чадсан."
 					}
-				]
+				],
+				"tm_title_max_width": 768,
+				"tm_description_max_width": 720
 			}
 		}
 	}

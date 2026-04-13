@@ -168,6 +168,28 @@
                     "parent_repeater": "field_cp_services"
                 }
             ]
+        },
+        {
+            "key": "field_cp_title_mw",
+            "label": "Гарчиг өргөн (Title Max Width)",
+            "name": "cp_title_max_width",
+            "type": "range",
+            "default_value": 960,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px"
+        },
+        {
+            "key": "field_cp_desc_mw",
+            "label": "Тайлбар өргөн (Desc Max Width)",
+            "name": "cp_description_max_width",
+            "type": "range",
+            "default_value": 720,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px"
         }
     ],
     "location": [

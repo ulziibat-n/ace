@@ -19,8 +19,11 @@ $ub_description    = get_field( 'cta_description' );
 $ub_link_1         = get_field( 'cta_link_1' );
 $ub_link_2         = get_field( 'cta_link_2' );
 $ub_show_globe     = get_field( 'cta_show_globe' );
-$ub_title_mw       = get_field( 'cta_title_max_width' ) ? get_field( 'cta_title_max_width' ) : 960;
-$ub_description_mw = get_field( 'cta_description_max_width' ) ? get_field( 'cta_description_max_width' ) : 720;
+$ub_title_mw       = get_field( 'cta_title_max_width' ) ?: 768;
+$ub_description_mw = get_field( 'cta_description_max_width' ) ?: 720;
+
+$ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
+$ub_desc_rem  = ( $ub_description_mw / 16 ) . 'rem';
 
 if ( null === $ub_show_globe ) {
 	$ub_show_globe = true;
@@ -51,17 +54,17 @@ if ( $is_preview && empty( $ub_title ) ) {
 	<?php endif; ?>
 
 	<div class="relative z-10 container">
-		<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+		<div class="mx-auto flex flex-col items-center text-center">
 			<?php if ( $ub_title ) : ?>
 				<h2 class="mx-auto mb-3 text-2xl leading-tight font-bold text-white lg:text-3xl" 
-					style="max-width: <?php echo esc_attr( $ub_title_mw ); ?>px;">
+					style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
 			<?php endif; ?>
 
 			<?php if ( $ub_description ) : ?>
 				<p class="mx-auto mb-6 text-base text-white opacity-90" 
-					style="max-width: <?php echo esc_attr( $ub_description_mw ); ?>px;">
+					style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
 			<?php endif; ?>

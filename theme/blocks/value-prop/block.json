@@ -1,0 +1,60 @@
+{
+    "apiVersion": 2,
+    "name": "acf/value-prop",
+    "title": "Value Proposition (Carousel)",
+    "description": "Зүүн талдаа текст, баруун талдаа 2х2 хүснэгт бүхий премиум блок.",
+    "category": "ace-blocks",
+    "icon": "awards",
+    "script": "value-prop-js",
+    "keywords": ["value", "ace", "grid", "split"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "value-prop.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "vp_badge": "ACE EDU WORLD",
+                "vp_headline": "Яагаад ACE-ээр дамжуулж Солонгост сурах ёстой вэ?",
+                "vp_description": "Бид зөвхөн Солонгос улсад төвлөрч, таны ирээдүйн боловсрол болон карьерын замыг хамгийн мэргэжлийн түвшинд чиглүүлэх батлагдсан кейсүүдтэй хамт олон юм.",
+                "vp_items": [
+                    {
+                        "icon": "map-pin",
+                        "title": "Солонгос Only",
+                        "description": "Бүх шатны нэг цэгийн үйлчилгээ болон цогц зөвлөгөө."
+                    },
+                    {
+                        "icon": "graduation-cap",
+                        "title": "GKS & Тэтгэлэг",
+                        "description": "Их сургуулийн тэтгэлэгт чиглэсэн тусгай бэлтгэл хөтөлбөр."
+                    },
+                    {
+                        "icon": "users",
+                        "title": "Community",
+                        "description": "Олон мянган батлагдсан кейс болон идэвхтэй сошиал нөлөө."
+                    },
+                    {
+                        "icon": "clipboard-check",
+                        "title": "1:1 Roadmap",
+                        "description": "Бичиг баримтын нарийн шүүлт болон ганцаарчилсан төлөвлөгөө."
+                    }
+                ],
+                "vp_title_max_width": 768,
+                "vp_description_max_width": 720
+            }
+        }
+    }
+}

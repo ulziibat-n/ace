@@ -62,7 +62,7 @@
 			"required": 0,
 			"default_value": 960,
 			"min": 500,
-			"max": 960,
+			"max": 768,
 			"step": 10,
 			"append": "px"
 		},
@@ -75,7 +75,7 @@
 			"required": 0,
 			"default_value": 720,
 			"min": 500,
-			"max": 960,
+			"max": 768,
 			"step": 10,
 			"append": "px"
 		}

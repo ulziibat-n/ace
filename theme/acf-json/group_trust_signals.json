@@ -20,14 +20,24 @@
 			"new_lines": "br"
 		},
 		{
-			"key": "field_ts_header_width",
-			"label": "Гарчиг хэсгийн өргөн (Max Width)",
-			"name": "ts_header_width",
+			"key": "field_ts_title_mw",
+			"label": "Гарчиг өргөн (Title Max Width)",
+			"name": "ts_title_max_width",
 			"type": "range",
-			"instructions": "Гарчиг болон тайлбар хэсгийн хамгийн их өргөнийг тохируулна.",
-			"default_value": 600,
-			"min": 400,
-			"max": 1200,
+			"default_value": 960,
+			"min": 500,
+			"max": 768,
+			"step": 10,
+			"append": "px"
+		},
+		{
+			"key": "field_ts_desc_mw",
+			"label": "Тайлбар өргөн (Desc Max Width)",
+			"name": "ts_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 500,
+			"max": 768,
 			"step": 10,
 			"append": "px"
 		},

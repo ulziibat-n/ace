@@ -16,12 +16,19 @@ $ub_title        = get_field( 'title' );
 $ub_description  = get_field( 'description' );
 $ub_link         = get_field( 'link' );
 
+// Max Width Logic.
+$ub_title_mw = get_field( 'tm_title_max_width' ) ?: 768;
+$ub_desc_mw  = get_field( 'tm_description_max_width' ) ?: 720;
+
+$ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
+$ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
+
 // Dynamic dummy content from block.json if fields are empty in preview.
 if ( $is_preview && empty( $ub_testimonials ) ) {
 	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
 	if ( ! empty( $ub_example_data ) ) {
-		$ub_title       = ! empty( $ub_title ) ? $ub_title : ( isset( $ub_example_data['title'] ) ? $ub_example_data['title'] : '' );
-		$ub_description = ! empty( $ub_description ) ? $ub_description : ( isset( $ub_example_data['description'] ) ? $ub_example_data['description'] : '' );
+		$ub_title        = ! empty( $ub_title ) ? $ub_title : ( isset( $ub_example_data['title'] ) ? $ub_example_data['title'] : '' );
+		$ub_description  = ! empty( $ub_description ) ? $ub_description : ( isset( $ub_example_data['description'] ) ? $ub_example_data['description'] : '' );
 		$ub_testimonials = isset( $ub_example_data['testimonials'] ) ? $ub_example_data['testimonials'] : array();
 	}
 }
@@ -41,13 +48,13 @@ $ub_class_name = 'testimonials-block alignfull bg-slate-100 ' . ( isset( $block[
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> relative w-full overflow-hidden py-16 lg:py-24">
 	<div class="container">
 		<div class="mb-12 flex flex-row items-end justify-between gap-8">
-			<div class="max-w-xl grow">
+			<div class="grow">
 				<?php if ( $ub_title ) : ?>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl"><?php echo esc_html( $ub_title ); ?></h2>
+					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl leading-none" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;"><?php echo esc_html( $ub_title ); ?></h2>
 				<?php endif; ?>
 				
 				<?php if ( $ub_description ) : ?>
-					<p class="mb-6 leading-tight font-medium text-foreground/60"><?php echo esc_html( $ub_description ); ?></p>
+					<p class="mb-6 leading-tight font-medium text-foreground/60" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $ub_link ) : ?>

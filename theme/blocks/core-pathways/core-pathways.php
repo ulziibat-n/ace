@@ -30,6 +30,13 @@ $ub_description = get_field( 'cp_description' );
 $ub_link        = get_field( 'cp_link' );
 $ub_services    = get_field( 'cp_services' );
 
+// Max Width Logic.
+$ub_title_mw = get_field( 'cp_title_max_width' ) ?: 768;
+$ub_desc_mw  = get_field( 'cp_description_max_width' ) ?: 720;
+
+$ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
+$ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
+
 // Dynamic dummy content from block.json if fields are empty in preview.
 if ( $is_preview && empty( $ub_services ) ) {
 	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
@@ -50,13 +57,13 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Солонго
 		
 		<!-- Header (Matching Testimonials Style) -->
 		<div class="flex flex-row gap-8 justify-between items-end mb-12">
-			<div class="max-w-xl grow">
+			<div class="grow">
 				<?php if ( $ub_title ) : ?>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl text-slate-900"><?php echo esc_html( $ub_title ); ?></h2>
+					<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl text-slate-900" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;"><?php echo esc_html( $ub_title ); ?></h2>
 				<?php endif; ?>
 				
 				<?php if ( $ub_description ) : ?>
-					<p class="mb-6 font-medium leading-tight text-slate-500/80"><?php echo esc_html( $ub_description ); ?></p>
+					<p class="mb-6 font-medium leading-tight text-slate-500/80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $ub_link ) : ?>
@@ -116,12 +123,12 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Солонго
 												<a href="<?php echo esc_url( $ub_s_link['url'] ); ?>"
 													target="<?php echo esc_attr( $ub_s_link['target'] ? $ub_s_link['target'] : '_self' ); ?>"
 													class="inline-flex gap-3 items-center text-xs font-bold text-white no-underline transition-all hover:gap-4">
-													<?php echo esc_html( $ub_s_link['title'] ? $ub_s_link['title'] : __( 'Дэлгэрэнгүй', 'aceedu' ) ); ?>
+													<?php echo esc_html( $ub_s_link['title'] ? $ub_s_link['title'] : 'Дэлгэрэнгүй' ); ?>
 													<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
 												</a>
 											<?php else : ?>
 												<span class="inline-flex gap-3 items-center text-xs font-bold text-white no-underline transition-all cursor-pointer hover:gap-4">
-													<?php esc_html_e( 'Дэлгэрэнгүй', 'aceedu' ); ?>
+													Дэлгэрэнгүй
 													<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path></svg>
 												</span>
 											<?php endif; ?>

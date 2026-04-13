@@ -38,7 +38,9 @@
 						"stat_number": "8+",
 						"stat_label": "Жилийн бодит туршлага"
 					}
-				]
+				],
+				"ts_title_max_width": 768,
+				"ts_description_max_width": 720
 			}
 		}
 	}

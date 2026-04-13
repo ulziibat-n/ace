@@ -285,6 +285,8 @@ function ub_register_assets() {
 	wp_register_script( 'testimonials-js', get_template_directory_uri() . '/blocks/testimonials/testimonials.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'trust-signals-js', get_template_directory_uri() . '/blocks/trust-signals/trust-signals.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'core-pathways-js', get_template_directory_uri() . '/blocks/core-pathways/core-pathways.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'value-prop-js', get_template_directory_uri() . '/blocks/value-prop/value-prop.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'carousel-blocks-js', get_template_directory_uri() . '/blocks/schools-carousel/carousel-blocks.js', array( 'swiper' ), UB_VERSION, true );
 
 	// Block Styles with Swiper dependency
 	wp_register_style( 'hero-css', get_template_directory_uri() . '/blocks/hero/hero.css', array( 'swiper' ), UB_VERSION );

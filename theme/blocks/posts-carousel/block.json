@@ -1,0 +1,36 @@
+{
+    "apiVersion": 2,
+    "name": "acf/posts-carousel",
+    "title": "Posts Carousel",
+    "description": "Блогийн нийтлэлүүдийг кароуселаар харуулдаг блок.",
+    "category": "ace-blocks",
+    "icon": "admin-post",
+    "keywords": ["post", "blog", "carousel", "slider"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "posts-carousel.php"
+    },
+    "script": "carousel-blocks-js",
+    "style": "swiper",
+    "supports": {
+        "align": ["full", "wide"],
+        "anchor": true,
+        "jsx": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "pc_title": "Сүүлийн үеийн мэдээ мэдээлэл",
+                "pc_description": "ACE-ээс бэлтгэсэн боловсролын салбарын онцлох мэдээллийг уншаарай.",
+                "pc_link": {
+                    "url": "#",
+                    "title": "Бүх мэдээг үзэх",
+                    "target": ""
+                },
+                "pc_title_max_width": 768,
+                "pc_description_max_width": 720
+            }
+        }
+    }
+}

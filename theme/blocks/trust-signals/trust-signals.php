@@ -27,10 +27,16 @@ if ( ! empty( $block['className'] ) ) {
 }
 
 // ACF Fields.
-$ub_title        = get_field( 'ts_title' );
-$ub_description  = get_field( 'ts_description' );
-$ub_header_width = get_field( 'ts_header_width' ) ? get_field( 'ts_header_width' ) : 600;
-$ub_stats        = get_field( 'ts_stats' );
+$ub_title       = get_field( 'ts_title' );
+$ub_description = get_field( 'ts_description' );
+$ub_stats       = get_field( 'ts_stats' );
+
+// Max Width Logic.
+$ub_title_mw = get_field( 'ts_title_max_width' ) ?: 768;
+$ub_desc_mw  = get_field( 'ts_description_max_width' ) ?: 720;
+
+$ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
+$ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
 
 // Dynamic dummy content from block.json if fields are empty in preview.
 if ( $is_preview && empty( $ub_stats ) ) {
@@ -52,11 +58,11 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 		
 		<!-- Section Header & Navigation. -->
 		<div class="flex flex-row gap-8 justify-between items-end mb-12">
-			<div class="grow" style="max-width: <?php echo esc_attr( (string) $ub_header_width ); ?>px;">
-				<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl text-slate-900">
+			<div class="grow">
+				<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl leading-none text-slate-900" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
-				<p class="text-base font-medium leading-tight text-slate-500/80">
+				<p class="text-base font-medium leading-tight text-slate-500/80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
 			</div>

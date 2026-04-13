@@ -17,8 +17,11 @@ $ub_class_name = 'faq-block alignfull ' . ( isset( $block['className'] ) ? $bloc
 $ub_title          = get_field( 'faq_title' );
 $ub_description    = get_field( 'faq_description' );
 $ub_items          = get_field( 'faq_items' );
-$ub_title_mw       = get_field( 'faq_title_max_width' ) ? get_field( 'faq_title_max_width' ) : 960;
-$ub_description_mw = get_field( 'faq_description_max_width' ) ? get_field( 'faq_description_max_width' ) : 720;
+$ub_title_mw       = get_field( 'faq_title_max_width' ) ?: 768;
+$ub_description_mw = get_field( 'faq_description_max_width' ) ?: 720;
+
+$ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
+$ub_desc_rem  = ( $ub_description_mw / 16 ) . 'rem';
 
 // Dynamic dummy content from block.json if fields are empty in preview.
 if ( $is_preview && empty( $ub_title ) && empty( $ub_items ) ) {
@@ -37,14 +40,14 @@ if ( $is_preview && empty( $ub_title ) && empty( $ub_items ) ) {
 		<div class="flex flex-col items-center px-4 mb-16 text-center">
 			<?php if ( $ub_title ) : ?>
 				<h2 class="mx-auto mb-4 text-2xl font-black leading-tight text-slate-900 lg:text-3xl" 
-					style="max-width: <?php echo esc_attr( $ub_title_mw ); ?>px;">
+					style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
 			<?php endif; ?>
 
 			<?php if ( $ub_description ) : ?>
 				<p class="mx-auto text-base text-slate-500" 
-					style="max-width: <?php echo esc_attr( $ub_description_mw ); ?>px;">
+					style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
 			<?php endif; ?>

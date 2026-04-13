@@ -175,6 +175,28 @@
 					"new_lines": "wpautop"
 				}
 			]
+		},
+		{
+			"key": "field_tm_title_mw",
+			"label": "Гарчиг өргөн (Title Max Width)",
+			"name": "tm_title_max_width",
+			"type": "range",
+			"default_value": 960,
+			"min": 500,
+			"max": 768,
+			"step": 10,
+			"append": "px"
+		},
+		{
+			"key": "field_tm_desc_mw",
+			"label": "Тайлбар өргөн (Desc Max Width)",
+			"name": "tm_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 500,
+			"max": 768,
+			"step": 10,
+			"append": "px"
 		}
 	],
 	"location": [

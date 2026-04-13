@@ -111,4 +111,4 @@ if ( $ub_header_button ) { ... }
     - Доторх текст: `uppercase leading-none text-xs`.
 - **Cards**: `bg-white`, `rounded-sm`, `border-slate-50`, `hover:shadow-md`.
 - **Spacing**: Section padding-д `py-16 lg:py-24` эсвэл `py-32` ашиглана.
-- **Container**: Давхар гадуур нь заавал `.container` класс ашиглана.
+- **Container**: Давхар гадуур нь заавал `.container` класс ашиглана. **АНХААР**: `.container` ашиглахдаа Tailwind-ийн `px-` болон `mx-` классуудыг давхар ашиглахыг хатуу хориглоно.

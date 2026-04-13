@@ -17,11 +17,12 @@ This document serves as the master rulebook for all AI agents working on this en
 11. **MONGOLIAN COMMITS**: Бүх Git commit мессежүүдийг заавал МОНГОЛ хэл дээр бичнэ. Мессеж нь товч бөгөөд утга төгс байна.
 12. **EDITOR FIDELITY & USABILITY**: Блок редактор дээрх харагдац нь Frontend-тэй ижил байхаас гадна, хэт их хоосон зай (padding/margin) үүсгэхгүй байх ёстой. Үүний тулд `tailwind-editor.css` дээр `:where()` ашиглан ерөнхий гарчгуудын зайг reset хийж, блокийн өндрийг редакторт зориулж оновчтой болгоно. Мөн блокийн тохиргоог (fields) заавал Gutenberg-ийн хажуугийн самбарт (Sidebar) харагдахуйц байхаар тохируулж, Repeater талбаруудыг `layout: block` хэлбэрээр шийднэ. Картууд болон давтагдаж буй элементүүд хоорондын зайг тогтмол 10px (`gap-[10px]`) байхаар тохируулна.
 13. **BLOCK EXAMPLE DATA**: Бүх блокуудын жишээ контент (dummy data) нь заавал `block.json` дотор `"example"` хэсэгт байрлах ёстой. PHP template дотор орчуулгын функц (`__()`, `_e()`) ашиглан жишээ текст бичихийг хатуу хориглоно. Өгөгдөл уншихдаа заавал `ub_get_block_example_data( $block )` функцийг ашиглана.
+14. **LAYOUT STANDARDS**: `.container` класс ашиглаж байгаа үед Tailwind-ийн `px-` (padding-x) эсвэл `mx-` (margin-x) классуудыг давхар ашиглахыг хатуу хориглоно. Энэ нь дизайны хувьд давхардсан зай болон төвлөрөх асуудал үүсгэхээс сэргийлнэ.
 
 ## Naming Conventions
 
-- Function prefix: `site_`
-- CPT prefix: `site_`
-- Meta key prefix: `_site_`
-- Hook names: `site/feature/action`
+- Function prefix: `ub_`
+- CPT prefix: `ub_`
+- Meta key prefix: `_ub_`
+- Hook names: `ub/feature/action`
 - File names: `kebab-case.php`

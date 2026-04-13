@@ -57,7 +57,9 @@
                             "target": "_self"
                         }
                     }
-                ]
+                ],
+                "cp_title_max_width": 768,
+                "cp_description_max_width": 720
             }
         }
     }

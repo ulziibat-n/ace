@@ -46,6 +46,9 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 		'acf/page-header',
 		'acf/core-pathways',
 		'acf/design-system',
+		'acf/value-prop',
+		'acf/schools-carousel',
+		'acf/posts-carousel',
 	);
 
 	foreach ( $acf_blocks as $block ) {

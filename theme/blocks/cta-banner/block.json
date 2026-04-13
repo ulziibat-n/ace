@@ -34,7 +34,9 @@
 				"cta_link_2": {
 					"title": "8800-****",
 					"url": "#"
-				}
+				},
+				"cta_title_max_width": 768,
+				"cta_description_max_width": 720
 			}
 		}
 	},

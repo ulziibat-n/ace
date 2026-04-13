@@ -1,0 +1,134 @@
+{
+    "key": "group_schools_carousel",
+    "title": "Schools Carousel Settings",
+    "fields": [
+        {
+            "key": "field_sc_title",
+            "label": "Гарчиг",
+            "name": "sc_title",
+            "type": "text"
+        },
+        {
+            "key": "field_sc_description",
+            "label": "Тайлбар",
+            "name": "sc_description",
+            "type": "textarea",
+            "rows": 2
+        },
+        {
+            "key": "field_sc_link",
+            "label": "Холбоос",
+            "name": "sc_link",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_sc_filter_type",
+            "label": "Шүүлтүүрийн төрөл",
+            "name": "sc_filter_type",
+            "type": "select",
+            "choices": {
+                "all": "Бүгд",
+                "taxonomy": "Ангиллаар (Байршил, Төрөл)",
+                "manual": "Гараар сонгох"
+            },
+            "default_value": "all"
+        },
+        {
+            "key": "field_sc_location_filter",
+            "label": "Байршил",
+            "name": "sc_location_filter",
+            "type": "taxonomy",
+            "taxonomy": "school_location",
+            "field_type": "multi_select",
+            "add_term": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "conditional_logic": [
+                {
+                    "field": "field_sc_filter_type",
+                    "operator": "==",
+                    "value": "taxonomy"
+                }
+            ]
+        },
+        {
+            "key": "field_sc_type_filter",
+            "label": "Сургуулийн төрөл",
+            "name": "sc_type_filter",
+            "type": "taxonomy",
+            "taxonomy": "school_type",
+            "field_type": "multi_select",
+            "add_term": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "conditional_logic": [
+                {
+                    "field": "field_sc_filter_type",
+                    "operator": "==",
+                    "value": "taxonomy"
+                }
+            ]
+        },
+        {
+            "key": "field_sc_selected_schools",
+            "label": "Сургууль сонгох",
+            "name": "sc_selected_schools",
+            "type": "relationship",
+            "post_type": ["school"],
+            "filters": ["search", "taxonomy"],
+            "return_format": "id",
+            "conditional_logic": [
+                {
+                    "field": "field_sc_filter_type",
+                    "operator": "==",
+                    "value": "manual"
+                }
+            ]
+        },
+        {
+            "key": "field_sc_posts_count",
+            "label": "Харуулах тоо",
+            "name": "sc_posts_count",
+            "type": "number",
+            "default_value": 10
+        },
+        {
+            "key": "field_sc_title_mw",
+            "label": "Гарчиг өргөн (Title Max Width)",
+            "name": "sc_title_max_width",
+            "type": "range",
+            "default_value": 960,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px"
+        },
+        {
+            "key": "field_sc_desc_mw",
+            "label": "Тайлбар өргөн (Desc Max Width)",
+            "name": "sc_description_max_width",
+            "type": "range",
+            "default_value": 720,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/schools-carousel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ""
+}

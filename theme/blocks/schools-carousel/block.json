@@ -1,0 +1,36 @@
+{
+    "apiVersion": 2,
+    "name": "acf/schools-carousel",
+    "title": "Schools Carousel",
+    "description": "Сургуулиудыг кароуселаар харуулдаг блок.",
+    "category": "ace-blocks",
+    "icon": "university",
+    "keywords": ["school", "carousel", "slider", "university"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "schools-carousel.php"
+    },
+    "script": "carousel-blocks-js",
+    "style": "swiper",
+    "supports": {
+        "align": ["full", "wide"],
+        "anchor": true,
+        "jsx": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "sc_title": "Шилдэг сургуулиуд",
+                "sc_description": "Бидний хамтран ажилладаг шилдэг их дээд сургуулиудын жагсаалт.",
+                "sc_link": {
+                    "url": "#",
+                    "title": "Бүх сургуулийг үзэх",
+                    "target": ""
+                },
+                "sc_title_max_width": 768,
+                "sc_description_max_width": 720
+            }
+        }
+    }
+}

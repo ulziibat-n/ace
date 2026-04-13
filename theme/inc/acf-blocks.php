@@ -1,14 +1,26 @@
 <?php
 /**
- * Register ACF Blocks
+ * ACF блокуудыг бүртгэх файл.
+ *
+ * Энэхүү файл нь вэб сайтын blocks хавтас доторх block.json файлуудыг
+ * автоматаар илрүүлж, Гүтенберг редакторт бүртгэх үүрэгтэй.
+ *
+ * @package aceedu
+ * @since   1.0.0
  */
 
+/**
+ * Блокуудыг автоматаар хайж бүртгэх функц.
+ *
+ * @since 1.0.0
+ * @return void
+ */
 function ub_register_acf_blocks() {
 	/**
-	 * We register our blocks by looking for block.json files in the blocks directory.
+	 * Blocks хавтаснаас block.json файлуудыг хайж бүртгэнэ.
 	 */
 	$blocks_dir = get_template_directory() . '/blocks';
-	
+
 	if ( is_dir( $blocks_dir ) ) {
 		$block_folders = scandir( $blocks_dir );
 		foreach ( $block_folders as $folder ) {
@@ -20,17 +32,15 @@ function ub_register_acf_blocks() {
 			}
 		}
 	}
-
-	// Шинэ блокуудыг гараар бүртгэх (loop алдаа гарсан үед баталгаажуулах).
-	register_block_type( get_template_directory() . '/blocks/core-pathways' );
 }
 add_action( 'init', 'ub_register_acf_blocks' );
 
 /**
- * Add Block Categories
+ * Блокуудын шинэ категори нэмэх.
  *
- * @param array $categories Existing block categories.
- * @return array Modified block categories.
+ * @since 1.0.0
+ * @param array $categories Одоо байгаа блокийн категориуд.
+ * @return array Шинэчилсэн категорийн жагсаалт.
  */
 function ub_block_categories( $categories ) {
 	return array_merge(
@@ -46,11 +56,11 @@ function ub_block_categories( $categories ) {
 add_filter( 'block_categories_all', 'ub_block_categories', 10, 1 );
 
 /**
- * Бүх ACF блокуудыг автоматаар бүтэн өргөнөөр харуулах болон сонголт хийх хэсгийг нуух.
- * Энэ нь ирээдүйд шинэ блокууд нэмэгдэхэд автоматаар ажиллана.
+ * Бүх ACF блокуудыг автоматаар бүтэн өргөнөөр (Full Width) харуулах болон тохиргоог идэвхжүүлэх.
  *
- * @param array  $args Блокны аргументууд.
- * @param string $block_type Блокны нэр (acf/faq г.м).
+ * @since 1.0.0
+ * @param array  $args       Блок бүртгэх үеийн аргументууд.
+ * @param string $block_type Блокны нэр (acf/ нэр бүхий блокууд).
  * @return array Шинэчилсэн аргументууд.
  */
 function ub_force_acf_blocks_alignment( $args, $block_type ) {
