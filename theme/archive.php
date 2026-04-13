@@ -13,13 +13,13 @@ get_header();
 	$ub_queried_object = get_queried_object();
 	$ub_category_image = function_exists( 'get_field' ) ? get_field( 'category_image', $ub_queried_object ) : null;
 	?>
-	<header class="entry-header group relative">
-		<div class="relative w-full bg-slate-900 text-white">
+	<header class="relative entry-header group">
+		<div class="relative w-full text-white bg-slate-900">
 			<?php if ( $ub_category_image ) : ?>
 				<?php echo wp_get_attachment_image( $ub_category_image, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 			<?php endif; ?>
-			<div class="relative z-30 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
-				<div class="max-w-page">
+			<div class="relative z-30 pt-48 pb-16 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 lg:pt-72 lg:pb-32">
+				<div class="container">
 					<div class="flex flex-col">
 						<?php the_archive_title( '<h1 class="text-4xl font-bold leading-tight lg:text-6xl">', '</h1>' ); ?>
 						<?php if ( get_the_archive_description() ) : ?>
