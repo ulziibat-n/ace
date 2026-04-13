@@ -28,20 +28,22 @@ $ub_archive_bg    = get_field( 'school_archive_bg', 'option' );
 			<?php if ( $ub_archive_bg ) : ?>
 				<?php echo wp_get_attachment_image( $ub_archive_bg, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 			<?php endif; ?>
-			<div class="relative z-30 pt-48 pb-16 w-full overflow-hidden lg:pt-72 lg:pb-32">
-				<!-- Gradient Backdrop Blur Overlay -->
-				<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
-				
-				<div class="absolute inset-0 z-0 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
-				
-				<div class="container relative z-10">
-					<div class="flex flex-col">
-						<h1 class="text-4xl font-bold leading-tight text-white lg:text-6xl"><?php echo esc_html( $ub_archive_title ); ?></h1>
-						<?php if ( $ub_archive_desc ) : ?>
-							<div class="max-w-content mt-8 ml-0! text-lg text-white/90">
-								<p><?php echo esc_html( $ub_archive_desc ); ?></p>
-							</div>
-						<?php endif; ?>
+			<div class="pt-76">
+				<div class="relative z-30 py-16 w-full overflow-hidden lg:pb-32">
+					<!-- Gradient Backdrop Blur Overlay -->
+					<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
+					
+					<div class="absolute inset-0 z-0 to-slate-950/0 bg-linear-to-t from-slate-950/95"></div>
+					
+					<div class="container relative z-10">
+						<div class="flex flex-col items-start">
+							<h1 class="text-4xl font-bold leading-tight text-white translate-y-4 lg:text-6xl"><?php echo esc_html( $ub_archive_title ); ?></h1>
+							<?php if ( $ub_archive_desc ) : ?>
+								<div class="max-w-4xl mt-8 ml-0! text-lg text-white/90">
+									<p><?php echo esc_html( $ub_archive_desc ); ?></p>
+								</div>
+							<?php endif; ?>
+						</div>
 					</div>
 				</div>
 			</div>

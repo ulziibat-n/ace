@@ -315,16 +315,16 @@ while ( have_posts() ) :
 					echo wp_get_attachment_image( $ub_hero_image, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) );
 				endif;
 				?>
-				<div class="relative z-20 pt-96 pb-20 w-full overflow-hidden lg:pb-32">
-					<!-- Gradient Backdrop Blur Overlay -->
-					<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
+				<div class="pt-76">
+					<div class="overflow-hidden relative z-20 py-20 w-full lg:pb-32">
+						<!-- Gradient Backdrop Blur Overlay -->
+						<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
 					
-					<div class="absolute inset-0 z-0 to-slate-950/30 bg-linear-to-t from-slate-950/95"></div>
+						<div class="absolute inset-0 z-0 to-slate-950/0 bg-linear-to-t from-slate-950/95"></div>
 					
-					<div class="container relative z-10">
-						<div class="w-full lg:w-3/4">
-							<div class="flex flex-col items-start lg:mx-auto lg:max-w-content">
-								<div class="flex gap-3 items-center mb-6">
+						<div class="container relative z-10">
+							<div class="flex flex-col items-start">
+								<div class="flex gap-3 items-center mb-4">
 									<?php if ( $ub_logo ) : ?>
 										<div class="p-1.5 w-12 h-12 bg-white shadow-xl rounded-xs">
 											<?php echo wp_get_attachment_image( $ub_logo, 'thumbnail', false, array( 'class' => 'w-full h-full object-contain' ) ); ?>
@@ -340,9 +340,9 @@ while ( have_posts() ) :
 									</div>
 								</div>
 
-								<h1 class="text-4xl font-bold leading-tight lg:text-5xl text-white"><?php the_title(); ?></h1>
+								<h1 class="text-4xl font-bold leading-none text-white translate-y-4 lg:text-6xl"><?php the_title(); ?></h1>
 								<?php if ( $ub_en_name ) : ?>
-									<p class="mt-8 text-lg text-white/90"><?php echo esc_html( $ub_en_name ); ?></p>
+									<p class="mt-8 max-w-4xl text-lg text-white/90"><?php echo esc_html( $ub_en_name ); ?></p>
 								<?php endif; ?>
 								
 								<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 text-[0.625rem] font-bold tracking-widest uppercase text-white/60">
@@ -393,7 +393,7 @@ while ( have_posts() ) :
 						<div class="relative space-y-12 lg:sticky lg:top-8">
 							
 							<!-- TOC -->
-							<div class="pb-12 mb-12 border-b singular-content lg:mb-0 lg:border-0 lg:pb-0 lg:pl-8 lg:text-xs lg:leading-none">
+							<div class="pb-12 mb-12 border-b border-b-slate-100 singular-content lg:mb-0 lg:border-0 lg:pb-0 lg:pl-8 lg:text-xs lg:leading-none">
 								<h3 class="mb-4 text-xl font-black tracking-widest lg:text-xs lg:uppercase"><?php esc_html_e( 'Агуулга', 'aceedu' ); ?></h3>
 								<ul data-content-toc class="pl-0 mt-4 space-y-2 list-none">
 									<?php echo $ub_toc_data['toc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
