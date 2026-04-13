@@ -1479,6 +1479,9 @@ body {
 .table {
   display: table;
 }
+.aspect-4\/3 {
+  aspect-ratio: 4/3;
+}
 .aspect-21\/9 {
   aspect-ratio: 21/9;
 }
@@ -1840,6 +1843,10 @@ body {
 .border-2 {
   border-style: var(--tw-border-style);
   border-width: 2px;
+}
+.border-12 {
+  border-style: var(--tw-border-style);
+  border-width: 12px;
 }
 .border-\[12px\] {
   border-style: var(--tw-border-style);

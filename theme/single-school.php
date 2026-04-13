@@ -445,7 +445,7 @@ while ( have_posts() ) :
 
 						<!-- Inquiry Section (Refined CTA Banner) -->
 						<div class="mt-20">
-							<section id="inquiry" class="relative scroll-mt-32 overflow-hidden rounded-xs border-[12px] border-white bg-primary py-16 text-white shadow-2xl shadow-black/10 shadow-primary/30 lg:py-24">
+							<section id="inquiry" class="overflow-hidden relative py-16 text-white border-white shadow-2xl scroll-mt-32 rounded-xs border-12 bg-primary shadow-primary/30 lg:py-24">
 								<div class="pointer-events-none absolute top-[-10%] right-[-10%] h-[400px] w-[400px] opacity-10 lg:h-[600px] lg:w-[600px]">
 									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full text-white">
 										<circle cx="12" cy="12" r="10"></circle>

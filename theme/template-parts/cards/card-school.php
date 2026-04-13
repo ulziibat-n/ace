@@ -21,12 +21,12 @@ $ub_location  = ( ! empty( $ub_locations ) && ! is_wp_error( $ub_locations ) ) ?
 
 <article id="school-<?php echo esc_attr( $ub_post_id ); ?>" <?php post_class( 'flex flex-col h-full group/entry bg-white rounded-sm overflow-hidden transition-all duration-300 border border-primary/5 hover:shadow-xl ' . $ub_card_class ); ?>>
 	<!-- Image Container -->
-	<header class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+	<header class="overflow-hidden relative aspect-4/3 bg-slate-100">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( 'large', array( 'class' => 'w-full h-full object-cover transition-transform duration-500 group-hover/entry:scale-105' ) ); ?>
 		<?php else : ?>
-			<div class="flex h-full w-full items-center justify-center text-slate-300">
-				<svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+			<div class="flex justify-center items-center w-full h-full text-slate-300">
+				<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
 			</div>
 		<?php endif; ?>
 		
@@ -41,12 +41,12 @@ $ub_location  = ( ! empty( $ub_locations ) && ! is_wp_error( $ub_locations ) ) ?
 	</header>
 
 	<!-- Content Container -->
-	<div class="flex grow flex-col p-6">
+	<div class="flex flex-col p-6 grow">
 		
 		<!-- Logo & Korean Name -->
-		<div class="mb-4 flex items-center justify-between gap-4">
+		<div class="flex gap-4 justify-between items-center mb-4">
 			<?php if ( $ub_logo ) : ?>
-				<div class="h-10 w-10 shrink-0">
+				<div class="w-10 h-10 shrink-0">
 					<?php echo wp_get_attachment_image( $ub_logo, 'thumbnail', false, array( 'class' => 'h-full w-full object-contain' ) ); ?>
 				</div>
 			<?php endif; ?>
@@ -57,7 +57,7 @@ $ub_location  = ( ! empty( $ub_locations ) && ! is_wp_error( $ub_locations ) ) ?
 			<?php endif; ?>
 		</div>
 
-		<h3 class="mb-2 text-base leading-tight font-bold transition-colors group-hover/entry:text-primary line-clamp-2">
+		<h3 class="mb-2 text-base font-bold leading-tight transition-colors group-hover/entry:text-primary line-clamp-2">
 			<a href="<?php the_permalink(); ?>" class="before:absolute before:inset-0 before:z-10">
 				<?php the_title(); ?>
 			</a>
@@ -65,13 +65,13 @@ $ub_location  = ( ! empty( $ub_locations ) && ! is_wp_error( $ub_locations ) ) ?
 
 		<?php if ( $ub_tuition ) : ?>
 			<div class="mb-4 text-xs font-medium text-foreground/60">
-				<span class="text-primary font-bold"><?php echo esc_html( $ub_tuition ); ?></span> / улирал
+				<span class="font-bold text-primary"><?php echo esc_html( $ub_tuition ); ?></span> / улирал
 			</div>
 		<?php endif; ?>
 
-		<div class="mt-auto flex items-center justify-between border-t border-foreground/5 pt-4 text-xs font-bold text-primary transition-all group-hover/entry:gap-2">
+		<div class="flex justify-between items-center pt-4 mt-auto text-xs font-bold border-t transition-all border-foreground/5 text-primary group-hover/entry:gap-2">
 			<span><?php esc_html_e( 'Дэлгэрэнгүй', 'aceedu' ); ?></span>
-			<svg class="h-4 w-4 transition-transform group-hover/entry:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+			<svg class="w-4 h-4 transition-transform group-hover/entry:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
 		</div>
 	</div>
 </article>
