@@ -15,53 +15,65 @@ triggers:
 ### Step 1: block.json (REQUIRED FIRST)
 
 {
-"$schema": "https://schemas.wp.org/trunk/block.json",
-"apiVersion": 3,
-"name": "site/{block-name}",
-"title": "Block Display Name",
-"category": "site-blocks",
-"icon": "admin-generic",
-"description": "Block purpose",
-"supports": {
-"html": false,
-"align": ["wide", "full"],
-"color": { "background": true, "text": true },
-"spacing": { "padding": true, "margin": true }
-},
-"attributes": {
-"align": { "type": "string", "default": "wide" }
-},
-"acf": {
-"mode": "preview",
-"renderTemplate": "render.php"
-},
-"editorScript": "file:./block.js",
-"style": "file:./block.css"
+  "name": "acf/{block-name}",
+  "title": "Block Display Name",
+  "category": "ace-blocks",
+  "icon": "admin-generic",
+  "description": "Block purpose",
+  "script": "{block-handle}-js",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "{block-name}.php"
+  },
+  "supports": {
+    "anchor": true,
+    "jsx": true,
+    "mode": false
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "title": "Жишээ гарчиг",
+        "description": "Энэ бол редакторын өмнөх харагдацад зориулсан жишээ текст юм.",
+        "items": [
+          { "title": "Жишээ 1" },
+          { "title": "Жишээ 2" }
+        ]
+      }
+    }
+  }
 }
 
 ### Step 2: render.php Pattern
 
 <?php
-declare(strict_types=1);
 /**
  * Block: {Name}
- * @package SiteTheme
- * @since 1.0.0
+ * @package aceedu
  */
 
 // Bail if no block context
 if (!isset($block)) { return; }
 
-$block_id    = $block['id'] ?? uniqid('block-');
-$block_class = 'site-{name}-block';
-$align_class = !empty($block['align']) ? 'align' . esc_attr($block['align']) : '';
+$ub_id    = $block['id'] ?? uniqid('block-');
+$ub_class = 'block-{name} alignfull';
 
-// Get ACF fields with fallbacks
-$title       = get_field('site_{name}_title') ?: '';
-$description = get_field('site_{name}_description') ?: '';
+// Get ACF fields
+$ub_title       = get_field('site_{name}_title');
+$ub_description = get_field('site_{name}_description');
 
-// Early return if no content (edit mode exception)
-if (empty($title) && !defined('REST_REQUEST')) { return; }
+// Dynamic dummy content from block.json if fields are empty in preview.
+if ( $is_preview && empty( $ub_title ) ) {
+	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
+	if ( ! empty( $ub_example_data ) ) {
+		$ub_title       = ! empty( $ub_title ) ? $ub_title : ( isset( $ub_example_data['title'] ) ? $ub_example_data['title'] : '' );
+		$ub_description = ! empty( $ub_description ) ? $ub_description : ( isset( $ub_example_data['description'] ) ? $ub_example_data['description'] : '' );
+	}
+}
+
+// Final Fallback for labels if still empty (Plain strings only - NO translation functions)
+$ub_title = $ub_title ?: 'Мэдээллээ оруулна уу';
 ?>
 
 <div id="<?php echo esc_attr($block_id); ?>" 

@@ -20,8 +20,8 @@ description: Custom ACF Gutenberg block үүсгэх чадвартай skill. �
 
 ### 1. Файлын бүтэц
 
-- `theme/blocks/[slug]/block.json` (Registration & Post Type restriction)
-- `theme/blocks/[slug]/[slug].php` (PHP Template)
+- `theme/blocks/[slug]/block.json` - Metadata and example data (MUST include `"example"` section for dummy results).
+- `theme/blocks/[slug]/[slug].php` - Functional template (MUST use `ub_get_block_example_data( $block )` for previews).
 - `theme/acf-json/group_[unique_id].json` (Field sync)
 
 ### 2. Layout & Post Type Restriction
