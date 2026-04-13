@@ -386,7 +386,7 @@ while ( have_posts() ) :
 		<!-- Content Area (Matches content-single.php layout) -->
 		<div class="py-16 bg-slate-50/30 lg:py-32">
 			<div class="container">
-				<div class="flex flex-col gap-12 lg:flex-row-reverse">
+				<div class="flex flex-col gap-12 lg:flex-row">
 					
 					<!-- Sidebar -->
 					<div class="w-full lg:w-1/4">
@@ -394,14 +394,14 @@ while ( have_posts() ) :
 							
 							<!-- TOC -->
 							<div class="pb-12 mb-12 border-b border-b-slate-100 singular-content lg:mb-0 lg:border-0 lg:pb-0 lg:pl-8 lg:text-xs lg:leading-none">
-								<h3 class="mb-4 text-xl font-black tracking-widest lg:text-xs lg:uppercase"><?php esc_html_e( 'Агуулга', 'aceedu' ); ?></h3>
+								<h3 class="mb-4 text-xs! font-black tracking-widest uppercase"><?php esc_html_e( 'Агуулга', 'aceedu' ); ?></h3>
 								<ul data-content-toc class="pl-0 mt-4 space-y-2 list-none">
 									<?php echo $ub_toc_data['toc']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</ul>
 							</div>
 
 							<!-- Quick Facts Card -->
-							<div class="p-6 bg-white border shadow-sm rounded-xs border-slate-100">
+							<div class="">
 								<h3 class="mb-4 text-sm font-bold tracking-wider uppercase text-slate-900"><?php esc_html_e( 'Хурдан мэдээлэл', 'aceedu' ); ?></h3>
 								<div class="space-y-4 text-xs">
 									<?php if ( $ub_accreditation ) : ?>
