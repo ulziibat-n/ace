@@ -49,7 +49,7 @@ if ( empty( $ub_items ) ) {
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="text-base leading-tight opacity-80 text-slate-500 mt-4" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>

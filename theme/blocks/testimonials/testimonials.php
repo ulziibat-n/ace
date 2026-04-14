@@ -54,7 +54,7 @@ $ub_class_name = 'testimonials-block alignfull bg-slate-100 ' . ( isset( $block[
 				<?php endif; ?>
 				
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
+					<p class="text-base leading-tight opacity-80 text-slate-500 mt-4" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $ub_link ) : ?>
