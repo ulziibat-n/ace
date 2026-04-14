@@ -84,7 +84,7 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="mb-8 text-base font-medium leading-tight text-foreground/60" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="mb-8 text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
@@ -121,7 +121,7 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 						$ub_card_desc   = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						$ub_card_link   = isset( $ub_item['link'] ) ? $ub_item['link'] : '';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((90rem-30px)/4)]">
+						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-30px)/4)]">
 							<div class="flex relative flex-col justify-between pr-20 w-full h-full transition-all duration-500 block-value-prop__card group italic:not-italic">
 								
 								<!-- Icon. -->

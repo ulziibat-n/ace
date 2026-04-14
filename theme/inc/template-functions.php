@@ -289,6 +289,7 @@ function ub_register_assets() {
 	wp_register_script( 'mvv-js', get_template_directory_uri() . '/blocks/mission-vision-values/mission-vision-values.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'team-js', get_template_directory_uri() . '/blocks/team/team.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'milestones-js', get_template_directory_uri() . '/blocks/milestones/milestones.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'process-roadmap-js', get_template_directory_uri() . '/blocks/process-roadmap/process-roadmap.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'bento-trust-signals-js', get_template_directory_uri() . '/blocks/trust-signals-bento/trust-signals-bento.js', array(), UB_VERSION, true );
 	wp_register_script( 'carousel-blocks-js', get_template_directory_uri() . '/blocks/schools-carousel/carousel-blocks.js', array( 'swiper' ), UB_VERSION, true );
 
@@ -448,6 +449,101 @@ function ub_get_block_example_data( $block ) {
 			$example_data = $json_data['example']['attributes']['data'];
 		}
 	}
-
 	return $example_data;
 }
+
+/**
+ * Кирилл үсгийг латин галиг руу хөрвүүлж, SEO-д ээлтэй slug үүсгэх функц.
+ *
+ * Энэ функц нь WordPress-ийн sanitize_title шүүлтүүртэй холбогдож,
+ * шинэ хуудас эсвэл пост үүсгэх үед кирилл гарчгийг латин галиг руу хөрвүүлнэ.
+ *
+ * @param string $title Анхны гарчиг эсвэл slug.
+ * @return string Галигласан slug.
+ */
+function ub_cyrillic_slug_transliteration( $title ) {
+	$cyrillic_map = array(
+		'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'Yo', 'Ж' => 'J', 'З' => 'Z', 'И' => 'I', 'Й' => 'I', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O', 'Ө' => 'U', 'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U', 'Ү' => 'U', 'Ф' => 'F', 'Х' => 'Kh', 'Ц' => 'Ts', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Shch', 'Ъ' => '', 'Ы' => 'Y', 'Ь' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
+		'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'yo', 'ж' => 'j', 'з' => 'z', 'и' => 'i', 'й' => 'i', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'ө' => 'u', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ү' => 'u', 'ф' => 'f', 'х' => 'kh', 'ц' => 'ts', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shch', 'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+	);
+
+	return strtr( $title, $cyrillic_map );
+}
+add_filter( 'sanitize_title', 'ub_cyrillic_slug_transliteration', 0 );
+
+/**
+ * Өмнөх кирилл slug-уудыг латин галиг руу бөөнөөр нь шилжүүлэх түр зуурын функц.
+ * Сэрэмжлүүлэг: Ажиллуулахын өмнө баазаа нөөцлөхийг зөвлөж байна.
+ * Ашиглах хаяг: /wp-admin/?ub_migrate_slugs=1
+ */
+function ub_migrate_existing_cyrillic_slugs() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) || ! isset( $_GET['ub_migrate_slugs'] ) || '1' !== $_GET['ub_migrate_slugs'] ) {
+		return;
+	}
+
+	$post_types = array( 'post', 'page', 'school' );
+	$post_count = 0;
+	$term_count = 0;
+
+	// 1. Постуудыг шинэчлэх.
+	$posts = get_posts(
+		array(
+			'post_type'      => $post_types,
+			'posts_per_page' => -1,
+			'post_status'    => 'any',
+		)
+	);
+
+	foreach ( $posts as $post ) {
+		$new_slug = ub_cyrillic_slug_transliteration( $post->post_title );
+		$new_slug = sanitize_title( $new_slug );
+
+		if ( $new_slug !== $post->post_name ) {
+			wp_update_post(
+				array(
+					'ID'        => $post->ID,
+					'post_name' => $new_slug,
+				)
+			);
+			$post_count++;
+		}
+	}
+
+	// 2. Таксономийн элементүүдийг (Terms) шинэчлэх.
+	$taxonomies = get_taxonomies( array( 'public' => true ) );
+	$terms      = get_terms(
+		array(
+			'taxonomy'   => $taxonomies,
+			'hide_empty' => false,
+		)
+	);
+
+	if ( ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $term ) {
+			$new_term_slug = ub_cyrillic_slug_transliteration( $term->name );
+			$new_term_slug = sanitize_title( $new_term_slug );
+
+			if ( $new_term_slug !== $term->slug ) {
+				wp_update_term(
+					$term->term_id,
+					$term->taxonomy,
+					array(
+						'slug' => $new_term_slug,
+					)
+				);
+				$term_count++;
+			}
+		}
+	}
+
+	// Үр дүнг харуулах.
+	add_action(
+		'admin_notices',
+		function () use ( $post_count, $term_count ) {
+			echo '<div class="notice notice-success is-dismissible"><p>';
+			printf( 'Slug migration completed. %d posts and %d terms updated.', $post_count, $term_count );
+			echo '</p></div>';
+		}
+	);
+}
+add_action( 'admin_init', 'ub_migrate_existing_cyrillic_slugs' );

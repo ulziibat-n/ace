@@ -43,13 +43,13 @@ if ( empty( $ub_members ) ) {
 		<div class="flex flex-row gap-8 justify-between items-end mb-12">
 			<div class="text-left grow">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-3 text-2xl font-bold leading-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+					<h2 class="mb-3 text-2xl font-bold leading-none text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 						<?php echo esc_html( $ub_headline ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
@@ -67,30 +67,34 @@ if ( empty( $ub_members ) ) {
 		</div>
 
 		<!-- Swiper Container. -->
-		<div class="swiper overflow-visible!" data-team-slider>
+		<div class="swiper overflow-visible! group" data-team-slider>
 			<div class="swiper-wrapper flex! gap-[10px] items-stretch! group-[.swiper-initialized]:gap-0">
 				<?php if ( ! empty( $ub_members ) ) : ?>
 					<?php foreach ( $ub_members as $ub_member ) : ?>
 						<?php
-						$ub_m_name     = isset( $ub_member['name'] ) ? $ub_member['name'] : '';
-						$ub_m_pos      = isset( $ub_member['position'] ) ? $ub_member['position'] : '';
-						$ub_m_bio      = isset( $ub_member['bio'] ) ? $ub_member['bio'] : '';
-						$ub_m_photo    = isset( $ub_member['photo'] ) ? $ub_member['photo'] : 0;
-						$ub_photo_url  = $ub_m_photo ? wp_get_attachment_image_url( $ub_m_photo, 'large' ) : 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80';
+						$ub_m_name    = isset( $ub_member['name'] ) ? $ub_member['name'] : '';
+						$ub_m_pos     = isset( $ub_member['position'] ) ? $ub_member['position'] : '';
+						$ub_m_bio     = isset( $ub_member['bio'] ) ? $ub_member['bio'] : '';
+						$ub_m_photo   = isset( $ub_member['photo'] ) ? $ub_member['photo'] : 0;
+						$ub_photo_url = $ub_m_photo ? wp_get_attachment_image_url( $ub_m_photo, 'large' ) : 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[300px]">
-							<div data-card class="flex flex-col w-full h-full bg-white rounded-sm transition-all duration-300 group/card hover:shadow-xl">
+						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-30px)/4)]">
+							<div data-card class="flex overflow-hidden flex-col w-full h-full bg-white rounded-sm transition-all duration-300 group/card">
 								<!-- Photo -->
 								<div class="overflow-hidden relative aspect-square bg-slate-200">
-									<img src="<?php echo esc_url( $ub_photo_url ); ?>" alt="<?php echo esc_attr( $ub_m_name ); ?>" class="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover/card:scale-105" />
+									<?php if ( $ub_m_photo ) : ?>
+										<?php echo wp_get_attachment_image( $ub_m_photo, 'large', false, array( 'class' => 'object-cover absolute inset-0 w-full! h-full! transition-transform duration-500' ) ); ?>
+									<?php else : ?>
+										<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="<?php echo esc_attr( $ub_m_name ); ?>" class="object-cover absolute inset-0 w-full! h-full! transition-transform duration-500" />
+									<?php endif; ?>
 								</div>
 								
 								<!-- Content -->
 								<div class="p-6 grow">
-									<h3 class="mb-1 text-base font-bold text-slate-900"><?php echo esc_html( $ub_m_name ); ?></h3>
-									<p class="mb-3 text-xs font-bold uppercase text-primary"><?php echo esc_html( $ub_m_pos ); ?></p>
+									<h3 class="mb-1 text-base font-bold leading-none text-slate-900"><?php echo esc_html( $ub_m_name ); ?></h3>
+									<p class="mb-3 text-[0.7rem] font-bold uppercase text-primary"><?php echo esc_html( $ub_m_pos ); ?></p>
 									<?php if ( $ub_m_bio ) : ?>
-										<p class="text-xs font-medium leading-relaxed opacity-70 text-slate-500 line-clamp-3"><?php echo esc_html( $ub_m_bio ); ?></p>
+										<p class="text-xs font-medium leading-tight opacity-70 text-slate-500 line-clamp-3"><?php echo esc_html( $ub_m_bio ); ?></p>
 									<?php endif; ?>
 								</div>
 							</div>

@@ -428,7 +428,7 @@ while ( have_posts() ) :
 				<div class="flex gap-8 justify-between items-end mb-12">
 					<div class="max-w-xl grow">
 						<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl"><?php esc_html_e( 'Төстэй сургуулиуд', 'aceedu' ); ?></h2>
-						<p class="font-medium leading-tight text-foreground/60"><?php esc_html_e( 'Таны сонирхсон байршил дахь бусад сургуулиудыг эндээс хараарай.', 'aceedu' ); ?></p>
+						<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight"><?php esc_html_e( 'Таны сонирхсон байршил дахь бусад сургуулиудыг эндээс хараарай.', 'aceedu' ); ?></p>
 					</div>
 					<div class="flex gap-2 items-center pb-2 shrink">
 						<button data-related-posts-carousel-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border border-white shadow-sm transition-all cursor-pointer group shadow-primary/5 hover:border-primary hover:bg-primary">

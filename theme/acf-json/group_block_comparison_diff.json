@@ -1,0 +1,166 @@
+{
+    "key": "group_block_comparison_diff",
+    "title": "Block: Comparison Box (Diff)",
+    "fields": [
+        {
+            "key": "field_cd_headline",
+            "label": "Гол гарчиг",
+            "name": "cd_headline",
+            "type": "text",
+            "instructions": "Блокны тайлбар гарчиг.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cd_description",
+            "label": "Дэлгэрэнгүй тайлбар",
+            "name": "cd_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_cd_left_title",
+            "label": "Зүүн талын гарчиг",
+            "name": "cd_left_title",
+            "type": "text",
+            "instructions": "Жишээ нь: Энгийн эссе эсвэл Салангид үйлчилгээ.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ordinary / Before",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cd_right_title",
+            "label": "Баруун талын гарчиг (ACE)",
+            "name": "cd_right_title",
+            "type": "text",
+            "instructions": "Жишээ нь: ACE Mentor эсвэл Full Journey Багц.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACE PREMIUM",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cd_left_content",
+            "label": "Зүүн талын агуулга",
+            "name": "cd_left_content",
+            "type": "wysiwyg",
+            "instructions": "Зүүн талын хайрцагт харагдах текст эсвэл жагсаалт.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_cd_right_content",
+            "label": "Баруун талын агуулга",
+            "name": "cd_right_content",
+            "type": "wysiwyg",
+            "instructions": "Баруун талын хайрцагт харагдах текст эсвэл жагсаалт.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_cd_title_mw",
+            "label": "Гарчгийн Max-width (px)",
+            "name": "cd_title_max_width",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 768,
+            "min": 200,
+            "max": 1200,
+            "step": 10
+        },
+        {
+            "key": "field_cd_description_mw",
+            "label": "Тайлбарын Max-width (px)",
+            "name": "cd_description_max_width",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 200,
+            "max": 1200,
+            "step": 10
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/comparison-diff"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1713025900
+}

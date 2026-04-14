@@ -51,7 +51,7 @@ if ( $is_preview ) {
 				<?php endif; ?>
 
 				<?php if ( $ub_description_l ) : ?>
-					<p class="text-sm font-medium leading-tight text-slate-500/80 lg:text-base" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
+					<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
 						<?php echo esc_html( $ub_description_l ); ?>
 					</p>
 				<?php endif; ?>
@@ -60,7 +60,7 @@ if ( $is_preview ) {
 			<!-- Right side: Content -->
 			<div class="w-full lg:w-1/2">
 				<?php if ( $ub_lead ) : ?>
-					<div class="mb-6 text-xl font-light leading-tight text-secondary lg:text-2xl">
+					<div class="mb-6 text-xl font-light leading-tight text-foreground lg:text-2xl">
 						<?php echo wp_kses_post( $ub_lead ); ?>
 					</div>
 				<?php endif; ?>

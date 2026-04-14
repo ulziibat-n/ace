@@ -12,7 +12,7 @@ if ( ! empty( $block['anchor'] ) ) {
 	$ub_id = $block['anchor'];
 }
 
-$ub_class_name = 'block-milestones alignfull py-16 bg-white lg:py-24 w-full overflow-hidden';
+$ub_class_name = 'block-milestones alignfull py-16 bg-white lg:py-24 w-full overflow-hidden relative';
 if ( ! empty( $block['className'] ) ) {
 	$ub_class_name .= ' ' . $block['className'];
 }
@@ -21,8 +21,8 @@ if ( ! empty( $block['className'] ) ) {
 $ub_headline    = get_field( 'ub_milestones_headline' );
 $ub_description = get_field( 'ub_milestones_description' );
 $ub_items       = get_field( 'ub_milestones_items' );
-$ub_title_mw    = get_field( 'ub_milestones_title_max_width' ) ?: 768;
-$ub_desc_mw     = get_field( 'ub_milestones_description_max_width' ) ?: 720;
+$ub_title_mw    = get_field( 'ub_milestones_title_max_width' ) ?? 768;
+$ub_desc_mw     = get_field( 'ub_milestones_description_max_width' ) ?? 720;
 
 $ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
 $ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
@@ -39,17 +39,17 @@ if ( empty( $ub_items ) ) {
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">
 	<div class="container">
 		
-		<!-- Header & Nav -->
-		<div class="flex flex-row gap-8 justify-between items-end mb-12">
+		<!-- Header & Navigation (Synced with Value Prop). -->
+		<div class="flex flex-row gap-8 justify-between items-end mb-16">
 			<div class="text-left grow">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-3 text-2xl font-bold leading-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+					<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl text-primary" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 						<?php echo esc_html( $ub_headline ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
@@ -66,34 +66,37 @@ if ( empty( $ub_items ) ) {
 			</div>
 		</div>
 
-		<!-- Swiper Container. -->
-		<div class="swiper overflow-visible! group" data-milestones-slider>
-			<div class="swiper-wrapper flex! gap-[10px] group-[.swiper-initialized]:gap-0">
+		<!-- Swiper Component. -->
+		<div class="swiper overflow-visible! group/milestone-slider" data-milestones-slider>
+			<div class="swiper-wrapper flex! gap-0">
 				<?php if ( ! empty( $ub_items ) ) : ?>
 					<?php foreach ( $ub_items as $ub_item ) : ?>
 						<?php
-						$ub_year = isset( $ub_item['year'] ) ? $ub_item['year'] : '';
+						$ub_year    = isset( $ub_item['year'] ) ? $ub_item['year'] : '';
 						$ub_m_title = isset( $ub_item['title'] ) ? $ub_item['title'] : '';
 						$ub_m_desc  = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((90rem-30px)/4)]">
-							<div data-card class="relative flex flex-col justify-between p-8 w-full h-full bg-white border shadow-sm transition-all duration-500 rounded-sm italic:not-italic border-primary/10 shadow-primary/0 in-[.swiper-slide-active]:bg-primary in-[.swiper-slide-active]:text-white in-[.swiper-slide-active]:border-transparent in-[.swiper-slide-active]:shadow-primary/10 in-[.swiper-slide-active]:shadow-md group">
+						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-30px)/4)] pr-8 pb-8 border-b border-primary/10 relative group/milestone">
+							<!-- Marker Dot Wrapper (Center the dot vertically for line alignment) -->		
+							<div class="absolute bottom-0 left-0 z-10 -mb-1.5 w-3 h-3 rounded-full border transition-all duration-300 border-primary bg-primary group-[.swiper-slide-active]/milestone:scale-125 group-[.swiper-slide-active]/milestone:bg-secondary group-[.swiper-slide-active]/milestone:border-secondary"></div>
+									
+							<div class="flex flex-col pr-12 w-full h-full transition-all duration-500 italic:not-italic">
 								
-								<!-- Year Header -->
-								<div class="mb-6 text-3xl font-light leading-none tracking-tighter transition-colors duration-500 text-primary in-[.swiper-slide-active]:text-white">
-									<?php echo esc_html( $ub_year ); ?>
-								</div>
-
-								<!-- Content. -->
-								<div class="relative z-10">
-									<h3 class="mb-3 text-base font-bold leading-tight transition-colors duration-500 text-slate-900 in-[.swiper-slide-active]:text-white">
+								<!-- Content (Following Value Prop Typography) -->
+								<div class="relative z-10 mb-12 grow">
+									<h3 class="mb-2 text-sm font-bold leading-none uppercase transition-colors duration-500 text-primary">
 										<?php echo esc_html( $ub_m_title ); ?>
 									</h3>
 									<?php if ( $ub_m_desc ) : ?>
-										<p class="text-xs font-medium leading-relaxed transition-colors duration-500 text-slate-500 in-[.swiper-slide-active]:text-white/80">
+										<p class="max-w-[250px] text-sm font-medium leading-snug text-slate-500">
 											<?php echo wp_kses_post( $ub_m_desc ); ?>
 										</p>
 									<?php endif; ?>
+								</div>
+
+								<!-- Year (Positioned at the very bottom) -->
+								<div class="mt-auto text-3xl font-light tracking-tighter leading-none transition-all duration-500 text-primary group-[.swiper-slide-active]/milestone:text-secondary">
+									<?php echo esc_html( $ub_year ); ?>
 								</div>
 
 							</div>
@@ -102,8 +105,6 @@ if ( empty( $ub_items ) ) {
 				<?php endif; ?>
 			</div>
 			
-			<!-- Pagination (Progressbar). -->
-			<div class="swiper-pagination static! mt-10 ml-0 max-w-xs overflow-hidden rounded-sm!" style="--swiper-pagination-progressbar-bg-color:#F1F5F9;--swiper-theme-color:#085399;"></div>
 		</div>
 
 	</div>

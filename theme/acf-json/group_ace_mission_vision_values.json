@@ -25,7 +25,7 @@
 			"button_label": "Карт нэмэх",
 			"sub_fields": [
 				{
-					"key": "field_mvv_icon",
+					"key": "field_mvv_item_icon",
 					"label": "Икон (Зураг)",
 					"name": "icon",
 					"type": "image",
@@ -33,14 +33,14 @@
 					"preview_size": "thumbnail"
 				},
 				{
-					"key": "field_mvv_title",
+					"key": "field_mvv_item_title",
 					"label": "Гарчиг",
 					"name": "title",
 					"type": "text",
 					"required": 1
 				},
 				{
-					"key": "field_mvv_description",
+					"key": "field_mvv_item_description",
 					"label": "Тайлбар",
 					"name": "description",
 					"type": "textarea",
@@ -81,5 +81,6 @@
 			}
 		]
 	],
-	"active": true
+	"active": true,
+	"modified": 1713026000
 }

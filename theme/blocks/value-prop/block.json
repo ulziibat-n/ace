@@ -6,6 +6,7 @@
     "category": "ace-blocks",
     "icon": "awards",
     "script": "value-prop-js",
+    "style": "swiper",
     "keywords": ["value", "ace", "grid", "split"],
     "acf": {
         "mode": "preview",

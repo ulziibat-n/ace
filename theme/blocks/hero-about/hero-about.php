@@ -104,9 +104,9 @@ if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
 		<div class="container relative z-20">
 			<div class="space-y-6 lg:space-y-8">
 				<?php if ( $ub_title ) : ?>
-					<h1 class="text-4xl font-bold leading-none text-white animate-fade-up lg:text-6xl" style="max-width: <?php echo esc_attr( $ub_title_mw_rem ); ?>;">
+					<h2 class="text-4xl font-bold leading-none text-white animate-fade-up lg:text-6xl" style="max-width: <?php echo esc_attr( $ub_title_mw_rem ); ?>;">
 						<?php echo esc_html( $ub_title ); ?>
-					</h1>
+					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>

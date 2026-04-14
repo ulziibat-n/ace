@@ -1,7 +1,7 @@
 /**
  * Milestones Block Script
  *
- * Handles Swiper initialization for the milestones carousel.
+ * Handles Swiper initialization for the timeline carousel.
  */
 (() => {
 	/**
@@ -12,21 +12,24 @@
 	const setSameHeight = (swiper) => {
 		let maxHeight = 0;
 		if (swiper.slides && swiper.slides.length > 0) {
+			// Reset heights first to get natural measurement
 			swiper.slides.forEach((slide) => {
 				slide.style.height = 'auto';
-				const card = slide.querySelector('[data-card]');
-				if (card) card.style.height = 'auto';
+				const content = slide.querySelector('.flex-col');
+				if (content) content.style.height = 'auto';
 			});
 
+			// Measure max height
 			swiper.slides.forEach((slide) => {
-				const card = slide.querySelector('[data-card]');
-				if (card && card.offsetHeight > maxHeight)
-					maxHeight = card.offsetHeight;
+				const content = slide.querySelector('.flex-col');
+				if (content && content.offsetHeight > maxHeight)
+					maxHeight = content.offsetHeight;
 			});
 
+			// Apply max height to all cards
 			swiper.slides.forEach((slide) => {
-				const card = slide.querySelector('[data-card]');
-				if (card) card.style.height = `${maxHeight}px`;
+				const content = slide.querySelector('.flex-col');
+				if (content) content.style.height = `${maxHeight}px`;
 			});
 		}
 	};
@@ -41,6 +44,11 @@
 		const nav = block.querySelector('[data-milestones-nav]');
 		if (!sliderEl || typeof Swiper === 'undefined') return;
 
+		/**
+		 * Toggle Navigation visibility based on slider state
+		 *
+		 * @param {Object} swiper Swiper instance
+		 */
 		const toggleNav = (swiper) => {
 			if (!nav) return;
 			if (swiper.isLocked) {
@@ -50,18 +58,15 @@
 			}
 		};
 
+		// Initialize Swiper
 		new Swiper(sliderEl, {
 			loop: false,
 			speed: 600,
-			spaceBetween: 10,
+			spaceBetween: 0,
 			slidesPerView: 'auto',
 			centeredSlides: false,
 			watchOverflow: true,
 			slideToClickedSlide: true,
-			pagination: {
-				el: block.querySelector('.swiper-pagination'),
-				type: 'progressbar',
-			},
 			navigation: {
 				nextEl: block.querySelector('[data-milestones-next]'),
 				prevEl: block.querySelector('[data-milestones-prev]'),
@@ -83,18 +88,23 @@
 		});
 	};
 
+	/**
+	 * Block Initialization
+	 */
 	const onReady = () => {
 		document
 			.querySelectorAll('.block-milestones')
 			.forEach(initMilestonesSlider);
 	};
 
+	// Frontend
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', onReady);
 	} else {
 		onReady();
 	}
 
+	// Editor (ACF Block Preview)
 	if (window.acf) {
 		window.acf.addAction(
 			'render_block_preview/type=milestones',

@@ -62,7 +62,7 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 				<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl leading-none text-slate-900" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
-				<p class="text-base font-medium leading-tight text-slate-500/80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+				<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
 			</div>

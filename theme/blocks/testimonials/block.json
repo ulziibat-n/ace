@@ -3,6 +3,7 @@
 	"name": "acf/testimonials",
 	"title": "Амжилтын түүх (Carousel)",
 	"script": "testimonials-js",
+	"style": "swiper",
 	"category": "ace-blocks",
 	"icon": "testimonial",
 	"keywords": ["testimonials", "quotes", "reviews", "ace", "students"],

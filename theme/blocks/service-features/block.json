@@ -1,0 +1,54 @@
+{
+    "apiVersion": 2,
+    "name": "acf/service-features",
+    "title": "Service Features (Grid)",
+    "description": "Үйлчилгээний давуу тал болон задаргааг иконтой картуудаар харуулах блок.",
+    "category": "ace-blocks",
+    "icon": "grid-view",
+    "keywords": ["service", "features", "grid", "cards"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "service-features.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "sf_headline": "Яагаад GKS гэж?",
+                "sf_description": "БНСУ-ын засгийн газрын тэтгэлэгт хөтөлбөрийн давуу талууд",
+                "sf_items": [
+                    {
+                        "icon": "graduation-cap",
+                        "title": "Сургалтын төлбөр 100%",
+                        "description": "Бакалавр, магистр, докторын сургалтын төлбөрийг бүрэн чөлөөлнө."
+                    },
+                    {
+                        "icon": "banknote",
+                        "title": "Амьжиргааны тэтгэмж",
+                        "description": "Сар бүр тогтмол мөнгө олгож, санхүүгийн асуудлыг бүрэн шийднэ."
+                    },
+                    {
+                        "icon": "plane",
+                        "title": "Онгоцны тасалбар",
+                        "description": "Суралцахаар явах болон төгсөж ирэх хоёр талын зардлыг даана."
+                    }
+                ],
+                "sf_columns": "3",
+                "sf_title_max_width": 768,
+                "sf_description_max_width": 720
+            }
+        }
+    }
+}

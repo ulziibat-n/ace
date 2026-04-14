@@ -25,14 +25,25 @@ if ( ! empty( $block['className'] ) ) {
 $ub_headline    = get_field( 'ub_mvv_headline' );
 $ub_description = get_field( 'ub_mvv_description' );
 $ub_items       = get_field( 'ub_mvv_items' );
-$ub_title_mw    = get_field( 'ub_mvv_title_max_width' ) ?: 768;
-$ub_desc_mw     = get_field( 'ub_mvv_description_max_width' ) ?: 720;
+$ub_title_mw    = get_field( 'ub_mvv_title_max_width' ) ?? 768;
+$ub_desc_mw     = get_field( 'ub_mvv_description_max_width' ) ?? 720;
 
 $ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
 $ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
 
+// Check if items are actually filled (not just empty rows from sync).
+$ub_has_real_items = false;
+if ( ! empty( $ub_items ) ) {
+	foreach ( $ub_items as $item ) {
+		if ( ! empty( $item['title'] ) || ! empty( $item['description'] ) || ! empty( $item['icon'] ) ) {
+			$ub_has_real_items = true;
+			break;
+		}
+	}
+}
+
 // Редактор дээр жишээ өгөгдөл харуулах.
-if ( empty( $ub_items ) ) {
+if ( ! $ub_has_real_items ) {
 	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
 	$ub_headline     = ! empty( $ub_headline ) ? $ub_headline : ( $ub_example_data['ub_mvv_headline'] ?? '' );
 	$ub_description  = ! empty( $ub_description ) ? $ub_description : ( $ub_example_data['ub_mvv_description'] ?? '' );
@@ -47,13 +58,13 @@ if ( empty( $ub_items ) ) {
 			<div class="flex flex-row gap-8 justify-between items-end mb-12">
 				<div class="text-left grow">
 					<?php if ( $ub_headline ) : ?>
-						<h2 class="mb-3 text-2xl font-bold leading-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+						<h2 class="mb-3 text-2xl font-bold leading-none text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 							<?php echo esc_html( $ub_headline ); ?>
 						</h2>
 					<?php endif; ?>
 
 					<?php if ( $ub_description ) : ?>
-						<p class="text-base opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+						<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 							<?php echo wp_kses_post( $ub_description ); ?>
 						</p>
 					<?php endif; ?>
@@ -72,7 +83,7 @@ if ( empty( $ub_items ) ) {
 		<?php endif; ?>
 
 		<div class="swiper overflow-visible! group" data-mvv-slider>
-			<div class="swiper-wrapper gap-[10px] group-[.swiper-initialized]:gap-0">
+			<div class="swiper-wrapper flex! gap-[10px] group-[.swiper-initialized]:gap-0">
 				<?php if ( ! empty( $ub_items ) ) : ?>
 					<?php foreach ( $ub_items as $ub_item ) : ?>
 						<?php
@@ -80,26 +91,38 @@ if ( empty( $ub_items ) ) {
 						$ub_card_title = isset( $ub_item['title'] ) ? $ub_item['title'] : '';
 						$ub_card_desc  = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((90rem-20px)/3)]">
-							<div data-card class="flex relative flex-col p-8 w-full bg-white rounded-sm transition-all duration-300 group/mvv-card">
+						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-20px)/3)]">
+							<div data-card class="flex relative flex-col px-8 py-12 w-full bg-white rounded-sm transition-all duration-300 group/mvv-card">
 								<!-- Icon Wrapper -->
-								<?php if ( $ub_card_icon ) : ?>
-									<div class="flex justify-center items-center mb-6 w-14 h-14 transition-colors rounded-xs bg-slate-50 text-primary group-hover/mvv-card:bg-primary group-hover/mvv-card:text-white">
-										<?php echo wp_get_attachment_image( $ub_card_icon, 'thumbnail', false, array( 'class' => 'h-8 w-8 object-contain' ) ); ?>
-									</div>
-								<?php else : ?>
-									<!-- Default Icon if none uploaded -->
-									<div class="flex justify-center items-center mb-6 w-14 h-14 transition-colors rounded-xs bg-slate-50 text-primary group-hover/mvv-card:bg-primary group-hover/mvv-card:text-white">
-										<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-									</div>
-								<?php endif; ?>
+								<div class="mb-12">
+									<?php if ( ! empty( $ub_card_icon ) ) : ?>
+										<?php
+										echo wp_get_attachment_image(
+											$ub_card_icon,
+											'full',
+											false,
+											array(
+												'class' => 'h-12 w-12 object-contain filter-secondary transition-all duration-300',
+												'style' => 'filter: invert(18%) sepia(88%) saturate(3619%) hue-rotate(345deg) brightness(85%) contrast(106%);',
+											)
+										);
+										?>
+									<?php else : ?>
+										<!-- Default Icon if none uploaded -->
+										<div class="text-secondary">
+											<svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+												<path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+											</svg>
+										</div>
+									<?php endif; ?>
+								</div>
 
 								<!-- Content -->
-								<h3 class="mb-4 text-sm font-bold leading-none uppercase transition-colors group-hover/mvv-card:text-primary">
+								<h3 class="mb-4 text-sm font-bold leading-none uppercase transition-colors text-primary group-hover/mvv-card:text-primary">
 									<?php echo esc_html( $ub_card_title ); ?>
 								</h3>
 								
-								<p class="leading-tight opacity-90 text-md text-foreground/70">
+								<p class="text-sm leading-snug text-slate-500">
 									<?php echo wp_kses_post( $ub_card_desc ); ?>
 								</p>
 

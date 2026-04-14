@@ -4,6 +4,7 @@
     "title": "Core Pathways & Services",
     "description": "ACE EDU-ийн багц үйлчилгээнүүдийг харуулах блок.",
     "script": "core-pathways-js",
+    "style": "swiper",
     "category": "ace-blocks",
     "icon": "businessperson",
     "keywords": ["services", "pathways", "ace", "package"],

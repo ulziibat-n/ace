@@ -1,0 +1,47 @@
+{
+    "apiVersion": 2,
+    "name": "acf/service-value-prop",
+    "title": "Service Value Prop (Detailed)",
+    "description": "Зураг болон давуу талын жагсаалт хосолсон дэлгэрэнгүй мэдээллийн блок.",
+    "category": "ace-blocks",
+    "icon": "welcome-learn-more",
+    "keywords": ["service", "value", "proposition", "split"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "service-value-prop.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "svp_badge": "OUR VALUE",
+                "svp_headline": "Бид хэрхэн туслах вэ?",
+                "svp_description": "Таны мөрөөдөлд хүрэх замыг бид дата аналитик болон стратегийн төлөвлөлтөөр хамгийн оновчтой болгоно.",
+                "svp_items": [
+                    {
+                        "title": "Тохирох сургууль, мэргэжил сонголт",
+                        "description": "Таны GPA болон хэлний оноонд тулгуурласан дата анализад суурилсан зөвлөгөө."
+                    },
+                    {
+                        "title": "Стратеги төлөвлөлт",
+                        "description": "Quota болон өрсөлдөөнийг тооцоолж Embassy track эсвэл University track-ийн алиныг сонгохыг шийдэх."
+                    }
+                ],
+                "svp_image_position": "right",
+                "svp_headline_mw": 500
+            }
+        }
+    }
+}

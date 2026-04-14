@@ -3,6 +3,7 @@
 	"title": "Итгэлцлийн үзүүлэлтүүд (Trust Signals)",
 	"description": "Тоо баримт болон амжилтын үзүүлэлтүүдийг харуулах блок.",
 	"script": "trust-signals-js",
+	"style": "swiper",
 	"category": "ace-blocks",
 	"icon": "chart-bar",
 	"keywords": ["trust", "signals", "ace", "stats", "numbers"],

@@ -68,7 +68,7 @@ $ub_query = new WP_Query( $ub_args );
 					</h2>
 				<?php endif; ?>
 				<?php if ( $ub_description ) : ?>
-					<p class="font-medium leading-tight text-foreground/60" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>

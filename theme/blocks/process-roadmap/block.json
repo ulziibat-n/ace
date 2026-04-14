@@ -1,0 +1,60 @@
+{
+    "apiVersion": 2,
+    "name": "acf/process-roadmap",
+    "title": "Process Roadmap (Steps)",
+    "description": "Үе шат бүхий үйл явц болон аяллыг зураглан харуулах блок.",
+    "script": "process-roadmap-js",
+    "style": "swiper",
+    "category": "ace-blocks",
+    "icon": "randomize",
+    "keywords": ["process", "roadmap", "steps", "timeline", "journey"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "process-roadmap.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "anchor": true,
+        "jsx": true,
+        "mode": false
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "pr_headline": "Виз, Бүртгэл & Онгоцны дараах дэмжлэг",
+                "pr_description": "Бид таныг бичиг баримт бүрдүүлэлтээс эхлээд Солонгост очсоны дараах амьдралд бүрэн чиглүүлнэ.",
+                "pr_items": [
+                    {
+                        "label": "Step 1",
+                        "title": "Бичиг баримтын бүрдүүлэлт",
+                        "description": "Нотариат, Апостиль, Баталгаат орчуулга хийх."
+                    },
+                    {
+                        "label": "Step 2",
+                        "title": "Сургуулийн бүртгэл",
+                        "description": "Сонгосон сургууль руу материалыг алдаагүй илгээж, элсэлтийн хариу хүлээж авах."
+                    },
+                    {
+                        "label": "Step 3",
+                        "title": "Виз мэдүүлэлт",
+                        "description": "ЭСЯ-ны шаардлагын дагуу материалыг цэгцэлж, визэнд орох."
+                    },
+                    {
+                        "label": "Step 4",
+                        "title": "Post-Arrival",
+                        "description": "Онгоцны буудлаас тосох, ARC болон банкны данс нээлгэхэд чиглүүлэх."
+                    }
+                ],
+                "pr_title_max_width": 768,
+                "pr_description_max_width": 720
+            }
+        }
+    }
+}

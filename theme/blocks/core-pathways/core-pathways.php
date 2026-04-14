@@ -63,11 +63,11 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Солонго
 				<?php endif; ?>
 				
 				<?php if ( $ub_description ) : ?>
-					<p class="mb-6 font-medium leading-tight text-slate-500/80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
+					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $ub_link ) : ?>
-					<div class="inline-block">
+					<div class="inline-block mt-6">
 						<a href="<?php echo esc_url( $ub_link['url'] ); ?>" 
 							target="<?php echo esc_attr( $ub_link['target'] ? $ub_link['target'] : '_self' ); ?>"
 							class="inline-flex gap-4 items-center px-4 py-2 text-xs font-bold text-white no-underline border shadow-lg transition-all duration-300 rounded-xs bg-primary border-primary shadow-primary/20 hover:bg-primary-dark">
