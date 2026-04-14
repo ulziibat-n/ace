@@ -39,20 +39,11 @@
 			"key": "field_ai_description_right",
 			"label": "Баруун талын дэлгэрэнгүй текст",
 			"name": "ub_about_info_description_right",
-			"type": "textarea",
-			"rows": 6,
+			"type": "wysiwyg",
+			"tabs": "visual",
+			"toolbar": "basic",
+			"media_upload": 0,
 			"default_value": "Бид 2018 оноос хойш тасралтгүй үйл ажиллагаа явуулж байгаа бөгөөд одоогийн байдлаар 500 гаруй оюутныг БНСУ-ын нэр хүндтэй их дээд сургуулиудад амжилттай зуучлан суралцуулж байна."
-		},
-		{
-			"key": "field_ai_content_mw",
-			"label": "Баруун талын хамгийн их өргөн (Content Max Width)",
-			"name": "ub_about_info_content_mw",
-			"type": "range",
-			"default_value": 600,
-			"min": 400,
-			"max": 1000,
-			"step": 10,
-			"append": "px"
 		}
 	],
 	"location": [
