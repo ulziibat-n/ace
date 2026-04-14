@@ -1,19 +1,18 @@
 # ACE Project Progress
 
 ## Current Context
-- Implementing a new **Bento Style Trust Signals** block for the "About Us" page.
-- Analyzing design from the provided image.
+- Systematically audited all 11 carousel blocks for Swiper asset dependencies.
+- Updated `AGENTS.md` with mandatory Swiper registration rules.
 
 ## Completed Tasks
-- [x] Research existing trust-signals block.
-- [x] Create initial implementation plan for Bento section.
-- [x] Standardize heights and gaps for previous About Us blocks (MVV, Approach, Team, Milestones).
+- [x] Swiper Carousel Asset Audit (11 blocks checked and verified).
+- [x] Update `AGENTS.md` with Swiper asset registration mandatory rules.
+- [x] Redesign `comparison-diff` block into a 3-column table (Mobile Cards).
+- [x] Delete `service-features` block as requested.
 
 ## In Progress
-- [/] Waiting for user feedback on Bento block design (colors & animation).
+- [ ] Final visual testing of the updated carousel blocks.
 
 ## Next Steps
-- [ ] Create ACF JSON for Bento block.
-- [ ] Implement `trust-signals-bento.php` template.
-- [ ] Register block and whitelist in editor.
-- [ ] Implement count-up animation if requested.
+- [ ] Monitor block editor behavior for any asset loading issues.
+- [ ] Continue with any further UI/UX cleanup as requested.
