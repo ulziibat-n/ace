@@ -1,8 +1,7 @@
 /**
- * Mission, Vision & Values Block Script
+ * Team Block Script
  *
- * Handles Swiper initialization for the carousel in both
- * frontend and block editor contexts using pure Vanilla JS.
+ * Handles Swiper initialization for the team carousel.
  */
 (() => {
 	/**
@@ -13,21 +12,18 @@
 	const setSameHeight = (swiper) => {
 		let maxHeight = 0;
 		if (swiper.slides && swiper.slides.length > 0) {
-			// Reset heights first to get natural measurement
 			swiper.slides.forEach((slide) => {
 				slide.style.height = 'auto';
 				const card = slide.querySelector('[data-card]');
 				if (card) card.style.height = 'auto';
 			});
 
-			// Measure max height
 			swiper.slides.forEach((slide) => {
 				const card = slide.querySelector('[data-card]');
 				if (card && card.offsetHeight > maxHeight)
 					maxHeight = card.offsetHeight;
 			});
 
-			// Apply max height to all cards
 			swiper.slides.forEach((slide) => {
 				const card = slide.querySelector('[data-card]');
 				if (card) card.style.height = `${maxHeight}px`;
@@ -36,20 +32,15 @@
 	};
 
 	/**
-	 * Initialize MVV Slider
+	 * Initialize Team Slider
 	 *
 	 * @param {HTMLElement} block The block element.
 	 */
-	const initMVVSlider = (block) => {
-		const sliderEl = block.querySelector('[data-mvv-slider]');
-		const nav = block.querySelector('[data-mvv-nav]');
+	const initTeamSlider = (block) => {
+		const sliderEl = block.querySelector('[data-team-slider]');
+		const nav = block.querySelector('[data-team-nav]');
 		if (!sliderEl || typeof Swiper === 'undefined') return;
 
-		/**
-		 * Toggle Navigation visibility based on slider state
-		 *
-		 * @param {Object} swiper Swiper instance
-		 */
 		const toggleNav = (swiper) => {
 			if (!nav) return;
 			if (swiper.isLocked) {
@@ -59,7 +50,6 @@
 			}
 		};
 
-		// Initialize Swiper
 		new Swiper(sliderEl, {
 			loop: false,
 			speed: 600,
@@ -68,9 +58,13 @@
 			centeredSlides: false,
 			watchOverflow: true,
 			slideToClickedSlide: true,
+			pagination: {
+				el: block.querySelector('.swiper-pagination'),
+				type: 'progressbar',
+			},
 			navigation: {
-				nextEl: block.querySelector('[data-mvv-next]'),
-				prevEl: block.querySelector('[data-mvv-prev]'),
+				nextEl: block.querySelector('[data-team-next]'),
+				prevEl: block.querySelector('[data-team-prev]'),
 			},
 			on: {
 				init: function () {
@@ -89,29 +83,24 @@
 		});
 	};
 
-	/**
-	 * Block Initialization
-	 */
 	const onReady = () => {
 		document
-			.querySelectorAll('.block-mvv')
-			.forEach(initMVVSlider);
+			.querySelectorAll('.block-team')
+			.forEach(initTeamSlider);
 	};
 
-	// Frontend
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', onReady);
 	} else {
 		onReady();
 	}
 
-	// Editor (ACF Block Preview)
 	if (window.acf) {
 		window.acf.addAction(
-			'render_block_preview/type=mission-vision-values',
+			'render_block_preview/type=team',
 			(block) => {
 				const nativeBlock = block instanceof jQuery ? block[0] : block;
-				initMVVSlider(nativeBlock);
+				initTeamSlider(nativeBlock);
 			}
 		);
 	}

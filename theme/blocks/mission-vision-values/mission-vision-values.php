@@ -81,7 +81,7 @@ if ( empty( $ub_items ) ) {
 						$ub_card_desc  = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						?>
 						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((90rem-20px)/3)]">
-							<div class="flex relative flex-col p-8 w-full bg-white rounded-sm transition-all duration-300 group/mvv-card">
+							<div data-card class="flex relative flex-col p-8 w-full bg-white rounded-sm transition-all duration-300 group/mvv-card">
 								<!-- Icon Wrapper -->
 								<?php if ( $ub_card_icon ) : ?>
 									<div class="flex justify-center items-center mb-6 w-14 h-14 transition-colors rounded-xs bg-slate-50 text-primary group-hover/mvv-card:bg-primary group-hover/mvv-card:text-white">

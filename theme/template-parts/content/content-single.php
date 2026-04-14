@@ -26,7 +26,7 @@
 					<div class="container relative z-10">
 						<div class="flex flex-col items-start">
 							<?php ub_display_primary_category( 'mb-4 text-[0.625rem] font-bold uppercase leading-none px-2 rounded-xs ml-1 py-1.5 bg-white text-primary' ); ?>
-							<h1 class="text-4xl font-bold leading-none text-white translate-y-4 lg:text-6xl"><?php echo esc_html( get_the_title() ); ?></h1>
+							<h1 class="max-w-6xl text-4xl font-bold leading-none text-white translate-y-4 lg:text-6xl"><?php echo esc_html( get_the_title() ); ?></h1>
 							<?php
 							if ( has_excerpt() ) :
 								?>

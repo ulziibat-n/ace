@@ -1,0 +1,29 @@
+{
+	"name": "acf/about-info",
+	"title": "Бидний тухай мэдээлэл (About Info)",
+	"description": "2 баганатай текст мэдээллийн блок.",
+	"category": "ace-blocks",
+	"icon": "align-left",
+	"keywords": ["about", "info", "text", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "about-info.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_about_info_title_left": "ABOUT",
+				"ub_about_info_description_left": "Бидний тухай товч мэдээлэл",
+				"ub_about_info_lead": "Orthocosmos is a leading Russian enterprise for the production of prostheses and orthoses.",
+				"ub_about_info_description_right": "We give users the opportunity to lead an active and independent life. For 30 years now, people have come first for us."
+			}
+		}
+	}
+}

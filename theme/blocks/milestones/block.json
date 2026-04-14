@@ -1,0 +1,52 @@
+{
+	"name": "acf/milestones",
+	"title": "Бидний түүх (Milestones)",
+	"description": "Бидний түүхэн замналыг харуулах карусель блок.",
+	"category": "ace-blocks",
+	"icon": "backup-history",
+	"style": "swiper",
+	"script": "milestones-js",
+	"keywords": ["milestone", "history", "timeline", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "milestones.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_milestones_headline": "Бидний түүхэн замнал",
+				"ub_milestones_description": "Хэзээ үүсгэн байгуулагдсан, хэрхэн томорсон туршлага.",
+				"ub_milestones_items": [
+					{
+						"year": "2021",
+						"title": "Үүсгэн байгуулагдсан",
+						"description": "ACE EDU WORLD академи албан ёсоор үүд хаалгаа нээлээ."
+					},
+					{
+						"year": "2023",
+						"title": "LMS нэвтрүүлсэн",
+						"description": "Оюутнуудад зориулсан онлайн сургалтын систем нэвтрүүлэв."
+					},
+					{
+						"year": "2025",
+						"title": "500+ Оюутан",
+						"description": "Солонгос улсад суралцах 500 гаруй оюутныг амжилттай зуучлав."
+					}
+				]
+			}
+		}
+	}
+}

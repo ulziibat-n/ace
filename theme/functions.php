@@ -136,10 +136,6 @@ require get_template_directory() . '/inc/acf-json.php';
  */
 require get_template_directory() . '/inc/editor-settings.php';
 
-/**
- * ACF school fields registration.
- */
-require get_template_directory() . '/inc/acf-fields-school.php';
 
 /**
  * Options page and settings.

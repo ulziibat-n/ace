@@ -1,0 +1,43 @@
+{
+	"name": "acf/trust-signals-bento",
+	"title": "Итгэлцлийн Bento хэсэг",
+	"description": "Bento style grid бүхий итгэлцлийн үзүүлэлтүүд.",
+	"category": "ace-blocks",
+	"icon": "grid-view",
+	"script": "bento-trust-signals-js",
+	"keywords": ["bento", "trust", "stats", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "trust-signals-bento.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"headline": "Бидний амжилт тоогоор",
+				"sig1": {
+					"number": "500+",
+					"text": "Амжилттай зуучлуулж, суралцаж буй оюутнууд"
+				},
+				"sig2": {
+					"number": "6",
+					"text": "Жилийн бодит туршлага"
+				},
+				"sig3": {
+					"number": "97%",
+					"text": "Виз гаралтын баталгаатай үзүүлэлт"
+				},
+				"sig4": {
+					"number": "25+",
+					"text": "БНСУ-ын хамтын ажиллагаатай сургуулиуд"
+				}
+			}
+		}
+	}
+}

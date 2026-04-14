@@ -1,0 +1,52 @@
+{
+	"name": "acf/team",
+	"title": "Баг, зөвлөхүүд (Carousel)",
+	"description": "Багийн гишүүдийг харуулах карусель блок.",
+	"category": "ace-blocks",
+	"icon": "businessperson",
+	"style": "swiper",
+	"script": "team-js",
+	"keywords": ["team", "staff", "mentors", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "team.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_team_headline": "Манай баг хамт олон",
+				"ub_team_description": "Бид таныг Солонгост суралцах мөрөөдөлдөө хүрэхэд тань туслах мэргэжлийн менторууд.",
+				"ub_team_members": [
+					{
+						"name": "Захирал Г.Болд",
+						"position": "Үүсгэн байгуулагч / Захирал",
+						"bio": "Солонгос улсад 10 жил сурч, ажилласан туршлагатай."
+					},
+					{
+						"name": "С.Мишээл",
+						"position": "Ахлах ментор (GKS тэтгэлэгтэн)",
+						"bio": "Сөүлийн Үндэсний Их Сургууль төгссөн."
+					},
+					{
+						"name": "Б.Тэмүүлэн",
+						"position": "Мэргэжлийн багш",
+						"bio": "TOPIK 6-р түвшний мэдлэгтэй, туршлагатай багш."
+					}
+				]
+			}
+		}
+	}
+}

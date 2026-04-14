@@ -1,0 +1,92 @@
+{
+	"key": "group_ace_team",
+	"title": "Блок: Баг, зөвлөхүүд",
+	"fields": [
+		{
+			"key": "field_team_headline",
+			"label": "Үндсэн гарчиг",
+			"name": "ub_team_headline",
+			"type": "text",
+			"default_value": "Манай баг хамт олон"
+		},
+		{
+			"key": "field_team_description",
+			"label": "Дэд тайлбар",
+			"name": "ub_team_description",
+			"type": "textarea",
+			"rows": 2
+		},
+		{
+			"key": "field_team_members",
+			"label": "Багийн гишүүд",
+			"name": "ub_team_members",
+			"type": "repeater",
+			"layout": "block",
+			"button_label": "Гишүүн нэмэх",
+			"sub_fields": [
+				{
+					"key": "field_team_member_photo",
+					"label": "Зураг",
+					"name": "photo",
+					"type": "image",
+					"return_format": "id",
+					"preview_size": "thumbnail",
+					"required": 1
+				},
+				{
+					"key": "field_team_member_name",
+					"label": "Нэр",
+					"name": "name",
+					"type": "text",
+					"required": 1
+				},
+				{
+					"key": "field_team_member_position",
+					"label": "Албан тушаал / Креденшиал",
+					"name": "position",
+					"type": "text",
+					"required": 1
+				},
+				{
+					"key": "field_team_member_bio",
+					"label": "Товч мэдээлэл",
+					"name": "bio",
+					"type": "textarea",
+					"rows": 3
+				}
+			]
+		},
+		{
+			"key": "field_team_title_max_width",
+			"label": "Гарчгийн өргөн (Max Width)",
+			"name": "ub_team_title_max_width",
+			"type": "range",
+			"default_value": 768,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		},
+		{
+			"key": "field_team_description_max_width",
+			"label": "Тайлбар текстийн өргөн (Max Width)",
+			"name": "ub_team_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 320,
+			"max": 1200,
+			"step": 8,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/team"
+			}
+		]
+	],
+	"active": true
+}

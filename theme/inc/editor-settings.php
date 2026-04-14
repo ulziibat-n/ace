@@ -51,6 +51,10 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 		'acf/posts-carousel',
 		'acf/hero-about',
 		'acf/mission-vision-values',
+		'acf/team',
+		'acf/milestones',
+		'acf/trust-signals-bento',
+		'acf/about-info',
 	);
 
 	foreach ( $acf_blocks as $block ) {

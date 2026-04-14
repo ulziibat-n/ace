@@ -287,6 +287,9 @@ function ub_register_assets() {
 	wp_register_script( 'core-pathways-js', get_template_directory_uri() . '/blocks/core-pathways/core-pathways.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'value-prop-js', get_template_directory_uri() . '/blocks/value-prop/value-prop.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'mvv-js', get_template_directory_uri() . '/blocks/mission-vision-values/mission-vision-values.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'team-js', get_template_directory_uri() . '/blocks/team/team.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'milestones-js', get_template_directory_uri() . '/blocks/milestones/milestones.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'bento-trust-signals-js', get_template_directory_uri() . '/blocks/trust-signals-bento/trust-signals-bento.js', array(), UB_VERSION, true );
 	wp_register_script( 'carousel-blocks-js', get_template_directory_uri() . '/blocks/schools-carousel/carousel-blocks.js', array( 'swiper' ), UB_VERSION, true );
 
 	// Block Styles with Swiper dependency
