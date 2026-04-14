@@ -17,8 +17,8 @@ $ub_description  = get_field( 'description' );
 $ub_link         = get_field( 'link' );
 
 // Max Width Logic.
-$ub_title_mw = get_field( 'tm_title_max_width' ) ?: 768;
-$ub_desc_mw  = get_field( 'tm_description_max_width' ) ?: 720;
+$ub_title_mw = get_field( 'tm_title_max_width' ) ?? 768;
+$ub_desc_mw  = get_field( 'tm_description_max_width' ) ?? 720;
 
 $ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
 $ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
@@ -54,7 +54,7 @@ $ub_class_name = 'testimonials-block alignfull bg-slate-100 ' . ( isset( $block[
 				<?php endif; ?>
 				
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500 mt-4" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
+					<p class="mt-4 text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;"><?php echo esc_html( $ub_description ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $ub_link ) : ?>

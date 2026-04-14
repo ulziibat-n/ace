@@ -17,18 +17,18 @@ if ( ! empty( $block['className'] ) ) {
 	$ub_class_name .= ' ' . $block['className'];
 }
 
-// ACF Fields
+// ACF талбарууд.
 $ub_title_left    = get_field( 'ub_about_info_title_left' );
 $ub_description_l = get_field( 'ub_about_info_description_left' );
 $ub_lead          = get_field( 'ub_about_info_lead' );
 $ub_description_r = get_field( 'ub_about_info_description_right' );
 
-$ub_headline_mw = get_field( 'ub_about_info_headline_mw' ) ?: 400;
+$ub_headline_mw = get_field( 'ub_about_info_headline_mw' ) ?? 400;
 
-// Convert to rem
+// rem нэгж рүү хөрвүүлэх.
 $ub_headline_rem = ( $ub_headline_mw / 16 ) . 'rem';
 
-// Preview fallback logic - More granular to ensure individual fields show dummy data if empty
+// Редактор дээр жишээ өгөгдөл харуулах хэсэг.
 if ( $is_preview ) {
 	$ub_example_data  = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
 	$ub_title_left    = ! empty( $ub_title_left ) ? $ub_title_left : ( $ub_example_data['ub_about_info_title_left'] ?? 'ABOUT' );
@@ -51,7 +51,7 @@ if ( $is_preview ) {
 				<?php endif; ?>
 
 				<?php if ( $ub_description_l ) : ?>
-					<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
+					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
 						<?php echo esc_html( $ub_description_l ); ?>
 					</p>
 				<?php endif; ?>

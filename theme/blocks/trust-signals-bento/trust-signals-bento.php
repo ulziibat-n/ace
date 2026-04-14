@@ -17,7 +17,7 @@ if ( ! empty( $block['className'] ) ) {
 	$ub_class_name .= ' ' . $block['className'];
 }
 
-// ACF Fields
+// ACF Fields.
 $ub_headline    = get_field( 'headline' );
 $ub_description = get_field( 'description' );
 
@@ -26,7 +26,7 @@ $ub_sig2 = get_field( 'sig2' );
 $ub_sig3 = get_field( 'sig3' );
 $ub_sig4 = get_field( 'sig4' );
 
-// Preview fallback
+// Preview fallback.
 if ( empty( $ub_sig1['number'] ) ) {
 	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
 	$ub_headline     = ! empty( $ub_headline ) ? $ub_headline : ( $ub_example_data['headline'] ?? '' );
@@ -46,7 +46,7 @@ if ( empty( $ub_sig1['number'] ) ) {
 					<h2 class="mb-3 text-2xl font-bold leading-tight text-primary lg:text-3xl"><?php echo esc_html( $ub_headline ); ?></h2>
 				<?php endif; ?>
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight"><?php echo wp_kses_post( $ub_description ); ?></p>
+					<p class="text-base leading-tight opacity-80 text-slate-500"><?php echo wp_kses_post( $ub_description ); ?></p>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

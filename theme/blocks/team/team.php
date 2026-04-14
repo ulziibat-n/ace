@@ -21,8 +21,8 @@ if ( ! empty( $block['className'] ) ) {
 $ub_headline    = get_field( 'ub_team_headline' );
 $ub_description = get_field( 'ub_team_description' );
 $ub_members     = get_field( 'ub_team_members' );
-$ub_title_mw    = get_field( 'ub_team_title_max_width' ) ?: 768;
-$ub_desc_mw     = get_field( 'ub_team_description_max_width' ) ?: 720;
+$ub_title_mw    = get_field( 'ub_team_title_max_width' ) ?? 768;
+$ub_desc_mw     = get_field( 'ub_team_description_max_width' ) ?? 720;
 
 $ub_title_rem = ( $ub_title_mw / 16 ) . 'rem';
 $ub_desc_rem  = ( $ub_desc_mw / 16 ) . 'rem';
@@ -49,7 +49,7 @@ if ( empty( $ub_members ) ) {
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500 mt-4" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="mt-4 text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>

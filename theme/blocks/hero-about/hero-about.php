@@ -24,13 +24,13 @@ if ( ! empty( $block['className'] ) ) {
 // Талбаруудын утгыг авах.
 $ub_title       = get_field( 'ub_hero_about_title' );
 $ub_description = get_field( 'ub_hero_about_description' );
-$ub_visual_type = get_field( 'ub_hero_about_visual_type' ) ?: 'image';
+$ub_visual_type = get_field( 'ub_hero_about_visual_type' ) ?? 'image';
 $ub_image       = get_field( 'ub_hero_about_image' );
 $ub_video_file  = get_field( 'ub_hero_about_video_file' );
 $ub_video_url   = get_field( 'ub_hero_about_video_url' );
 $ub_button      = get_field( 'ub_hero_about_primary_cta' );
-$ub_title_mw    = get_field( 'ub_hero_about_title_max_width' ) ?: 896;
-$ub_desc_mw     = get_field( 'ub_hero_about_description_max_width' ) ?: 672;
+$ub_title_mw    = get_field( 'ub_hero_about_title_max_width' ) ?? 896;
+$ub_desc_mw     = get_field( 'ub_hero_about_description_max_width' ) ?? 672;
 
 // Convert px to rem for better accessibility/responsiveness.
 $ub_title_mw_rem = ( $ub_title_mw / 16 ) . 'rem';
@@ -118,9 +118,9 @@ if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
 				<?php if ( $ub_button && isset( $ub_button['url'] ) ) : ?>
 					<div class="animate-fade-up delay-400">
 						<a href="<?php echo esc_url( $ub_button['url'] ); ?>"
-							target="<?php echo esc_attr( $ub_button['target'] ?: '_self' ); ?>"
+							target="<?php echo esc_attr( $ub_button['target'] ?? '_self' ); ?>"
 							class="inline-flex gap-4 items-center px-8 py-4 text-sm font-bold text-white no-underline shadow-lg transition-all duration-300 rounded-xs bg-primary shadow-primary/20 hover:bg-primary-dark hover:scale-105">
-							<span><?php echo esc_html( $ub_button['title'] ?: 'Дэлгэрэнгүй' ); ?></span>
+							<span><?php echo esc_html( ! empty( $ub_button['title'] ) ? $ub_button['title'] : 'Дэлгэрэнгүй' ); ?></span>
 							<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path>
 							</svg>

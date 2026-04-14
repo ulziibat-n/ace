@@ -10,12 +10,13 @@
  * Limit allowed block types to keep the editor clean.
  * We remove Design (except Separator), Widgets, Theme, and Embeds categories.
  *
- * @param array                   $allowed_block_types List of allowed block types.
- * @param WP_Block_Editor_Context $editor_context      The current block editor context.
+ * @param array $allowed_block_types List of allowed block types.
  *
  * @return array List of allowed block types.
  */
-function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
+function ub_allowed_block_types( $allowed_block_types ) {
+	// We are replacing the list, so unset the original parameter to satisfy PHPCS.
+	unset( $allowed_block_types );
 
 	// List of allowed core blocks.
 	$allowed_blocks = array(
@@ -67,7 +68,7 @@ function ub_allowed_block_types( $allowed_block_types, $editor_context ) {
 
 	return $allowed_blocks;
 }
-add_filter( 'allowed_block_types_all', 'ub_allowed_block_types', 10, 2 );
+add_filter( 'allowed_block_types_all', 'ub_allowed_block_types', 10, 1 );
 
 /**
  * Блокуудын alignment тохиргоог өөрчлөх.

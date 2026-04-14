@@ -428,7 +428,7 @@ while ( have_posts() ) :
 				<div class="flex gap-8 justify-between items-end mb-12">
 					<div class="max-w-xl grow">
 						<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl"><?php esc_html_e( 'Төстэй сургуулиуд', 'aceedu' ); ?></h2>
-						<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight"><?php esc_html_e( 'Таны сонирхсон байршил дахь бусад сургуулиудыг эндээс хараарай.', 'aceedu' ); ?></p>
+						<p class="text-base leading-tight opacity-80 text-slate-500"><?php esc_html_e( 'Таны сонирхсон байршил дахь бусад сургуулиудыг эндээс хараарай.', 'aceedu' ); ?></p>
 					</div>
 					<div class="flex gap-2 items-center pb-2 shrink">
 						<button data-related-posts-carousel-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border border-white shadow-sm transition-all cursor-pointer group shadow-primary/5 hover:border-primary hover:bg-primary">
@@ -478,8 +478,8 @@ while ( have_posts() ) :
 
 		<!-- Lead Capture Section (Matches cta-banner block exactly) -->
 		<?php
-		$ub_cta_title_mw = get_field( 'inquiry_cta_title_max_width' ) ?: 768;
-		$ub_cta_text_mw  = get_field( 'inquiry_cta_text_max_width' ) ?: 720;
+		$ub_cta_title_mw = get_field( 'inquiry_cta_title_max_width' ) ?? 768;
+		$ub_cta_text_mw  = get_field( 'inquiry_cta_text_max_width' ) ?? 720;
 
 		$ub_cta_title_rem = ( $ub_cta_title_mw / 16 ) . 'rem';
 		$ub_cta_text_rem  = ( $ub_cta_text_mw / 16 ) . 'rem';
@@ -508,8 +508,8 @@ while ( have_posts() ) :
 						$ub_messenger_link = get_field( 'messenger_link' );
 						if ( $ub_messenger_link ) :
 							?>
-							<a href="<?php echo esc_url( $ub_messenger_link['url'] ); ?>" target="<?php echo esc_attr( $ub_messenger_link['target'] ?: '_self' ); ?>" class="inline-flex min-w-[140px] items-center justify-center rounded-xs border border-white bg-white px-6 py-2 font-bold text-primary no-underline shadow-xl shadow-black/5 transition-all duration-300 hover:bg-slate-100">
-								<span class="text-xs leading-none uppercase"><?php echo esc_html( $ub_messenger_link['title'] ?: __( 'Товчлуур 1', 'ace' ) ); ?></span>
+							<a href="<?php echo esc_url( $ub_messenger_link['url'] ); ?>" target="<?php echo esc_attr( $ub_messenger_link['target'] ?? '_self' ); ?>" class="inline-flex min-w-[140px] items-center justify-center rounded-xs border border-white bg-white px-6 py-2 font-bold text-primary no-underline shadow-xl shadow-black/5 transition-all duration-300 hover:bg-slate-100">
+								<span class="text-xs leading-none uppercase"><?php echo esc_html( ! empty( $ub_messenger_link['title'] ) ? $ub_messenger_link['title'] : __( 'Товчлуур 1', 'ace' ) ); ?></span>
 							</a>
 						<?php endif; ?>
 
@@ -517,8 +517,8 @@ while ( have_posts() ) :
 						$ub_kakao_link = get_field( 'kakao_link' );
 						if ( $ub_kakao_link ) :
 							?>
-							<a href="<?php echo esc_url( $ub_kakao_link['url'] ); ?>" target="<?php echo esc_attr( $ub_kakao_link['target'] ?: '_self' ); ?>" class="inline-flex min-w-[140px] items-center justify-center rounded-xs border-2 border-white/30 bg-transparent px-6 py-2 font-bold text-white no-underline transition-all duration-300 hover:bg-white/10">
-								<span class="text-xs leading-none uppercase"><?php echo esc_html( $ub_kakao_link['title'] ?: __( 'Товчлуур 2', 'ace' ) ); ?></span>
+							<a href="<?php echo esc_url( $ub_kakao_link['url'] ); ?>" target="<?php echo esc_attr( $ub_kakao_link['target'] ?? '_self' ); ?>" class="inline-flex min-w-[140px] items-center justify-center rounded-xs border-2 border-white/30 bg-transparent px-6 py-2 font-bold text-white no-underline transition-all duration-300 hover:bg-white/10">
+								<span class="text-xs leading-none uppercase"><?php echo esc_html( ! empty( $ub_kakao_link['title'] ) ? $ub_kakao_link['title'] : __( 'Товчлуур 2', 'ace' ) ); ?></span>
 							</a>
 						<?php endif; ?>
 					</div>
