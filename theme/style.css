@@ -497,30 +497,30 @@ body {
   border-radius: calc(infinity * 1px);
   background-color: var(--color-primary);
 }
-.wp-block-separator {
+.wp-block-separator.is-style-wide {
   margin-inline: auto;
-  margin-block: calc(var(--spacing) * 12);
+  margin-block: calc(var(--spacing) * 0);
   border: none;
   border-top: 1px solid color-mix(in srgb, #085399, transparent 90%);
 }
 @supports (color: color-mix(in lab, red, red)) {
-  .wp-block-separator {
+  .wp-block-separator.is-style-wide {
     border-top: 1px solid color-mix(in srgb, var(--color-primary), transparent 90%);
   }
 }
-.wp-block-separator {
+.wp-block-separator.is-style-wide {
   opacity: 1;
 }
 .wp-block-separator.is-style-wide {
   margin-inline: auto;
   max-width: none;
-  width: calc(100% - 3rem);
-  max-width: calc(var(--container) - 3rem);
+  width: 100%;
+  max-width: var(--container);
 }
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
   .wp-block-separator.is-style-wide {
-    width: calc(100% - 6rem);
-    max-width: calc(var(--container) - 6rem);
+    width: 100%;
+    max-width: calc(var(--container) - 3rem);
   }
 }
 .wp-block-separator.is-style-dots {

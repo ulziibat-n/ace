@@ -119,8 +119,8 @@
 /**
  * Core Block Overrides: Separator
  */
-.wp-block-separator {
-	@apply mx-auto my-12;
+.wp-block-separator.is-style-wide {
+	@apply mx-auto my-0;
 	border: none;
 	border-top: 1px solid color-mix(in srgb, var(--color-primary), transparent 90%);
 	opacity: 1;
@@ -128,14 +128,14 @@
 
 .wp-block-separator.is-style-wide {
 	@apply mx-auto max-w-none;
-	width: calc(100% - 3rem);
-	max-width: calc(var(--container) - 3rem);
+	width: 100%;
+	max-width: var(--container);
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 48rem) {
 	.wp-block-separator.is-style-wide {
-		width: calc(100% - 6rem);
-		max-width: calc(var(--container) - 6rem);
+		width: 100%;
+		max-width: calc(var(--container) - 3rem);
 	}
 }
 
