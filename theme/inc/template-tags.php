@@ -491,6 +491,7 @@ if ( ! function_exists( 'ub_get_toc_and_content' ) ) :
 	 * Контент доторх h2, h3 тагуудад random ID оноож, Table of Contents (TOC) үүсгэх функц.
 	 *
 	 * @param string $ub_content Постны контент.
+	 * @param int    $ub_post_id Постны ID.
 	 * @return array TOC-ийн HTML болон зассан контентыг агуулсан массив.
 	 */
 	function ub_get_toc_and_content( $ub_content, $ub_post_id = 0 ) {
@@ -550,6 +551,9 @@ endif;
 /**
  * Пост хадгалах үед TOC кэшийг цэвэрлэх.
  */
-add_action( 'save_post', function ( $ub_post_id ) {
-	delete_transient( 'ub_toc_' . $ub_post_id );
-} );
+add_action(
+	'save_post',
+	function ( $ub_post_id ) {
+		delete_transient( 'ub_toc_' . $ub_post_id );
+	}
+);

@@ -1,0 +1,56 @@
+{
+	"key": "group_latest_posts",
+	"title": "Latest Posts Settings",
+	"fields": [
+		{
+			"key": "field_lp_title",
+			"label": "Гарчиг",
+			"name": "lp_title",
+			"type": "text"
+		},
+		{
+			"key": "field_lp_description",
+			"label": "Тайлбар",
+			"name": "lp_description",
+			"type": "textarea",
+			"rows": 2
+		},
+		{
+			"key": "field_lp_title_mw",
+			"label": "Гарчиг өргөн (Title Max Width)",
+			"name": "lp_title_max_width",
+			"type": "range",
+			"default_value": 768,
+			"min": 500,
+			"max": 960,
+			"step": 10,
+			"append": "px"
+		},
+		{
+			"key": "field_lp_desc_mw",
+			"label": "Тайлбар өргөн (Desc Max Width)",
+			"name": "lp_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 500,
+			"max": 960,
+			"step": 10,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/latest-posts"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": ""
+}

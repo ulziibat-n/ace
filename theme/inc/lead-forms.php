@@ -15,11 +15,11 @@ function site_handle_lead_form_submission() {
 	check_ajax_referer( 'site_lead_form_nonce', 'security' );
 
 	// 2. Sanitize and validate inputs.
-	$name     = sanitize_text_field( $_POST['lead_name'] ?? '' );
-	$phone    = sanitize_text_field( $_POST['lead_phone'] ?? '' );
-	$email    = sanitize_email( $_POST['lead_email'] ?? '' );
-	$program  = sanitize_text_field( $_POST['lead_program'] ?? '' );
-	$source   = sanitize_text_field( $_POST['lead_source_url'] ?? home_url() );
+	$name    = sanitize_text_field( $_POST['lead_name'] ?? '' );
+	$phone   = sanitize_text_field( $_POST['lead_phone'] ?? '' );
+	$email   = sanitize_email( $_POST['lead_email'] ?? '' );
+	$program = sanitize_text_field( $_POST['lead_program'] ?? '' );
+	$source  = sanitize_text_field( $_POST['lead_source_url'] ?? home_url() );
 
 	if ( empty( $name ) || empty( $phone ) ) {
 		wp_send_json_error( array( 'message' => 'Нэр болон утасны дугаараа оруулна уу.' ) );
@@ -29,12 +29,12 @@ function site_handle_lead_form_submission() {
 	$to      = get_option( 'admin_email' ); // Send to admin by default.
 	$subject = 'Шинэ хүсэлт: ' . $name . ' (Hero Registration)';
 	$body    = "Танд шинэ хүсэлт ирлээ:\n\n" .
-			   "Нэр: $name\n" .
-			   "Утас: $phone\n" .
-			   "И-мэйл: $email\n" .
-			   "Сонгосон хөтөлбөр: $program\n" .
-			   "Ирсэн хуудас: $source\n\n" .
-			   "Төслийн нэр: ACE EDU WORLD";
+				"Нэр: $name\n" .
+				"Утас: $phone\n" .
+				"И-мэйл: $email\n" .
+				"Сонгосон хөтөлбөр: $program\n" .
+				"Ирсэн хуудас: $source\n\n" .
+				'Төслийн нэр: ACE EDU WORLD';
 	$headers = array( 'Content-Type: text/plain; charset=UTF-8' );
 
 	// 4. Send email.

@@ -13,23 +13,23 @@ get_header();
 	$ub_queried_object = get_queried_object();
 	$ub_category_image = function_exists( 'get_field' ) ? get_field( 'category_image', $ub_queried_object ) : null;
 	?>
-	<header class="relative entry-header group">
-		<div class="relative w-full text-white bg-slate-900">
+	<header class="entry-header group relative">
+		<div class="relative w-full bg-slate-900 text-white">
 			<?php if ( $ub_category_image ) : ?>
 				<?php echo wp_get_attachment_image( $ub_category_image, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 			<?php endif; ?>
 			<div class="pt-76">
-				<div class="relative z-30 py-16 w-full overflow-hidden lg:pb-32">
+				<div class="relative z-30 w-full overflow-hidden py-16 lg:pb-32">
 					<!-- Gradient Backdrop Blur Overlay -->
 					<div class="pointer-events-none absolute inset-0 z-0 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
 					
-					<div class="absolute inset-0 z-0 to-slate-950/0 bg-linear-to-t from-slate-950/95"></div>
+					<div class="absolute inset-0 z-0 bg-linear-to-t from-slate-950/95 to-slate-950/0"></div>
 					
-					<div class="container relative z-10">
+					<div class="relative z-10 container">
 						<div class="flex flex-col items-start">
 							<?php the_archive_title( '<h1 class="text-4xl font-bold leading-tight text-white translate-y-4 lg:text-6xl">', '</h1>' ); ?>
 							<?php if ( get_the_archive_description() ) : ?>
-								<div class="max-w-4xl mt-8 ml-0! text-lg text-white/90">
+								<div class="mt-8 ml-0! max-w-4xl text-lg text-white/90">
 									<?php the_archive_description(); ?>
 								</div>
 							<?php endif; ?>

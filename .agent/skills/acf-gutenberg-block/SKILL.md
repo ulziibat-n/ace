@@ -15,34 +15,34 @@ triggers:
 ### Step 1: block.json (REQUIRED FIRST)
 
 {
-  "name": "acf/{block-name}",
-  "title": "Block Display Name",
-  "category": "ace-blocks",
-  "icon": "admin-generic",
-  "description": "Block purpose",
-  "script": "{block-handle}-js",
-  "acf": {
-    "mode": "preview",
-    "renderTemplate": "{block-name}.php"
-  },
-  "supports": {
-    "anchor": true,
-    "jsx": true,
-    "mode": false
-  },
-  "example": {
-    "attributes": {
-      "mode": "preview",
-      "data": {
-        "title": "Жишээ гарчиг",
-        "description": "Энэ бол редакторын өмнөх харагдацад зориулсан жишээ текст юм.",
-        "items": [
-          { "title": "Жишээ 1" },
-          { "title": "Жишээ 2" }
-        ]
-      }
-    }
-  }
+"name": "acf/{block-name}",
+"title": "Block Display Name",
+"category": "ace-blocks",
+"icon": "admin-generic",
+"description": "Block purpose",
+"script": "{block-handle}-js",
+"acf": {
+"mode": "preview",
+"renderTemplate": "{block-name}.php"
+},
+"supports": {
+"anchor": true,
+"jsx": true,
+"mode": false
+},
+"example": {
+"attributes": {
+"mode": "preview",
+"data": {
+"title": "Жишээ гарчиг",
+"description": "Энэ бол редакторын өмнөх харагдацад зориулсан жишээ текст юм.",
+"items": [
+{ "title": "Жишээ 1" },
+{ "title": "Жишээ 2" }
+]
+}
+}
+}
 }
 
 ### Step 2: render.php Pattern
@@ -101,10 +101,23 @@ add_action('init', function(): void {
     add_filter('block_categories_all', function(array $categories): array {
         return array_merge([
             [
-                'slug'  => 'site-blocks',
-                'title' => __('Site Blocks', 'site-theme'),
+                'slug'  => 'ace-blocks',
+                'title' => __('ACE Блокууд', 'aceedu'),
                 'icon'  => 'admin-home',
             ]
         ], $categories);
     });
 }, 5);
+
+### Step 4: Whitelist in Editor Settings (CRITICAL)
+
+**MANDATORY**: Every new block MUST be added to the `$acf_blocks` array in `theme/inc/editor-settings.php` to be visible in the Gutenberg editor.
+
+```php
+// theme/inc/editor-settings.php
+
+$acf_blocks = array(
+    // ... existing blocks
+    'acf/{block-name}',
+);
+```

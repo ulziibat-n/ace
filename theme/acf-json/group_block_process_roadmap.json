@@ -1,168 +1,168 @@
 {
-    "key": "group_block_process_roadmap",
-    "title": "Block: Process Roadmap",
-    "fields": [
-        {
-            "key": "field_pr_headline",
-            "label": "Гарчиг",
-            "name": "pr_headline",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_pr_description",
-            "label": "Тайлбар",
-            "name": "pr_description",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 3,
-            "new_lines": "br"
-        },
-        {
-            "key": "field_pr_items",
-            "label": "Үе шатууд (Steps / Roadmap)",
-            "name": "pr_items",
-            "type": "repeater",
-            "instructions": "Үйл явцын үе шатуудыг дарааллаар нь нэмнэ үү.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_pr_item_title",
-            "min": 1,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Шинэ үе шат нэмэх",
-            "sub_fields": [
-                {
-                    "key": "field_pr_item_label",
-                    "label": "Label / Дугаар",
-                    "name": "label",
-                    "type": "text",
-                    "instructions": "Жишээ нь: Step 1, Stage 1 эсвэл зүгээр 1.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "Step 1"
-                },
-                {
-                    "key": "field_pr_item_title",
-                    "label": "Үе шатны гарчиг",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_pr_item_description",
-                    "label": "Дэлгэрэнгүй тайлбар",
-                    "name": "description",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": ""
-                }
-            ]
-        },
-        {
-            "key": "field_pr_title_mw",
-            "label": "Гарчгийн Max-width (px)",
-            "name": "pr_title_max_width",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 768,
-            "min": 200,
-            "max": 1200,
-            "step": 10
-        },
-        {
-            "key": "field_pr_description_mw",
-            "label": "Тайлбарын Max-width (px)",
-            "name": "pr_description_max_width",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 720,
-            "min": 200,
-            "max": 1200,
-            "step": 10
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf/process-roadmap"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1713025800
+	"key": "group_block_process_roadmap",
+	"title": "Block: Process Roadmap",
+	"fields": [
+		{
+			"key": "field_pr_headline",
+			"label": "Гарчиг",
+			"name": "pr_headline",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_pr_description",
+			"label": "Тайлбар",
+			"name": "pr_description",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 3,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_pr_items",
+			"label": "Үе шатууд (Steps / Roadmap)",
+			"name": "pr_items",
+			"type": "repeater",
+			"instructions": "Үйл явцын үе шатуудыг дарааллаар нь нэмнэ үү.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"collapsed": "field_pr_item_title",
+			"min": 1,
+			"max": 0,
+			"layout": "block",
+			"button_label": "Шинэ үе шат нэмэх",
+			"sub_fields": [
+				{
+					"key": "field_pr_item_label",
+					"label": "Label / Дугаар",
+					"name": "label",
+					"type": "text",
+					"instructions": "Жишээ нь: Step 1, Stage 1 эсвэл зүгээр 1.",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "Step 1"
+				},
+				{
+					"key": "field_pr_item_title",
+					"label": "Үе шатны гарчиг",
+					"name": "title",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": ""
+				},
+				{
+					"key": "field_pr_item_description",
+					"label": "Дэлгэрэнгүй тайлбар",
+					"name": "description",
+					"type": "textarea",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"placeholder": "",
+					"maxlength": "",
+					"rows": 2,
+					"new_lines": ""
+				}
+			]
+		},
+		{
+			"key": "field_pr_title_mw",
+			"label": "Гарчгийн Max-width (px)",
+			"name": "pr_title_max_width",
+			"type": "range",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": 768,
+			"min": 200,
+			"max": 1200,
+			"step": 10
+		},
+		{
+			"key": "field_pr_description_mw",
+			"label": "Тайлбарын Max-width (px)",
+			"name": "pr_description_max_width",
+			"type": "range",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": 720,
+			"min": 200,
+			"max": 1200,
+			"step": 10
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/process-roadmap"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1713025800
 }

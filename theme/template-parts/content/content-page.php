@@ -25,14 +25,14 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 		$ub_header_class = 'hidden';
 	}
 	?>
-	<header class="entry-header group relative <?php echo esc_attr( $ub_header_class ); ?>">
-		<div class="relative w-full text-white bg-slate-900">
+	<header class="entry-header group <?php echo esc_attr( $ub_header_class ); ?> relative">
+		<div class="relative w-full bg-slate-900 text-white">
 			<?php
 			if ( has_post_thumbnail() ) :
 				the_post_thumbnail( 'full', array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) );
 			endif;
 			?>
-			<div class="relative z-20 pt-48 pb-16 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 lg:pt-72 lg:pb-32">
+			<div class="relative z-20 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 				<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
 					<div class="flex flex-col">
 						<?php

@@ -40,34 +40,34 @@ if ( empty( $ub_items ) ) {
 	<div class="container">
 		
 		<!-- Header & Navigation (Synced with Value Prop). -->
-		<div class="flex flex-row gap-8 justify-between items-end mb-16">
-			<div class="text-left grow">
+		<div class="mb-16 flex flex-row items-end justify-between gap-8">
+			<div class="grow text-left">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl text-primary" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+					<h2 class="mb-2 text-2xl leading-none font-bold tracking-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 						<?php echo esc_html( $ub_headline ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base opacity-80 text-slate-500 leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="text-base leading-tight text-slate-500 opacity-80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
 			</div>
 
 			<!-- Carousel Navigation. -->
-			<div data-milestones-nav class="flex gap-2 items-center pb-2 transition-all duration-300 shrink">
-				<button data-milestones-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group/btn hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover/btn:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+			<div data-milestones-nav class="flex shrink items-center gap-2 pb-2 transition-all duration-300">
+				<button data-milestones-prev class="group/btn flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover/btn:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 				</button>
-				<button data-milestones-next class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group/btn hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover/btn:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+				<button data-milestones-next class="group/btn flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover/btn:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 				</button>
 			</div>
 		</div>
 
 		<!-- Swiper Component. -->
-		<div class="swiper overflow-visible! group/milestone-slider" data-milestones-slider>
+		<div class="swiper group/milestone-slider overflow-visible!" data-milestones-slider>
 			<div class="swiper-wrapper flex! gap-0">
 				<?php if ( ! empty( $ub_items ) ) : ?>
 					<?php foreach ( $ub_items as $ub_item ) : ?>
@@ -76,26 +76,26 @@ if ( empty( $ub_items ) ) {
 						$ub_m_title = isset( $ub_item['title'] ) ? $ub_item['title'] : '';
 						$ub_m_desc  = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-30px)/4)] pr-8 pb-8 border-b border-primary/10 relative group/milestone">
+						<div class="swiper-slide group/milestone relative flex! h-auto! w-full max-w-[calc((88rem-30px)/4)] border-b border-primary/10 pr-8 pb-8">
 							<!-- Marker Dot Wrapper (Center the dot vertically for line alignment) -->		
-							<div class="absolute bottom-0 left-0 z-10 -mb-1.5 w-3 h-3 rounded-full border transition-all duration-300 border-primary bg-primary group-[.swiper-slide-active]/milestone:scale-125 group-[.swiper-slide-active]/milestone:bg-secondary group-[.swiper-slide-active]/milestone:border-secondary"></div>
+							<div class="absolute bottom-0 left-0 z-10 -mb-1.5 h-3 w-3 rounded-full border border-primary bg-primary transition-all duration-300 group-[.swiper-slide-active]/milestone:scale-125 group-[.swiper-slide-active]/milestone:border-secondary group-[.swiper-slide-active]/milestone:bg-secondary"></div>
 									
-							<div class="flex flex-col pr-12 w-full h-full transition-all duration-500 italic:not-italic">
+							<div class="italic:not-italic flex h-full w-full flex-col pr-12 transition-all duration-500">
 								
 								<!-- Content (Following Value Prop Typography) -->
 								<div class="relative z-10 mb-12 grow">
-									<h3 class="mb-2 text-sm font-bold leading-none uppercase transition-colors duration-500 text-primary">
+									<h3 class="mb-2 text-sm leading-none font-bold text-primary uppercase transition-colors duration-500">
 										<?php echo esc_html( $ub_m_title ); ?>
 									</h3>
 									<?php if ( $ub_m_desc ) : ?>
-										<p class="max-w-[250px] text-sm font-medium leading-snug text-slate-500">
+										<p class="max-w-[250px] text-sm leading-snug font-medium text-slate-500">
 											<?php echo wp_kses_post( $ub_m_desc ); ?>
 										</p>
 									<?php endif; ?>
 								</div>
 
 								<!-- Year (Positioned at the very bottom) -->
-								<div class="mt-auto text-3xl font-light tracking-tighter leading-none transition-all duration-500 text-primary group-[.swiper-slide-active]/milestone:text-secondary">
+								<div class="mt-auto text-3xl leading-none font-light tracking-tighter text-primary transition-all duration-500 group-[.swiper-slide-active]/milestone:text-secondary">
 									<?php echo esc_html( $ub_year ); ?>
 								</div>
 

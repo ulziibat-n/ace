@@ -1,141 +1,141 @@
 {
-    "key": "group_value_prop",
-    "title": "Блок: Value Proposition (Carousel)",
-    "fields": [
-        {
-            "key": "field_vp_headline",
-            "label": "Секцийн гарчиг (H2)",
-            "name": "vp_headline",
-            "type": "text",
-            "instructions": "Үндсэн гарчгийг оруулна уу.",
-            "required": 1,
-            "default_value": "Яагаад ACE-ээр дамжуулж Солонгост сурах ёстой вэ?"
-        },
-        {
-            "key": "field_vp_description",
-            "label": "Секцийн тайлбар",
-            "name": "vp_description",
-            "type": "textarea",
-            "instructions": "Гарчгийн доор харагдах дэлгэрэнгүй текст.",
-            "required": 0,
-            "rows": 3,
-            "default_value": "Бид зөвхөн Солонгос улсад төвлөрч, таны ирээдүйн боловсрол болон карьерын замыг хамгийн мэргэжлийн түвшинд чиглүүлэх батлагдсан кейсүүдтэй хамт олон юм."
-        },
-        {
-            "key": "field_vp_btn_label",
-            "label": "Товчлуурын текст",
-            "name": "vp_btn_label",
-            "type": "text",
-            "instructions": "Гарчгийн доор харагдах товчлуурын нэр (Жишээ нь: Бүгдийг харах).",
-            "required": 0
-        },
-        {
-            "key": "field_vp_btn_url",
-            "label": "Товчлуурын линк",
-            "name": "vp_btn_url",
-            "type": "text",
-            "instructions": "Товчлуур дээр дарахад шилжих хаяг.",
-            "required": 0
-        },
-        {
-            "key": "field_vp_items",
-            "label": "Кароуселын картууд",
-            "name": "vp_items",
-            "type": "repeater",
-            "instructions": "Слайдаар харагдах давуу талуудыг нэмнэ үү.",
-            "required": 0,
-            "layout": "block",
-            "button_label": "Карт нэмэх",
-            "sub_fields": [
-                {
-                    "key": "field_vp_item_custom_icon",
-                    "label": "Зураг хуулах (Custom Icon)",
-                    "name": "custom_icon",
-                    "type": "image",
-                    "instructions": "Өөрийн иконыг зургаар оруулж болно. (SVG эсвэл PNG)",
-                    "required": 0,
-                    "return_format": "id",
-                    "preview_size": "thumbnail",
-                    "library": "all"
-                },
-                {
-                    "key": "field_vp_item_icon",
-                    "label": "Бэлэн икон сонгох",
-                    "name": "icon",
-                    "type": "select",
-                    "required": 1,
-                    "instructions": "Дээрх талбарт зураг хуулаагүй тохиолдолд харагдана.",
-                    "choices": {
-                        "map-pin": "Map Pin (Байршил)",
-                        "graduation-cap": "Graduation Cap (Сургалт)",
-                        "users": "Users (Community)",
-                        "clipboard-check": "Clipboard Check (Зөвлөгөө)"
-                    },
-                    "default_value": "map-pin",
-                    "conditional_logic": [
-                        {
-                            "field": "field_vp_item_custom_icon",
-                            "operator": "==",
-                            "value": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "field_vp_item_title",
-                    "label": "Картын гарчиг",
-                    "name": "title",
-                    "type": "text",
-                    "required": 1
-                },
-                {
-                    "key": "field_vp_item_description",
-                    "label": "Картын тайлбар",
-                    "name": "description",
-                    "type": "textarea",
-                    "required": 0,
-                    "rows": 2
-                },
-                {
-                    "key": "field_vp_item_link",
-                    "label": "Картын холбоос (Link)",
-                    "name": "link",
-                    "type": "url",
-                    "instructions": "Картыг дарахад шилжих хаяг (Заавал биш).",
-                    "required": 0
-                }
-            ]
-        },
-        {
-            "key": "field_vp_title_mw",
-            "label": "Гарчиг өргөн (Title Max Width)",
-            "name": "vp_title_max_width",
-            "type": "range",
-            "default_value": 960,
-            "min": 500,
-            "max": 768,
-            "step": 10,
-            "append": "px"
-        },
-        {
-            "key": "field_vp_desc_mw",
-            "label": "Тайлбар өргөн (Desc Max Width)",
-            "name": "vp_description_max_width",
-            "type": "range",
-            "default_value": 720,
-            "min": 500,
-            "max": 768,
-            "step": 10,
-            "append": "px"
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf/value-prop"
-            }
-        ]
-    ],
-    "active": true
+	"key": "group_value_prop",
+	"title": "Блок: Value Proposition (Carousel)",
+	"fields": [
+		{
+			"key": "field_vp_headline",
+			"label": "Секцийн гарчиг (H2)",
+			"name": "vp_headline",
+			"type": "text",
+			"instructions": "Үндсэн гарчгийг оруулна уу.",
+			"required": 1,
+			"default_value": "Яагаад ACE-ээр дамжуулж Солонгост сурах ёстой вэ?"
+		},
+		{
+			"key": "field_vp_description",
+			"label": "Секцийн тайлбар",
+			"name": "vp_description",
+			"type": "textarea",
+			"instructions": "Гарчгийн доор харагдах дэлгэрэнгүй текст.",
+			"required": 0,
+			"rows": 3,
+			"default_value": "Бид зөвхөн Солонгос улсад төвлөрч, таны ирээдүйн боловсрол болон карьерын замыг хамгийн мэргэжлийн түвшинд чиглүүлэх батлагдсан кейсүүдтэй хамт олон юм."
+		},
+		{
+			"key": "field_vp_btn_label",
+			"label": "Товчлуурын текст",
+			"name": "vp_btn_label",
+			"type": "text",
+			"instructions": "Гарчгийн доор харагдах товчлуурын нэр (Жишээ нь: Бүгдийг харах).",
+			"required": 0
+		},
+		{
+			"key": "field_vp_btn_url",
+			"label": "Товчлуурын линк",
+			"name": "vp_btn_url",
+			"type": "text",
+			"instructions": "Товчлуур дээр дарахад шилжих хаяг.",
+			"required": 0
+		},
+		{
+			"key": "field_vp_items",
+			"label": "Кароуселын картууд",
+			"name": "vp_items",
+			"type": "repeater",
+			"instructions": "Слайдаар харагдах давуу талуудыг нэмнэ үү.",
+			"required": 0,
+			"layout": "block",
+			"button_label": "Карт нэмэх",
+			"sub_fields": [
+				{
+					"key": "field_vp_item_custom_icon",
+					"label": "Зураг хуулах (Custom Icon)",
+					"name": "custom_icon",
+					"type": "image",
+					"instructions": "Өөрийн иконыг зургаар оруулж болно. (SVG эсвэл PNG)",
+					"required": 0,
+					"return_format": "id",
+					"preview_size": "thumbnail",
+					"library": "all"
+				},
+				{
+					"key": "field_vp_item_icon",
+					"label": "Бэлэн икон сонгох",
+					"name": "icon",
+					"type": "select",
+					"required": 1,
+					"instructions": "Дээрх талбарт зураг хуулаагүй тохиолдолд харагдана.",
+					"choices": {
+						"map-pin": "Map Pin (Байршил)",
+						"graduation-cap": "Graduation Cap (Сургалт)",
+						"users": "Users (Community)",
+						"clipboard-check": "Clipboard Check (Зөвлөгөө)"
+					},
+					"default_value": "map-pin",
+					"conditional_logic": [
+						{
+							"field": "field_vp_item_custom_icon",
+							"operator": "==",
+							"value": ""
+						}
+					]
+				},
+				{
+					"key": "field_vp_item_title",
+					"label": "Картын гарчиг",
+					"name": "title",
+					"type": "text",
+					"required": 1
+				},
+				{
+					"key": "field_vp_item_description",
+					"label": "Картын тайлбар",
+					"name": "description",
+					"type": "textarea",
+					"required": 0,
+					"rows": 2
+				},
+				{
+					"key": "field_vp_item_link",
+					"label": "Картын холбоос (Link)",
+					"name": "link",
+					"type": "url",
+					"instructions": "Картыг дарахад шилжих хаяг (Заавал биш).",
+					"required": 0
+				}
+			]
+		},
+		{
+			"key": "field_vp_title_mw",
+			"label": "Гарчиг өргөн (Title Max Width)",
+			"name": "vp_title_max_width",
+			"type": "range",
+			"default_value": 960,
+			"min": 500,
+			"max": 768,
+			"step": 10,
+			"append": "px"
+		},
+		{
+			"key": "field_vp_desc_mw",
+			"label": "Тайлбар өргөн (Desc Max Width)",
+			"name": "vp_description_max_width",
+			"type": "range",
+			"default_value": 720,
+			"min": 500,
+			"max": 768,
+			"step": 10,
+			"append": "px"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/value-prop"
+			}
+		]
+	],
+	"active": true
 }

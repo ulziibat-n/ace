@@ -54,49 +54,49 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 ?>
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">
-	<div class="container px-6 mx-auto lg:px-12">
+	<div class="container mx-auto px-6 lg:px-12">
 		
 		<!-- Section Header & Navigation. -->
-		<div class="flex flex-row gap-8 justify-between items-end mb-12">
+		<div class="mb-12 flex flex-row items-end justify-between gap-8">
 			<div class="grow">
-				<h2 class="mb-2 text-2xl font-bold tracking-tight lg:text-3xl leading-none text-slate-900" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+				<h2 class="mb-2 text-2xl leading-none font-bold tracking-tight text-slate-900 lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 					<?php echo esc_html( $ub_title ); ?>
 				</h2>
-				<p class="text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+				<p class="text-base leading-tight text-slate-500 opacity-80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 					<?php echo esc_html( $ub_description ); ?>
 				</p>
 			</div>
 
 			<!-- Carousel Navigation. -->
-			<div data-trust-signals-nav class="flex gap-2 items-center pb-2 transition-all duration-300 shrink">
-				<button data-trust-signals-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+			<div data-trust-signals-nav class="flex shrink items-center gap-2 pb-2 transition-all duration-300">
+				<button data-trust-signals-prev class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 				</button>
-				<button data-trust-signals-next class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+				<button data-trust-signals-next class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 				</button>
 			</div>
 		</div>
 
 		<!-- Swiper Component. -->
-		<div class="swiper overflow-visible! group" data-trust-signals-slider>
+		<div class="swiper group overflow-visible!" data-trust-signals-slider>
 			<div class="swiper-wrapper flex! gap-[10px] group-[.swiper-initialized]:gap-0">
 				<?php
 				foreach ( $ub_stats as $ub_index => $ub_stat ) :
 					$ub_icon_id = isset( $ub_stat['stat_icon'] ) ? $ub_stat['stat_icon'] : 0;
 					?>
-					<div class="swiper-slide h-auto! flex! w-full max-w-[300px]">
-						<div class="block-trust-signals__card w-full relative group p-8 rounded-sm overflow-hidden bg-white flex flex-col justify-between h-full border border-primary/10 shadow-sm shadow-primary/0 transition-all duration-500 in-[.swiper-slide-active]:bg-primary in-[.swiper-slide-active]:text-white in-[.swiper-slide-active]:border-transparent in-[.swiper-slide-active]:shadow-primary/10 in-[.swiper-slide-active]:shadow-md italic:not-italic">
+					<div class="swiper-slide flex! h-auto! w-full max-w-[300px]">
+						<div class="block-trust-signals__card group italic:not-italic relative flex h-full w-full flex-col justify-between overflow-hidden rounded-sm border border-primary/10 bg-white p-8 shadow-sm shadow-primary/0 transition-all duration-500 in-[.swiper-slide-active]:border-transparent in-[.swiper-slide-active]:bg-primary in-[.swiper-slide-active]:text-white in-[.swiper-slide-active]:shadow-md in-[.swiper-slide-active]:shadow-primary/10">
 
 							<!-- Top Icon (Upload). -->
-							<div class="block-trust-signals__icon-wrapper relative z-10 w-10 h-10 transition-all duration-500 group-hover:scale-110 in-[.swiper-slide-active]:brightness-0 in-[.swiper-slide-active]:invert">
+							<div class="block-trust-signals__icon-wrapper relative z-10 h-10 w-10 transition-all duration-500 group-hover:scale-110 in-[.swiper-slide-active]:brightness-0 in-[.swiper-slide-active]:invert">
 								<?php
 								if ( $ub_icon_id ) {
 									echo wp_get_attachment_image( $ub_icon_id, 'thumbnail', false, array( 'class' => 'w-full h-full object-contain' ) );
 								} else {
 									// Fallback icon if none uploaded.
 									?>
-									<svg class="w-full h-full transition-colors duration-500 text-primary in-[.swiper-slide-active]:text-white" viewBox="0 0 24 24" fill="currentColor">
+									<svg class="h-full w-full text-primary transition-colors duration-500 in-[.swiper-slide-active]:text-white" viewBox="0 0 24 24" fill="currentColor">
 										<path d="M12 2L1 7l11 5 11-5-11-5zM2 8.26l10 4.54 10-4.54V15h2v-6.74L12 3.73 2 8.26zM20 18.5V10.15l-1 0.45v7.9c0 1-1.5 2-4 2s-4-1-4-2v-7.9l-1-0.45v8.35L12 21l8-2.5z"/>
 									</svg>
 									<?php
@@ -106,10 +106,10 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 
 							<!-- Bottom Content. -->
 							<div class="relative z-10 mt-10">
-								<div class="block-trust-signals__number text-3xl lg:text-4xl font-light tracking-tighter leading-none mb-2 transition-colors text-primary duration-500 in-[.swiper-slide-active]:text-white">
+								<div class="block-trust-signals__number mb-2 text-3xl leading-none font-light tracking-tighter text-primary transition-colors duration-500 in-[.swiper-slide-active]:text-white lg:text-4xl">
 									<?php echo esc_html( $ub_stat['stat_number'] ); ?>
 								</div>
-								<div class="block-trust-signals__label font-medium leading-none text-xs lg:text-sm max-w-[180px] transition-colors duration-500 in-[.swiper-slide-active]:text-white/90">
+								<div class="block-trust-signals__label max-w-[180px] text-xs leading-none font-medium transition-colors duration-500 in-[.swiper-slide-active]:text-white/90 lg:text-sm">
 									<?php echo esc_html( $ub_stat['stat_label'] ); ?>
 								</div>
 							</div>
@@ -119,7 +119,7 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 			</div>
 
 			<!-- Pagination. -->
-			<div class="swiper-pagination static! ml-0 mt-8 max-w-xs overflow-hidden rounded-sm!" style="--swiper-pagination-progressbar-bg-color:#F1F5F9;--swiper-theme-color:#085399;"></div>
+			<div class="swiper-pagination static! mt-8 ml-0 max-w-xs overflow-hidden rounded-sm!" style="--swiper-pagination-progressbar-bg-color:#F1F5F9;--swiper-theme-color:#085399;"></div>
 		</div>
 
 	</div>

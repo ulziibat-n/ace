@@ -60,6 +60,8 @@ function ub_allowed_block_types( $allowed_block_types ) {
 		'acf/service-value-prop',
 		'acf/process-roadmap',
 		'acf/comparison-diff',
+		'acf/featured-posts-slider',
+		'acf/latest-posts',
 	);
 
 	foreach ( $acf_blocks as $block ) {

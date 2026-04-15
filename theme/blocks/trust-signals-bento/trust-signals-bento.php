@@ -43,10 +43,10 @@ if ( empty( $ub_sig1['number'] ) ) {
 		<?php if ( $ub_headline || $ub_description ) : ?>
 			<div class="mb-12 text-left">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-3 text-2xl font-bold leading-tight text-primary lg:text-3xl"><?php echo esc_html( $ub_headline ); ?></h2>
+					<h2 class="mb-3 text-2xl leading-tight font-bold text-primary lg:text-3xl"><?php echo esc_html( $ub_headline ); ?></h2>
 				<?php endif; ?>
 				<?php if ( $ub_description ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500"><?php echo wp_kses_post( $ub_description ); ?></p>
+					<p class="text-base leading-tight text-slate-500 opacity-80"><?php echo wp_kses_post( $ub_description ); ?></p>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
@@ -54,45 +54,45 @@ if ( empty( $ub_sig1['number'] ) ) {
 		<div class="grid grid-cols-1 gap-[10px] md:grid-cols-3">
 			
 			<!-- Signal 1: Large Primary (Top-Left) -->
-			<div class="flex flex-col p-8 rounded-sm bg-primary text-white col-span-1 min-h-[240px]">
-				<div class="mb-4 text-4xl font-light tracking-tighter leading-none lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig1['number'] ) ); ?>">
+			<div class="col-span-1 flex min-h-[240px] flex-col rounded-sm bg-primary p-8 text-white">
+				<div class="mb-4 text-4xl leading-none font-light tracking-tighter lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig1['number'] ) ); ?>">
 					<?php echo esc_html( $ub_sig1['number'] ); ?>
 				</div>
-				<p class="mt-auto font-medium leading-tight opacity-90 text-md max-w-64"><?php echo esc_html( $ub_sig1['text'] ); ?></p>
+				<p class="text-md mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig1['text'] ); ?></p>
 			</div>
 
 			<!-- Signal 2: Small Gray (Top-Middle) -->
-			<div class="flex flex-col p-8 rounded-sm bg-slate-50 col-span-1 min-h-[240px]">
-				<div class="mb-4 text-4xl font-light tracking-tighter leading-none text-primary lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig2['number'] ) ); ?>">
+			<div class="col-span-1 flex min-h-[240px] flex-col rounded-sm bg-slate-50 p-8">
+				<div class="mb-4 text-4xl leading-none font-light tracking-tighter text-primary lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig2['number'] ) ); ?>">
 					<?php echo esc_html( $ub_sig2['number'] ); ?>
 				</div>
-				<p class="mt-auto font-medium leading-tight text-md text-slate-500/80 max-w-64"><?php echo esc_html( $ub_sig2['text'] ); ?></p>
+				<p class="text-md mt-auto max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig2['text'] ); ?></p>
 			</div>
 
 			<!-- Signal 4: Tall with Image (Right) -->
-			<div class="overflow-hidden relative flex flex-col p-8 rounded-sm bg-slate-100 col-span-1 md:row-span-2 min-h-[400px]">
+			<div class="relative col-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-sm bg-slate-100 p-8 md:row-span-2">
 				<?php if ( ! empty( $ub_sig4['image'] ) ) : ?>
 					<div class="absolute inset-0 z-0">
 						<?php echo wp_get_attachment_image( $ub_sig4['image'], 'large', false, array( 'class' => 'w-full h-full object-cover' ) ); ?>
-						<div class="absolute inset-0 to-transparent bg-linear-to-t from-slate-900/80"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent"></div>
 					</div>
 				<?php endif; ?>
 				
-				<div class="relative z-10 flex flex-col h-full <?php echo ! empty( $ub_sig4['image'] ) ? 'text-white' : 'text-slate-900'; ?>">
-					<div class="mb-4 text-6xl font-light leading-none tracking-tighter lg:text-8xl <?php echo ! empty( $ub_sig4['image'] ) ? '' : 'text-primary'; ?>" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig4['number'] ) ); ?>">
+				<div class="<?php echo ! empty( $ub_sig4['image'] ) ? 'text-white' : 'text-slate-900'; ?> relative z-10 flex h-full flex-col">
+					<div class="<?php echo ! empty( $ub_sig4['image'] ) ? '' : 'text-primary'; ?> mb-4 text-6xl leading-none font-light tracking-tighter lg:text-8xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig4['number'] ) ); ?>">
 						<?php echo esc_html( $ub_sig4['number'] ); ?>
 					</div>
-					<p class="mt-auto font-medium leading-tight opacity-90 text-md max-w-64"><?php echo esc_html( $ub_sig4['text'] ); ?></p>
+					<p class="text-md mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig4['text'] ); ?></p>
 				</div>
 			</div>
 
 			<!-- Signal 3: Wide Gray (Bottom-Left) -->
-			<div class="flex items-center p-8 rounded-sm bg-slate-50 col-span-1 md:col-span-2 min-h-[160px]">
+			<div class="col-span-1 flex min-h-[160px] items-center rounded-sm bg-slate-50 p-8 md:col-span-2">
 				<div class="flex flex-col gap-8">
-					<div class="text-4xl font-light tracking-tighter leading-none whitespace-nowrap text-primary lg:text-5xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig3['number'] ) ); ?>">
+					<div class="text-4xl leading-none font-light tracking-tighter whitespace-nowrap text-primary lg:text-5xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig3['number'] ) ); ?>">
 						<?php echo esc_html( $ub_sig3['number'] ); ?>
 					</div>
-					<p class="font-medium leading-tight text-md text-slate-500/80 max-w-64"><?php echo esc_html( $ub_sig3['text'] ); ?></p>
+					<p class="text-md max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig3['text'] ); ?></p>
 				</div>
 			</div>
 

@@ -111,7 +111,7 @@ add_filter( 'the_content_more_link', 'ub_continue_reading_link' );
  */
 function ub_custom_logo_class( $html ) {
 	// 'custom-logo-link' гэсэн текстийг олоод хажууд нь 'your-custom-class' нэмнэ
-	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[3.5rem] [&_img]:h-auto', $html );
+	$html = str_replace( 'custom-logo-link', 'block [&_img]:w-full [&_img]:max-w-[3.5rem] [&_img]:h-auto py-6', $html );
 	return $html;
 }
 add_filter( 'get_custom_logo', 'ub_custom_logo_class' );
@@ -144,40 +144,87 @@ add_filter( 'body_class', 'ub_body_classes' );
  * @param array     $classes Одоо байгаа цэсний элементийн классууд.
  * @param \WP_Post  $item    Цэсний элементийн объект.
  * @param \stdClass $args    wp_nav_menu() функцын аргументууд.
+ * @param int       $depth   Цэсний түвшин (0 нь top-level).
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function ub_nav_menu_classes( $classes, $item, $args ) {
-	// Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно.
-	if ( 'menu-1' === $args->theme_location ) {
-		$classes[] = 'group [&_a]:text-primary [&_a]:block [&_a]:font-bold [&_a]:transition-colors [&_a]:duration-300 [&_a]:ease-in-out [&_a]:hover:text-secondary [&_a]:group-[.current-menu-item]:text-secondary [&_a]:text-xs [&_a]:uppercase';
+function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
+	$args           = (object) $args;
+	$theme_location = $args->theme_location ?? '';
 
-		// If it's a sub-menu item.
-		if ( in_array( 'sub-menu-item', $classes, true ) || $item->menu_item_parent > 0 ) {
-			$classes[] = '[&_a]:px-6 [&_a]:py-2 [&_a]:normal-case [&_a]:font-medium [&_a]:text-slate-600 [&_a]:hover:bg-slate-50';
+	// Хэрэв тодорхой нэг цэсэнд (theme_location) класс нэмэх бол энд шалгаж болно.
+	if ( 'menu-1' === $theme_location ) {
+		// Тухайн түвшнээр (depth) нэрлэсэн групп нэмэх.
+		$classes[] = "group/level-{$depth}";
+
+		// Зөвхөн top-level (Level 1) цэсний элементүүдэд классуудыг нэмэх.
+		if ( 0 === (int) $depth ) {
+			$classes[] = 'group/level-0 [&>a]:text-primary [&>a]:block [&>a]:font-bold [&>a]:transition-colors [&>a]:duration-300 [&>a]:leading-[80px] [&>a]:px-2 [&>a]:ease-in-out [&>a]:hover:text-secondary [&>a]:group-hover/level-0:text-secondary [&>a]:group-[.current-menu-item]/level-0:text-secondary [&>a]:group-[.current-menu-parent]/level-0:text-secondary [&>a]:group-[.current-menu-ancestor]/level-0:text-secondary [&>a]:text-xs [&>a]:uppercase [&>a]:transition-colors';
+		} elseif ( (int) $depth > 0 ) {
+			// Дэд цэсний бүх li элементүүд (Level 2, 3 гэх мэт).
+			$classes[] = '[&>a]:text-sm [&>a]:font-medium [&>a]:text-primary [&>a]:hover:text-secondary [&>a]:group-[.current-menu-item]/level-1:text-secondary [&>a]:group-[.current-menu-parent]/level-1:text-secondary [&>a]:group-[.current-menu-ancestor]/level-1:text-secondary [&>a]:transition-colors [&>a]:duration-300';
 		}
 	}
 
-	if ( 'menu-2' === $args->theme_location || 'menu-3' === $args->theme_location ) {
+	if ( 'menu-2' === $theme_location || 'menu-3' === $theme_location ) {
 		$classes[] = 'block [&_a]:hover:text-white [&_a]:transition-colors [&_a]:font-semibold [&_a]:text-[0.6875rem]';
 	}
 
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 3 );
+add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 4 );
+
+/**
+ * Цэсний элемент бүрийн хүүхдийн тоог тоолж, child_count атрибут нэмэх.
+ */
+function ub_nav_menu_item_child_count( $items ) {
+	$parents = array();
+	foreach ( $items as $item ) {
+		if ( $item->menu_item_parent && (int) $item->menu_item_parent > 0 ) {
+			$parents[] = $item->menu_item_parent;
+		}
+	}
+
+	$counts = array_count_values( $parents );
+
+	foreach ( $items as $item ) {
+		$item->child_count = isset( $counts[ $item->ID ] ) ? $counts[ $item->ID ] : 0;
+	}
+
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'ub_nav_menu_item_child_count' );
+
 /**
  * Дэд цэсний (sub-menu) <ul> элемент дээр нэмэлт CSS классуудыг нэмэх функц.
  *
  * @param array    $classes Одоо байгаа дэд цэсний классууд.
  * @param stdClass $args    wp_nav_menu() функцын аргументууд.
+ * @param int      $depth   Цэсний түвшин.
  * @return array Шинэчилсэн классуудын жагсаалт.
  */
-function ub_nav_menu_submenu_classes( $classes, $args ) {
-	if ( 'menu-1' === $args->theme_location ) {
-		$classes[] = 'absolute left-0 top-full hidden w-full group-hover:block bg-slate-50 min-w-[200px] rounded-xs py-4 animate-in fade-in slide-in-from-top-1 duration-200 z-50';
+function ub_nav_menu_submenu_classes( $classes, $args, $depth ) {
+	$args           = (object) $args;
+	$theme_location = $args->theme_location ?? '';
+
+	if ( 'menu-1' === $theme_location ) {
+		// Одоогоор байгаа үндсэн дэд цэсний загвар (Level 2 items wrap).
+		if ( 0 === $depth ) {
+			$classes[] = 'w-full px-8 pb-8';
+
+			// Дэд цэсний тооноос хамаарч загварыг тохируулах.
+			if ( class_exists( 'UB_Mega_Menu_Walker' ) && UB_Mega_Menu_Walker::$last_child_count > 3 ) {
+				$classes[] = 'lg:grid lg:grid-cols-2 lg:gap-x-12 max-w-3xl';
+			} else {
+				$classes[] = 'max-w-xs';
+			}
+		} elseif ( $depth > 0 ) {
+			// Level 3+ дэд цэсүүдэд зориулсан сав (Level 3+ ul).
+			$classes[] = 'sub-menu-level-3';
+		}
 	}
 	return $classes;
 }
-add_filter( 'nav_menu_submenu_css_class', 'ub_nav_menu_submenu_classes', 10, 2 );
+add_filter( 'nav_menu_submenu_css_class', 'ub_nav_menu_submenu_classes', 10, 3 );
 
 /**
  * Цэсний тайлбарыг (description) дэд цэсний элементүүд дээр харуулах функц.
@@ -189,16 +236,148 @@ add_filter( 'nav_menu_submenu_css_class', 'ub_nav_menu_submenu_classes', 10, 2 )
  * @return string Шинэчилсэн HTML код.
  */
 function ub_nav_menu_description( $item_output, $item, $depth, $args ) {
-	if ( 'menu-1' === $args->theme_location && $depth > 0 && ! empty( $item->description ) ) {
+	$args           = (object) $args;
+	$theme_location = $args->theme_location ?? '';
+
+	if ( 'menu-1' === $theme_location && $depth > 0 && ! empty( $item->description ) ) {
 		$item_output = str_replace(
 			'</a>',
-			'<span class="block text-[0.625rem] text-slate-400 font-normal normal-case mt-0.5 leading-tight">' . esc_html( $item->description ) . '</span></a>',
+			'<span class="block mb-4 max-w-xs text-xs font-normal leading-tight normal-case text-slate-500 line-clamp-2">' . esc_html( $item->description ) . '</span></a>',
 			$item_output
 		);
 	}
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'ub_nav_menu_description', 10, 4 );
+
+/**
+ * ACE Mega Menu Walker.
+ * Сүб-меню болон түүний гарчгийг нэг контейнерт (div) багцалж харуулна.
+ */
+class UB_Mega_Menu_Walker extends Walker_Nav_Menu {
+	private $current_parent_title = '';
+	private $current_parent_url   = '';
+	private $has_banner           = false;
+	private $banner_data          = array();
+
+	/**
+	 * Сүүлийн боловсруулсан эцэг элементийн хүүхдийн тоо.
+	 *
+	 * @var int
+	 */
+	public static $last_child_count = 0;
+
+	/**
+	 * Цэсний элемент эхлэх үед.
+	 */
+	function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$args = (object) $args;
+		// Level 1 элемент бүр дээр баннерын өгөгдлийг reset хийх.
+		if ( 0 === $depth ) {
+			$this->has_banner       = false;
+			$this->banner_data      = array();
+			self::$last_child_count = isset( $item->child_count ) ? (int) $item->child_count : 0;
+		}
+
+		$item_id      = isset( $item->ID ) ? (int) $item->ID : 0;
+		$item_classes = isset( $item->classes ) ? (array) $item->classes : array();
+
+		// Хэрэв Level 1 эцэг элемент бөгөөд дэд цэстэй бол нэрийг нь түр хадгалж, ACF шалгана.
+		if ( 0 === $depth && in_array( 'menu-item-has-children', $item_classes, true ) ) {
+			$this->current_parent_title = $item->title ?? '';
+			$this->current_parent_url   = $item->url ?? '';
+
+			// ACF талбаруудыг унших: Зөвхөн 'sub_menu' true байвал баннерыг идэвхжүүлнэ.
+			if ( $item_id > 0 && function_exists( 'get_field' ) ) {
+				$acf_banner_enabled = (bool) get_field( 'sub_menu', $item_id );
+
+				if ( $acf_banner_enabled ) {
+					$this->has_banner  = true;
+					$this->banner_data = array(
+						'image'       => get_field( 'banner_image', $item_id ),
+						'title'       => get_field( 'banner_title', $item_id ),
+						'description' => get_field( 'banner_description', $item_id ),
+					);
+				}
+			}
+		}
+		parent::start_el( $output, $item, $depth, $args, $id );
+	}
+
+	/**
+	 * Дэд цэс (ul) эхлэх үед.
+	 */
+	function start_lvl( &$output, $depth = 0, $args = null ) {
+		$args   = (object) $args;
+		$indent = str_repeat( "\t", $depth );
+
+		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) ) {
+			$wrapper_classes = 'absolute left-0 top-full hidden group-hover/level-0:flex flex-col w-full bg-white min-w-[200px] rounded-xs rounded-t-none shadow-xl animate-in fade-in slide-in-from-top-1 duration-200 z-50';
+
+			if ( $this->has_banner ) {
+				$wrapper_classes  = str_replace( 'group-hover/level-0:flex', 'group-hover/level-0:grid', $wrapper_classes );
+				$wrapper_classes .= ' lg:grid-cols-12 overflow-hidden';
+			}
+
+			// Ерөнхий контейнер болон гарчгийг нэмж байна.
+			$output .= "\n$indent<div class=\"$wrapper_classes\">\n";
+
+			// Хэрэв баннертай бол зүүн талын агуулгын контейнер нээх.
+			if ( $this->has_banner ) {
+				$output .= "$indent\t<div class=\"lg:col-span-9 flex flex-col\">\n";
+			}
+
+			$output .= "$indent\t<div class=\"px-8 pt-8 pointer-events-none\">\n";
+			$output .= "$indent\t\t<span class=\"text-[0.625rem] font-black tracking-[0.2em] uppercase text-primary/40 block mb-2\">" . esc_html( $this->current_parent_title ) . "</span>\n";
+			$output .= "$indent\t</div>\n";
+		}
+
+		parent::start_lvl( $output, $depth, $args );
+	}
+
+	/**
+	 * Дэд цэс (ul) дуусах үед.
+	 */
+	function end_lvl( &$output, $depth = 0, $args = null ) {
+		$args   = (object) $args;
+		$indent = str_repeat( "\t", $depth );
+		parent::end_lvl( $output, $depth, $args );
+
+		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) ) {
+			if ( $this->has_banner ) {
+				$output .= "$indent\t</div><!-- .col-span-8 -->\n";
+
+				// Баннер хэсэг.
+				$output .= "$indent\t<div class=\"lg:col-span-3 p-8 flex flex-col\">\n";
+
+				if ( ! empty( $this->banner_data['image'] ) ) {
+					$img_id  = is_array( $this->banner_data['image'] ) ? $this->banner_data['image']['ID'] : $this->banner_data['image'];
+					$output .= "$indent\t\t<div class=\"aspect-video rounded-xs overflow-hidden mb-4\">\n";
+					$output .= "$indent\t\t\t" . wp_get_attachment_image( (int) $img_id, 'large', false, array( 'class' => 'w-full h-full object-cover' ) ) . "\n";
+					$output .= "$indent\t\t</div>\n";
+				}
+
+				if ( ! empty( $this->banner_data['title'] ) ) {
+					$output .= "$indent\t\t<p class=\"text-sm font-bold leading-tight text-primary mb-1\">" . esc_html( $this->banner_data['title'] ) . "</p>\n";
+				}
+
+				if ( ! empty( $this->banner_data['description'] ) ) {
+					$output .= "$indent\t\t<p class=\"text-xs text-slate-500 leading-tight\">" . esc_html( $this->banner_data['description'] ) . "</p>\n";
+				}
+
+				$output .= "$indent\t\t<a href=\"" . esc_url( $this->current_parent_url ) . "\" class=\"mt-4 inline-flex items-center gap-1 text-[0.625rem] font-bold leading-none uppercase tracking-wider text-primary hover:text-primary-dark transition-colors\">\n";
+				$output .= "$indent\t\t\t" . esc_html__( 'Дэлгэрэнгүй', 'aceedu' ) . "\n";
+				$output .= "$indent\t\t\t<svg class=\"w-3 h-3\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-7-7 7 7-7 7\"/></svg>\n";
+				$output .= "$indent\t\t</a>\n";
+
+				$output .= "$indent\t</div><!-- .col-span-4 -->\n";
+			}
+
+			$output .= "$indent</div><!-- .absolute-wrapper -->\n";
+		}
+	}
+}
+
 
 
 /**
@@ -276,11 +455,11 @@ add_filter(
  * Registered here on 'init' so handles are available to block.json and backend.
  */
 function ub_register_assets() {
-	// Swiper Assets
+	// Swiper Assets.
 	wp_register_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '11.0.0' );
 	wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), '11.0.0', true );
 
-	// Block Scripts with Swiper dependency
+	// Block Scripts with Swiper dependency.
 	wp_register_script( 'hero-js', get_template_directory_uri() . '/blocks/hero/hero.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'testimonials-js', get_template_directory_uri() . '/blocks/testimonials/testimonials.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'trust-signals-js', get_template_directory_uri() . '/blocks/trust-signals/trust-signals.js', array( 'swiper' ), UB_VERSION, true );
@@ -292,26 +471,31 @@ function ub_register_assets() {
 	wp_register_script( 'process-roadmap-js', get_template_directory_uri() . '/blocks/process-roadmap/process-roadmap.js', array( 'swiper' ), UB_VERSION, true );
 	wp_register_script( 'bento-trust-signals-js', get_template_directory_uri() . '/blocks/trust-signals-bento/trust-signals-bento.js', array(), UB_VERSION, true );
 	wp_register_script( 'carousel-blocks-js', get_template_directory_uri() . '/blocks/schools-carousel/carousel-blocks.js', array( 'swiper' ), UB_VERSION, true );
+	wp_register_script( 'featured-posts-slider-js', get_template_directory_uri() . '/blocks/featured-posts-slider/featured-posts-slider.js', array( 'swiper' ), UB_VERSION, true );
 
-	// Block Styles with Swiper dependency
+	// Block Styles with Swiper dependency.
 	wp_register_style( 'hero-css', get_template_directory_uri() . '/blocks/hero/hero.css', array( 'swiper' ), UB_VERSION );
 }
 add_action( 'init', 'ub_register_assets', 5 );
-
+/**
+ * Скриптүүд
+ *
+ * @return void
+ */
 function ub_scripts() {
 	wp_enqueue_style( 'ace-style', get_stylesheet_uri(), array(), UB_VERSION );
 	wp_enqueue_script( 'ace-script', get_template_directory_uri() . '/js/script.min.js', array(), UB_VERSION, true );
 
-	// Register Modular Component Scripts
-	wp_register_script( 
-		'related-posts-script', 
-		get_template_directory_uri() . '/assets/js/related-posts.js', 
-		array( 'swiper' ), 
-		UB_VERSION, 
-		true 
+	// Register Modular Component Scripts.
+	wp_register_script(
+		'related-posts-script',
+		get_template_directory_uri() . '/assets/js/related-posts.js',
+		array( 'swiper' ),
+		UB_VERSION,
+		true
 	);
 
-	// Conditionally Enqueue Related Posts Carousel assets
+	// Conditionally Enqueue Related Posts Carousel assets.
 	if ( is_singular( array( 'post', 'school' ) ) ) {
 		wp_enqueue_style( 'swiper' );
 		wp_enqueue_script( 'related-posts-script' );
@@ -463,8 +647,76 @@ function ub_get_block_example_data( $block ) {
  */
 function ub_cyrillic_slug_transliteration( $title ) {
 	$cyrillic_map = array(
-		'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'Yo', 'Ж' => 'J', 'З' => 'Z', 'И' => 'I', 'Й' => 'I', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O', 'Ө' => 'U', 'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U', 'Ү' => 'U', 'Ф' => 'F', 'Х' => 'Kh', 'Ц' => 'Ts', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Shch', 'Ъ' => '', 'Ы' => 'Y', 'Ь' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
-		'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'yo', 'ж' => 'j', 'з' => 'z', 'и' => 'i', 'й' => 'i', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'ө' => 'u', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u', 'ү' => 'u', 'ф' => 'f', 'х' => 'kh', 'ц' => 'ts', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shch', 'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+		'А' => 'A',
+		'Б' => 'B',
+		'В' => 'V',
+		'Г' => 'G',
+		'Д' => 'D',
+		'Е' => 'E',
+		'Ё' => 'Yo',
+		'Ж' => 'J',
+		'З' => 'Z',
+		'И' => 'I',
+		'Й' => 'I',
+		'К' => 'K',
+		'Л' => 'L',
+		'М' => 'M',
+		'Н' => 'N',
+		'О' => 'O',
+		'Ө' => 'U',
+		'П' => 'P',
+		'Р' => 'R',
+		'С' => 'S',
+		'Т' => 'T',
+		'У' => 'U',
+		'Ү' => 'U',
+		'Ф' => 'F',
+		'Х' => 'Kh',
+		'Ц' => 'Ts',
+		'Ч' => 'Ch',
+		'Ш' => 'Sh',
+		'Щ' => 'Shch',
+		'Ъ' => '',
+		'Ы' => 'Y',
+		'Ь' => '',
+		'Э' => 'E',
+		'Ю' => 'Yu',
+		'Я' => 'Ya',
+		'а' => 'a',
+		'б' => 'b',
+		'в' => 'v',
+		'г' => 'g',
+		'д' => 'd',
+		'е' => 'e',
+		'ё' => 'yo',
+		'ж' => 'j',
+		'з' => 'z',
+		'и' => 'i',
+		'й' => 'i',
+		'к' => 'k',
+		'л' => 'l',
+		'м' => 'm',
+		'н' => 'n',
+		'о' => 'o',
+		'ө' => 'u',
+		'п' => 'p',
+		'р' => 'r',
+		'с' => 's',
+		'т' => 't',
+		'у' => 'u',
+		'ү' => 'u',
+		'ф' => 'f',
+		'х' => 'kh',
+		'ц' => 'ts',
+		'ч' => 'ch',
+		'ш' => 'sh',
+		'щ' => 'shch',
+		'ъ' => '',
+		'ы' => 'y',
+		'ь' => '',
+		'э' => 'e',
+		'ю' => 'yu',
+		'я' => 'ya',
 	);
 
 	return strtr( $title, $cyrillic_map );
@@ -474,11 +726,22 @@ add_filter( 'sanitize_title', 'ub_cyrillic_slug_transliteration', 0 );
 /**
  * Өмнөх кирилл slug-уудыг латин галиг руу бөөнөөр нь шилжүүлэх түр зуурын функц.
  * Сэрэмжлүүлэг: Ажиллуулахын өмнө баазаа нөөцлөхийг зөвлөж байна.
- * Ашиглах хаяг: /wp-admin/?ub_migrate_slugs=1
+ * Ашиглах хаяг: /wp-admin/?ub_migrate_slugs=1&_wpnonce={nonce}
+ * Nonce үүсгэх: wp_create_nonce( 'ub_migrate_slugs' )
  */
 function ub_migrate_existing_cyrillic_slugs() {
-	if ( ! is_admin() || ! current_user_can( 'manage_options' ) || ! isset( $_GET['ub_migrate_slugs'] ) || '1' !== $_GET['ub_migrate_slugs'] ) {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
 		return;
+	}
+
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce-г доор шалгаж байна.
+	if ( ! isset( $_GET['ub_migrate_slugs'] ) ) {
+		return;
+	}
+
+	// Nonce шалгалт — CSRF халдлагаас хамгаалах.
+	if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'ub_migrate_slugs' ) ) {
+		wp_die( esc_html__( 'Security check failed.', 'aceedu' ), 403 );
 	}
 
 	$post_types = array( 'post', 'page', 'school' );
@@ -505,7 +768,7 @@ function ub_migrate_existing_cyrillic_slugs() {
 					'post_name' => $new_slug,
 				)
 			);
-			$post_count++;
+			++$post_count;
 		}
 	}
 
@@ -531,7 +794,7 @@ function ub_migrate_existing_cyrillic_slugs() {
 						'slug' => $new_term_slug,
 					)
 				);
-				$term_count++;
+				++$term_count;
 			}
 		}
 	}
@@ -541,9 +804,23 @@ function ub_migrate_existing_cyrillic_slugs() {
 		'admin_notices',
 		function () use ( $post_count, $term_count ) {
 			echo '<div class="notice notice-success is-dismissible"><p>';
-			printf( 'Slug migration completed. %d posts and %d terms updated.', $post_count, $term_count );
+			printf( 'Slug migration completed. %d posts and %d terms updated.', absint( $post_count ), absint( $term_count ) );
 			echo '</p></div>';
 		}
 	);
 }
-add_action( 'admin_init', 'ub_migrate_existing_cyrillic_slugs' );
+// add_action( 'admin_init', 'ub_migrate_existing_cyrillic_slugs' );.
+
+/**
+ * 404 хуудас дээр Falang плагины hreflang хэвлэх функцийг салгах.
+ * Энэ нь $post->ID байхгүйгээс үүсэх PHP Warning алдаанаас сэргийлнэ.
+ */
+function ub_fix_falang_404_error() {
+	if ( is_404() ) {
+		global $falang_core;
+		if ( is_object( $falang_core ) ) {
+			remove_action( 'wp_head', array( $falang_core, 'print_hreflang' ) );
+		}
+	}
+}
+add_action( 'template_redirect', 'ub_fix_falang_404_error' );

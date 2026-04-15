@@ -64,6 +64,10 @@
 	-->
 	<config name="minimum_supported_wp_version" value="6.2"/>
 
+	<rule ref="Squiz.Commenting.InlineComment.NoSpaceBefore">
+		<exclude-pattern>*/*.php</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
@@ -85,6 +89,11 @@
 		<properties>
 			<property name="is_theme" value="true"/>
 		</properties>
+	</rule>
+
+	<!-- Файлын комментийн дараах хоосон мөрийн шалгалтыг хасах. -->
+	<rule ref="Squiz.Commenting.FileComment.SpacingAfterComment">
+		<severity>0</severity>
 	</rule>
 
 </ruleset>

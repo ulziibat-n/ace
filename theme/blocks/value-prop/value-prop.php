@@ -75,23 +75,23 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 	<div class="container">
 		
 		<!-- Section Header & Navigation (Synced with Trust Signals). -->
-		<div class="flex flex-row gap-8 justify-between items-end mb-12">
+		<div class="mb-12 flex flex-row items-end justify-between gap-8">
 			<div class="grow">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl text-primary" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+					<h2 class="mb-2 text-2xl leading-none font-bold tracking-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 						<?php echo esc_html( $ub_headline ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="mb-8 text-base opacity-80 text-slate-500 leading-tight leading-tight" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="mb-8 text-base leading-tight text-slate-500 opacity-80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
 
 				<?php if ( $ub_btn_label && $ub_btn_url ) : ?>
 					<div class="mt-8">
-						<a href="<?php echo esc_url( $ub_btn_url ); ?>" class="inline-flex justify-center items-center px-8 h-12 text-sm font-bold text-white rounded-sm transition-all bg-primary hover:bg-primary-dark">
+						<a href="<?php echo esc_url( $ub_btn_url ); ?>" class="inline-flex h-12 items-center justify-center rounded-sm bg-primary px-8 text-sm font-bold text-white transition-all hover:bg-primary-dark">
 							<?php echo esc_html( $ub_btn_label ); ?>
 						</a>
 					</div>
@@ -99,18 +99,18 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 			</div>
 
 			<!-- Carousel Navigation. -->
-			<div data-value-prop-nav class="flex gap-2 items-center pb-2 transition-all duration-300 shrink">
-				<button data-value-prop-prev class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+			<div data-value-prop-nav class="flex shrink items-center gap-2 pb-2 transition-all duration-300">
+				<button data-value-prop-prev class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 				</button>
-				<button data-value-prop-next class="flex justify-center items-center w-12 h-12 bg-white rounded-full border shadow-sm transition-all cursor-pointer border-slate-100 shadow-primary/5 group hover:bg-primary hover:border-primary">
-					<svg class="w-5 h-5 transition-colors text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+				<button data-value-prop-next class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-slate-100 bg-white shadow-sm shadow-primary/5 transition-all hover:border-primary hover:bg-primary">
+					<svg class="h-5 w-5 text-primary transition-colors group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 				</button>
 			</div>
 		</div>
 
 		<!-- Swiper Component. -->
-		<div class="swiper overflow-visible! group" data-value-prop-slider>
+		<div class="swiper group overflow-visible!" data-value-prop-slider>
 			<div class="swiper-wrapper flex! gap-[10px] group-[.swiper-initialized]:gap-0">
 				<?php if ( ! empty( $ub_items ) ) : ?>
 					<?php foreach ( $ub_items as $ub_item ) : ?>
@@ -121,16 +121,16 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 						$ub_card_desc   = isset( $ub_item['description'] ) ? $ub_item['description'] : '';
 						$ub_card_link   = isset( $ub_item['link'] ) ? $ub_item['link'] : '';
 						?>
-						<div class="swiper-slide h-auto! flex! w-full max-w-[calc((88rem-30px)/4)]">
-							<div class="flex relative flex-col justify-between pr-20 w-full h-full transition-all duration-500 block-value-prop__card group italic:not-italic">
+						<div class="swiper-slide flex! h-auto! w-full max-w-[calc((88rem-30px)/4)]">
+							<div class="block-value-prop__card group italic:not-italic relative flex h-full w-full flex-col justify-between pr-20 transition-all duration-500">
 								
 								<!-- Icon. -->
-								<div class="flex justify-center items-center w-12 h-12 transition-all duration-500 group-hover:scale-110">
+								<div class="flex h-12 w-12 items-center justify-center transition-all duration-500 group-hover:scale-110">
 									<?php
 									if ( $ub_custom_icon ) {
 										$ub_icon_url = wp_get_attachment_image_url( $ub_custom_icon, 'full' );
 										?>
-										<div class="w-12 h-12 bg-secondary" style="-webkit-mask-image: url('<?php echo esc_url( $ub_icon_url ); ?>'); mask-image: url('<?php echo esc_url( $ub_icon_url ); ?>'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"></div>
+										<div class="h-12 w-12 bg-secondary" style="-webkit-mask-image: url('<?php echo esc_url( $ub_icon_url ); ?>'); mask-image: url('<?php echo esc_url( $ub_icon_url ); ?>'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"></div>
 										<?php
 									} else {
 										echo wp_kses(
@@ -170,7 +170,7 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 
 								<!-- Content. -->
 								<div class="relative z-10 mt-10">
-									<h3 class="mb-4 max-w-[200px] text-sm font-bold text-primary leading-none uppercase">
+									<h3 class="mb-4 max-w-[200px] text-sm leading-none font-bold text-primary uppercase">
 										<?php if ( $ub_card_link ) : ?>
 											<a href="<?php echo esc_url( $ub_card_link ); ?>" class="transition-colors after:absolute after:inset-0 hover:text-secondary">
 												<?php echo esc_html( $ub_card_title ); ?>
@@ -180,7 +180,7 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 										<?php endif; ?>
 									</h3>
 									<?php if ( $ub_card_desc ) : ?>
-										<p class="max-w-[250px] text-xs font-medium leading-snug text-foreground/80">
+										<p class="max-w-[250px] text-xs leading-snug font-medium text-foreground/80">
 											<?php echo wp_kses_post( $ub_card_desc ); ?>
 										</p>
 									<?php endif; ?>
@@ -193,7 +193,7 @@ if ( ! function_exists( 'site_render_vp_icon' ) ) {
 			</div>
 
 			<!-- Pagination / ProgressBar. -->
-			<div class="swiper-pagination static! ml-0 mt-16 max-w-xs overflow-hidden rounded-sm!" style="--swiper-pagination-progressbar-bg-color:#F1F5F9;--swiper-theme-color:#085399;"></div>
+			<div class="swiper-pagination static! mt-16 ml-0 max-w-xs overflow-hidden rounded-sm!" style="--swiper-pagination-progressbar-bg-color:#F1F5F9;--swiper-theme-color:#085399;"></div>
 		</div>
 
 	</div>

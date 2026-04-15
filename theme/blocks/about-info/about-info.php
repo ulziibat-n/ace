@@ -40,18 +40,18 @@ if ( $is_preview ) {
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">
 	<div class="container">
-		<div class="flex flex-col gap-12 items-start lg:flex-row lg:gap-24">
+		<div class="flex flex-col items-start gap-12 lg:flex-row lg:gap-24">
 			
 			<!-- Left side: Headline & Description (Matching Testimonials Header Style) -->
 			<div class="w-full lg:w-1/2">
 				<?php if ( $ub_title_left ) : ?>
-					<h2 class="mb-4 text-2xl font-bold leading-none text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
+					<h2 class="mb-4 text-2xl leading-none font-bold text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
 						<?php echo esc_html( $ub_title_left ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description_l ) : ?>
-					<p class="text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
+					<p class="text-base leading-tight text-slate-500 opacity-80" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
 						<?php echo esc_html( $ub_description_l ); ?>
 					</p>
 				<?php endif; ?>
@@ -60,13 +60,13 @@ if ( $is_preview ) {
 			<!-- Right side: Content -->
 			<div class="w-full lg:w-1/2">
 				<?php if ( $ub_lead ) : ?>
-					<div class="mb-6 text-xl font-light leading-tight text-foreground lg:text-2xl">
+					<div class="mb-6 text-xl leading-tight font-light text-foreground lg:text-2xl">
 						<?php echo wp_kses_post( $ub_lead ); ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $ub_description_r ) ) : ?>
-					<div class="leading-relaxed text-slate-500 prose">
+					<div class="prose leading-relaxed text-slate-500">
 						<?php echo wp_kses_post( $ub_description_r ); ?>
 					</div>
 				<?php endif; ?>

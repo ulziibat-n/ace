@@ -1,0 +1,64 @@
+{
+	"key": "group_featured_posts_slider",
+	"title": "Онцлох блог слайдерын тохиргоо",
+	"fields": [
+		{
+			"key": "field_fps_filter_type",
+			"label": "Шүүлтүүрийн төрөл",
+			"name": "pc_filter_type",
+			"type": "select",
+			"choices": {
+				"latest": "Наалдамхай постууд",
+				"category": "Ангиллаар"
+			},
+			"default_value": "latest",
+			"return_format": "value"
+		},
+		{
+			"key": "field_fps_category_filter",
+			"label": "Ангилал",
+			"name": "pc_category_filter",
+			"type": "taxonomy",
+			"taxonomy": "category",
+			"add_term": 0,
+			"save_terms": 0,
+			"load_terms": 0,
+			"return_format": "id",
+			"field_type": "multi_select",
+			"allow_null": 0,
+			"conditional_logic": [
+				{
+					"field": "field_fps_filter_type",
+					"operator": "==",
+					"value": "category"
+				}
+			]
+		},
+		{
+			"key": "field_fps_posts_count",
+			"label": "Харуулах тоо",
+			"name": "pc_posts_count",
+			"type": "number",
+			"default_value": 3,
+			"min": 1,
+			"max": 10
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/featured-posts-slider"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": ""
+}

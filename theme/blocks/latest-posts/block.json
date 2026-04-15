@@ -1,0 +1,36 @@
+{
+	"name": "acf/latest-posts",
+	"title": "Latest Posts Grid",
+	"description": "Сүүлийн үеийн нийтлэлүүдийг 3 баганатай жагсаалтаар харуулна.",
+	"category": "ace-blocks",
+	"icon": "grid-view",
+	"keywords": [
+		"posts",
+		"latest",
+		"grid",
+		"archive",
+		"блог",
+		"нийтлэл"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "latest-posts.php"
+	},
+	"supports": {
+		"align": [
+			"full"
+		],
+		"anchor": true,
+		"jsx": true
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"lp_title": "Сүүлийн үеийн нийтлэлүүд",
+				"lp_description": "Манай сургуулийн хамгийн сүүлийн үеийн мэдээ мэдээлэл болон зөвлөгөөнүүдтэй танилцана уу.",
+				"lp_posts_per_page": 9
+			}
+		}
+	}
+}

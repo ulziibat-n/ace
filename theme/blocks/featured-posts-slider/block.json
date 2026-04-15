@@ -1,0 +1,35 @@
+{
+	"name": "acf/featured-posts-slider",
+	"title": "Онцлох блог слайдер",
+	"description": "Онцлох блог постуудыг Hero загвараар харуулдаг слайдер.",
+	"style": "swiper",
+	"script": "featured-posts-slider-js",
+	"category": "ace-blocks",
+	"icon": "admin-post",
+	"keywords": ["blog", "featured", "slider", "posts", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "featured-posts-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"pc_filter_type": "latest",
+				"pc_posts_count": 3
+			}
+		}
+	}
+}

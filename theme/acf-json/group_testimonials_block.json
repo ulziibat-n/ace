@@ -1,11 +1,12 @@
 {
 	"key": "group_testimonials_block",
-	"title": "Блок: Амжилтын түүх",
+	"title": "Блок: Амжилтын түүхүүд",
 	"fields": [
 		{
 			"key": "field_testimonial_title",
 			"label": "Гарчиг",
 			"name": "title",
+			"aria-label": "",
 			"type": "text",
 			"instructions": "",
 			"required": 0,
@@ -25,6 +26,7 @@
 			"key": "field_testimonial_desc",
 			"label": "Тайлбар",
 			"name": "description",
+			"aria-label": "",
 			"type": "textarea",
 			"instructions": "",
 			"required": 0,
@@ -41,24 +43,10 @@
 			"new_lines": ""
 		},
 		{
-			"key": "field_testimonial_link",
-			"label": "Холбоос (Бүгдийг үзэх)",
-			"name": "link",
-			"type": "link",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "100",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "array"
-		},
-		{
 			"key": "field_testimonials_repeater",
 			"label": "Амжилтын түүхүүд",
 			"name": "testimonials",
+			"aria-label": "",
 			"type": "repeater",
 			"instructions": "",
 			"required": 1,
@@ -73,17 +61,19 @@
 			"max": 0,
 			"layout": "block",
 			"button_label": "Нэмэх",
+			"rows_per_page": 20,
 			"sub_fields": [
 				{
 					"key": "field_testimonial_image",
 					"label": "Зураг",
 					"name": "image",
+					"aria-label": "",
 					"type": "image",
 					"instructions": "",
 					"required": 0,
 					"conditional_logic": 0,
 					"wrapper": {
-						"width": "100",
+						"width": "30",
 						"class": "",
 						"id": ""
 					},
@@ -96,18 +86,20 @@
 					"max_width": "",
 					"max_height": "",
 					"max_size": "",
-					"mime_types": ""
+					"mime_types": "",
+					"parent_repeater": "field_testimonials_repeater"
 				},
 				{
 					"key": "field_testimonial_name",
 					"label": "Нэр",
 					"name": "name",
+					"aria-label": "",
 					"type": "text",
 					"instructions": "",
 					"required": 1,
 					"conditional_logic": 0,
 					"wrapper": {
-						"width": "100",
+						"width": "35",
 						"class": "",
 						"id": ""
 					},
@@ -115,37 +107,20 @@
 					"placeholder": "",
 					"prepend": "",
 					"append": "",
-					"maxlength": ""
-				},
-				{
-					"key": "field_testimonial_family_member",
-					"label": "Гэр бүлийн гишүүн",
-					"name": "family_member",
-					"type": "text",
-					"instructions": "Жишээ нь: Аав Соном",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "100",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"prepend": "",
-					"append": "",
-					"maxlength": ""
+					"maxlength": "",
+					"parent_repeater": "field_testimonials_repeater"
 				},
 				{
 					"key": "field_testimonial_school",
 					"label": "Сургууль",
 					"name": "school",
+					"aria-label": "",
 					"type": "text",
 					"instructions": "",
 					"required": 0,
 					"conditional_logic": 0,
 					"wrapper": {
-						"width": "100",
+						"width": "35",
 						"class": "",
 						"id": ""
 					},
@@ -153,12 +128,14 @@
 					"placeholder": "",
 					"prepend": "",
 					"append": "",
-					"maxlength": ""
+					"maxlength": "",
+					"parent_repeater": "field_testimonials_repeater"
 				},
 				{
 					"key": "field_testimonial_quote",
 					"label": "Хэлсэн үг",
 					"name": "quote",
+					"aria-label": "",
 					"type": "textarea",
 					"instructions": "",
 					"required": 1,
@@ -172,31 +149,27 @@
 					"placeholder": "",
 					"maxlength": "",
 					"rows": 4,
-					"new_lines": "wpautop"
+					"new_lines": "wpautop",
+					"parent_repeater": "field_testimonials_repeater"
+				},
+				{
+					"key": "field_testimonial_link",
+					"label": "Холбоос (Бүгдийг үзэх)",
+					"name": "link",
+					"aria-label": "",
+					"type": "link",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "100",
+						"class": "",
+						"id": ""
+					},
+					"return_format": "array",
+					"parent_repeater": "field_testimonials_repeater"
 				}
 			]
-		},
-		{
-			"key": "field_tm_title_mw",
-			"label": "Гарчиг өргөн (Title Max Width)",
-			"name": "tm_title_max_width",
-			"type": "range",
-			"default_value": 960,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		},
-		{
-			"key": "field_tm_desc_mw",
-			"label": "Тайлбар өргөн (Desc Max Width)",
-			"name": "tm_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
 		}
 	],
 	"location": [
@@ -204,7 +177,7 @@
 			{
 				"param": "block",
 				"operator": "==",
-				"value": "acf/testimonials"
+				"value": "acf\/testimonials"
 			}
 		]
 	],
@@ -216,5 +189,7 @@
 	"hide_on_screen": "",
 	"active": true,
 	"description": "",
-	"modified": 1712588626
+	"show_in_rest": 0,
+	"display_title": "",
+	"modified": 1776252021
 }

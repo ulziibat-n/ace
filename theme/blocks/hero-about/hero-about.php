@@ -57,21 +57,21 @@ if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> relative overflow-hidden bg-slate-950 pt-72 text-white flex flex-col justify-end">
+<section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?> relative flex flex-col justify-end overflow-hidden bg-slate-950 pt-72 text-white">
 	
 	<!-- Background Visual -->
-	<div class="overflow-hidden absolute inset-0 z-0">
+	<div class="absolute inset-0 z-0 overflow-hidden">
 		<!-- Animation wrapper: Subtle zoom out effect on load -->
-		<div class="w-full h-full">
+		<div class="h-full w-full">
 			<?php if ( 'image' === $ub_visual_type ) : ?>
 				<?php if ( $ub_image_id ) : ?>
 					<?php echo wp_get_attachment_image( $ub_image_id, 'full', false, array( 'class' => 'w-full h-full object-cover' ) ); ?>
 				<?php elseif ( $ub_image_url ) : ?>
-					<img src="<?php echo esc_url( $ub_image_url ); ?>" class="object-cover w-full h-full" alt="">
+					<img src="<?php echo esc_url( $ub_image_url ); ?>" class="h-full w-full object-cover" alt="">
 				<?php endif; ?>
 			<?php else : ?>
 				<?php if ( $ub_video_file ) : ?>
-					<video autoplay muted loop playsinline class="object-cover w-full h-full">
+					<video autoplay muted loop playsinline class="h-full w-full object-cover">
 						<source src="<?php echo esc_url( $ub_video_file['url'] ); ?>" type="video/mp4">
 					</video>
 				<?php elseif ( $ub_video_url ) : ?>
@@ -89,28 +89,28 @@ if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
 						$ub_embed_url
 					);
 					?>
-					<iframe src="<?php echo esc_url( $ub_embed_url ); ?>" class="absolute inset-0 w-full h-full scale-150 pointer-events-none" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+					<iframe src="<?php echo esc_url( $ub_embed_url ); ?>" class="pointer-events-none absolute inset-0 h-full w-full scale-150" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 	</div>
 
-	<div class="relative py-20 w-full lg:py-32">
+	<div class="relative w-full py-20 lg:py-32">
 		<!-- Overlays matching content-single.php -->
 		<div class="pointer-events-none absolute inset-0 z-10 mask-[linear-gradient(to_top,black_40%,transparent_100%)] backdrop-blur-xs"></div>
 		<div class="absolute inset-0 z-10 bg-linear-to-t from-slate-950/95 to-slate-950/0"></div>
 
 		<!-- Content -->
-		<div class="container relative z-20">
+		<div class="relative z-20 container">
 			<div class="space-y-6 lg:space-y-8">
 				<?php if ( $ub_title ) : ?>
-					<h2 class="text-4xl font-bold leading-none text-white animate-fade-up lg:text-6xl" style="max-width: <?php echo esc_attr( $ub_title_mw_rem ); ?>;">
+					<h2 class="animate-fade-up text-4xl leading-none font-bold text-white lg:text-6xl" style="max-width: <?php echo esc_attr( $ub_title_mw_rem ); ?>;">
 						<?php echo esc_html( $ub_title ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="text-lg opacity-90 delay-200 animate-fade-up text-slate-200 lg:text-xl" style="max-width: <?php echo esc_attr( $ub_desc_mw_rem ); ?>;">
+					<p class="animate-fade-up text-lg text-slate-200 opacity-90 delay-200 lg:text-xl" style="max-width: <?php echo esc_attr( $ub_desc_mw_rem ); ?>;">
 						<?php echo esc_html( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
@@ -119,9 +119,9 @@ if ( is_array( $ub_image ) && isset( $ub_image['ID'] ) ) {
 					<div class="animate-fade-up delay-400">
 						<a href="<?php echo esc_url( $ub_button['url'] ); ?>"
 							target="<?php echo esc_attr( $ub_button['target'] ?? '_self' ); ?>"
-							class="inline-flex gap-4 items-center px-8 py-4 text-sm font-bold text-white no-underline shadow-lg transition-all duration-300 rounded-xs bg-primary shadow-primary/20 hover:bg-primary-dark hover:scale-105">
+							class="inline-flex items-center gap-4 rounded-xs bg-primary px-8 py-4 text-sm font-bold text-white no-underline shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 hover:bg-primary-dark">
 							<span><?php echo esc_html( ! empty( $ub_button['title'] ) ? $ub_button['title'] : 'Дэлгэрэнгүй' ); ?></span>
-							<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+							<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M1.99974 13.0001L1.9996 11.0002L18.1715 11.0002L14.2218 7.05044L15.636 5.63623L22 12.0002L15.636 18.3642L14.2218 16.9499L18.1716 13.0002L1.99974 13.0001Z"></path>
 							</svg>
 						</a>

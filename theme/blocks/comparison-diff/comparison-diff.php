@@ -47,16 +47,16 @@ if ( empty( $ub_rows ) ) {
 	<div class="container">
 		
 		<!-- Header (Synced with Premium Layout). -->
-		<div class="flex flex-row gap-8 justify-between items-end mb-12">
+		<div class="mb-12 flex flex-row items-end justify-between gap-8">
 			<div class="grow">
 				<?php if ( $ub_headline ) : ?>
-					<h2 class="mb-2 text-2xl font-bold tracking-tight leading-none lg:text-3xl text-primary" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+					<h2 class="mb-2 text-2xl leading-none font-bold tracking-tight text-primary lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 						<?php echo esc_html( $ub_headline ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( $ub_description ) : ?>
-					<p class="mt-4 text-base leading-tight opacity-80 text-slate-500" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
+					<p class="mt-4 text-base leading-tight text-slate-500 opacity-80" style="max-width: <?php echo esc_attr( $ub_desc_rem ); ?>;">
 						<?php echo wp_kses_post( $ub_description ); ?>
 					</p>
 				<?php endif; ?>
@@ -67,12 +67,12 @@ if ( empty( $ub_rows ) ) {
 		<div class="w-full">
 			
 			<!-- Table Header (Desktop Only). -->
-			<div class="hidden grid-cols-1 min-[500px]:grid min-[500px]:grid-cols-2 lg:grid-cols-[18.75rem_1fr_1fr] mb-0 pb-4 border-b border-slate-100">
-				<div class="pr-8 text-sm font-bold uppercase text-slate-400 min-[500px]:col-span-2 lg:col-span-1"></div>
-				<div class="flex items-center pr-8 text-sm font-bold uppercase text-slate-500">
+			<div class="mb-0 hidden grid-cols-1 border-b border-slate-100 pb-4 min-[500px]:grid min-[500px]:grid-cols-2 lg:grid-cols-[18.75rem_1fr_1fr]">
+				<div class="pr-8 text-sm font-bold text-slate-400 uppercase min-[500px]:col-span-2 lg:col-span-1"></div>
+				<div class="flex items-center pr-8 text-sm font-bold text-slate-500 uppercase">
 					<?php echo esc_html( $ub_left_title ); ?>
 				</div>
-				<div class="flex items-center pr-8 text-sm font-bold uppercase text-primary">
+				<div class="flex items-center pr-8 text-sm font-bold text-primary uppercase">
 					<?php echo esc_html( $ub_right_title ); ?>
 				</div>
 			</div>
@@ -86,29 +86,29 @@ if ( empty( $ub_rows ) ) {
 						$row_left     = $row['left_point'] ?? '';
 						$row_right    = $row['right_point'] ?? '';
 						?>
-						<div class="grid grid-cols-1 min-[500px]:grid-cols-2 gap-4 lg:grid-cols-[18.75rem_1fr_1fr] min-[500px]:gap-0 py-8 group border-b border-slate-50">
+						<div class="group grid grid-cols-1 gap-4 border-b border-slate-50 py-8 min-[500px]:grid-cols-2 min-[500px]:gap-0 lg:grid-cols-[18.75rem_1fr_1fr]">
 							
 							<!-- Criteria Column. -->
-							<div class="pr-8 text-xs font-bold uppercase text-slate-500 min-[500px]:col-span-2 lg:col-span-1 min-[500px]:mb-4 lg:mb-0">
+							<div class="pr-8 text-xs font-bold text-slate-500 uppercase min-[500px]:col-span-2 min-[500px]:mb-4 lg:col-span-1 lg:mb-0">
 								<?php echo esc_html( $row_criteria ); ?>
 							</div>
 
 							<!-- Bad/Self Column. -->
 							<div class="relative px-0 min-[500px]:pr-4 lg:pr-8">
-								<div class="flex items-start mb-2 min-[500px]:hidden">
-									<span class="text-xs font-bold uppercase text-slate-400"><?php echo esc_html( $ub_left_title ); ?></span>
+								<div class="mb-2 flex items-start min-[500px]:hidden">
+									<span class="text-xs font-bold text-slate-400 uppercase"><?php echo esc_html( $ub_left_title ); ?></span>
 								</div>
-								<div class="max-w-xs text-sm leading-snug text-slate-500 italic:not-italic">
+								<div class="italic:not-italic max-w-xs text-sm leading-snug text-slate-500">
 									<?php echo wp_kses_post( $row_left ); ?>
 								</div>
 							</div>
 
 							<!-- Good/ACE Column. -->
-							<div class="relative px-0 mt-4 min-[500px]:mt-0">
-								<div class="flex items-start mb-2 min-[500px]:hidden">
-									<span class="text-xs font-bold uppercase text-primary"><?php echo esc_html( $ub_right_title ); ?></span>
+							<div class="relative mt-4 px-0 min-[500px]:mt-0">
+								<div class="mb-2 flex items-start min-[500px]:hidden">
+									<span class="text-xs font-bold text-primary uppercase"><?php echo esc_html( $ub_right_title ); ?></span>
 								</div>
-								<div class="max-w-xs text-sm font-medium leading-snug text-primary">
+								<div class="max-w-xs text-sm leading-snug font-medium text-primary">
 									<?php echo wp_kses_post( $row_right ); ?>
 								</div>
 							</div>

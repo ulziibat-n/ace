@@ -1,18 +1,25 @@
-# ACE Project Progress
+# Progress Tracking - ACE Project
 
-## Current Context
-- Systematically audited all 11 carousel blocks for Swiper asset dependencies.
-- Updated `AGENTS.md` with mandatory Swiper registration rules.
+## ✅ Completed Tasks
+- [x] Mega Menu архитектурыг динамик болгож сайжруулав.
+- [x] Falang плагинаас үүдэлтэй 404 хуудасны алдааг theme-ийн түвшинд засварлав.
+- [x] **Featured Posts Slider** блокыг шинээр үүсгэв.
+    - [x] Стандарт нэршил (`featured-posts-slider.php`, `featured-posts-slider.js`)
+    - [x] Swiper Styles-ийг Tailwind классуудаар шийдэв (Rule 7).
+    - [x] `editor-settings.php` whitelisting-д нэмэв.
+- [x] **Typography Alignment**: Слайдерын постын мэдээллийг `content-single.php`-ийн Header-тэй ижил болгов.
+- [x] **Excerpt Full Width**: Тайвбарыг үгийн хязгааргүй болгов.
+- [x] **Latest Posts Grid** блокыг шинээр үүсгэв.
+    - [x] 4 баганатай Grid болон стандарт тоон хуудаслалт (Pagination) хэрэгжүүлэв.
+    - [x] Постын тоог WordPress-ийн глобал тохиргооноос (`posts_per_page`) авдаг болгов.
+    - [x] Загварыг `testimonials` блоктой (Typography, Max-width) жигдлэв.
+    - [x] `acf-json` бүртгэл болон `editor-settings.php` whitelisting хийв.
 
-## Completed Tasks
-- [x] Swiper Carousel Asset Audit (11 blocks checked and verified).
-- [x] Update `AGENTS.md` with Swiper asset registration mandatory rules.
-- [x] Redesign `comparison-diff` block into a 3-column table (Mobile Cards).
-- [x] Delete `service-features` block as requested.
+## 📌 Next Steps
+- [ ] Бусад блокуудын Rule 7 (Tailwind-only) нийцлийг шалгах.
+- [ ] Олон хэлний орчуулга (Falang) шинэ блокууд дээр зөв ажиллаж байгааг баталгаажуулах.
+- [ ] Кодын стандартыг (`phpcs`) бүх файл дээр тогтмол шалгах.
 
-## In Progress
-- [ ] Final visual testing of the updated carousel blocks.
-
-## Next Steps
-- [ ] Monitor block editor behavior for any asset loading issues.
-- [ ] Continue with any further UI/UX cleanup as requested.
+## ⚠️ Critical Notes
+- Блок үүсгэхэд `editor-settings.php` заавал шинэчлэгдэх ёстой.
+- `phpcs` шалгалт хийх бүрт Exit code 0 байх ёстой.
