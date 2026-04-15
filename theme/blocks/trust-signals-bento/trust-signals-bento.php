@@ -58,7 +58,7 @@ if ( empty( $ub_sig1['number'] ) ) {
 				<div class="mb-4 text-4xl leading-none font-light tracking-tighter lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig1['number'] ) ); ?>">
 					<?php echo esc_html( $ub_sig1['number'] ); ?>
 				</div>
-				<p class="text-md mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig1['text'] ); ?></p>
+					<p class="text-base mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig1['text'] ); ?></p>
 			</div>
 
 			<!-- Signal 2: Small Gray (Top-Middle) -->
@@ -66,7 +66,7 @@ if ( empty( $ub_sig1['number'] ) ) {
 				<div class="mb-4 text-4xl leading-none font-light tracking-tighter text-primary lg:text-6xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig2['number'] ) ); ?>">
 					<?php echo esc_html( $ub_sig2['number'] ); ?>
 				</div>
-				<p class="text-md mt-auto max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig2['text'] ); ?></p>
+				<p class="text-base mt-auto max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig2['text'] ); ?></p>
 			</div>
 
 			<!-- Signal 4: Tall with Image (Right) -->
@@ -82,7 +82,7 @@ if ( empty( $ub_sig1['number'] ) ) {
 					<div class="<?php echo ! empty( $ub_sig4['image'] ) ? '' : 'text-primary'; ?> mb-4 text-6xl leading-none font-light tracking-tighter lg:text-8xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig4['number'] ) ); ?>">
 						<?php echo esc_html( $ub_sig4['number'] ); ?>
 					</div>
-					<p class="text-md mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig4['text'] ); ?></p>
+					<p class="text-base mt-auto max-w-64 leading-tight font-medium opacity-90"><?php echo esc_html( $ub_sig4['text'] ); ?></p>
 				</div>
 			</div>
 
@@ -92,7 +92,7 @@ if ( empty( $ub_sig1['number'] ) ) {
 					<div class="text-4xl leading-none font-light tracking-tighter whitespace-nowrap text-primary lg:text-5xl" data-countup="<?php echo esc_attr( preg_replace( '/[^0-9]/', '', $ub_sig3['number'] ) ); ?>">
 						<?php echo esc_html( $ub_sig3['number'] ); ?>
 					</div>
-					<p class="text-md max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig3['text'] ); ?></p>
+					<p class="text-base max-w-64 leading-tight font-medium text-slate-500/80"><?php echo esc_html( $ub_sig3['text'] ); ?></p>
 				</div>
 			</div>
 

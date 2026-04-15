@@ -103,7 +103,7 @@ if ( ! $ub_query->have_posts() && ! $is_preview ) {
 									</h2>
 									
 									<?php if ( has_excerpt() ) : ?>
-										<p class="mt-6 max-w-2xl translate-y-4 text-md leading-tight text-white/90 opacity-0 transition-all delay-250 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100">
+										<p class="mt-6 max-w-2xl translate-y-4 text-base leading-tight text-white/90 opacity-0 transition-all delay-250 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100">
 											<?php echo esc_html( get_the_excerpt() ); ?>
 										</p>
 									<?php endif; ?>

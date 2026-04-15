@@ -4013,16 +4013,13 @@ body {
 }
 .singular-content > p {
   margin-inline: auto;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+  margin-block: 1em;
   max-width: var(--container-2xl);
   font-size: var(--text-base);
   line-height: var(--tw-leading, var(--text-base--line-height));
-  --tw-leading: var(--leading-relaxed);
-  line-height: var(--leading-relaxed);
-  --tw-font-weight: var(--font-weight-medium);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-slate-700);
+  --tw-leading: var(--leading-snug);
+  line-height: var(--leading-snug);
+  color: var(--color-foreground);
 }
 :is(.singular-content > p):first-child {
   margin-top: calc(var(--spacing) * 0);
@@ -4032,7 +4029,7 @@ body {
 }
 .singular-content > h1,.singular-content > h2,.singular-content > h3,.singular-content > h4,.singular-content > h5,.singular-content > h6 {
   margin-inline: auto;
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-bottom: 1em;
   max-width: var(--container-2xl);
   --tw-leading: 1;
@@ -4126,8 +4123,7 @@ body {
 }
 .singular-content > ul {
   margin-inline: auto;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+  margin-block: 1em;
   max-width: var(--container-2xl);
   list-style-position: outside;
   list-style-type: disc;
@@ -4139,12 +4135,11 @@ body {
 }
 .singular-content > ul {
   padding-left: 1.625em;
-  color: var(--color-slate-700);
+  color: var(--color-foreground);
 }
 .singular-content > ol {
   margin-inline: auto;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+  margin-block: 1em;
   max-width: var(--container-2xl);
   list-style-position: outside;
   list-style-type: decimal;
@@ -4156,12 +4151,13 @@ body {
 }
 .singular-content > ol {
   padding-left: 1.625em;
-  color: var(--color-slate-700);
+  color: var(--color-foreground);
 }
 .singular-content > ul li,.singular-content > ol li {
+  margin-block: calc(var(--spacing) * 0);
   padding-left: 0.375em;
-  --tw-leading: var(--leading-relaxed);
-  line-height: var(--leading-relaxed);
+  --tw-leading: var(--leading-snug);
+  line-height: var(--leading-snug);
 }
 .singular-content > ul ul,.singular-content > ul ol,.singular-content > ol ul,.singular-content > ol ol {
   margin-top: 0.75em;
