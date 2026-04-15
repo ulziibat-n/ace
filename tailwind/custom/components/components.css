@@ -9,7 +9,7 @@
  */
 
 .container {
-	@apply px-6 mx-auto lg:px-12;
+	@apply mx-auto md:px-6;
 	max-width: var(--container) !important;
 }
 

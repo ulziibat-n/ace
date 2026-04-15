@@ -343,11 +343,10 @@ body {
 }
 .container {
   margin-inline: auto;
-  padding-inline: calc(var(--spacing) * 6);
 }
-@media (width >= 64rem) {
+@media (width >= 48rem) {
   .container {
-    padding-inline: calc(var(--spacing) * 12);
+    padding-inline: calc(var(--spacing) * 6);
   }
 }
 .container {
@@ -1618,12 +1617,6 @@ body {
 .h-\[400px\] {
   height: 400px;
 }
-.h-\[calc\(var\(--header-height\)\+1rem\)\] {
-  height: calc(var(--header-height) + 1rem);
-}
-.h-\[var\(--header-height\)\] {
-  height: var(--header-height);
-}
 .h-auto\! {
   height: auto !important;
 }
@@ -1839,6 +1832,9 @@ body {
 .flex-col {
   flex-direction: column;
 }
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
 .flex-row {
   flex-direction: row;
 }
@@ -1872,9 +1868,6 @@ body {
 .gap-0 {
   gap: calc(var(--spacing) * 0);
 }
-.gap-0\.5 {
-  gap: calc(var(--spacing) * 0.5);
-}
 .gap-1 {
   gap: calc(var(--spacing) * 1);
 }
@@ -1893,11 +1886,11 @@ body {
 .gap-8 {
   gap: calc(var(--spacing) * 8);
 }
+.gap-10 {
+  gap: calc(var(--spacing) * 10);
+}
 .gap-12 {
   gap: calc(var(--spacing) * 12);
-}
-.gap-16 {
-  gap: calc(var(--spacing) * 16);
 }
 .gap-\[10px\] {
   gap: 10px;
@@ -2178,17 +2171,6 @@ body {
     background-color: color-mix(in oklab, var(--color-white) 80%, transparent);
   }
 }
-.bg-linear-to-b {
-  --tw-gradient-position: to bottom;
-}
-@supports (background-image: linear-gradient(in lab, red, red)) {
-  .bg-linear-to-b {
-    --tw-gradient-position: to bottom in oklab;
-  }
-}
-.bg-linear-to-b {
-  background-image: linear-gradient(var(--tw-gradient-stops));
-}
 .bg-linear-to-t {
   --tw-gradient-position: to top;
 }
@@ -2266,17 +2248,6 @@ body {
 .from-slate-950\/95 {
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
 }
-.from-white\/90 {
-  --tw-gradient-from: color-mix(in srgb, #fff 90%, transparent);
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .from-white\/90 {
-    --tw-gradient-from: color-mix(in oklab, var(--color-white) 90%, transparent);
-  }
-}
-.from-white\/90 {
-  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-}
 .via-slate-900\/20 {
   --tw-gradient-via: color-mix(in srgb, oklch(20.8% 0.042 265.755) 20%, transparent);
 }
@@ -2314,23 +2285,6 @@ body {
 .to-transparent {
   --tw-gradient-to: transparent;
   --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-}
-.to-white\/10 {
-  --tw-gradient-to: color-mix(in srgb, #fff 10%, transparent);
-}
-@supports (color: color-mix(in lab, red, red)) {
-  .to-white\/10 {
-    --tw-gradient-to: color-mix(in oklab, var(--color-white) 10%, transparent);
-  }
-}
-.to-white\/10 {
-  --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-}
-.\[mask-image\:linear-gradient\(to_bottom\,black_80\%\,transparent\)\] {
-  mask-image: linear-gradient(to bottom,black 80%,transparent);
-}
-.\[mask-image\:linear-gradient\(to_bottom\,black_90\%\,transparent\)\] {
-  mask-image: linear-gradient(to bottom,black 90%,transparent);
 }
 .mask-\[linear-gradient\(to_bottom\,black_80\%\,transparent\)\] {
   mask-image: linear-gradient(to bottom,black 80%,transparent);
@@ -2449,6 +2403,9 @@ body {
 .pt-8 {
   padding-top: calc(var(--spacing) * 8);
 }
+.pt-10 {
+  padding-top: calc(var(--spacing) * 10);
+}
 .pt-16 {
   padding-top: calc(var(--spacing) * 16);
 }
@@ -2466,9 +2423,6 @@ body {
 }
 .pt-76 {
   padding-top: calc(var(--spacing) * 76);
-}
-.pt-\[var\(--header-height\)\] {
-  padding-top: var(--header-height);
 }
 .pr-4 {
   padding-right: calc(var(--spacing) * 4);
@@ -3530,6 +3484,11 @@ body {
   --tw-invert: invert(100%);
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
 }
+@media (width >= 450px) {
+  .min-\[450px\]\:flex-row {
+    flex-direction: row;
+  }
+}
 @media (width >= 500px) {
   .min-\[500px\]\:col-span-2 {
     grid-column: span 2 / span 2;
@@ -3580,6 +3539,11 @@ body {
     flex-direction: row;
   }
 }
+@media (width >= 40rem) {
+  .sm\:gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+}
 @media (width >= 48rem) {
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
@@ -3593,6 +3557,21 @@ body {
 @media (width >= 48rem) {
   .md\:row-span-2 {
     grid-row: span 2 / span 2;
+  }
+}
+@media (width >= 48rem) {
+  .md\:mt-0 {
+    margin-top: calc(var(--spacing) * 0);
+  }
+}
+@media (width >= 48rem) {
+  .md\:mr-0 {
+    margin-right: calc(var(--spacing) * 0);
+  }
+}
+@media (width >= 48rem) {
+  .md\:ml-auto {
+    margin-left: auto;
   }
 }
 @media (width >= 48rem) {
@@ -3616,8 +3595,33 @@ body {
   }
 }
 @media (width >= 48rem) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+}
+@media (width >= 48rem) {
+  .md\:gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+}
+@media (width >= 48rem) {
+  .md\:gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+}
+@media (width >= 48rem) {
+  .md\:gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+}
+@media (width >= 48rem) {
   .md\:p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+}
+@media (width >= 48rem) {
+  .md\:text-left {
+    text-align: left;
   }
 }
 @media (width >= 48rem) {
@@ -3916,23 +3920,6 @@ body {
 }
 .\[\&_\.swiper-pagination-progressbar-fill\]\:transition-none\! .swiper-pagination-progressbar-fill {
   transition-property: none !important;
-}
-.\[\&_a\]\:text-\[0\.6875rem\] a {
-  font-size: 0.6875rem;
-}
-.\[\&_a\]\:font-semibold a {
-  --tw-font-weight: var(--font-weight-semibold);
-  font-weight: var(--font-weight-semibold);
-}
-.\[\&_a\]\:transition-colors a {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-}
-@media (hover: hover) {
-  :is(.\[\&_a\]\:hover\:text-white a):hover {
-    color: var(--color-white);
-  }
 }
 .\[\&_img\]\:h-auto img {
   height: auto;

@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Mobile Menu Toggle Logic
 	const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileHeaderBlur = document.getElementById('mobile-header-blur');
 	const iconOpen = mobileMenuToggle?.querySelector('.menu-icon-open');
 	const iconClose = mobileMenuToggle?.querySelector('.menu-icon-close');
 
@@ -93,12 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (isOpen) {
 				// Close Menu
 				mobileMenu.classList.add('hidden');
+				mobileHeaderBlur?.classList.add('hidden');
 				iconOpen?.classList.remove('hidden');
 				iconClose?.classList.add('hidden');
 				document.body.classList.remove('overflow-hidden');
 			} else {
 				// Open Menu
 				mobileMenu.classList.remove('hidden');
+				mobileHeaderBlur?.classList.remove('hidden');
 				iconOpen?.classList.add('hidden');
 				iconClose?.classList.remove('hidden');
 				document.body.classList.add('overflow-hidden');
@@ -110,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		mobileLinks.forEach((link) => {
 			link.addEventListener('click', () => {
 				mobileMenu.classList.add('hidden');
+				mobileHeaderBlur?.classList.add('hidden');
 				iconOpen?.classList.remove('hidden');
 				iconClose?.classList.add('hidden');
 				document.body.classList.remove('overflow-hidden');

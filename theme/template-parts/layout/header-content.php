@@ -7,7 +7,7 @@
 ?>
 
 <header id="masthead" class="relative z-50">
-	<div class="h-(--header-height) z-40 fixed top-0 left-0 right-0 xl:hidden block backdrop-blur-md bg-white/80 mask-[linear-gradient(to_bottom,black_80%,transparent)]"></div>
+	<div id="mobile-header-blur" class="h-(--header-height) z-40 fixed top-0 left-0 right-0 xl:hidden hidden backdrop-blur-md bg-white/80 mask-[linear-gradient(to_bottom,black_80%,transparent)]"></div>
 	<div class="container relative z-50">
 		<div class="flex gap-8 items-center">
 			<!-- Logo -->
