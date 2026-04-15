@@ -79,4 +79,61 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 	}
+
+	// Mobile Menu Toggle Logic
+	const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const iconOpen = mobileMenuToggle?.querySelector('.menu-icon-open');
+	const iconClose = mobileMenuToggle?.querySelector('.menu-icon-close');
+
+	if (mobileMenuToggle && mobileMenu) {
+		mobileMenuToggle.addEventListener('click', () => {
+			const isOpen = !mobileMenu.classList.contains('hidden');
+
+			if (isOpen) {
+				// Close Menu
+				mobileMenu.classList.add('hidden');
+				iconOpen?.classList.remove('hidden');
+				iconClose?.classList.add('hidden');
+				document.body.classList.remove('overflow-hidden');
+			} else {
+				// Open Menu
+				mobileMenu.classList.remove('hidden');
+				iconOpen?.classList.add('hidden');
+				iconClose?.classList.remove('hidden');
+				document.body.classList.add('overflow-hidden');
+			}
+		});
+
+		// Close menu when clicking on a link
+		const mobileLinks = mobileMenu.querySelectorAll('a');
+		mobileLinks.forEach((link) => {
+			link.addEventListener('click', () => {
+				mobileMenu.classList.add('hidden');
+				iconOpen?.classList.remove('hidden');
+				iconClose?.classList.add('hidden');
+				document.body.classList.remove('overflow-hidden');
+			});
+		});
+	}
+
+	/**
+	 * Real-time Header Height Calculation
+	 */
+	const headerHeightUpdate = () => {
+		const masthead = document.getElementById('masthead');
+		if (masthead) {
+			const height = masthead.offsetHeight;
+			document.documentElement.style.setProperty(
+				'--header-height',
+				`${height}px`
+			);
+		}
+	};
+
+	// Initial calculation
+	headerHeightUpdate();
+
+	// Update on resize
+	window.addEventListener('resize', headerHeightUpdate);
 });

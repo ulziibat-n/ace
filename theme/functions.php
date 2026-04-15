@@ -46,12 +46,10 @@ if ( ! function_exists( 'ub_setup' ) ) :
 		// Enable excerpts for pages.
 		add_post_type_support( 'page', 'excerpt' );
 
-		// This theme uses wp_nav_menu() in two locations.
+		// This theme uses wp_nav_menu() in one location now.
 		register_nav_menus(
 			array(
 				'menu-1' => __( 'Үндсэн цэс', 'aceedu' ),
-				'menu-2' => __( 'Компани', 'aceedu' ),
-				'menu-3' => __( 'Үйлчилгээ', 'aceedu' ),
 			)
 		);
 

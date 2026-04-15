@@ -9,7 +9,7 @@
  */
 
 .container {
-	@apply mx-auto px-6 lg:px-12;
+	@apply px-6 mx-auto lg:px-12;
 	max-width: var(--container) !important;
 }
 
@@ -24,7 +24,7 @@
  */
 .page-title,
 .entry-title {
-	@apply max-w-content mb-16 text-4xl font-bold;
+	@apply mb-16 text-4xl font-bold max-w-content;
 }
 
 /**
@@ -37,7 +37,7 @@
 .entry-footer,
 .post-navigation,
 #comments {
-	@apply max-w-content mx-auto mb-6;
+	@apply mx-auto mb-6 max-w-content;
 }
 
 /**
@@ -49,7 +49,7 @@
  */
 
 .entry-content > * {
-	@apply max-w-content mx-auto;
+	@apply mx-auto max-w-content;
 }
 
 .page-content > * {
@@ -57,7 +57,7 @@
 }
 
 .page-wide > *:not(.alignfull) {
-	@apply max-w-wide mx-auto;
+	@apply mx-auto max-w-wide;
 }
 
 .page-content > *.alignwide {
@@ -84,15 +84,15 @@
 }
 
 .navigation.pagination .nav-links {
-	@apply flex items-center justify-start gap-2;
+	@apply flex gap-2 justify-start items-center;
 }
 
 .navigation.pagination .page-numbers {
-	@apply flex h-10 min-w-10 items-center justify-center rounded-sm bg-white px-3 text-sm font-bold text-foreground/60 transition-all duration-200 hover:text-primary hover:shadow-sm;
+	@apply flex justify-center items-center px-3 h-10 text-sm font-bold bg-white rounded-sm transition-all duration-200 min-w-10 text-foreground/60 hover:text-primary hover:shadow-sm;
 }
 
 .navigation.pagination .page-numbers.current {
-	@apply bg-primary text-white shadow-md hover:text-white;
+	@apply text-white shadow-md bg-primary hover:text-white;
 }
 
 .navigation.pagination .page-numbers.dots {
@@ -101,7 +101,7 @@
 
 .navigation.pagination .prev.page-numbers,
 .navigation.pagination .next.page-numbers {
-	@apply bg-white px-4 text-primary;
+	@apply px-4 bg-white text-primary;
 }
 
 /**
@@ -114,4 +114,61 @@
 
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 	@apply rounded-full bg-primary;
+}
+
+/**
+ * Core Block Overrides: Separator
+ */
+.wp-block-separator {
+	@apply mx-auto my-12;
+	border: none;
+	border-top: 1px solid color-mix(in srgb, var(--color-primary), transparent 90%);
+	opacity: 1;
+}
+
+.wp-block-separator.is-style-wide {
+	@apply mx-auto max-w-none;
+	width: calc(100% - 3rem);
+	max-width: calc(var(--container) - 3rem);
+}
+
+@media (min-width: 64rem) {
+	.wp-block-separator.is-style-wide {
+		width: calc(100% - 6rem);
+		max-width: calc(var(--container) - 6rem);
+	}
+}
+
+.wp-block-separator.is-style-dots {
+	@apply border-none;
+	background: none;
+}
+
+/**
+ * Mobile Menu Enhancements
+ */
+#mobile-menu ul.sub-menu {
+	@apply flex flex-col gap-0 pl-4 mt-4 border-l border-neutral-100;
+}
+
+#mobile-menu a {
+	@apply transition-colors duration-200;
+}
+
+#mobile-menu .sub-menu a {
+	@apply text-base font-medium text-neutral-500;
+}
+
+#mobile-menu .sub-menu a:hover {
+	@apply text-primary;
+}
+
+#mobile-menu .current-menu-item > a,
+#mobile-menu .current-menu-ancestor > a {
+	@apply text-secondary;
+}
+
+/* Ensure mobile menu button looks good when clicked */
+#mobile-menu-toggle:active {
+	@apply scale-95;
 }

@@ -158,16 +158,13 @@ function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
 
 		// Зөвхөн top-level (Level 1) цэсний элементүүдэд классуудыг нэмэх.
 		if ( 0 === (int) $depth ) {
-			$classes[] = 'group/level-0 [&>a]:text-primary [&>a]:block [&>a]:font-bold [&>a]:transition-colors [&>a]:duration-300 [&>a]:leading-[80px] [&>a]:px-2 [&>a]:ease-in-out [&>a]:hover:text-secondary [&>a]:group-hover/level-0:text-secondary [&>a]:group-[.current-menu-item]/level-0:text-secondary [&>a]:group-[.current-menu-parent]/level-0:text-secondary [&>a]:group-[.current-menu-ancestor]/level-0:text-secondary [&>a]:text-xs [&>a]:uppercase [&>a]:transition-colors';
+			$classes[] = 'group/level-0 [&>a]:text-primary [&>a]:block [&>a]:font-bold [&>a]:transition-colors [&>a]:duration-300 xl:[&>a]:leading-[80px] [&>a]:px-2 [&>a]:ease-in-out [&>a]:hover:text-secondary [&>a]:group-hover/level-0:text-secondary [&>a]:group-[.current-menu-item]/level-0:text-secondary [&>a]:group-[.current-menu-parent]/level-0:text-secondary [&>a]:group-[.current-menu-ancestor]/level-0:text-secondary [&>a]:text-xs [&>a]:uppercase [&>a]:transition-colors';
 		} elseif ( (int) $depth > 0 ) {
 			// Дэд цэсний бүх li элементүүд (Level 2, 3 гэх мэт).
 			$classes[] = '[&>a]:text-sm [&>a]:font-medium [&>a]:text-primary [&>a]:hover:text-secondary [&>a]:group-[.current-menu-item]/level-1:text-secondary [&>a]:group-[.current-menu-parent]/level-1:text-secondary [&>a]:group-[.current-menu-ancestor]/level-1:text-secondary [&>a]:transition-colors [&>a]:duration-300';
 		}
 	}
 
-	if ( 'menu-2' === $theme_location || 'menu-3' === $theme_location ) {
-		$classes[] = 'block [&_a]:hover:text-white [&_a]:transition-colors [&_a]:font-semibold [&_a]:text-[0.6875rem]';
-	}
 
 	return $classes;
 }
@@ -207,7 +204,13 @@ function ub_nav_menu_submenu_classes( $classes, $args, $depth ) {
 	$theme_location = $args->theme_location ?? '';
 
 	if ( 'menu-1' === $theme_location ) {
-		// Одоогоор байгаа үндсэн дэд цэсний загвар (Level 2 items wrap).
+		// Mobile specific submenu classes.
+		if ( ! empty( $args->is_mobile ) ) {
+			$classes[] = 'flex flex-col gap-0 pl-4 mt-4 border-l border-neutral-100';
+			return $classes;
+		}
+
+		// Desktop styles (Level 2 items wrap).
 		if ( 0 === $depth ) {
 			$classes[] = 'w-full px-8 pb-8';
 
@@ -311,7 +314,7 @@ class UB_Mega_Menu_Walker extends Walker_Nav_Menu {
 		$args   = (object) $args;
 		$indent = str_repeat( "\t", $depth );
 
-		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) ) {
+		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) && empty( $args->is_mobile ) ) {
 			$wrapper_classes = 'absolute left-0 top-full hidden group-hover/level-0:flex flex-col w-full bg-white min-w-[200px] rounded-xs rounded-t-none shadow-xl animate-in fade-in slide-in-from-top-1 duration-200 z-50';
 
 			if ( $this->has_banner ) {
@@ -343,7 +346,7 @@ class UB_Mega_Menu_Walker extends Walker_Nav_Menu {
 		$indent = str_repeat( "\t", $depth );
 		parent::end_lvl( $output, $depth, $args );
 
-		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) ) {
+		if ( 0 === $depth && 'menu-1' === ( $args->theme_location ?? '' ) && empty( $args->is_mobile ) ) {
 			if ( $this->has_banner ) {
 				$output .= "$indent\t</div><!-- .col-span-8 -->\n";
 

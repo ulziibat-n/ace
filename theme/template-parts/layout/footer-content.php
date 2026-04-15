@@ -74,44 +74,7 @@
 					</div>
 				</div>
 				<?php
-				if ( has_nav_menu( 'menu-2' ) ) :
-					?>
-					<div class="flex flex-col gap-2 mt-4">
-						<h3 class="font-bold text-sm"><?php echo esc_html( wp_get_nav_menu_name( 'menu-2' ) ); ?></h3>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-2',
-								'menu_id'        => 'footer-menu',
-								'container'      => false,
-								'fallback_cb'    => false,
-								'depth'          => 1,
-								'items_wrap'     => '<ul id="%1$s" class="flex flex-col gap-0 %2$s">%3$s</ul>',
-							)
-						);
-						?>
-					</div>
-					<?php
-				endif;
-				if ( has_nav_menu( 'menu-3' ) ) :
-					?>
-					<div class="flex flex-col gap-2 mt-4">
-						<h3 class="font-bold text-sm"><?php echo esc_html( wp_get_nav_menu_name( 'menu-3' ) ); ?></h3>
-						<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-3',
-								'menu_id'        => 'footer-menu',
-								'container'      => false,
-								'fallback_cb'    => false,
-								'depth'          => 1,
-								'items_wrap'     => '<ul id="%1$s" class="flex flex-col gap-0 %2$s">%3$s</ul>',
-							)
-						);
-						?>
-					</div>
-					<?php
-				endif;
+				// Removed Company and Services menus.
 				?>
 				<div class="flex flex-col gap-2 mt-4 ml-auto mr-0">
 					<h3 class="font-bold text-sm mb-2"><?php esc_html_e( 'Холбоо барих', 'aceedu' ); ?></h3>
