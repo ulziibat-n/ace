@@ -18,7 +18,7 @@
 	& > h4,
 	& > h5,
 	& > h6 {
-		@apply mx-auto mt-[2em] mb-[1em] max-w-2xl leading-none leading-snug font-black tracking-tight text-slate-950 first:mt-0 last:mb-0;
+		@apply mx-auto mt-[2em] mb-[1em] max-w-2xl leading-none font-black tracking-tight text-slate-950 first:mt-0 last:mb-0;
 	}
 
 	& > h1 {
@@ -67,7 +67,7 @@
 		@apply relative mx-auto my-[1.6em] max-w-2xl border-l-4 border-secondary pl-[1.25em];
 
 		p {
-			@apply mt-0 mb-0 text-2xl font-bold leading-none leading-snug text-slate-800;
+			@apply mt-0 mb-0 text-2xl font-bold leading-snug text-slate-800;
 		}
 
 		cite {

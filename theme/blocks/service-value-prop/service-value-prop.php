@@ -21,18 +21,18 @@ if ( ! empty( $block['className'] ) ) {
 	$ub_class_name .= ' ' . $block['className'];
 }
 
-// ACF Fields
+// ACF Fields.
 $ub_badge       = get_field( 'svp_badge' );
 $ub_headline    = get_field( 'svp_headline' );
 $ub_description = get_field( 'svp_description' );
 $ub_items       = get_field( 'svp_items' );
 $ub_image       = get_field( 'svp_image' );
-$ub_image_pos   = get_field( 'svp_image_position' ) ?: 'right';
-$ub_headline_mw = get_field( 'svp_headline_mw' ) ?: 500;
+$ub_image_pos   = get_field( 'svp_image_position' ) ?? 'right';
+$ub_headline_mw = get_field( 'svp_headline_mw' ) ?? 500;
 
 $ub_headline_rem = ( $ub_headline_mw / 16 ) . 'rem';
 
-// Preview fallback
+// Preview fallback.
 if ( empty( $ub_items ) && $is_preview ) {
 	$ub_example_data = function_exists( 'ub_get_block_example_data' ) ? ub_get_block_example_data( $block ) : array();
 	$ub_badge        = $ub_example_data['svp_badge'] ?? 'OUR VALUE';
