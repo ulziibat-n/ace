@@ -23,6 +23,27 @@
             "maxlength": ""
         },
         {
+            "key": "field_site_contact_headline_mw",
+            "label": "Гарчгийн хамгийн их өргөн (Headline Max Width)",
+            "name": "site_contact_headline_mw",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Зүүн талын гарчгийн өргөнийг тохируулна.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 400,
+            "min": 200,
+            "max": 800,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        },
+        {
             "key": "field_site_contact_description",
             "label": "Тайлбар текст",
             "name": "site_contact_description",
@@ -73,7 +94,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -94,7 +115,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -115,7 +136,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -136,7 +157,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -207,5 +228,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776415085
+    "modified": 1776415934
 }

@@ -75,6 +75,7 @@
 @import "tailwindcss/utilities";
 @import "./tailwind/custom/utilities.css";
 @import "./tailwind/custom/singular-content.css";
+@import "./tailwind/custom/contact-form.css";
 
 /**
  * Add styles exclusively for the WordPress editor.
