@@ -1,86 +1,179 @@
 {
-	"key": "group_school_classification",
-	"title": "Ангилал & Хурдан мэдээлэл",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 10,
-	"fields": {
-		"field_accreditation_status": {
-			"key": "field_accreditation_status",
-			"name": "accreditation_status",
-			"type": "select",
-			"parent": "group_school_classification",
-			"label": "Магадлан итгэмжлэл",
-			"instructions": "Сургуулийн Солонгос улсын боловсролын яамнаас олгосон магадлан итгэмжлэлийн статус",
-			"choices": {
-				"certified": "Магадлан итгэмжлэгдсэн",
-				"excellent": "Шилдэг магадлан итгэмжлэгдсэн",
-				"none": "Байхгүй"
-			},
-			"menu_order": 0
-		},
-		"field_visa_note": {
-			"key": "field_visa_note",
-			"name": "visa_note",
-			"type": "text",
-			"parent": "group_school_classification",
-			"label": "Визаны тэмдэглэл",
-			"instructions": "Визатай холбоотой онцлох мэдээлэл (жишээ: 100% виза олголт)",
-			"menu_order": 1
-		},
-		"field_visa_success_rate_text": {
-			"key": "field_visa_success_rate_text",
-			"name": "visa_success_rate_text",
-			"type": "text",
-			"parent": "group_school_classification",
-			"label": "Виза амжилтын хувь",
-			"instructions": "Сүүлийн үеийн виза гаралтын статистик (жишээ: 98.5%)",
-			"menu_order": 2
-		},
-		"field_ranking_korea": {
-			"key": "field_ranking_korea",
-			"name": "ranking_korea_text",
-			"type": "text",
-			"parent": "group_school_classification",
-			"label": "Солонгос дахь эрэмбэ",
-			"instructions": "Солонгосын их дээд сургуулиудын доторх эрэмбэ (жишээ: Top 10)",
-			"menu_order": 3
-		},
-		"field_ranking_global": {
-			"key": "field_ranking_global",
-			"name": "ranking_global_text",
-			"type": "text",
-			"parent": "group_school_classification",
-			"label": "Дэлхийн эрэмбэ",
-			"instructions": "QS эсвэл бусад дэлхийн үнэлгээний эрэмбэ",
-			"menu_order": 4
-		},
-		"field_key_badges": {
-			"key": "field_key_badges",
-			"name": "key_badges",
-			"type": "repeater",
-			"parent": "group_school_classification",
-			"label": "Оноо \/ Бэжүүд",
-			"instructions": "Картан дээр харагдах жижиг онцлох тэмдэглэгээнүүд",
-			"layout": "table",
-			"button_label": "Бэж нэмэх",
-			"menu_order": 5,
-			"sub_fields": [
-				{
-					"key": "field_badge_text",
-					"label": "Текст",
-					"name": "text",
-					"type": "text"
-				}
-			]
-		}
-	}
+    "key": "group_school_classification",
+    "title": "Сургууль: Ангилал",
+    "fields": [
+        {
+            "key": "field_accreditation_status",
+            "label": "Магадлан итгэмжлэл",
+            "name": "accreditation_status",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Сургуулийн Солонгос улсын боловсролын яамнаас олгосон магадлан итгэмжлэлийн статус",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "certified": "Магадлан итгэмжлэгдсэн",
+                "excellent": "Шилдэг магадлан итгэмжлэгдсэн",
+                "none": "Байхгүй"
+            },
+            "multiple": 0,
+            "allow_null": 0,
+            "default_value": false,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_visa_note",
+            "label": "Визаны тэмдэглэл",
+            "name": "visa_note",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Визатай холбоотой онцлох мэдээлэл (жишээ: 100% виза олголт)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_visa_success_rate_text",
+            "label": "Виза амжилтын хувь",
+            "name": "visa_success_rate_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сүүлийн үеийн виза гаралтын статистик (жишээ: 98.5%)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ranking_korea",
+            "label": "Солонгос дахь эрэмбэ",
+            "name": "ranking_korea_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Солонгосын их дээд сургуулиудын доторх эрэмбэ (жишээ: Top 10)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_ranking_global",
+            "label": "Дэлхийн эрэмбэ",
+            "name": "ranking_global_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "QS эсвэл бусад дэлхийн үнэлгээний эрэмбэ",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_key_badges",
+            "label": "Оноо \/ Бэжүүд",
+            "name": "key_badges",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Картан дээр харагдах жижиг онцлох тэмдэглэгээнүүд",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Бэж нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_badge_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_key_badges"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

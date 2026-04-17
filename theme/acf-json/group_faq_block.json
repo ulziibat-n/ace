@@ -1,107 +1,183 @@
 {
-	"key": "group_faq_block",
-	"title": "Блок: Түгээмэл асуултууд",
-	"fields": [
-		{
-			"key": "field_faq_title",
-			"label": "Гарчиг",
-			"name": "faq_title",
-			"type": "text",
-			"instructions": "FAQ хэсгийн том гарчиг.",
-			"required": 0,
-			"default_value": "Түгээмэл асуултууд",
-			"placeholder": "Гарчиг бичнэ үү"
-		},
-		{
-			"key": "field_faq_desc",
-			"label": "Тайлбар",
-			"name": "faq_description",
-			"type": "textarea",
-			"instructions": "Гарчгийн доорх нэмэлт тайлбар текст.",
-			"required": 0,
-			"default_value": "Таны эргэлзээг арилгах хамгийн түгээмэл асуултуудын хариулт.",
-			"rows": 3,
-			"placeholder": "Тайлбар бичнэ үү"
-		},
-		{
-			"key": "field_faq_items",
-			"label": "Асуултууд",
-			"name": "faq_items",
-			"type": "repeater",
-			"instructions": "Асуулт, хариултыг нэг нэгээр нь нэмнэ үү.",
-			"required": 1,
-			"collapsed": "field_faq_question",
-			"min": 1,
-			"max": 0,
-			"layout": "block",
-			"button_label": "Асуулт нэмэх",
-			"default_value": [
-				{
-					"field_faq_question": "БНСУ-д суралцахад насны хязгаар бий юу?",
-					"field_faq_answer": "Ерөнхийдөө 18-35 насны хүмүүст тохиромжтой байдаг ч сургууль, хөтөлбөрөөс хамаарч өөр өөр байж болно."
-				},
-				{
-					"field_faq_question": "Төлбөрөө хэрхэн төлөх вэ?",
-					"field_faq_answer": "Сургуулийн төлбөрийг ярилцлагад тэнцсэн тохиолдолд шууд сургуулийн данс руу шилжүүлнэ."
-				}
-			],
-			"sub_fields": [
-				{
-					"key": "field_faq_question",
-					"label": "Асуулт",
-					"name": "question",
-					"type": "text",
-					"required": 1,
-					"placeholder": "Асуултаа бичнэ үү"
-				},
-				{
-					"key": "field_faq_answer",
-					"label": "Хариулт",
-					"name": "answer",
-					"type": "textarea",
-					"required": 1,
-					"rows": 4,
-					"placeholder": "Хариултаа бичнэ үү"
-				}
-			]
-		},
-		{
-			"key": "field_faq_title_mw",
-			"label": "Гарчгийн өргөн (Max Width)",
-			"name": "faq_title_max_width",
-			"type": "range",
-			"instructions": "Гарчгийн хамгийн их өргөнийдийг тохируулна уу.",
-			"required": 0,
-			"default_value": 960,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		},
-		{
-			"key": "field_faq_desc_mw",
-			"label": "Тайлбарын өргөн (Max Width)",
-			"name": "faq_description_max_width",
-			"type": "range",
-			"instructions": "Тайлбарын хамгийн их өргөнийг тохируулна уу.",
-			"required": 0,
-			"default_value": 720,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/faq"
-			}
-		]
-	],
-	"active": true,
-	"description": "",
-	"show_in_rest": 0
+    "key": "group_faq_block",
+    "title": "Блок: Түгээмэл асуултууд",
+    "fields": [
+        {
+            "key": "field_faq_title",
+            "label": "Гарчиг",
+            "name": "faq_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "FAQ хэсгийн том гарчиг.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Түгээмэл асуултууд",
+            "placeholder": "Гарчиг бичнэ үү",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_faq_desc",
+            "label": "Тайлбар",
+            "name": "faq_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Гарчгийн доорх нэмэлт тайлбар текст.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Таны эргэлзээг арилгах хамгийн түгээмэл асуултуудын хариулт.",
+            "rows": 3,
+            "placeholder": "Тайлбар бичнэ үү",
+            "new_lines": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_faq_items",
+            "label": "Асуултууд",
+            "name": "faq_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Асуулт, хариултыг нэг нэгээр нь нэмнэ үү.",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_faq_question",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Асуулт нэмэх",
+            "default_value": [
+                {
+                    "field_faq_question": "БНСУ-д суралцахад насны хязгаар бий юу?",
+                    "field_faq_answer": "Ерөнхийдөө 18-35 насны хүмүүст тохиромжтой байдаг ч сургууль, хөтөлбөрөөс хамаарч өөр өөр байж болно."
+                },
+                {
+                    "field_faq_question": "Төлбөрөө хэрхэн төлөх вэ?",
+                    "field_faq_answer": "Сургуулийн төлбөрийг ярилцлагад тэнцсэн тохиолдолд шууд сургуулийн данс руу шилжүүлнэ."
+                }
+            ],
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_faq_question",
+                    "label": "Асуулт",
+                    "name": "question",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Асуултаа бичнэ үү",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_faq_items"
+                },
+                {
+                    "key": "field_faq_answer",
+                    "label": "Хариулт",
+                    "name": "answer",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 4,
+                    "placeholder": "Хариултаа бичнэ үү",
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_faq_items"
+                }
+            ]
+        },
+        {
+            "key": "field_faq_title_mw",
+            "label": "Гарчгийн өргөн (Max Width)",
+            "name": "faq_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Гарчгийн хамгийн их өргөнийдийг тохируулна уу.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 960,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_faq_desc_mw",
+            "label": "Тайлбарын өргөн (Max Width)",
+            "name": "faq_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Тайлбарын хамгийн их өргөнийг тохируулна уу.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/faq"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776411576
 }

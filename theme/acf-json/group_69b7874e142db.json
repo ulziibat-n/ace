@@ -1,365 +1,365 @@
 {
-	"key": "group_69b7874e142db",
-	"title": "Сайтын тохиргоо",
-	"fields": [
-		{
-			"key": "field_69b7a5260fbc3",
-			"label": "Толгой хэсгийн товчлуур",
-			"name": "header_button",
-			"aria-label": "",
-			"type": "link",
-			"instructions": "Толгой хэсэгт байгаа товчлууртай холбох хуудасыг сонгож өгөөрэй",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "array",
-			"allow_in_bindings": 0
-		},
-		{
-			"key": "field_69b7874e6e754",
-			"label": "Хөл хэсгийн лого",
-			"name": "footer_logo",
-			"aria-label": "",
-			"type": "image",
-			"instructions": "Сайтын логогоо оруулаарай. Хөл хэсэгт харагдах учир бараан дэвсгэр өнгөнд зориулсан лого оруулж өгөөрэй",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "id",
-			"library": "all",
-			"min_width": "",
-			"min_height": "",
-			"min_size": "",
-			"max_width": "",
-			"max_height": "",
-			"max_size": "",
-			"mime_types": "",
-			"allow_in_bindings": 0,
-			"preview_size": "medium"
-		},
-		{
-			"key": "field_69b7a4e732160",
-			"label": "Хөл хэсгийн тайлбар",
-			"name": "footer_text",
-			"aria-label": "",
-			"type": "wysiwyg",
-			"instructions": "Компаний тухай товч тайлбар оруулаарай. Сайтын хөл хэсэгт харагдах юм",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"tabs": "visual",
-			"toolbar": "basic",
-			"media_upload": 0,
-			"delay": 0
-		},
-		{
-			"key": "field_69b7f3d8a9430",
-			"label": "Зохиогчийн эрхийн мессеж",
-			"name": "copyrights",
-			"aria-label": "",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"maxlength": "",
-			"allow_in_bindings": 0,
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
-		},
-		{
-			"key": "field_69b7f3eca9431",
-			"label": "Facebook",
-			"name": "facebook",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f3faa9432",
-			"label": "Instagram",
-			"name": "instagram",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f406a9433",
-			"label": "Threads",
-			"name": "threads",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f411a9434",
-			"label": "Linkedin",
-			"name": "linkedin",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f41ea9435",
-			"label": "Kakao",
-			"name": "kakao",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f429a9436",
-			"label": "Wechat",
-			"name": "wechat",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f435a9437",
-			"label": "Whatsapp",
-			"name": "whatsapp",
-			"aria-label": "",
-			"type": "url",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"allow_in_bindings": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_69b7f441a9438",
-			"label": "Хаяг",
-			"name": "address",
-			"aria-label": "",
-			"type": "textarea",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"maxlength": "",
-			"allow_in_bindings": 0,
-			"rows": "",
-			"placeholder": "",
-			"new_lines": ""
-		},
-		{
-			"key": "field_69b7f4a8a9439",
-			"label": "Утасны дугаар",
-			"name": "phone",
-			"aria-label": "",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"maxlength": "",
-			"allow_in_bindings": 0,
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
-		},
-		{
-			"key": "field_69b7f4d7a943a",
-			"label": "Мэйл хаяг",
-			"name": "mail",
-			"aria-label": "",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"maxlength": "",
-			"allow_in_bindings": 0,
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
-		},
-		{
-			"key": "field_69b7fc0b27ad8",
-			"label": "Үйлчилгээний нөхцөл",
-			"name": "terms_of_service",
-			"aria-label": "",
-			"type": "page_link",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"post_type": "",
-			"post_status": "",
-			"taxonomy": "",
-			"allow_archives": 1,
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0
-		},
-		{
-			"key": "field_69b7fc2727ad9",
-			"label": "Нууцлалын бодлого",
-			"name": "privacy_policy",
-			"aria-label": "",
-			"type": "page_link",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"post_type": "",
-			"post_status": "",
-			"taxonomy": "",
-			"allow_archives": 1,
-			"multiple": 0,
-			"allow_null": 0,
-			"allow_in_bindings": 0
-		},
-		{
-			"key": "field_69b7a58d94fdd",
-			"label": "Хөгжүүлэгчийн горим",
-			"name": "developer_mode",
-			"aria-label": "",
-			"type": "true_false",
-			"instructions": "Зөвхөн сайтын хөгжүүлэгч онцгой тохиолдолд энэ горимыг идэвхжүүлэх юм. Иймээс үүнийг идэвхжүүлэхдээ хөгжүүлэгчтэй холбоо бариарай",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"message": "Идэвхжүүлэх",
-			"default_value": 0,
-			"allow_in_bindings": 0,
-			"ui": 0,
-			"ui_on_text": "",
-			"ui_off_text": ""
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "options_page",
-				"operator": "==",
-				"value": "site-settings"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"show_in_rest": 0,
-	"display_title": "",
-	"modified": 1773676490
+    "key": "group_69b7874e142db",
+    "title": "Тохиргоо: Сайт",
+    "fields": [
+        {
+            "key": "field_69b7a5260fbc3",
+            "label": "Толгой хэсгийн товчлуур",
+            "name": "header_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Толгой хэсэгт байгаа товчлууртай холбох хуудасыг сонгож өгөөрэй",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_69b7874e6e754",
+            "label": "Хөл хэсгийн лого",
+            "name": "footer_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Сайтын логогоо оруулаарай. Хөл хэсэгт харагдах учир бараан дэвсгэр өнгөнд зориулсан лого оруулж өгөөрэй",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_69b7a4e732160",
+            "label": "Хөл хэсгийн тайлбар",
+            "name": "footer_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Компаний тухай товч тайлбар оруулаарай. Сайтын хөл хэсэгт харагдах юм",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_69b7f3d8a9430",
+            "label": "Зохиогчийн эрхийн мессеж",
+            "name": "copyrights",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69b7f3eca9431",
+            "label": "Facebook",
+            "name": "facebook",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f3faa9432",
+            "label": "Instagram",
+            "name": "instagram",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f406a9433",
+            "label": "Threads",
+            "name": "threads",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f411a9434",
+            "label": "Linkedin",
+            "name": "linkedin",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f41ea9435",
+            "label": "Kakao",
+            "name": "kakao",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f429a9436",
+            "label": "Wechat",
+            "name": "wechat",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f435a9437",
+            "label": "Whatsapp",
+            "name": "whatsapp",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_69b7f441a9438",
+            "label": "Хаяг",
+            "name": "address",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_69b7f4a8a9439",
+            "label": "Утасны дугаар",
+            "name": "phone",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69b7f4d7a943a",
+            "label": "Мэйл хаяг",
+            "name": "mail",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69b7fc0b27ad8",
+            "label": "Үйлчилгээний нөхцөл",
+            "name": "terms_of_service",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_69b7fc2727ad9",
+            "label": "Нууцлалын бодлого",
+            "name": "privacy_policy",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_69b7a58d94fdd",
+            "label": "Хөгжүүлэгчийн горим",
+            "name": "developer_mode",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Зөвхөн сайтын хөгжүүлэгч онцгой тохиолдолд энэ горимыг идэвхжүүлэх юм. Иймээс үүнийг идэвхжүүлэхдээ хөгжүүлэгчтэй холбоо бариарай",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Идэвхжүүлэх",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776411575
 }

@@ -23,13 +23,17 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 */
 @layer properties;
 :root, :host {
-  --font-sans: "Google Sans", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Google Sans", "GmarketSans", ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
+  --color-red-100: oklch(93.6% 0.032 17.717);
+  --color-red-500: oklch(63.7% 0.237 25.331);
   --color-amber-400: oklch(82.8% 0.189 84.429);
   --color-amber-950: oklch(27.9% 0.077 45.635);
+  --color-green-100: oklch(96.2% 0.044 156.743);
+  --color-green-600: oklch(62.7% 0.194 149.214);
   --color-emerald-400: oklch(76.5% 0.177 163.223);
   --color-emerald-600: oklch(59.6% 0.145 163.225);
   --color-blue-50: oklch(97% 0.014 254.604);
@@ -55,6 +59,8 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --color-white: #fff;
   --spacing: 0.25rem;
   --container-xs: 20rem;
+  --container-sm: 24rem;
+  --container-md: 28rem;
   --container-lg: 32rem;
   --container-xl: 36rem;
   --container-2xl: 42rem;
@@ -100,6 +106,8 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --leading-relaxed: 1.625;
   --radius-xs: 0.125rem;
   --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -187,6 +195,27 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   font-family: "Google Sans";
   src: url("fonts/GoogleSans-Bold.woff2") format("woff2"),	url("fonts/GoogleSans-Bold.woff") format("woff");
   font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -1506,6 +1535,9 @@ body {
 .ml-2 {
   margin-left: calc(var(--spacing) * 2);
 }
+.ml-3 {
+  margin-left: calc(var(--spacing) * 3);
+}
 .ml-auto {
   margin-left: auto;
 }
@@ -1629,6 +1661,12 @@ body {
 .h-screen {
   height: 100vh;
 }
+.min-h-175 {
+  min-height: calc(var(--spacing) * 175);
+}
+.min-h-\[43\.75rem\] {
+  min-height: 43.75rem;
+}
 .min-h-\[70vh\] {
   min-height: 70vh;
 }
@@ -1719,6 +1757,9 @@ body {
 .max-w-6xl {
   max-width: var(--container-6xl);
 }
+.max-w-36 {
+  max-width: calc(var(--spacing) * 36);
+}
 .max-w-64 {
   max-width: calc(var(--spacing) * 64);
 }
@@ -1755,8 +1796,14 @@ body {
 .max-w-lg {
   max-width: var(--container-lg);
 }
+.max-w-md {
+  max-width: var(--container-md);
+}
 .max-w-none {
   max-width: none;
+}
+.max-w-sm {
+  max-width: var(--container-sm);
 }
 .max-w-xl {
   max-width: var(--container-xl);
@@ -1807,6 +1854,9 @@ body {
 }
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -1936,6 +1986,12 @@ body {
 .rounded-full {
   border-radius: calc(infinity * 1px);
 }
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
 .rounded-none {
   border-radius: 0;
 }
@@ -1954,6 +2010,10 @@ body {
 .rounded-t-none {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.rounded-b-sm {
+  border-bottom-right-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
 }
 .border {
   border-style: var(--tw-border-style);
@@ -2012,8 +2072,19 @@ body {
     border-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
   }
 }
+.border-red-100 {
+  border-color: var(--color-red-100);
+}
 .border-slate-50 {
   border-color: var(--color-slate-50);
+}
+.border-slate-50\/10 {
+  border-color: color-mix(in srgb, oklch(98.4% 0.003 247.858) 10%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .border-slate-50\/10 {
+    border-color: color-mix(in oklab, var(--color-slate-50) 10%, transparent);
+  }
 }
 .border-slate-100 {
   border-color: var(--color-slate-100);
@@ -2079,6 +2150,9 @@ body {
 .bg-emerald-400 {
   background-color: var(--color-emerald-400);
 }
+.bg-green-100 {
+  background-color: var(--color-green-100);
+}
 .bg-neutral-900 {
   background-color: var(--color-neutral-900);
 }
@@ -2115,12 +2189,28 @@ body {
 .bg-slate-50 {
   background-color: var(--color-slate-50);
 }
+.bg-slate-50\/10 {
+  background-color: color-mix(in srgb, oklch(98.4% 0.003 247.858) 10%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .bg-slate-50\/10 {
+    background-color: color-mix(in oklab, var(--color-slate-50) 10%, transparent);
+  }
+}
 .bg-slate-50\/30 {
   background-color: color-mix(in srgb, oklch(98.4% 0.003 247.858) 30%, transparent);
 }
 @supports (color: color-mix(in lab, red, red)) {
   .bg-slate-50\/30 {
     background-color: color-mix(in oklab, var(--color-slate-50) 30%, transparent);
+  }
+}
+.bg-slate-50\/50 {
+  background-color: color-mix(in srgb, oklch(98.4% 0.003 247.858) 50%, transparent);
+}
+@supports (color: color-mix(in lab, red, red)) {
+  .bg-slate-50\/50 {
+    background-color: color-mix(in oklab, var(--color-slate-50) 50%, transparent);
   }
 }
 .bg-slate-50\/70 {
@@ -2310,6 +2400,9 @@ body {
 .p-2 {
   padding: calc(var(--spacing) * 2);
 }
+.p-4 {
+  padding: calc(var(--spacing) * 4);
+}
 .p-6 {
   padding: calc(var(--spacing) * 6);
 }
@@ -2346,6 +2439,12 @@ body {
 .px-8 {
   padding-inline: calc(var(--spacing) * 8);
 }
+.px-10 {
+  padding-inline: calc(var(--spacing) * 10);
+}
+.px-12 {
+  padding-inline: calc(var(--spacing) * 12);
+}
 .py-0\.5 {
   padding-block: calc(var(--spacing) * 0.5);
 }
@@ -2375,6 +2474,9 @@ body {
 }
 .py-8 {
   padding-block: calc(var(--spacing) * 8);
+}
+.py-10 {
+  padding-block: calc(var(--spacing) * 10);
 }
 .py-12 {
   padding-block: calc(var(--spacing) * 12);
@@ -2680,6 +2782,9 @@ body {
     color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
   }
 }
+.text-green-600 {
+  color: var(--color-green-600);
+}
 .text-neutral-400 {
   color: var(--color-neutral-400);
 }
@@ -2712,6 +2817,9 @@ body {
   .text-primary\/60 {
     color: color-mix(in oklab, var(--color-primary) 60%, transparent);
   }
+}
+.text-red-500 {
+  color: var(--color-red-500);
 }
 .text-secondary {
   color: var(--color-secondary);
@@ -3243,6 +3351,16 @@ body {
 .group-\[\.swiper-slide-active\]\/slide\:opacity-100:is(:where(.group\/slide):is(.swiper-slide-active) *) {
   opacity: 100%;
 }
+.peer-checked\:border-primary:is(:where(.peer):checked ~ *) {
+  border-color: var(--color-primary);
+}
+.peer-checked\:font-bold:is(:where(.peer):checked ~ *) {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+.peer-checked\:text-primary:is(:where(.peer):checked ~ *) {
+  color: var(--color-primary);
+}
 .placeholder\:text-slate-300::placeholder {
   color: var(--color-slate-300);
 }
@@ -3294,6 +3412,16 @@ body {
 @media (hover: hover) {
   .hover\:border-primary:hover {
     border-color: var(--color-primary);
+  }
+}
+@media (hover: hover) {
+  .hover\:border-primary\/30:hover {
+    border-color: color-mix(in srgb, #085399 30%, transparent);
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .hover\:border-primary\/30:hover {
+      border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+    }
   }
 }
 @media (hover: hover) {
@@ -3438,6 +3566,9 @@ body {
 .focus\:ring-2:focus {
   --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.focus\:ring-primary:focus {
+  --tw-ring-color: var(--color-primary);
 }
 .focus\:ring-primary\/20:focus {
   --tw-ring-color: color-mix(in srgb, #085399 20%, transparent);
@@ -3759,8 +3890,23 @@ body {
   }
 }
 @media (width >= 64rem) {
+  .lg\:p-10 {
+    padding: calc(var(--spacing) * 10);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:p-12 {
+    padding: calc(var(--spacing) * 12);
+  }
+}
+@media (width >= 64rem) {
   .lg\:px-12 {
     padding-inline: calc(var(--spacing) * 12);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:py-20 {
+    padding-block: calc(var(--spacing) * 20);
   }
 }
 @media (width >= 64rem) {
@@ -4327,6 +4473,9 @@ body {
   line-height: var(--tw-leading, var(--text-xs--line-height));
   opacity: 70%;
 }
+.singular-content.is-page > p,.singular-content.is-page > h1,.singular-content.is-page > h2,.singular-content.is-page > h3,.singular-content.is-page > h4,.singular-content.is-page > h5,.singular-content.is-page > h6,.singular-content.is-page > ul,.singular-content.is-page > ol,.singular-content.is-page > blockquote.wp-block-quote,.singular-content.is-page > table,.singular-content.is-page > figure.wp-block-table,.singular-content.is-page > hr,.singular-content.is-page > figure {
+  margin-left: calc(var(--spacing) * 0);
+}
 .singular-content .wp-block-quote {
   margin-top: 1.6em;
   margin-bottom: 1.6em;
@@ -4711,6 +4860,9 @@ body {
   font-size: var(--text-xs);
   line-height: var(--tw-leading, var(--text-xs--line-height));
   opacity: 70%;
+}
+.singular-content.is-page > p,.singular-content.is-page > h1,.singular-content.is-page > h2,.singular-content.is-page > h3,.singular-content.is-page > h4,.singular-content.is-page > h5,.singular-content.is-page > h6,.singular-content.is-page > ul,.singular-content.is-page > ol,.singular-content.is-page > blockquote.wp-block-quote,.singular-content.is-page > table,.singular-content.is-page > figure.wp-block-table,.singular-content.is-page > hr,.singular-content.is-page > figure {
+  margin-left: calc(var(--spacing) * 0);
 }
 .singular-content .wp-block-quote {
   margin-top: 1.6em;

@@ -1,11 +1,36 @@
 {
-    "key": "group_ace_about_info",
-    "title": "Блок: Бидний тухай мэдээлэл",
+    "key": "group_ace_teacher_info",
+    "title": "Блок: Багшийн мэдээлэл",
     "fields": [
         {
-            "key": "field_ai_title_left",
-            "label": "Зүүн талын гарчиг",
-            "name": "ub_about_info_title_left",
+            "key": "field_ti_image",
+            "label": "Багшийн зураг",
+            "name": "ub_teacher_info_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_ti_title_left",
+            "label": "Багшийн нэр",
+            "name": "ub_teacher_info_title_left",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -16,18 +41,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "ABOUT",
+            "default_value": "БОЛДЫН БАТ-ЭРДЭНЭ",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_ai_description_left",
-            "label": "Зүүн талын тайлбар",
-            "name": "ub_about_info_description_left",
+            "key": "field_ti_description_left",
+            "label": "Багшийн мэдээлэл",
+            "name": "ub_teacher_info_description_left",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": false,
             "conditional_logic": false,
@@ -36,16 +61,16 @@
                 "class": "",
                 "id": ""
             },
-            "rows": 2,
-            "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": ""
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "default_value": "Математикийн багш, Боловсрол судлалын магистр. 15 жилийн багшлах туршлагатай.",
+            "delay": 0
         },
         {
-            "key": "field_ai_headline_mw",
+            "key": "field_ti_headline_mw",
             "label": "Зүүн талын хамгийн их өргөн (Headline Max Width)",
-            "name": "ub_about_info_headline_mw",
+            "name": "ub_teacher_info_headline_mw",
             "aria-label": "",
             "type": "range",
             "instructions": "",
@@ -64,9 +89,9 @@
             "prepend": ""
         },
         {
-            "key": "field_ai_lead",
+            "key": "field_ti_lead",
             "label": "Баруун талын Lead текст",
-            "name": "ub_about_info_lead",
+            "name": "ub_teacher_info_lead",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -78,15 +103,15 @@
                 "id": ""
             },
             "rows": 3,
-            "default_value": "Бид таныг Солонгост суралцах мөрөөдөлдөө хүрэхэд тань туслах мэргэжлийн ментор хамт олон юм.",
+            "default_value": "Сургалтын арга барил нь сурагчдын оролцоонд тулгуурласан, практик даалгаварт төвлөрдөг.",
             "new_lines": "",
             "maxlength": "",
             "placeholder": ""
         },
         {
-            "key": "field_ai_description_right",
+            "key": "field_ti_description_right",
             "label": "Баруун талын дэлгэрэнгүй текст",
-            "name": "ub_about_info_description_right",
+            "name": "ub_teacher_info_description_right",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -100,7 +125,7 @@
             "tabs": "visual",
             "toolbar": "basic",
             "media_upload": 0,
-            "default_value": "Бид 2018 оноос хойш тасралтгүй үйл ажиллагаа явуулж байгаа бөгөөд одоогийн байдлаар 500 гаруй оюутныг БНСУ-ын нэр хүндтэй их дээд сургуулиудад амжилттай зуучлан суралцуулж байна.",
+            "default_value": "Бид хүүхэд нэг бүрийн онцлогт тохируулж, тэднийг суралцах үйл явцад идэвхтэй оролцох боломжийг бүрдүүлдэг. Орчин үеийн боловсролын чиг хандлагыг нэвтрүүлж байна.",
             "delay": 0
         }
     ],
@@ -109,7 +134,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/about-info"
+                "value": "acf\/teacher-info"
             }
         ]
     ],
@@ -123,5 +148,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1776411575
+    "modified": 1776411576
 }

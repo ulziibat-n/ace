@@ -126,6 +126,26 @@
 			@apply mt-[1em] text-xs opacity-70;
 		}
 	}
+
+	/* Page Template overrides (left aligned) */
+	&.is-page {
+		& > p,
+		& > h1,
+		& > h2,
+		& > h3,
+		& > h4,
+		& > h5,
+		& > h6,
+		& > ul,
+		& > ol,
+		& > blockquote.wp-block-quote,
+		& > table,
+		& > figure.wp-block-table,
+		& > hr,
+		& > figure {
+			@apply ml-0;
+		}
+	}
 }
 
 /* Ensure WordPress block compatibility */

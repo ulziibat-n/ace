@@ -1,114 +1,234 @@
 {
-	"key": "group_school_general",
-	"title": "Ерөнхий мэдээлэл",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 0,
-	"fields": {
-		"field_school_name_en": {
-			"key": "field_school_name_en",
-			"name": "school_name_en",
-			"type": "text",
-			"parent": "group_school_general",
-			"label": "Сургуулийн нэр (EN)",
-			"required": 1,
-			"instructions": "Сургуулийн албан ёсны англи нэр (жишээ: Yonsei University)",
-			"menu_order": 0
-		},
-		"field_school_name_ko": {
-			"key": "field_school_name_ko",
-			"name": "school_name_ko",
-			"type": "text",
-			"parent": "group_school_general",
-			"label": "Сургуулийн нэр (KO)",
-			"instructions": "Сургуулийн солонгос нэр (жишээ: 연세대학교)",
-			"menu_order": 1
-		},
-		"field_short_intro": {
-			"key": "field_short_intro",
-			"name": "short_intro",
-			"type": "textarea",
-			"parent": "group_school_general",
-			"label": "Богино танилцуулга",
-			"instructions": "Жагсаалт болон карт дээр харагдах 2-3 өгүүлбэр бүхий товч танилцуулга",
-			"rows": 3,
-			"menu_order": 2
-		},
-		"field_hero_title": {
-			"key": "field_hero_title",
-			"name": "hero_title",
-			"type": "text",
-			"parent": "group_school_general",
-			"label": "Hero гарчиг",
-			"instructions": "Сургуулийн дэлгэрэнгүй хуудасны дээд хэсэгт харагдах том гарчиг",
-			"menu_order": 3
-		},
-		"field_hero_subtitle": {
-			"key": "field_hero_subtitle",
-			"name": "hero_subtitle",
-			"type": "textarea",
-			"parent": "group_school_general",
-			"label": "Hero дэд гарчиг",
-			"rows": 2,
-			"instructions": "Гарчгийн доор харагдах нэмэлт тайлбар текст",
-			"menu_order": 4
-		},
-		"field_official_website": {
-			"key": "field_official_website",
-			"name": "official_website",
-			"type": "url",
-			"parent": "group_school_general",
-			"label": "Албан ёсны вэбсайт",
-			"instructions": "Сургуулийн албан ёсны вэб хуудасны хаяг (http:\/\/...)",
-			"menu_order": 5
-		},
-		"field_brochure_url": {
-			"key": "field_brochure_url",
-			"name": "brochure_url",
-			"type": "url",
-			"parent": "group_school_general",
-			"label": "Брошур линк",
-			"instructions": "Танилцуулга брошур эсвэл PDF файлын хаяг",
-			"status": "active",
-			"menu_order": 6
-		},
-		"field_hero_image": {
-			"key": "field_hero_image",
-			"name": "hero_image",
-			"type": "image",
-			"parent": "group_school_general",
-			"label": "Hero зураг",
-			"return_format": "id",
-			"instructions": "Хуудасны дээд хэсэгт харагдах гол дэвсгэр зураг",
-			"menu_order": 8
-		},
-		"field_is_featured": {
-			"key": "field_is_featured",
-			"name": "is_featured",
-			"type": "true_false",
-			"parent": "group_school_general",
-			"label": "Онцлох эсэх?",
-			"ui": 1,
-			"instructions": "Хэрэв идэвхжүүлбэл нүүр хуудас болон жагсаалтын эхэнд онцгойлж харагдана",
-			"menu_order": 9
-		},
-		"field_school_gallery": {
-			"key": "field_school_gallery",
-			"name": "school_gallery",
-			"type": "gallery",
-			"parent": "group_school_general",
-			"label": "Сургуулийн зургийн сан",
-			"return_format": "id",
-			"instructions": "Сургуулийн орчин, хичээлийн байр зэргийг харуулсан зургууд",
-			"menu_order": 10
-		}
-	}
+    "key": "group_school_general",
+    "title": "Сургууль: Ерөнхий мэдээлэл",
+    "fields": [
+        {
+            "key": "field_school_name_en",
+            "label": "Сургуулийн нэр (EN)",
+            "name": "school_name_en",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сургуулийн албан ёсны англи нэр (жишээ: Yonsei University)",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_school_name_ko",
+            "label": "Сургуулийн нэр (KO)",
+            "name": "school_name_ko",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сургуулийн солонгос нэр (жишээ: 연세대학교)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_short_intro",
+            "label": "Богино танилцуулга",
+            "name": "short_intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Жагсаалт болон карт дээр харагдах 2-3 өгүүлбэр бүхий товч танилцуулга",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_hero_title",
+            "label": "Hero гарчиг",
+            "name": "hero_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сургуулийн дэлгэрэнгүй хуудасны дээд хэсэгт харагдах том гарчиг",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hero_subtitle",
+            "label": "Hero дэд гарчиг",
+            "name": "hero_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Гарчгийн доор харагдах нэмэлт тайлбар текст",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_official_website",
+            "label": "Албан ёсны вэбсайт",
+            "name": "official_website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Сургуулийн албан ёсны вэб хуудасны хаяг (http:\/\/...)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_brochure_url",
+            "label": "Брошур линк",
+            "name": "brochure_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Танилцуулга брошур эсвэл PDF файлын хаяг",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "status": "active",
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_hero_image",
+            "label": "Hero зураг",
+            "name": "hero_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Хуудасны дээд хэсэгт харагдах гол дэвсгэр зураг",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_is_featured",
+            "label": "Онцлох эсэх?",
+            "name": "is_featured",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Хэрэв идэвхжүүлбэл нүүр хуудас болон жагсаалтын эхэнд онцгойлж харагдана",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_school_gallery",
+            "label": "Сургуулийн зургийн сан",
+            "name": "school_gallery",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Сургуулийн орчин, хичээлийн байр зэргийг харуулсан зургууд",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

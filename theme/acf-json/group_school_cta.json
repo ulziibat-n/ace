@@ -1,88 +1,142 @@
 {
-	"key": "group_school_cta",
-	"title": "Холбоо барих \/ CTA",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 50,
-	"fields": {
-		"field_cta_title": {
-			"key": "field_cta_title",
-			"name": "inquiry_cta_title",
-			"type": "text",
-			"parent": "group_school_cta",
-			"label": "CTA Гарчиг",
-			"default_value": "Сургуулиа сонгоход тань тусламж хэрэгтэй байна уу?",
-			"instructions": "Хуудасны доод хэсэгт харагдах зөвлөгөө авах хэсгийн гарчиг",
-			"menu_order": 0
-		},
-		"field_cta_title_max_width": {
-			"key": "field_cta_title_max_width",
-			"name": "inquiry_cta_title_max_width",
-			"type": "range",
-			"parent": "group_school_cta",
-			"label": "CTA Гарчгийн өргөн (Max Width)",
-			"instructions": "Гарчгийн хамгийн их өргөнийг пикселээр тохируулна уу.",
-			"default_value": 768,
-			"min": 320,
-			"max": 768,
-			"step": 8,
-			"append": "px",
-			"menu_order": 1
-		},
-		"field_cta_text": {
-			"key": "field_cta_text",
-			"name": "inquiry_cta_text",
-			"type": "textarea",
-			"parent": "group_school_cta",
-			"label": "CTA Текст",
-			"rows": 2,
-			"instructions": "Гарчгийн доор харагдах уриалга текст",
-			"default_value": "Манай туршлагатай зөвлөхүүд танд хамгийн тохиромжтой хувилбарыг сонгоход туслах болно.",
-			"menu_order": 2
-		},
-		"field_cta_text_max_width": {
-			"key": "field_cta_text_max_width",
-			"name": "inquiry_cta_text_max_width",
-			"type": "range",
-			"parent": "group_school_cta",
-			"label": "CTA Текстийн өргөн (Max Width)",
-			"instructions": "Текстийн хамгийн их өргөнийг пикселээр тохируулна уу.",
-			"default_value": 640,
-			"min": 320,
-			"max": 768,
-			"step": 8,
-			"append": "px",
-			"menu_order": 3
-		},
-		"field_messenger_link": {
-			"key": "field_messenger_link",
-			"name": "messenger_link",
-			"type": "link",
-			"parent": "group_school_cta",
-			"label": "Товчлуур 1",
-			"return_format": "array",
-			"instructions": "Жишээ: Messenger холбоос",
-			"status": "active",
-			"menu_order": 4
-		},
-		"field_kakao_link": {
-			"key": "field_kakao_link",
-			"name": "kakao_link",
-			"type": "link",
-			"parent": "group_school_cta",
-			"label": "Товчлуур 2",
-			"return_format": "array",
-			"instructions": "Жишээ: KakaoTalk холбоос",
-			"status": "active",
-			"menu_order": 5
-		}
-	}
+    "key": "group_school_cta",
+    "title": "Сургууль: Холбоо барих",
+    "fields": [
+        {
+            "key": "field_cta_title",
+            "label": "CTA Гарчиг",
+            "name": "inquiry_cta_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Хуудасны доод хэсэгт харагдах зөвлөгөө авах хэсгийн гарчиг",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Сургуулиа сонгоход тань тусламж хэрэгтэй байна уу?",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_title_max_width",
+            "label": "CTA Гарчгийн өргөн (Max Width)",
+            "name": "inquiry_cta_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Гарчгийн хамгийн их өргөнийг пикселээр тохируулна уу.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 768,
+            "min": 320,
+            "max": 768,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_cta_text",
+            "label": "CTA Текст",
+            "name": "inquiry_cta_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Гарчгийн доор харагдах уриалга текст",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "Манай туршлагатай зөвлөхүүд танд хамгийн тохиромжтой хувилбарыг сонгоход туслах болно.",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_text_max_width",
+            "label": "CTA Текстийн өргөн (Max Width)",
+            "name": "inquiry_cta_text_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Текстийн хамгийн их өргөнийг пикселээр тохируулна уу.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 640,
+            "min": 320,
+            "max": 768,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_messenger_link",
+            "label": "Товчлуур 1",
+            "name": "messenger_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Жишээ: Messenger холбоос",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "status": "active"
+        },
+        {
+            "key": "field_kakao_link",
+            "label": "Товчлуур 2",
+            "name": "kakao_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Жишээ: KakaoTalk холбоос",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "status": "active"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 50,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

@@ -1,80 +1,176 @@
 {
-	"key": "group_school_content",
-	"title": "Дэлгэрэнгүй контент",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 40,
-	"fields": {
-		"field_why_choose": {
-			"key": "field_why_choose",
-			"name": "why_choose_this_school",
-			"type": "wysiwyg",
-			"parent": "group_school_content",
-			"label": "Яагаад энэ сургуулийг сонгох вэ?",
-			"instructions": "Сургуулийн гол давуу тал, онцлогийн тухай дэлгэрэнгүй эх бичвэр",
-			"toolbar": "basic",
-			"tabs": "visual",
-			"media_upload": 0,
-			"menu_order": 0
-		},
-		"field_strengths": {
-			"key": "field_strengths",
-			"name": "strengths_repeater",
-			"type": "repeater",
-			"parent": "group_school_content",
-			"label": "Давуу талууд",
-			"instructions": "Симбол бүхий богино давуу талуудын жагсаалт",
-			"layout": "block",
-			"menu_order": 1,
-			"sub_fields": [
-				{
-					"key": "field_strength_title",
-					"label": "Гарчиг",
-					"name": "title",
-					"type": "text"
-				},
-				{
-					"key": "field_strength_desc",
-					"label": "Тайлбар",
-					"name": "description",
-					"type": "textarea",
-					"rows": 2
-				}
-			]
-		},
-		"field_faq": {
-			"key": "field_faq",
-			"name": "faq_repeater",
-			"type": "repeater",
-			"parent": "group_school_content",
-			"label": "Түгээмэл асуултууд",
-			"instructions": "Сургуультай холбоотой түгээмэл асуулт, хариултууд",
-			"layout": "row",
-			"menu_order": 2,
-			"sub_fields": [
-				{
-					"key": "field_faq_q",
-					"label": "Асуулт",
-					"name": "question",
-					"type": "text"
-				},
-				{
-					"key": "field_faq_a",
-					"label": "Хариулт",
-					"name": "answer",
-					"type": "textarea",
-					"rows": 3,
-					"instructions": "Ойлгомжтой товч хариулт"
-				}
-			]
-		}
-	}
+    "key": "group_school_content",
+    "title": "Сургууль: Дэлгэрэнгүй контент",
+    "fields": [
+        {
+            "key": "field_why_choose",
+            "label": "Яагаад энэ сургуулийг сонгох вэ?",
+            "name": "why_choose_this_school",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Сургуулийн гол давуу тал, онцлогийн тухай дэлгэрэнгүй эх бичвэр",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_strengths",
+            "label": "Давуу талууд",
+            "name": "strengths_repeater",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Симбол бүхий богино давуу талуудын жагсаалт",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "button_label": "Add Row",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_strength_title",
+                    "label": "Гарчиг",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_strengths"
+                },
+                {
+                    "key": "field_strength_desc",
+                    "label": "Тайлбар",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 2,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_strengths"
+                }
+            ]
+        },
+        {
+            "key": "field_faq",
+            "label": "Түгээмэл асуултууд",
+            "name": "faq_repeater",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Сургуультай холбоотой түгээмэл асуулт, хариултууд",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "button_label": "Add Row",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_faq_q",
+                    "label": "Асуулт",
+                    "name": "question",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_faq"
+                },
+                {
+                    "key": "field_faq_a",
+                    "label": "Хариулт",
+                    "name": "answer",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Ойлгомжтой товч хариулт",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_faq"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 40,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

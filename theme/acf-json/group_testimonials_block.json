@@ -1,195 +1,195 @@
 {
-	"key": "group_testimonials_block",
-	"title": "Блок: Амжилтын түүхүүд",
-	"fields": [
-		{
-			"key": "field_testimonial_title",
-			"label": "Гарчиг",
-			"name": "title",
-			"aria-label": "",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "Оюутнуудын амжилтын түүх",
-			"placeholder": "",
-			"prepend": "",
-			"append": "",
-			"maxlength": ""
-		},
-		{
-			"key": "field_testimonial_desc",
-			"label": "Тайлбар",
-			"name": "description",
-			"aria-label": "",
-			"type": "textarea",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"placeholder": "",
-			"maxlength": "",
-			"rows": 3,
-			"new_lines": ""
-		},
-		{
-			"key": "field_testimonials_repeater",
-			"label": "Амжилтын түүхүүд",
-			"name": "testimonials",
-			"aria-label": "",
-			"type": "repeater",
-			"instructions": "",
-			"required": 1,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"collapsed": "field_testimonial_name",
-			"min": 1,
-			"max": 0,
-			"layout": "block",
-			"button_label": "Нэмэх",
-			"rows_per_page": 20,
-			"sub_fields": [
-				{
-					"key": "field_testimonial_image",
-					"label": "Зураг",
-					"name": "image",
-					"aria-label": "",
-					"type": "image",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "30",
-						"class": "",
-						"id": ""
-					},
-					"return_format": "array",
-					"preview_size": "medium",
-					"library": "all",
-					"min_width": "",
-					"min_height": "",
-					"min_size": "",
-					"max_width": "",
-					"max_height": "",
-					"max_size": "",
-					"mime_types": "",
-					"parent_repeater": "field_testimonials_repeater"
-				},
-				{
-					"key": "field_testimonial_name",
-					"label": "Нэр",
-					"name": "name",
-					"aria-label": "",
-					"type": "text",
-					"instructions": "",
-					"required": 1,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "35",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"prepend": "",
-					"append": "",
-					"maxlength": "",
-					"parent_repeater": "field_testimonials_repeater"
-				},
-				{
-					"key": "field_testimonial_school",
-					"label": "Сургууль",
-					"name": "school",
-					"aria-label": "",
-					"type": "text",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "35",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"prepend": "",
-					"append": "",
-					"maxlength": "",
-					"parent_repeater": "field_testimonials_repeater"
-				},
-				{
-					"key": "field_testimonial_quote",
-					"label": "Хэлсэн үг",
-					"name": "quote",
-					"aria-label": "",
-					"type": "textarea",
-					"instructions": "",
-					"required": 1,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "100",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"maxlength": "",
-					"rows": 4,
-					"new_lines": "wpautop",
-					"parent_repeater": "field_testimonials_repeater"
-				},
-				{
-					"key": "field_testimonial_link",
-					"label": "Холбоос (Бүгдийг үзэх)",
-					"name": "link",
-					"aria-label": "",
-					"type": "link",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "100",
-						"class": "",
-						"id": ""
-					},
-					"return_format": "array",
-					"parent_repeater": "field_testimonials_repeater"
-				}
-			]
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf\/testimonials"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"show_in_rest": 0,
-	"display_title": "",
-	"modified": 1776252021
+    "key": "group_testimonials_block",
+    "title": "Блок: Амжилтын түүхүүд",
+    "fields": [
+        {
+            "key": "field_testimonial_title",
+            "label": "Гарчиг",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Оюутнуудын амжилтын түүх",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_testimonial_desc",
+            "label": "Тайлбар",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_testimonials_repeater",
+            "label": "Амжилтын түүхүүд",
+            "name": "testimonials",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_testimonial_name",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Нэмэх",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_testimonial_image",
+                    "label": "Зураг",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "parent_repeater": "field_testimonials_repeater"
+                },
+                {
+                    "key": "field_testimonial_name",
+                    "label": "Нэр",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_testimonials_repeater"
+                },
+                {
+                    "key": "field_testimonial_school",
+                    "label": "Сургууль",
+                    "name": "school",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_testimonials_repeater"
+                },
+                {
+                    "key": "field_testimonial_quote",
+                    "label": "Хэлсэн үг",
+                    "name": "quote",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_testimonials_repeater"
+                },
+                {
+                    "key": "field_testimonial_link",
+                    "label": "Холбоос (Бүгдийг үзэх)",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_testimonials_repeater"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/testimonials"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776411577
 }

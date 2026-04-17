@@ -1,215 +1,235 @@
 {
-	"key": "group_core_pathways",
-	"title": "Блок: Core Pathways & Services",
-	"fields": [
-		{
-			"key": "field_cp_title",
-			"label": "Секцийн гарчиг",
-			"name": "cp_title",
-			"aria-label": "",
-			"type": "text",
-			"instructions": "",
-			"required": 1,
-			"conditional_logic": false,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "ACE-ийн packaged services",
-			"maxlength": "",
-			"placeholder": "",
-			"prepend": "",
-			"append": ""
-		},
-		{
-			"key": "field_cp_description",
-			"label": "Секцийн тайлбар",
-			"name": "cp_description",
-			"aria-label": "",
-			"type": "textarea",
-			"instructions": "Секцийн үндсэн гарчгийн доор харагдах тайлбар.",
-			"required": false,
-			"conditional_logic": false,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"rows": 2,
-			"new_lines": "br",
-			"default_value": "",
-			"maxlength": "",
-			"placeholder": ""
-		},
-		{
-			"key": "field_cp_link",
-			"label": "Секцийн холбоос (CTA)",
-			"name": "cp_link",
-			"aria-label": "",
-			"type": "link",
-			"instructions": "Секцийн баруун дээд хэсэгт харагдах холбоос.",
-			"required": false,
-			"conditional_logic": false,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "array"
-		},
-		{
-			"key": "field_cp_services",
-			"label": "Үйлчилгээнүүд",
-			"name": "cp_services",
-			"aria-label": "",
-			"type": "repeater",
-			"instructions": "Үйлчилгээ бүрийг карт байдлаар нэмнэ.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"layout": "block",
-			"pagination": 0,
-			"min": 0,
-			"max": 10,
-			"collapsed": "field_cp_service_title",
-			"button_label": "Үйлчилгээ нэмэх",
-			"rows_per_page": 20,
-			"sub_fields": [
-				{
-					"key": "field_cp_service_icon",
-					"label": "Зураг (Background Image)",
-					"name": "icon",
-					"aria-label": "",
-					"type": "image",
-					"instructions": "Картын арын дэвсгэр зураг. (Portrait эсвэл 4:5 харьцаатай байвал тохиромжтой).",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"return_format": "id",
-					"library": "all",
-					"min_width": "",
-					"min_height": "",
-					"min_size": "",
-					"max_width": "",
-					"max_height": "",
-					"max_size": "",
-					"mime_types": "",
-					"allow_in_bindings": 1,
-					"preview_size": "thumbnail",
-					"parent_repeater": "field_cp_services"
-				},
-				{
-					"key": "field_cp_service_title",
-					"label": "Гарчиг",
-					"name": "title",
-					"aria-label": "",
-					"type": "text",
-					"instructions": "",
-					"required": 1,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"maxlength": "",
-					"allow_in_bindings": 1,
-					"placeholder": "",
-					"prepend": "",
-					"append": "",
-					"parent_repeater": "field_cp_services"
-				},
-				{
-					"key": "field_cp_service_description",
-					"label": "Тайлбар",
-					"name": "description",
-					"aria-label": "",
-					"type": "textarea",
-					"instructions": "",
-					"required": false,
-					"conditional_logic": false,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"rows": 3,
-					"new_lines": "br",
-					"default_value": "",
-					"maxlength": "",
-					"placeholder": "",
-					"parent_repeater": "field_cp_services"
-				},
-				{
-					"key": "field_cp_service_link",
-					"label": "Холбоос (CTA)",
-					"name": "cta_link",
-					"aria-label": "",
-					"type": "link",
-					"instructions": "",
-					"required": false,
-					"conditional_logic": false,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"return_format": "array",
-					"parent_repeater": "field_cp_services"
-				}
-			]
-		},
-		{
-			"key": "field_cp_title_mw",
-			"label": "Гарчиг өргөн (Title Max Width)",
-			"name": "cp_title_max_width",
-			"type": "range",
-			"default_value": 960,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		},
-		{
-			"key": "field_cp_desc_mw",
-			"label": "Тайлбар өргөн (Desc Max Width)",
-			"name": "cp_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf\/core-pathways"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"show_in_rest": 0,
-	"display_title": "",
-	"modified": 1776042204
+    "key": "group_core_pathways",
+    "title": "Блок: Үндсэн үйлчилгээ",
+    "fields": [
+        {
+            "key": "field_cp_title",
+            "label": "Секцийн гарчиг",
+            "name": "cp_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACE-ийн packaged services",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cp_description",
+            "label": "Секцийн тайлбар",
+            "name": "cp_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Секцийн үндсэн гарчгийн доор харагдах тайлбар.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "new_lines": "br",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cp_link",
+            "label": "Секцийн холбоос (CTA)",
+            "name": "cp_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Секцийн баруун дээд хэсэгт харагдах холбоос.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cp_services",
+            "label": "Үйлчилгээнүүд",
+            "name": "cp_services",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Үйлчилгээ бүрийг карт байдлаар нэмнэ.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 10,
+            "collapsed": "field_cp_service_title",
+            "button_label": "Үйлчилгээ нэмэх",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_cp_service_icon",
+                    "label": "Зураг (Background Image)",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Картын арын дэвсгэр зураг. (Portrait эсвэл 4:5 харьцаатай байвал тохиромжтой).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_cp_services"
+                },
+                {
+                    "key": "field_cp_service_title",
+                    "label": "Гарчиг",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_cp_services"
+                },
+                {
+                    "key": "field_cp_service_description",
+                    "label": "Тайлбар",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "new_lines": "br",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_cp_services"
+                },
+                {
+                    "key": "field_cp_service_link",
+                    "label": "Холбоос (CTA)",
+                    "name": "cta_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_cp_services"
+                }
+            ]
+        },
+        {
+            "key": "field_cp_title_mw",
+            "label": "Гарчиг өргөн (Title Max Width)",
+            "name": "cp_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 960,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_cp_desc_mw",
+            "label": "Тайлбар өргөн (Desc Max Width)",
+            "name": "cp_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/core-pathways"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776411576
 }

@@ -1,84 +1,207 @@
 {
-	"key": "group_ace_hero_registration",
-	"title": "Блок: Hero Бүртгэл (Split)",
-	"fields": [
-		{
-			"key": "field_hr_super_title",
-			"label": "Дээд гарчиг (Badge)",
-			"name": "super_title",
-			"type": "text",
-			"default_value": "ACE EDU WORLD"
-		},
-		{
-			"key": "field_hr_headline",
-			"label": "Үндсэн гарчиг (H1)",
-			"name": "headline",
-			"type": "textarea",
-			"required": 1,
-			"default_value": "Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас.",
-			"rows": 2
-		},
-		{
-			"key": "field_hr_sub_headline",
-			"label": "Дэд гарчиг",
-			"name": "sub_headline",
-			"type": "textarea",
-			"required": 1,
-			"default_value": "ACE EDU WORLD нь Солонгост сурах хүсэлтэй 17–30 насны залууст хэлний сургалт, тэтгэлэг, виз, амьдралын бэлтгэлийг нэг цогцоор нь төлөвлөж өгдөг Korean study hub юм.",
-			"rows": 3
-		},
-		{
-			"key": "field_hr_bullets",
-			"label": "Давуу талууд (Bullets)",
-			"name": "bullets",
-			"type": "repeater",
-			"layout": "table",
-			"button_label": "Нэмэх",
-			"sub_fields": [
-				{
-					"key": "field_hr_bullet_text",
-					"label": "Текст",
-					"name": "text",
-					"type": "text",
-					"required": 1
-				}
-			]
-		},
-		{
-			"key": "field_hr_primary_cta",
-			"label": "Primary CTA (Товч)",
-			"name": "primary_cta",
-			"type": "link"
-		},
-		{
-			"key": "field_hr_secondary_cta",
-			"label": "Secondary CTA (Товч)",
-			"name": "secondary_cta",
-			"type": "link"
-		},
-		{
-			"key": "field_hr_bg_image",
-			"label": "Арын зураг",
-			"name": "bg_image",
-			"type": "image",
-			"return_format": "array"
-		},
-		{
-			"key": "field_hr_form_title",
-			"label": "Формын гарчиг",
-			"name": "form_title",
-			"type": "text",
-			"default_value": "Үнэгүй зөвлөгөө авах"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/hero-registration"
-			}
-		]
-	],
-	"active": true
+    "key": "group_ace_hero_registration",
+    "title": "Блок: Нүүр хуудасны бүртгэл",
+    "fields": [
+        {
+            "key": "field_hr_super_title",
+            "label": "Дээд гарчиг (Badge)",
+            "name": "super_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACE EDU WORLD",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hr_headline",
+            "label": "Үндсэн гарчиг (H1)",
+            "name": "headline",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Солонгост хэлний бэлтгэлээс тэтгэлэг хүртэл, нэг газраас.",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_hr_sub_headline",
+            "label": "Дэд гарчиг",
+            "name": "sub_headline",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ACE EDU WORLD нь Солонгост сурах хүсэлтэй 17–30 насны залууст хэлний сургалт, тэтгэлэг, виз, амьдралын бэлтгэлийг нэг цогцоор нь төлөвлөж өгдөг Korean study hub юм.",
+            "rows": 3,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_hr_bullets",
+            "label": "Давуу талууд (Bullets)",
+            "name": "bullets",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_hr_bullet_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_hr_bullets"
+                }
+            ]
+        },
+        {
+            "key": "field_hr_primary_cta",
+            "label": "Primary CTA (Товч)",
+            "name": "primary_cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_hr_secondary_cta",
+            "label": "Secondary CTA (Товч)",
+            "name": "secondary_cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_hr_bg_image",
+            "label": "Арын зураг",
+            "name": "bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_hr_form_title",
+            "label": "Формын гарчиг",
+            "name": "form_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Үнэгүй зөвлөгөө авах",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero-registration"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411575
 }

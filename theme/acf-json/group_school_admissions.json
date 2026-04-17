@@ -1,87 +1,162 @@
 {
-	"key": "group_school_admissions",
-	"title": "Элсэлт",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 20,
-	"fields": {
-		"field_intake_months": {
-			"key": "field_intake_months",
-			"name": "intake_months",
-			"type": "checkbox",
-			"parent": "group_school_admissions",
-			"label": "Элсэлтийн сарууд",
-			"instructions": "Жишээ: Жилд 4 удаа элсэлт авдаг бол бүгдийг сонгоно",
-			"choices": {
-				"3": "3 сар",
-				"6": "6 сар",
-				"9": "9 сар",
-				"12": "12 сар"
-			},
-			"menu_order": 0
-		},
-		"field_degree_levels": {
-			"key": "field_degree_levels",
-			"name": "degree_levels",
-			"type": "checkbox",
-			"parent": "group_school_admissions",
-			"label": "Боловсролын зэрэг",
-			"instructions": "Энэ сургуульд боломжтой сургалтын шатлалууд",
-			"choices": {
-				"language": "Хэлний бэлтгэл",
-				"bachelor": "Бакалавр",
-				"master": "Магистр",
-				"phd": "Доктор"
-			},
-			"menu_order": 1
-		},
-		"field_topik_requirement": {
-			"key": "field_topik_requirement",
-			"name": "topik_requirement",
-			"type": "text",
-			"parent": "group_school_admissions",
-			"label": "TOPIK шаардлага",
-			"instructions": "Элсэлтэд шаардагдах Солонгос хэлний оноо (жишээ: 3-р түвшин)",
-			"menu_order": 2
-		},
-		"field_english_requirement": {
-			"key": "field_english_requirement",
-			"name": "english_requirement",
-			"type": "text",
-			"parent": "group_school_admissions",
-			"label": "Англи хэлний шаардлага",
-			"instructions": "Элсэлтэд шаардагдах Англи хэлний оноо (жишээ: IELTS 5.5)",
-			"menu_order": 3
-		},
-		"field_evisa_available": {
-			"key": "field_evisa_available",
-			"name": "evisa_available",
-			"type": "true_false",
-			"parent": "group_school_admissions",
-			"label": "E-Visa боломжтой эсэх",
-			"ui": 1,
-			"instructions": "Цахим виза мэдүүлэх боломжтой эсэх",
-			"menu_order": 4
-		},
-		"field_application_notes": {
-			"key": "field_application_notes",
-			"name": "application_notes",
-			"type": "wysiwyg",
-			"parent": "group_school_admissions",
-			"label": "Элсэлтийн тэмдэглэл",
-			"instructions": "Элсэлтийн явц, бүрдүүлэх материалтай холбоотой нэмэлт заавар",
-			"toolbar": "basic",
-			"tabs": "visual",
-			"media_upload": 0,
-			"menu_order": 5
-		}
-	}
+    "key": "group_school_admissions",
+    "title": "Сургууль: Элсэлт",
+    "fields": [
+        {
+            "key": "field_intake_months",
+            "label": "Элсэлтийн сарууд",
+            "name": "intake_months",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "Жишээ: Жилд 4 удаа элсэлт авдаг бол бүгдийг сонгоно",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3": "3 сар",
+                "6": "6 сар",
+                "9": "9 сар",
+                "12": "12 сар"
+            },
+            "layout": "vertical",
+            "default_value": [],
+            "allow_custom": 0,
+            "save_custom": 0,
+            "toggle": 0,
+            "return_format": "value",
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_degree_levels",
+            "label": "Боловсролын зэрэг",
+            "name": "degree_levels",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "Энэ сургуульд боломжтой сургалтын шатлалууд",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "language": "Хэлний бэлтгэл",
+                "bachelor": "Бакалавр",
+                "master": "Магистр",
+                "phd": "Доктор"
+            },
+            "layout": "vertical",
+            "default_value": [],
+            "allow_custom": 0,
+            "save_custom": 0,
+            "toggle": 0,
+            "return_format": "value",
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_topik_requirement",
+            "label": "TOPIK шаардлага",
+            "name": "topik_requirement",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Элсэлтэд шаардагдах Солонгос хэлний оноо (жишээ: 3-р түвшин)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_english_requirement",
+            "label": "Англи хэлний шаардлага",
+            "name": "english_requirement",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Элсэлтэд шаардагдах Англи хэлний оноо (жишээ: IELTS 5.5)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_evisa_available",
+            "label": "E-Visa боломжтой эсэх",
+            "name": "evisa_available",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Цахим виза мэдүүлэх боломжтой эсэх",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_application_notes",
+            "label": "Элсэлтийн тэмдэглэл",
+            "name": "application_notes",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Элсэлтийн явц, бүрдүүлэх материалтай холбоотой нэмэлт заавар",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

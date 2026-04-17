@@ -54,7 +54,7 @@ $ub_description = ! empty( $ub_description ) ? $ub_description : 'Бидний �
 ?>
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">
-	<div class="container mx-auto px-6 lg:px-12">
+	<div class="container">
 		
 		<!-- Section Header & Navigation. -->
 		<div class="mb-12 flex flex-row items-end justify-between gap-8">

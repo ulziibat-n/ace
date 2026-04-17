@@ -1,56 +1,108 @@
 {
-	"key": "group_latest_posts",
-	"title": "Latest Posts Settings",
-	"fields": [
-		{
-			"key": "field_lp_title",
-			"label": "Гарчиг",
-			"name": "lp_title",
-			"type": "text"
-		},
-		{
-			"key": "field_lp_description",
-			"label": "Тайлбар",
-			"name": "lp_description",
-			"type": "textarea",
-			"rows": 2
-		},
-		{
-			"key": "field_lp_title_mw",
-			"label": "Гарчиг өргөн (Title Max Width)",
-			"name": "lp_title_max_width",
-			"type": "range",
-			"default_value": 768,
-			"min": 500,
-			"max": 960,
-			"step": 10,
-			"append": "px"
-		},
-		{
-			"key": "field_lp_desc_mw",
-			"label": "Тайлбар өргөн (Desc Max Width)",
-			"name": "lp_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 500,
-			"max": 960,
-			"step": 10,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/latest-posts"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": ""
+    "key": "group_latest_posts",
+    "title": "Блок: Сүүлийн үеийн нийтлэл",
+    "fields": [
+        {
+            "key": "field_lp_title",
+            "label": "Гарчиг",
+            "name": "lp_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_lp_description",
+            "label": "Тайлбар",
+            "name": "lp_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_lp_title_mw",
+            "label": "Гарчиг өргөн (Title Max Width)",
+            "name": "lp_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 768,
+            "min": 500,
+            "max": 960,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_lp_desc_mw",
+            "label": "Тайлбар өргөн (Desc Max Width)",
+            "name": "lp_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 500,
+            "max": 960,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/latest-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411576
 }

@@ -1,0 +1,30 @@
+{
+	"name": "acf/teacher-info",
+	"title": "Багшийн мэдээлэл (Teacher Info)",
+	"description": "Багшийн танилцуулга мэдээллийн блок.",
+	"category": "ace-blocks",
+	"icon": "welcome-learn-more",
+	"keywords": ["teacher", "info", "instructor", "ace"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "teacher-info.php"
+	},
+	"supports": {
+		"align": ["full"],
+		"anchor": true,
+		"jsx": true,
+		"mode": false
+	},
+	"example": {
+		"attributes": {
+			"mode": "preview",
+			"data": {
+				"ub_teacher_info_image": 0,
+				"ub_teacher_info_title_left": "БОЛДЫН БАТ-ЭРДЭНЭ",
+				"ub_teacher_info_description_left": "Математикийн багш, Боловсрол судлалын магистр. 15 жилийн багшлах туршлагатай.",
+				"ub_teacher_info_lead": "Сургалтын арга барил нь сурагчдын оролцоонд тулгуурласан, практик даалгаварт төвлөрдөг.",
+				"ub_teacher_info_description_right": "Бид хүүхэд нэг бүрийн онцлогт тохируулж, тэднийг суралцах үйл явцад идэвхтэй оролцох боломжийг бүрдүүлдэг. Орчин үеийн боловсролын чиг хандлагыг нэвтрүүлж байна."
+			}
+		}
+	}
+}

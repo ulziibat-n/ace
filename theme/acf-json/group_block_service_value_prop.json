@@ -1,199 +1,225 @@
 {
-	"key": "group_block_service_value_prop",
-	"title": "Block: Service Value Prop",
-	"fields": [
-		{
-			"key": "field_svp_badge",
-			"label": "Badge / Жижиг гарчиг",
-			"name": "svp_badge",
-			"type": "text",
-			"instructions": "Гарчгийн дээр харагдах жижиг текст (жишээ нь: OUR VALUE).",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "OUR VALUE",
-			"placeholder": ""
-		},
-		{
-			"key": "field_svp_headline",
-			"label": "Үндсэн гарчиг",
-			"name": "svp_headline",
-			"type": "text",
-			"instructions": "",
-			"required": 1,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "Бид хэрхэн туслах вэ?",
-			"placeholder": ""
-		},
-		{
-			"key": "field_svp_description",
-			"label": "Текст / Тайлбар",
-			"name": "svp_description",
-			"type": "textarea",
-			"instructions": "Гарчгийн доорх дэлгэрэнгүй текст.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"placeholder": "",
-			"maxlength": "",
-			"rows": 4,
-			"new_lines": "br"
-		},
-		{
-			"key": "field_svp_items",
-			"label": "Давуу талуудын жагсаалт",
-			"name": "svp_items",
-			"type": "repeater",
-			"instructions": "Иконтой жагсаалтын элементүүдийг нэмнэ үү.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"collapsed": "field_svp_item_title",
-			"min": 0,
-			"max": 0,
-			"layout": "block",
-			"button_label": "Жагсаалт нэмэх",
-			"sub_fields": [
-				{
-					"key": "field_svp_item_title",
-					"label": "Гарчиг",
-					"name": "title",
-					"type": "text",
-					"instructions": "",
-					"required": 1,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": ""
-				},
-				{
-					"key": "field_svp_item_description",
-					"label": "Тайлабар",
-					"name": "description",
-					"type": "textarea",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"maxlength": "",
-					"rows": 2,
-					"new_lines": ""
-				}
-			]
-		},
-		{
-			"key": "field_svp_image",
-			"label": "Зураг / Визуал",
-			"name": "svp_image",
-			"type": "image",
-			"instructions": "Блокны хажууд харагдах үндсэн зураг.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "id",
-			"preview_size": "medium",
-			"library": "all",
-			"min_width": "",
-			"min_height": "",
-			"min_size": "",
-			"max_width": "",
-			"max_height": "",
-			"max_size": "",
-			"mime_types": ""
-		},
-		{
-			"key": "field_svp_image_position",
-			"label": "Зурагны байрлал",
-			"name": "svp_image_position",
-			"type": "select",
-			"instructions": "Desktop дээр зураг аль талдаа харагдахыг сонгоно уу.",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"left": "Зүүн талд",
-				"right": "Баруун талд"
-			},
-			"default_value": "right",
-			"allow_null": 0,
-			"multiple": 0,
-			"ui": 0,
-			"return_format": "value",
-			"ajax": 0,
-			"placeholder": ""
-		},
-		{
-			"key": "field_svp_headline_mw",
-			"label": "Гарчгийн Max-width (px)",
-			"name": "svp_headline_mw",
-			"type": "range",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": 500,
-			"min": 200,
-			"max": 1000,
-			"step": 10
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/service-value-prop"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"show_in_rest": 0,
-	"modified": 1713025700
+    "key": "group_block_service_value_prop",
+    "title": "Блок: Үйлчилгээний давуу тал",
+    "fields": [
+        {
+            "key": "field_svp_badge",
+            "label": "Badge \/ Жижиг гарчиг",
+            "name": "svp_badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Гарчгийн дээр харагдах жижиг текст (жишээ нь: OUR VALUE).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "OUR VALUE",
+            "placeholder": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_svp_headline",
+            "label": "Үндсэн гарчиг",
+            "name": "svp_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Бид хэрхэн туслах вэ?",
+            "placeholder": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_svp_description",
+            "label": "Текст \/ Тайлбар",
+            "name": "svp_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Гарчгийн доорх дэлгэрэнгүй текст.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_svp_items",
+            "label": "Давуу талуудын жагсаалт",
+            "name": "svp_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Иконтой жагсаалтын элементүүдийг нэмнэ үү.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_svp_item_title",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Жагсаалт нэмэх",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_svp_item_title",
+                    "label": "Гарчиг",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_svp_items"
+                },
+                {
+                    "key": "field_svp_item_description",
+                    "label": "Тайлабар",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "",
+                    "parent_repeater": "field_svp_items"
+                }
+            ]
+        },
+        {
+            "key": "field_svp_image",
+            "label": "Зураг \/ Визуал",
+            "name": "svp_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Блокны хажууд харагдах үндсэн зураг.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_svp_image_position",
+            "label": "Зурагны байрлал",
+            "name": "svp_image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Desktop дээр зураг аль талдаа харагдахыг сонгоно уу.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Зүүн талд",
+                "right": "Баруун талд"
+            },
+            "default_value": "right",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_svp_headline_mw",
+            "label": "Гарчгийн Max-width (px)",
+            "name": "svp_headline_mw",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 200,
+            "max": 1000,
+            "step": 10,
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/service-value-prop"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776411576
 }

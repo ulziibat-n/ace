@@ -62,6 +62,7 @@ function ub_allowed_block_types( $allowed_block_types ) {
 		'acf/comparison-diff',
 		'acf/featured-posts-slider',
 		'acf/latest-posts',
+		'acf/teacher-info',
 	);
 
 	foreach ( $acf_blocks as $block ) {

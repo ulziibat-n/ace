@@ -1,92 +1,220 @@
 {
-	"key": "group_ace_team",
-	"title": "Блок: Баг, зөвлөхүүд",
-	"fields": [
-		{
-			"key": "field_team_headline",
-			"label": "Үндсэн гарчиг",
-			"name": "ub_team_headline",
-			"type": "text",
-			"default_value": "Манай баг хамт олон"
-		},
-		{
-			"key": "field_team_description",
-			"label": "Дэд тайлбар",
-			"name": "ub_team_description",
-			"type": "textarea",
-			"rows": 2
-		},
-		{
-			"key": "field_team_members",
-			"label": "Багийн гишүүд",
-			"name": "ub_team_members",
-			"type": "repeater",
-			"layout": "block",
-			"button_label": "Гишүүн нэмэх",
-			"sub_fields": [
-				{
-					"key": "field_team_member_photo",
-					"label": "Зураг",
-					"name": "photo",
-					"type": "image",
-					"return_format": "id",
-					"preview_size": "thumbnail",
-					"required": 1
-				},
-				{
-					"key": "field_team_member_name",
-					"label": "Нэр",
-					"name": "name",
-					"type": "text",
-					"required": 1
-				},
-				{
-					"key": "field_team_member_position",
-					"label": "Албан тушаал / Креденшиал",
-					"name": "position",
-					"type": "text",
-					"required": 1
-				},
-				{
-					"key": "field_team_member_bio",
-					"label": "Товч мэдээлэл",
-					"name": "bio",
-					"type": "textarea",
-					"rows": 3
-				}
-			]
-		},
-		{
-			"key": "field_team_title_max_width",
-			"label": "Гарчгийн өргөн (Max Width)",
-			"name": "ub_team_title_max_width",
-			"type": "range",
-			"default_value": 768,
-			"min": 320,
-			"max": 1200,
-			"step": 8,
-			"append": "px"
-		},
-		{
-			"key": "field_team_description_max_width",
-			"label": "Тайлбар текстийн өргөн (Max Width)",
-			"name": "ub_team_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 320,
-			"max": 1200,
-			"step": 8,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/team"
-			}
-		]
-	],
-	"active": true
+    "key": "group_ace_team",
+    "title": "Блок: Баг, зөвлөхүүд",
+    "fields": [
+        {
+            "key": "field_team_headline",
+            "label": "Үндсэн гарчиг",
+            "name": "ub_team_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Манай баг хамт олон",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_team_description",
+            "label": "Дэд тайлбар",
+            "name": "ub_team_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_team_members",
+            "label": "Багийн гишүүд",
+            "name": "ub_team_members",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Гишүүн нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_team_member_photo",
+                    "label": "Зураг",
+                    "name": "photo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_team_members"
+                },
+                {
+                    "key": "field_team_member_name",
+                    "label": "Нэр",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_team_members"
+                },
+                {
+                    "key": "field_team_member_position",
+                    "label": "Албан тушаал \/ Креденшиал",
+                    "name": "position",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_team_members"
+                },
+                {
+                    "key": "field_team_member_bio",
+                    "label": "Товч мэдээлэл",
+                    "name": "bio",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_team_members"
+                }
+            ]
+        },
+        {
+            "key": "field_team_title_max_width",
+            "label": "Гарчгийн өргөн (Max Width)",
+            "name": "ub_team_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 768,
+            "min": 320,
+            "max": 1200,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_team_description_max_width",
+            "label": "Тайлбар текстийн өргөн (Max Width)",
+            "name": "ub_team_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 320,
+            "max": 1200,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411576
 }

@@ -1,116 +1,239 @@
 {
-	"key": "group_posts_carousel",
-	"title": "Posts Carousel Settings",
-	"fields": [
-		{
-			"key": "field_pc_title",
-			"label": "Гарчиг",
-			"name": "pc_title",
-			"type": "text"
-		},
-		{
-			"key": "field_pc_description",
-			"label": "Тайлбар",
-			"name": "pc_description",
-			"type": "textarea",
-			"rows": 2
-		},
-		{
-			"key": "field_pc_link",
-			"label": "Холбоос",
-			"name": "pc_link",
-			"type": "link",
-			"return_format": "array"
-		},
-		{
-			"key": "field_pc_filter_type",
-			"label": "Шүүлтүүрийн төрөл",
-			"name": "pc_filter_type",
-			"type": "select",
-			"choices": {
-				"all": "Бүгд",
-				"category": "Ангиллаар",
-				"manual": "Гараар сонгох"
-			},
-			"default_value": "all"
-		},
-		{
-			"key": "field_pc_category_filter",
-			"label": "Ангилал",
-			"name": "pc_category_filter",
-			"type": "taxonomy",
-			"taxonomy": "category",
-			"field_type": "multi_select",
-			"add_term": 0,
-			"load_terms": 0,
-			"return_format": "id",
-			"conditional_logic": [
-				{
-					"field": "field_pc_filter_type",
-					"operator": "==",
-					"value": "category"
-				}
-			]
-		},
-		{
-			"key": "field_pc_selected_posts",
-			"label": "Нийтлэл сонгох",
-			"name": "pc_selected_posts",
-			"type": "relationship",
-			"post_type": ["post"],
-			"filters": ["search", "taxonomy"],
-			"return_format": "id",
-			"conditional_logic": [
-				{
-					"field": "field_pc_filter_type",
-					"operator": "==",
-					"value": "manual"
-				}
-			]
-		},
-		{
-			"key": "field_pc_posts_count",
-			"label": "Харуулах тоо",
-			"name": "pc_posts_count",
-			"type": "number",
-			"default_value": 10
-		},
-		{
-			"key": "field_pc_title_mw",
-			"label": "Гарчиг өргөн (Title Max Width)",
-			"name": "pc_title_max_width",
-			"type": "range",
-			"default_value": 960,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		},
-		{
-			"key": "field_pc_desc_mw",
-			"label": "Тайлбар өргөн (Desc Max Width)",
-			"name": "pc_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 500,
-			"max": 768,
-			"step": 10,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/posts-carousel"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": ""
+    "key": "group_posts_carousel",
+    "title": "Блок: Нийтлэлийн карусель",
+    "fields": [
+        {
+            "key": "field_pc_title",
+            "label": "Гарчиг",
+            "name": "pc_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pc_description",
+            "label": "Тайлбар",
+            "name": "pc_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_pc_link",
+            "label": "Холбоос",
+            "name": "pc_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_pc_filter_type",
+            "label": "Шүүлтүүрийн төрөл",
+            "name": "pc_filter_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "all": "Бүгд",
+                "category": "Ангиллаар",
+                "manual": "Гараар сонгох"
+            },
+            "default_value": "all",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_pc_category_filter",
+            "label": "Ангилал",
+            "name": "pc_category_filter",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": [
+                [
+                    "field_pc_filter_type",
+                    "==",
+                    "category"
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "multi_select",
+            "add_term": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "save_terms": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_pc_selected_posts",
+            "label": "Нийтлэл сонгох",
+            "name": "pc_selected_posts",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": [
+                [
+                    "field_pc_filter_type",
+                    "==",
+                    "manual"
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "return_format": "id",
+            "taxonomy": [],
+            "min": 0,
+            "max": 0,
+            "elements": [],
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_pc_posts_count",
+            "label": "Харуулах тоо",
+            "name": "pc_posts_count",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pc_title_mw",
+            "label": "Гарчиг өргөн (Title Max Width)",
+            "name": "pc_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 960,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_pc_desc_mw",
+            "label": "Тайлбар өргөн (Desc Max Width)",
+            "name": "pc_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 500,
+            "max": 768,
+            "step": 10,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/posts-carousel"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

@@ -1,86 +1,199 @@
 {
-	"key": "group_ace_mission_vision_values",
-	"title": "Блок: Эрхэм зорилго, Алсын хараа, Үнэт зүйлс",
-	"fields": [
-		{
-			"key": "field_mvv_headline",
-			"label": "Үндсэн гарчиг",
-			"name": "ub_mvv_headline",
-			"type": "text",
-			"default_value": "Бидний үнэт зүйлс ба философи"
-		},
-		{
-			"key": "field_mvv_description",
-			"label": "Дэд тайлбар",
-			"name": "ub_mvv_description",
-			"type": "textarea",
-			"rows": 2
-		},
-		{
-			"key": "field_mvv_items",
-			"label": "Картууд",
-			"name": "ub_mvv_items",
-			"type": "repeater",
-			"layout": "block",
-			"button_label": "Карт нэмэх",
-			"sub_fields": [
-				{
-					"key": "field_mvv_item_icon",
-					"label": "Икон (Зураг)",
-					"name": "icon",
-					"type": "image",
-					"return_format": "id",
-					"preview_size": "thumbnail"
-				},
-				{
-					"key": "field_mvv_item_title",
-					"label": "Гарчиг",
-					"name": "title",
-					"type": "text",
-					"required": 1
-				},
-				{
-					"key": "field_mvv_item_description",
-					"label": "Тайлбар",
-					"name": "description",
-					"type": "textarea",
-					"rows": 3,
-					"required": 1
-				}
-			]
-		},
-		{
-			"key": "field_mvv_title_max_width",
-			"label": "Гарчгийн өргөн (Max Width)",
-			"name": "ub_mvv_title_max_width",
-			"type": "range",
-			"default_value": 768,
-			"min": 320,
-			"max": 1200,
-			"step": 8,
-			"append": "px"
-		},
-		{
-			"key": "field_mvv_description_max_width",
-			"label": "Тайлбар текстийн өргөн (Max Width)",
-			"name": "ub_mvv_description_max_width",
-			"type": "range",
-			"default_value": 720,
-			"min": 320,
-			"max": 1200,
-			"step": 8,
-			"append": "px"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/mission-vision-values"
-			}
-		]
-	],
-	"active": true,
-	"modified": 1713026000
+    "key": "group_ace_mission_vision_values",
+    "title": "Блок: Эрхэм зорилго, Алсын хараа, Үнэт зүйлс",
+    "fields": [
+        {
+            "key": "field_mvv_headline",
+            "label": "Үндсэн гарчиг",
+            "name": "ub_mvv_headline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Бидний үнэт зүйлс ба философи",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mvv_description",
+            "label": "Дэд тайлбар",
+            "name": "ub_mvv_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_mvv_items",
+            "label": "Картууд",
+            "name": "ub_mvv_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Карт нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_mvv_item_icon",
+                    "label": "Икон (Зураг)",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_mvv_items"
+                },
+                {
+                    "key": "field_mvv_item_title",
+                    "label": "Гарчиг",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_mvv_items"
+                },
+                {
+                    "key": "field_mvv_item_description",
+                    "label": "Тайлбар",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_mvv_items"
+                }
+            ]
+        },
+        {
+            "key": "field_mvv_title_max_width",
+            "label": "Гарчгийн өргөн (Max Width)",
+            "name": "ub_mvv_title_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 768,
+            "min": 320,
+            "max": 1200,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        },
+        {
+            "key": "field_mvv_description_max_width",
+            "label": "Тайлбар текстийн өргөн (Max Width)",
+            "name": "ub_mvv_description_max_width",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 720,
+            "min": 320,
+            "max": 1200,
+            "step": 8,
+            "append": "px",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/mission-vision-values"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411576
 }

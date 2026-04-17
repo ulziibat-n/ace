@@ -34,16 +34,16 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 			?>
 			<div class="relative z-20 w-full bg-linear-to-t from-slate-950/95 to-slate-950/30 pt-48 pb-16 lg:pt-72 lg:pb-32">
 				<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
-					<div class="flex flex-col">
+					<div class="container flex flex-col">
 						<?php
 						if ( ! is_front_page() ) {
-							the_title( '<h1 class="text-4xl font-bold leading-tight lg:text-6xl">', '</h1>' );
+							the_title( '<h1 class="text-4xl font-bold leading-tight lg:text-6xl max-w-3xl">', '</h1>' );
 						} else {
-							the_title( '<h2 class="text-4xl font-bold leading-tight lg:text-6xl">', '</h2>' );
+							the_title( '<h2 class="text-4xl font-bold leading-tight lg:text-6xl max-w-3xl">', '</h2>' );
 						}
 						if ( has_excerpt() ) :
 							?>
-							<p class="mt-8 text-lg"><?php echo esc_html( get_the_excerpt() ); ?></p>
+							<p class="mt-8 text-lg max-w-3xl"><?php echo esc_html( get_the_excerpt() ); ?></p>
 							<?php
 						endif;
 						?>
@@ -55,14 +55,30 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 	<?php
 
 	if ( $ub_page_title ) {
-		$ub_page_content_class .= ' py-16 lg:py-32 singular-content';
+		$ub_page_content_class .= ' py-16 lg:py-32 singular-content is-page';
 	} else {
 		$ub_page_content_class .= ' max-w-full';
 	}
 	?>
-	<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
-		<?php
-		the_content();
+	<?php
+	if ( $ub_page_title ) {
 		?>
-	</div><!-- .entry-content -->
+		<div class="container">
+			<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
+				<?php
+				the_content();
+				?>
+			</div><!-- .entry-content -->		
+		</div>
+		<?php
+	} else {
+		?>
+		<div class="<?php echo esc_attr( $ub_page_content_class ); ?>">
+			<?php
+			the_content();
+			?>
+		</div><!-- .entry-content -->
+		<?php
+	}
+	?>
 </article><!-- #post-<?php the_ID(); ?> -->

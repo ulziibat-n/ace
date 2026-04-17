@@ -1,41 +1,90 @@
 {
-	"key": "group_ace_cta_banner",
-	"title": "Блок: CTA Баннер (Premium)",
-	"fields": [
-		{
-			"key": "field_cb_cta_message",
-			"label": "Үндсэн мессеж",
-			"name": "cta_message",
-			"type": "text",
-			"required": 1
-		},
-		{
-			"key": "field_cb_cta_link",
-			"label": "Товчлуурын холбоос",
-			"name": "cta_link",
-			"type": "link",
-			"required": 1
-		},
-		{
-			"key": "field_cb_style_type",
-			"label": "Өнгөний сонголт",
-			"name": "style_type",
-			"type": "select",
-			"choices": {
-				"navy": "Navy (Цэнхэр)",
-				"amber": "Amber (Шар)"
-			},
-			"default_value": "navy"
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/cta-banner"
-			}
-		]
-	],
-	"active": true
+    "key": "group_ace_cta_banner",
+    "title": "Блок: CTA Баннер (Premium)",
+    "fields": [
+        {
+            "key": "field_cb_cta_message",
+            "label": "Үндсэн мессеж",
+            "name": "cta_message",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cb_cta_link",
+            "label": "Товчлуурын холбоос",
+            "name": "cta_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_cb_style_type",
+            "label": "Өнгөний сонголт",
+            "name": "style_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "navy": "Navy (Цэнхэр)",
+                "amber": "Amber (Шар)"
+            },
+            "default_value": "navy",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cta-banner"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411575
 }

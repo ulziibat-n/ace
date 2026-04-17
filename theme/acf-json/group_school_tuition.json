@@ -1,164 +1,369 @@
 {
-	"key": "group_school_tuition",
-	"title": "Төлбөр & Тусламж",
-	"local": "php",
-	"location": [
-		[
-			{
-				"param": "post_type",
-				"operator": "==",
-				"value": "school"
-			}
-		]
-	],
-	"menu_order": 30,
-	"fields": {
-		"field_tuition_language": {
-			"key": "field_tuition_language",
-			"name": "tuition_language_course",
-			"type": "text",
-			"parent": "group_school_tuition",
-			"label": "Хэлний бэлтгэлийн төлбөр",
-			"instructions": "Ойролцоогоор нэг улирлын төлбөр (жишээ: 1,200,000 ₩)",
-			"menu_order": 0
-		},
-		"field_tuition_undergrad": {
-			"key": "field_tuition_undergrad",
-			"name": "tuition_undergraduate",
-			"type": "text",
-			"parent": "group_school_tuition",
-			"label": "Бакалаврын төлбөр",
-			"instructions": "Ойролцоогоор нэг семестрийн төлбөр (жишээ: 4,500,000 ₩)",
-			"menu_order": 1
-		},
-		"field_scholarship_info": {
-			"key": "field_scholarship_info",
-			"name": "scholarship_info",
-			"type": "wysiwyg",
-			"parent": "group_school_tuition",
-			"label": "Тэтгэлэгийн мэдээлэл",
-			"instructions": "Тэтгэлэг болон хөнгөлөлтийн ерөнхий тайлбар",
-			"toolbar": "basic",
-			"tabs": "visual",
-			"media_upload": 0,
-			"menu_order": 2
-		},
-		"field_dormitory_info": {
-			"key": "field_dormitory_info",
-			"name": "dormitory_info",
-			"type": "wysiwyg",
-			"parent": "group_school_tuition",
-			"label": "Дотуур байрны мэдээлэл",
-			"instructions": "Дотуур байрны нөхцөл, өрөөний сонголтын тайлбар",
-			"toolbar": "basic",
-			"tabs": "visual",
-			"media_upload": 0,
-			"menu_order": 3
-		},
-		"field_meal_fee": {
-			"key": "field_meal_fee",
-			"name": "meal_fee",
-			"type": "text",
-			"parent": "group_school_tuition",
-			"label": "Хоолны төлбөр",
-			"instructions": "Сургуулийн гуанзны нэг удаагийн хоолны дундаж төлбөр",
-			"menu_order": 4
-		},
-		"field_dormitory_fee": {
-			"key": "field_dormitory_fee",
-			"name": "dormitory_fee",
-			"type": "text",
-			"parent": "group_school_tuition",
-			"label": "Дотуур байрны төлбөр",
-			"instructions": "Сар эсвэл улирлын төлбөр (жишээ: 350,000 ₩ \/ сар)",
-			"menu_order": 5
-		},
-		"field_dormitory_gallery": {
-			"key": "field_dormitory_gallery",
-			"name": "dormitory_gallery",
-			"type": "gallery",
-			"parent": "group_school_tuition",
-			"label": "Дотуур байрны зургийн сан",
-			"return_format": "id",
-			"instructions": "Дотуур байрны орчин, өрөөний зургууд",
-			"menu_order": 6
-		},
-		"field_scholarships_list": {
-			"key": "field_scholarships_list",
-			"name": "scholarships_list",
-			"type": "repeater",
-			"parent": "group_school_tuition",
-			"label": "Тэтгэлэгийн нөхцөлүүд",
-			"instructions": "Тэтгэлэг авах боломжтой нөхцөлүүдийг хүснэгт хэлбэрээр оруулна",
-			"layout": "table",
-			"button_label": "Нэмэх",
-			"menu_order": 7,
-			"sub_fields": [
-				{
-					"key": "field_sch_condition",
-					"label": "Нөхцөл",
-					"name": "condition",
-					"type": "text",
-					"instructions": "Жишээ: TOPIK 3 буюу түүнээс дээш"
-				},
-				{
-					"key": "field_sch_benefit",
-					"label": "Төлбөр \/ Хөнгөлөлт",
-					"name": "benefit",
-					"type": "text",
-					"instructions": "Жишээ: 30 ~ 100%"
-				}
-			]
-		},
-		"field_tuition_bachelor_list": {
-			"key": "field_tuition_bachelor_list",
-			"name": "tuition_bachelor_list",
-			"type": "repeater",
-			"parent": "group_school_tuition",
-			"label": "Бакалаврын төлбөр (Мэргэжлээр)",
-			"instructions": "Мэргэжил тус бүрийн сургалтын төлбөрийг хайлт хийхэд зориулж оруулна",
-			"layout": "table",
-			"button_label": "Мэргэжил нэмэх",
-			"menu_order": 8,
-			"sub_fields": [
-				{
-					"key": "field_bac_dept",
-					"label": "Тэнхим \/ Мэргэжил",
-					"name": "department",
-					"type": "text"
-				},
-				{
-					"key": "field_bac_fee",
-					"label": "Төлбөр",
-					"name": "fee",
-					"type": "text"
-				}
-			]
-		},
-		"field_tuition_master_list": {
-			"key": "field_tuition_master_list",
-			"name": "tuition_master_list",
-			"type": "repeater",
-			"parent": "group_school_tuition",
-			"label": "Магистр \/ Докторын төлбөр (Мэргэжлээр)",
-			"instructions": "Мастер \/ Докторын мэргэжил тус бүрийн төлбөр",
-			"layout": "table",
-			"button_label": "Мэргэжил нэмэх",
-			"menu_order": 9,
-			"sub_fields": [
-				{
-					"key": "field_mas_dept",
-					"label": "Тэнхим \/ Мэргэжил",
-					"name": "department",
-					"type": "text"
-				},
-				{
-					"key": "field_mas_fee",
-					"label": "Төлбөр",
-					"name": "fee",
-					"type": "text"
-				}
-			]
-		}
-	}
+    "key": "group_school_tuition",
+    "title": "Сургууль: Төлбөр & Тусламж",
+    "fields": [
+        {
+            "key": "field_tuition_language",
+            "label": "Хэлний бэлтгэлийн төлбөр",
+            "name": "tuition_language_course",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ойролцоогоор нэг улирлын төлбөр (жишээ: 1,200,000 ₩)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tuition_undergrad",
+            "label": "Бакалаврын төлбөр",
+            "name": "tuition_undergraduate",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ойролцоогоор нэг семестрийн төлбөр (жишээ: 4,500,000 ₩)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_scholarship_info",
+            "label": "Тэтгэлэгийн мэдээлэл",
+            "name": "scholarship_info",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Тэтгэлэг болон хөнгөлөлтийн ерөнхий тайлбар",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_dormitory_info",
+            "label": "Дотуур байрны мэдээлэл",
+            "name": "dormitory_info",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Дотуур байрны нөхцөл, өрөөний сонголтын тайлбар",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_meal_fee",
+            "label": "Хоолны төлбөр",
+            "name": "meal_fee",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сургуулийн гуанзны нэг удаагийн хоолны дундаж төлбөр",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dormitory_fee",
+            "label": "Дотуур байрны төлбөр",
+            "name": "dormitory_fee",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Сар эсвэл улирлын төлбөр (жишээ: 350,000 ₩ \/ сар)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_dormitory_gallery",
+            "label": "Дотуур байрны зургийн сан",
+            "name": "dormitory_gallery",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Дотуур байрны орчин, өрөөний зургууд",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_scholarships_list",
+            "label": "Тэтгэлэгийн нөхцөлүүд",
+            "name": "scholarships_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Тэтгэлэг авах боломжтой нөхцөлүүдийг хүснэгт хэлбэрээр оруулна",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_sch_condition",
+                    "label": "Нөхцөл",
+                    "name": "condition",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Жишээ: TOPIK 3 буюу түүнээс дээш",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_scholarships_list"
+                },
+                {
+                    "key": "field_sch_benefit",
+                    "label": "Төлбөр \/ Хөнгөлөлт",
+                    "name": "benefit",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Жишээ: 30 ~ 100%",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_scholarships_list"
+                }
+            ]
+        },
+        {
+            "key": "field_tuition_bachelor_list",
+            "label": "Бакалаврын төлбөр (Мэргэжлээр)",
+            "name": "tuition_bachelor_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Мэргэжил тус бүрийн сургалтын төлбөрийг хайлт хийхэд зориулж оруулна",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Мэргэжил нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_bac_dept",
+                    "label": "Тэнхим \/ Мэргэжил",
+                    "name": "department",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tuition_bachelor_list"
+                },
+                {
+                    "key": "field_bac_fee",
+                    "label": "Төлбөр",
+                    "name": "fee",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tuition_bachelor_list"
+                }
+            ]
+        },
+        {
+            "key": "field_tuition_master_list",
+            "label": "Магистр \/ Докторын төлбөр (Мэргэжлээр)",
+            "name": "tuition_master_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Мастер \/ Докторын мэргэжил тус бүрийн төлбөр",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Мэргэжил нэмэх",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_mas_dept",
+                    "label": "Тэнхим \/ Мэргэжил",
+                    "name": "department",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tuition_master_list"
+                },
+                {
+                    "key": "field_mas_fee",
+                    "label": "Төлбөр",
+                    "name": "fee",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tuition_master_list"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "school"
+            }
+        ]
+    ],
+    "menu_order": 30,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1776411577
 }

@@ -165,7 +165,6 @@ function ub_nav_menu_classes( $classes, $item, $args, $depth ) {
 		}
 	}
 
-
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'ub_nav_menu_classes', 10, 4 );
@@ -571,8 +570,29 @@ function ub_enqueue_block_editor_script() {
 				font-style: normal;
 				font-display: swap;
 			}
+			@font-face {
+				font-family: 'GmarketSans';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+				font-weight: 300;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'GmarketSans';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'GmarketSans';
+				src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
 			body, .editor-styles-wrapper {
-				font-family: 'Google Sans', ui-sans-serif, system-ui, sans-serif;
+				font-family: 'Google Sans', 'GmarketSans', ui-sans-serif, system-ui, sans-serif;
 			}
 		";
 		wp_register_style( 'ace-editor-fonts', false, array(), UB_VERSION );
@@ -827,3 +847,136 @@ function ub_fix_falang_404_error() {
 	}
 }
 add_action( 'template_redirect', 'ub_fix_falang_404_error' );
+
+/**
+ * Placement Test - Default Questions (acf/load_value)
+ */
+function ub_default_pt_questions( $value, $post_id, $field ) {
+	if ( ! is_admin() || ! empty( $value ) ) {
+		return $value;
+	}
+
+	// Default 5 standard Topik-style questions
+	return array(
+		array(
+			'field_pt_q_title'   => 'Эхний асуулт: 저는 학생____. (이다)',
+			'field_pt_q_options' => array(
+				array(
+					'field_pt_q_opt_label' => '입니다',
+					'field_pt_q_opt_score' => 1,
+				),
+				array(
+					'field_pt_q_opt_label' => '입니까',
+					'field_pt_q_opt_score' => 0,
+				),
+				array(
+					'field_pt_q_opt_label' => '이에요',
+					'field_pt_q_opt_score' => 0,
+				),
+			),
+		),
+		array(
+			'field_pt_q_title'   => 'Хоёр дахь: 이것은 사과____. (이다)',
+			'field_pt_q_options' => array(
+				array(
+					'field_pt_q_opt_label' => '가 아닙니다',
+					'field_pt_q_opt_score' => 0,
+				),
+				array(
+					'field_pt_q_opt_label' => '입니다',
+					'field_pt_q_opt_score' => 1,
+				),
+				array(
+					'field_pt_q_opt_label' => '인가요',
+					'field_pt_q_opt_score' => 0,
+				),
+			),
+		),
+		array(
+			'field_pt_q_title'   => 'Гурав дахь: 어제 친구를 ____. (만나다)',
+			'field_pt_q_options' => array(
+				array(
+					'field_pt_q_opt_label' => '만날 것입니다',
+					'field_pt_q_opt_score' => 0,
+				),
+				array(
+					'field_pt_q_opt_label' => '만났습니다',
+					'field_pt_q_opt_score' => 1,
+				),
+				array(
+					'field_pt_q_opt_label' => '만나고 있습니다',
+					'field_pt_q_opt_score' => 0,
+				),
+			),
+		),
+		array(
+			'field_pt_q_title'   => 'Дөрөв дэх: 주말에 영화를 ____ 고 해요. (보다)',
+			'field_pt_q_options' => array(
+				array(
+					'field_pt_q_opt_label' => '보',
+					'field_pt_q_opt_score' => 0,
+				),
+				array(
+					'field_pt_q_opt_label' => '볼',
+					'field_pt_q_opt_score' => 1,
+				),
+				array(
+					'field_pt_q_opt_label' => '본',
+					'field_pt_q_opt_score' => 0,
+				),
+			),
+		),
+		array(
+			'field_pt_q_title'   => 'Тав дахь: 날씨가 정말 ____. (춥다)',
+			'field_pt_q_options' => array(
+				array(
+					'field_pt_q_opt_label' => '춥습니다',
+					'field_pt_q_opt_score' => 1,
+				),
+				array(
+					'field_pt_q_opt_label' => '추울 것입니다',
+					'field_pt_q_opt_score' => 0,
+				),
+				array(
+					'field_pt_q_opt_label' => '추웠습니다',
+					'field_pt_q_opt_score' => 0,
+				),
+			),
+		),
+	);
+}
+add_filter( 'acf/load_value/name=pt_questions', 'ub_default_pt_questions', 10, 3 );
+
+/**
+ * Placement Test - Default Levels (acf/load_value)
+ */
+function ub_default_pt_levels( $value, $post_id, $field ) {
+	if ( ! is_admin() || ! empty( $value ) ) {
+		return $value;
+	}
+
+	return array(
+		array(
+			'field_pt_lvl_min'    => 0,
+			'field_pt_lvl_max'    => 2,
+			'field_pt_lvl_title'  => 'Төвшин 1: Анхан шат (Beginner 1)',
+			'field_pt_lvl_desc'   => 'Та гүйцэтгэлээ сайжруулахын тулд анхан шатны сургалтад хамрагдана уу.',
+			'field_pt_lvl_course' => '',
+		),
+		array(
+			'field_pt_lvl_min'    => 3,
+			'field_pt_lvl_max'    => 4,
+			'field_pt_lvl_title'  => 'Төвшин 2: Анхан шат цааш (Beginner 2)',
+			'field_pt_lvl_desc'   => 'Та анхан шатны мэдлэгтэй байна.',
+			'field_pt_lvl_course' => '',
+		),
+		array(
+			'field_pt_lvl_min'    => 5,
+			'field_pt_lvl_max'    => 5,
+			'field_pt_lvl_title'  => 'Төвшин 3: Дунд шат (Intermediate)',
+			'field_pt_lvl_desc'   => 'Та дүрэм болон үгийн сайн мэдлэгтэй байна.',
+			'field_pt_lvl_course' => '',
+		),
+	);
+}
+add_filter( 'acf/load_value/name=pt_levels', 'ub_default_pt_levels', 10, 3 );
