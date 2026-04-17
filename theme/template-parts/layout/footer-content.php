@@ -7,11 +7,11 @@
 
 ?>
 
-<footer id="colophon" class="pt-20 pb-10 text-white bg-slate-900">
+<footer id="colophon" class="bg-slate-900 pt-20 pb-10 text-white">
 	<div class="container">
 		<div class="flex flex-col gap-4">
 			<div class="flex flex-col gap-10 min-[450px]:flex-row md:gap-16">
-				<div class="flex flex-col shrink-0">
+				<div class="flex shrink-0 flex-col">
 					<?php
 					if ( get_field( 'footer_logo', 'option' ) ) {
 						?>
@@ -22,11 +22,11 @@
 					}
 					if ( get_field( 'footer_text', 'option' ) ) {
 						?>
-						<div class="mt-4 max-w-xs text-xs font-medium text-white prose prose-p:my-2 prose-a:text-white"><?php echo wp_kses_post( get_field( 'footer_text', 'option' ) ); ?></div>
+						<div class="prose mt-4 max-w-xs text-xs font-medium text-white prose-p:my-2 prose-a:text-white"><?php echo wp_kses_post( get_field( 'footer_text', 'option' ) ); ?></div>
 						<?php
 					}
 					?>
-					<div class="flex gap-4 items-center mt-6">
+					<div class="mt-6 flex items-center gap-4">
 						<?php
 						$ub_social_links = array(
 							'kakao'     => array(
@@ -76,28 +76,28 @@
 				<?php
 				// Removed Company and Services menus.
 				?>
-				<div class="flex flex-col gap-4 md:gap-2 md:ml-auto md:mr-0">
+				<div class="flex flex-col gap-4 md:mr-0 md:ml-auto md:gap-2">
 					<h3 class="mb-0 text-sm font-bold"><?php esc_html_e( 'Холбоо барих', 'aceedu' ); ?></h3>
 					<?php if ( get_field( 'address', 'option' ) ) : ?>
-						<div class="flex gap-3 items-start">
-							<div class="text-[0.6875rem] font-semibold text-white/70 max-w-[240px]">
+						<div class="flex items-start gap-3">
+							<div class="max-w-[240px] text-[0.6875rem] font-semibold text-white/70">
 								<?php echo wp_kses_post( get_field( 'address', 'option' ) ); ?>
 							</div>
 						</div>
 					<?php endif; ?>
 					<div class="flex flex-col gap-0">
 						<?php if ( get_field( 'phone', 'option' ) ) : ?>
-							<div class="flex gap-3 items-center mt-1">
-								<a href="tel:<?php echo esc_attr( str_replace( ' ', '', get_field( 'phone', 'option' ) ) ); ?>" class="text-[0.6875rem] font-semibold flex items-center gap-2 transition-colors">
-									<svg class="w-3 h-3 fill-white" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M144.27,45.93a8,8,0,0,1,9.8-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.8A8.23,8.23,0,0,1,208,112a8,8,0,0,1-7.73-5.93,70.35,70.35,0,0,0-50.33-50.34A8,8,0,0,1,144.27,45.93Zm-2.33,41.8c13.79,3.68,22.65,12.55,26.33,26.34A8,8,0,0,0,176,120a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.8c-5.12-19.16-18.5-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm72.43,78.73-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L126.87,168c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L89.54,41.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,24,88c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,214.37,166.46Z"></path></svg>
+							<div class="mt-1 flex items-center gap-3">
+								<a href="tel:<?php echo esc_attr( str_replace( ' ', '', get_field( 'phone', 'option' ) ) ); ?>" class="flex items-center gap-2 text-[0.6875rem] font-semibold transition-colors">
+									<svg class="h-3 w-3 fill-white" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M144.27,45.93a8,8,0,0,1,9.8-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.8A8.23,8.23,0,0,1,208,112a8,8,0,0,1-7.73-5.93,70.35,70.35,0,0,0-50.33-50.34A8,8,0,0,1,144.27,45.93Zm-2.33,41.8c13.79,3.68,22.65,12.55,26.33,26.34A8,8,0,0,0,176,120a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.8c-5.12-19.16-18.5-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm72.43,78.73-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L126.87,168c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L89.54,41.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,24,88c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,214.37,166.46Z"></path></svg>
 									<span><?php echo esc_html( get_field( 'phone', 'option' ) ); ?></span>
 								</a>
 							</div>
 						<?php endif; ?>
 						<?php if ( get_field( 'mail', 'option' ) ) : ?>
-							<div class="flex gap-3 items-center mt-1">
-								<a href="mailto:<?php echo esc_attr( get_field( 'mail', 'option' ) ); ?>" class="text-[0.6875rem] font-semibold flex items-center gap-2 transition-colors">
-									<svg class="w-3 h-3 fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z"></path></svg>
+							<div class="mt-1 flex items-center gap-3">
+								<a href="mailto:<?php echo esc_attr( get_field( 'mail', 'option' ) ); ?>" class="flex items-center gap-2 text-[0.6875rem] font-semibold transition-colors">
+									<svg class="h-3 w-3 fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z"></path></svg>
 									<span><?php echo esc_html( get_field( 'mail', 'option' ) ); ?></span>
 								</a>
 							</div>
@@ -105,30 +105,30 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex flex-col-reverse gap-2 justify-between items-center pt-10 mt-12 text-center border-t md:flex-row md:gap-8 border-white/10 md:text-left">
+			<div class="mt-12 flex flex-col-reverse items-center justify-between gap-2 border-t border-white/10 pt-10 text-center md:flex-row md:gap-8 md:text-left">
 				<div class="leading-none">
 					<?php
 					if ( get_field( 'copyrights', 'option' ) ) :
 						?>
-						<p class="font-bold inline text-[0.6rem] uppercase"><?php echo esc_html( get_field( 'copyrights', 'option' ) ); ?></p>
-						<svg class="inline mx-1 w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.2877 9.42773C15.413 7.97351 13.8195 7 12 7 9.23999 7 7 9.23999 7 12 7 14.76 9.23999 17 12 17 13.8195 17 15.413 16.0265 16.2877 14.5723L14.5729 13.5442C14.0483 14.4166 13.0927 15 12 15 10.3425 15 9 13.6575 9 12 9 10.3425 10.3425 9 12 9 13.093 9 14.0491 9.58386 14.5735 10.4568L16.2877 9.42773ZM22 12C22 6.47998 17.52 2 12 2 6.47998 2 2 6.47998 2 12 2 17.52 6.47998 22 12 22 17.52 22 22 17.52 22 12ZM4 12C4 7.57996 7.57996 4 12 4 16.42 4 20 7.57996 20 12 20 16.42 16.42 20 12 20 7.57996 20 4 16.42 4 12Z"></path></svg>
-						<p class="font-bold text-[0.6rem] inline uppercase"><?php echo esc_html( gmdate( 'Y' ) ); ?></p>
+						<p class="inline text-[0.6rem] font-bold uppercase"><?php echo esc_html( get_field( 'copyrights', 'option' ) ); ?></p>
+						<svg class="mx-1 inline h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.2877 9.42773C15.413 7.97351 13.8195 7 12 7 9.23999 7 7 9.23999 7 12 7 14.76 9.23999 17 12 17 13.8195 17 15.413 16.0265 16.2877 14.5723L14.5729 13.5442C14.0483 14.4166 13.0927 15 12 15 10.3425 15 9 13.6575 9 12 9 10.3425 10.3425 9 12 9 13.093 9 14.0491 9.58386 14.5735 10.4568L16.2877 9.42773ZM22 12C22 6.47998 17.52 2 12 2 6.47998 2 2 6.47998 2 12 2 17.52 6.47998 22 12 22 17.52 22 22 17.52 22 12ZM4 12C4 7.57996 7.57996 4 12 4 16.42 4 20 7.57996 20 12 20 16.42 16.42 20 12 20 7.57996 20 4 16.42 4 12Z"></path></svg>
+						<p class="inline text-[0.6rem] font-bold uppercase"><?php echo esc_html( gmdate( 'Y' ) ); ?></p>
 						<?php
 					else :
 						?>
-						<p class="font-bold text-[0.6rem] uppercase"><?php esc_html_e( 'ACE EDU WORLD. Зохиогчийн эрх хуулиар хамгаалагдсан.', 'aceedu' ); ?></p>
-						<svg class="mx-1 w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.2877 9.42773C15.413 7.97351 13.8195 7 12 7 9.23999 7 7 9.23999 7 12 7 14.76 9.23999 17 12 17 13.8195 17 15.413 16.0265 16.2877 14.5723L14.5729 13.5442C14.0483 14.4166 13.0927 15 12 15 10.3425 15 9 13.6575 9 12 9 10.3425 10.3425 9 12 9 13.093 9 14.0491 9.58386 14.5735 10.4568L16.2877 9.42773ZM22 12C22 6.47998 17.52 2 12 2 6.47998 2 2 6.47998 2 12 2 17.52 6.47998 22 12 22 17.52 22 22 17.52 22 12ZM4 12C4 7.57996 7.57996 4 12 4 16.42 4 20 7.57996 20 12 20 16.42 16.42 20 12 20 7.57996 20 4 16.42 4 12Z"></path></svg> 
-						<p class="font-bold text-[0.6rem] uppercase"><?php echo esc_html( gmdate( 'Y' ) ); ?></p>
+						<p class="text-[0.6rem] font-bold uppercase"><?php esc_html_e( 'ACE EDU WORLD. Зохиогчийн эрх хуулиар хамгаалагдсан.', 'aceedu' ); ?></p>
+						<svg class="mx-1 h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.2877 9.42773C15.413 7.97351 13.8195 7 12 7 9.23999 7 7 9.23999 7 12 7 14.76 9.23999 17 12 17 13.8195 17 15.413 16.0265 16.2877 14.5723L14.5729 13.5442C14.0483 14.4166 13.0927 15 12 15 10.3425 15 9 13.6575 9 12 9 10.3425 10.3425 9 12 9 13.093 9 14.0491 9.58386 14.5735 10.4568L16.2877 9.42773ZM22 12C22 6.47998 17.52 2 12 2 6.47998 2 2 6.47998 2 12 2 17.52 6.47998 22 12 22 17.52 22 22 17.52 22 12ZM4 12C4 7.57996 7.57996 4 12 4 16.42 4 20 7.57996 20 12 20 16.42 16.42 20 12 20 7.57996 20 4 16.42 4 12Z"></path></svg> 
+						<p class="text-[0.6rem] font-bold uppercase"><?php echo esc_html( gmdate( 'Y' ) ); ?></p>
 						<?php
 					endif;
 					?>
 				</div>
-				<div class="flex flex-wrap gap-2 items-center mt-6 leading-none sm:gap-6 md:flex-row md:ml-auto md:mr-0 md:gap-8 md:mt-0">
+				<div class="mt-6 flex flex-wrap items-center gap-2 leading-none sm:gap-6 md:mt-0 md:mr-0 md:ml-auto md:flex-row md:gap-8">
 					<?php if ( get_field( 'privacy_policy', 'option' ) ) : ?>
-						<a href="<?php echo esc_url( get_field( 'privacy_policy', 'option' ) ); ?>" class="font-bold text-[0.6rem] uppercase"><?php esc_html_e( 'Нууцлалын бодлого', 'aceedu' ); ?></a>
+						<a href="<?php echo esc_url( get_field( 'privacy_policy', 'option' ) ); ?>" class="text-[0.6rem] font-bold uppercase"><?php esc_html_e( 'Нууцлалын бодлого', 'aceedu' ); ?></a>
 					<?php endif; ?>
 					<?php if ( get_field( 'terms_of_service', 'option' ) ) : ?>
-						<a href="<?php echo esc_url( get_field( 'terms_of_service', 'option' ) ); ?>" class="font-bold text-[0.6rem] uppercase"><?php esc_html_e( 'Үйлчилгээний нөхцөл', 'aceedu' ); ?></a>
+						<a href="<?php echo esc_url( get_field( 'terms_of_service', 'option' ) ); ?>" class="text-[0.6rem] font-bold uppercase"><?php esc_html_e( 'Үйлчилгээний нөхцөл', 'aceedu' ); ?></a>
 					<?php endif; ?>
 				</div>
 			</div>

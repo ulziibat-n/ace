@@ -1,0 +1,41 @@
+{
+    "name": "acf/contact-form",
+    "title": "Холбоо барих хэсэг",
+    "description": "Салбаруудын мэдээлэл болон холбоо барих форм бүхий хэсэг.",
+    "category": "ace-blocks",
+    "icon": "email",
+    "keywords": ["contact", "form", "branches", "холбоо", "форм"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "contact-form.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "jsx": true
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "site_contact_title": "Бидэнтэй холбогдоорой",
+                "site_contact_description": "Танд асууж тодруулах зүйл байвал манай салбаруудад хандах эсвэл доорх формоор илгээнэ үү.",
+                "site_contact_branches": [
+                    {
+                        "branch_name": "Улаанбаатар салбар",
+                        "address": "Сүхбаатар дүүрэг, 8-р хороо, Амарын гудамж, 29",
+                        "phone": "+976 70111111",
+                        "email": "ub@ace.edu.mn",
+                        "map_link": "#"
+                    },
+                    {
+                        "branch_name": "Эрдэнэт салбар",
+                        "address": "Орхон аймаг, Баян-Өндөр сум, 5-р баг, Шунхлай 2-5",
+                        "phone": "+976 70353535",
+                        "email": "erdenet@ace.edu.mn",
+                        "map_link": "#"
+                    }
+                ]
+            }
+        }
+    }
+}

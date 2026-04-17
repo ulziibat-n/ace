@@ -48,7 +48,7 @@ if ( $is_preview ) {
 			<div class="w-full lg:w-1/2">
 
 				<?php if ( $ub_title_left ) : ?>
-					<h2 class="mb-2 text-sm font-bold leading-none text-primary uppercase" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
+					<h2 class="mb-2 text-sm leading-none font-bold text-primary uppercase" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
 						<?php echo esc_html( $ub_title_left ); ?>
 					</h2>
 				<?php endif; ?>
@@ -62,7 +62,7 @@ if ( $is_preview ) {
 				$ub_photo_url = $ub_image ? wp_get_attachment_image_url( $ub_image, 'large' ) : 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80';
 				?>
 				<div class="mt-8 w-full max-w-sm">
-					<div class="relative aspect-square max-w-36 w-full overflow-hidden rounded-sm bg-slate-200">
+					<div class="relative aspect-square w-full max-w-36 overflow-hidden rounded-sm bg-slate-200">
 						<?php if ( $ub_image ) : ?>
 							<?php echo wp_get_attachment_image( $ub_image, 'large', false, array( 'class' => 'absolute inset-0 h-full w-full object-cover' ) ); ?>
 						<?php else : ?>
@@ -75,7 +75,7 @@ if ( $is_preview ) {
 			<!-- Right side: Content -->
 			<div class="w-full lg:w-1/2">
 				<?php if ( $ub_lead ) : ?>
-					<div class="mb-6 text-xl font-light leading-tight text-foreground lg:text-2xl">
+					<div class="mb-6 text-xl leading-tight font-light text-foreground lg:text-2xl">
 						<?php echo wp_kses_post( $ub_lead ); ?>
 					</div>
 				<?php endif; ?>

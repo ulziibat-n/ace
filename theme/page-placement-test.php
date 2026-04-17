@@ -51,7 +51,7 @@ $test_data = array(
 );
 ?>
 
-	<section id="primary" class="relative w-full overflow-hidden py-16 lg:py-24 bg-slate-50 min-h-175 flex flex-col justify-center">
+	<section id="primary" class="relative flex min-h-175 w-full flex-col justify-center overflow-hidden bg-slate-50 py-16 lg:py-24">
 		<main id="main">
 			<div class="container mx-auto max-w-3xl">
 				<h1 class="hidden"><?php echo esc_html( get_the_title() ); ?></h1>
@@ -61,7 +61,7 @@ $test_data = array(
 					the_post();
 					if ( get_the_content() ) :
 						?>
-						<div class="mb-8 prose max-w-none text-center">
+						<div class="prose mb-8 max-w-none text-center">
 							<?php the_content(); ?>
 						</div>
 						<?php
@@ -70,7 +70,7 @@ $test_data = array(
 				?>
 
 				<!-- The Vue/Vanilla JS App Container -->
-				<div class="overflow-hidden mx-auto max-w-3xl" id="placement-test-app">
+				<div class="mx-auto max-w-3xl overflow-hidden" id="placement-test-app">
 					
 					<!-- Screen 1: Start -->
 					<div id="test-start-screen" class="p-8 text-center lg:p-12">
@@ -80,11 +80,11 @@ $test_data = array(
 						</p>
 						
 						<div class="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-							<div class="flex items-center gap-2 rounded-lg bg-white border border-slate-200 px-4 py-3 text-primary">
+							<div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-primary">
 								<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 								<span class="font-bold"><?php echo esc_html( $time_limit ); ?> <?php esc_html_e( 'минут', 'aceedu' ); ?></span>
 							</div>
-							<div class="flex items-center gap-2 rounded-lg bg-white border border-slate-200 px-4 py-3 text-primary">
+							<div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-primary">
 								<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 								<span class="font-bold"><?php echo count( $questions ); ?> <?php esc_html_e( 'асуулт', 'aceedu' ); ?></span>
 							</div>
@@ -96,23 +96,23 @@ $test_data = array(
 					</div>
 
 					<!-- Screen 2: Active Test -->
-					<div id="test-active-screen" class="hidden flex-col h-full rounded-xl border border-slate-200 overflow-hidden bg-white">
+					<div id="test-active-screen" class="hidden h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white">
 						<div class="sticky top-0 z-10 flex items-center justify-between bg-white px-10 py-6 transition-colors" id="timer-header">
 							<div class="text-sm font-bold text-slate-500">
 								<?php esc_html_e( 'Асуулт', 'aceedu' ); ?> <span id="current-q-num" class="text-slate-900">1</span> / <?php echo count( $questions ); ?>
 							</div>
-							<div class="flex items-center gap-1 text-sm uppercase font-black text-primary " id="timer-display">
+							<div class="flex items-center gap-1 text-sm font-black text-primary uppercase " id="timer-display">
 								<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 								<span id="time-remaining">00:00</span>
 							</div>
 						</div>
 						
 						<!-- Progress bar -->
-						<div class="w-full bg-slate-100 h-1">
+						<div class="h-1 w-full bg-slate-100">
 							<div id="test-progress-bar" class="h-1 w-0 bg-primary transition-all duration-300"></div>
 						</div>
 
-						<div class="grow p-6 lg:p-10 bg-white" id="question-container">
+						<div class="grow bg-white p-6 lg:p-10" id="question-container">
 							<!-- JS injects question here -->
 						</div>
 
@@ -137,7 +137,7 @@ $test_data = array(
 								<span class="text-slate-500"><?php esc_html_e( 'Нийт оноо:', 'aceedu' ); ?></span>
 								<span class="text-xl font-black text-primary"><span id="result-score">0</span> / <span id="result-max-score">0</span></span>
 							</div>
-							<div class="flex flex-col gap-4 items-center justify-between border-t border-primary/10 pt-4">
+							<div class="flex flex-col items-center justify-between gap-4 border-t border-primary/10 pt-4">
 								<span class="text-slate-500"><?php esc_html_e( 'Тодорхойлогдсон төвшин:', 'aceedu' ); ?></span>
 								<span class="text-xl font-black text-secondary" id="result-level-title">...</span>
 							</div>

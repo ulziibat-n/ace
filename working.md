@@ -1,25 +1,17 @@
-# Progress Tracking - ACE Project
+# Project Progress: ACE WordPress Theme
 
-## ✅ Completed Tasks
-- [x] Mega Menu архитектурыг динамик болгож сайжруулав.
-- [x] Falang плагинаас үүдэлтэй 404 хуудасны алдааг theme-ийн түвшинд засварлав.
-- [x] **Featured Posts Slider** блокыг шинээр үүсгэв.
-    - [x] Стандарт нэршил (`featured-posts-slider.php`, `featured-posts-slider.js`)
-    - [x] Swiper Styles-ийг Tailwind классуудаар шийдэв (Rule 7).
-    - [x] `editor-settings.php` whitelisting-д нэмэв.
-- [x] **Typography Alignment**: Слайдерын постын мэдээллийг `content-single.php`-ийн Header-тэй ижил болгов.
-- [x] **Excerpt Full Width**: Тайвбарыг үгийн хязгааргүй болгов.
-- [x] **Latest Posts Grid** блокыг шинээр үүсгэв.
-    - [x] 4 баганатай Grid болон стандарт тоон хуудаслалт (Pagination) хэрэгжүүлэв.
-    - [x] Постын тоог WordPress-ийн глобал тохиргооноос (`posts_per_page`) авдаг болгов.
-    - [x] Загварыг `testimonials` блоктой (Typography, Max-width) жигдлэв.
-    - [x] `acf-json` бүртгэл болон `editor-settings.php` whitelisting хийв.
+## Completed Tasks
+- [x] Standardized all ACF field titles to Mongolian.
+- [x] Fixed ACF field duplication issues in database.
+- [x] Developed `Contact Form` block:
+    - Registered `acf/contact-form`.
+    - Created `block.json` and `contact-form.php`.
+    - Added ACF Repeater for branches and CF7 integration.
+    - Synced ACF fields to the database.
 
-## 📌 Next Steps
-- [ ] Бусад блокуудын Rule 7 (Tailwind-only) нийцлийг шалгах.
-- [ ] Олон хэлний орчуулга (Falang) шинэ блокууд дээр зөв ажиллаж байгааг баталгаажуулах.
-- [ ] Кодын стандартыг (`phpcs`) бүх файл дээр тогтмол шалгах.
+## Current Progress
+- All requested features for the contact section and database cleanup are finished.
 
-## ⚠️ Critical Notes
-- Блок үүсгэхэд `editor-settings.php` заавал шинэчлэгдэх ёстой.
-- `phpcs` шалгалт хийх бүрт Exit code 0 байх ёстой.
+## Next Steps
+- Waiting for user feedback on the new block.
+- Ready for next development tasks.

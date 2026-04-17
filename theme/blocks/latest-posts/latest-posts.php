@@ -70,13 +70,13 @@ if ( $ub_is_main_loop ) {
 ?>
 
 <section id="<?php echo esc_attr( $ub_id ); ?>" class="<?php echo esc_attr( $ub_class_name ); ?>">
-	<div class="container relative z-10">
+	<div class="relative z-10 container">
 		
 		<?php if ( $ub_headline || $ub_description ) : ?>
 			<div class="mb-12 flex flex-row items-end justify-between gap-8">
 				<div class="grow">
 					<?php if ( $ub_headline ) : ?>
-						<h2 class="mb-2 text-2xl font-bold leading-none tracking-tight lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
+						<h2 class="mb-2 text-2xl leading-none font-bold tracking-tight lg:text-3xl" style="max-width: <?php echo esc_attr( $ub_title_rem ); ?>;">
 							<?php echo esc_html( $ub_headline ); ?>
 						</h2>
 					<?php endif; ?>

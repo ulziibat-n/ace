@@ -43,7 +43,7 @@ if ( function_exists( 'get_field' ) && get_field( 'hide_page_title' ) ) {
 						}
 						if ( has_excerpt() ) :
 							?>
-							<p class="mt-8 text-lg max-w-3xl"><?php echo esc_html( get_the_excerpt() ); ?></p>
+							<p class="mt-8 max-w-3xl text-lg"><?php echo esc_html( get_the_excerpt() ); ?></p>
 							<?php
 						endif;
 						?>

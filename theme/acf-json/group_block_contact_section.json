@@ -1,0 +1,211 @@
+{
+    "key": "group_block_contact_section",
+    "title": "Блок: Холбоо барих хэсэг",
+    "fields": [
+        {
+            "key": "field_site_contact_title",
+            "label": "Хэсгийн гарчиг",
+            "name": "site_contact_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Жишээ нь: Бидэнтэй холбогдоорой",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_site_contact_description",
+            "label": "Тайлбар текст",
+            "name": "site_contact_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Гарчгийн доор харагдах жижиг текст.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_site_contact_branches",
+            "label": "Салбаруудын мэдээлэл",
+            "name": "site_contact_branches",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Салбаруудын хаяг, утас, и-мэйлийг энд бүртгэнэ үү.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_site_contact_branch_name",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Салбар нэмэх",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_site_contact_branch_name",
+                    "label": "Салбарын нэр",
+                    "name": "branch_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Жишээ нь: Улаанбаатар салбар",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_site_contact_branches"
+                },
+                {
+                    "key": "field_site_contact_branch_phone",
+                    "label": "Утасны дугаар",
+                    "name": "phone",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_site_contact_branches"
+                },
+                {
+                    "key": "field_site_contact_branch_email",
+                    "label": "И-мэйл хаяг",
+                    "name": "email",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_site_contact_branches"
+                },
+                {
+                    "key": "field_site_contact_branch_map",
+                    "label": "Google Maps Link",
+                    "name": "map_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_site_contact_branches"
+                },
+                {
+                    "key": "field_site_contact_branch_address",
+                    "label": "Бүрэн хаяг",
+                    "name": "address",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "",
+                    "parent_repeater": "field_site_contact_branches"
+                }
+            ]
+        },
+        {
+            "key": "field_site_contact_form_shortcode",
+            "label": "Contact Form 7 Shortcode",
+            "name": "site_contact_form_shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "CF7-ийн shortcode-г энд хуулна уу. Жишээ нь: [contact-form-7 id=\"...\"]",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact-form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1776415085
+}

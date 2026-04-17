@@ -83,7 +83,7 @@ if ( ! $ub_query->have_posts() && ! $is_preview ) {
 							<?php if ( $ub_featured_img_id ) : ?>
 								<?php echo wp_get_attachment_image( $ub_featured_img_id, 'full', false, array( 'class' => 'w-full h-full absolute inset-0 z-10 object-cover' ) ); ?>
 							<?php else : ?>
-								<div class="object-cover absolute inset-0 z-10 w-full h-full bg-slate-800"></div>
+								<div class="absolute inset-0 z-10 h-full w-full bg-slate-800 object-cover"></div>
 							<?php endif; ?>
 						</div>
 
@@ -93,7 +93,7 @@ if ( ! $ub_query->have_posts() && ! $is_preview ) {
 							<div class="absolute inset-0 z-0 bg-linear-to-t from-slate-950/70 to-slate-950/0"></div>
 							
 							<div class="relative z-10 container w-full py-20 lg:py-32">
-								<div class="flex flex-col justify-center items-start h-full">
+								<div class="flex h-full flex-col items-start justify-center">
 									<div class="mb-4 translate-y-4 opacity-0 transition-all delay-50 duration-500 group-[.swiper-slide-active]/slide:translate-y-0 group-[.swiper-slide-active]/slide:opacity-100">
 										<?php ub_display_primary_category( 'mb-4 text-[0.625rem] font-bold uppercase leading-none px-2 rounded-xs ml-1 py-1.5 bg-white text-primary' ); ?>
 									</div>
@@ -120,7 +120,7 @@ if ( ! $ub_query->have_posts() && ! $is_preview ) {
 				wp_reset_postdata();
 			elseif ( $is_preview ) :
 				?>
-				<div class="p-20 w-full text-center border-2 border-dashed border-slate-200 bg-slate-100 text-slate-400">
+				<div class="w-full border-2 border-dashed border-slate-200 bg-slate-100 p-20 text-center text-slate-400">
 					<?php esc_html_e( 'Онцлох постууд олдсонгүй. Пост сонгох эсвэл тоог нь шалгана уу.', 'aceedu' ); ?>
 				</div>
 				<?php
@@ -128,15 +128,15 @@ if ( ! $ub_query->have_posts() && ! $is_preview ) {
 			?>
 		</div>
 		
-		<div class="container flex absolute bottom-0 left-1/2 z-40 flex-row gap-8 justify-between items-end -translate-x-1/2 pointer-events-none">
+		<div class="pointer-events-none absolute bottom-0 left-1/2 z-40 container flex -translate-x-1/2 flex-row items-end justify-between gap-8">
 			<div class="swiper-pagination pointer-events-auto static! ml-0 max-w-xs grow overflow-hidden rounded-none [&_.swiper-pagination-progressbar-fill]:origin-left! [&_.swiper-pagination-progressbar-fill]:scale-x-(--hero-autoplay-progress,0)! [&_.swiper-pagination-progressbar-fill]:transition-none! [&_span]:rounded-none!" style="--swiper-pagination-progressbar-bg-color:rgba(255,255,255,0.9);--swiper-theme-color:var(--color-primary);"></div>
 			
-			<div class="flex gap-2 items-center pb-8 pointer-events-auto">
-				<button data-featured-carousel-prev class="flex justify-center items-center w-12 h-12 text-white rounded-full border shadow-sm backdrop-blur-md transition-all cursor-pointer group border-white/20 bg-white/10 hover:border-white hover:bg-white">
-					<svg class="w-5 h-5 transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+			<div class="pointer-events-auto flex items-center gap-2 pb-8">
+				<button data-featured-carousel-prev class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur-md transition-all hover:border-white hover:bg-white">
+					<svg class="h-5 w-5 transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
 				</button>
-				<button data-featured-carousel-next class="flex justify-center items-center w-12 h-12 text-white rounded-full border shadow-sm backdrop-blur-md transition-all cursor-pointer group border-white/20 bg-white/10 hover:border-white hover:bg-white">
-					<svg class="w-5 h-5 transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+				<button data-featured-carousel-next class="group flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-sm backdrop-blur-md transition-all hover:border-white hover:bg-white">
+					<svg class="h-5 w-5 transition-colors group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
 				</button>
 			</div>
 		</div>

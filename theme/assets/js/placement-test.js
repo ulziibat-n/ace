@@ -22,21 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		finish: 'Дуусгах',
 		next: 'Дараах',
 		unknown: 'Тодорхойгүй',
-		no_match: 'Таны оноонд таарах төвшин олдсонгүй.'
+		no_match: 'Таны оноонд таарах төвшин олдсонгүй.',
 	};
-	
+
 	if (questions.length === 0) {
 		console.log('No questions found.');
 		const btn = document.getElementById('btn-start-test');
-		if(btn) btn.disabled = true;
+		if (btn) btn.disabled = true;
 		return;
 	}
 
 	// Calculate max score
 	let maxScore = 0;
-	questions.forEach(q => {
-		if(q.options && q.options.length > 0) {
-			const maxQuestionScore = Math.max(...q.options.map(opt => parseFloat(opt.score) || 0));
+	questions.forEach((q) => {
+		if (q.options && q.options.length > 0) {
+			const maxQuestionScore = Math.max(
+				...q.options.map((opt) => parseFloat(opt.score) || 0)
+			);
 			maxScore += maxQuestionScore;
 		}
 	});
@@ -45,15 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	const screenStart = document.getElementById('test-start-screen');
 	const screenActive = document.getElementById('test-active-screen');
 	const screenResult = document.getElementById('test-result-screen');
-	
+
 	const btnStart = document.getElementById('btn-start-test');
 	const btnNext = document.getElementById('btn-next-q');
 	const qContainer = document.getElementById('question-container');
 	const qNumDisplay = document.getElementById('current-q-num');
-	
+
 	const timeDisplay = document.getElementById('time-remaining');
 	const progressBar = document.getElementById('test-progress-bar');
-	
+
 	// State
 	let currentQIndex = 0;
 	let currentScore = 0;
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		screenStart.classList.add('hidden');
 		screenActive.classList.remove('hidden');
 		screenActive.classList.add('flex');
-		
+
 		startTimer();
 		renderQuestion();
 		updateProgress();
@@ -73,14 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Next Question Event
 	btnNext.addEventListener('click', () => {
-		const selectedOpt = document.querySelector('input[name="pt_option"]:checked');
+		const selectedOpt = document.querySelector(
+			'input[name="pt_option"]:checked'
+		);
 		if (!selectedOpt) return;
 
 		const scoreVal = parseFloat(selectedOpt.value) || 0;
 		currentScore += scoreVal;
-		
+
 		currentQIndex++;
-		
+
 		if (currentQIndex >= questions.length) {
 			finishTest();
 		} else {
@@ -91,10 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function renderQuestion() {
 		btnNext.disabled = true;
-		btnNext.classList.add('opacity-50', 'cursor-not-allowed', 'bg-slate-200');
+		btnNext.classList.add(
+			'opacity-50',
+			'cursor-not-allowed',
+			'bg-slate-200'
+		);
 		btnNext.classList.remove('bg-secondary', 'text-white');
-		
-		if(currentQIndex === questions.length - 1) {
+
+		if (currentQIndex === questions.length - 1) {
 			btnNext.innerHTML = `${i18n.finish} <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
 		} else {
 			btnNext.innerHTML = `${i18n.next} <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
@@ -102,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		qNumDisplay.textContent = currentQIndex + 1;
 		const q = questions[currentQIndex];
-		
+
 		let html = `
 			<h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6 leading-relaxed">${q.title}</h3>
 			<div class="flex flex-col gap-3">
@@ -125,10 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Attach events to radio buttons to enable 'Next'
 		const radios = qContainer.querySelectorAll('.pt-option-radio');
-		radios.forEach(radio => {
+		radios.forEach((radio) => {
 			radio.addEventListener('change', () => {
 				btnNext.disabled = false;
-				btnNext.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-slate-200');
+				btnNext.classList.remove(
+					'opacity-50',
+					'cursor-not-allowed',
+					'bg-slate-200'
+				);
 				btnNext.classList.add('bg-secondary', 'text-white');
 			});
 		});
@@ -153,14 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function updateTimeDisplay() {
-		const m = Math.floor(timeRemainingSec / 60).toString().padStart(2, '0');
+		const m = Math.floor(timeRemainingSec / 60)
+			.toString()
+			.padStart(2, '0');
 		const s = (timeRemainingSec % 60).toString().padStart(2, '0');
 		timeDisplay.textContent = `${m}:${s}`;
-		
+
 		// Warning color at 1 minute
 		if (timeRemainingSec <= 60) {
 			timeDisplay.parentElement.classList.remove('text-primary');
-			timeDisplay.parentElement.classList.add('text-red-500', 'border-red-100');
+			timeDisplay.parentElement.classList.add(
+				'text-red-500',
+				'border-red-100'
+			);
 		}
 	}
 
@@ -193,8 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (matchedLevel) {
 			titleEl.textContent = matchedLevel.title;
-			if(matchedLevel.description) {
-				descEl.innerHTML = matchedLevel.description.replace(/\n/g, '<br>');
+			if (matchedLevel.description) {
+				descEl.innerHTML = matchedLevel.description.replace(
+					/\n/g,
+					'<br>'
+				);
 			}
 			if (matchedLevel.course_url) {
 				actionEl.classList.remove('hidden');
