@@ -9,9 +9,14 @@
     - Added ACF Repeater for branches and CF7 integration.
     - Synced ACF fields to the database.
 
+- [x] Migrated from Falang to Polylang:
+    - Updated `ub_language_switcher()` to use `pll_the_languages()`.
+    - Removed legacy Falang 404 fix from `template-functions.php`.
+
 ## Current Progress
-- All requested features for the contact section and database cleanup are finished.
+- Multi-language support switched to Polylang.
+- All requested theme updates are completed.
 
 ## Next Steps
-- Waiting for user feedback on the new block.
+- Waiting for user confirmation on Polylang integration.
 - Ready for next development tasks.

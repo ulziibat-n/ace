@@ -82,16 +82,16 @@ $ub_icons = array(
 					<div class="flex flex-col">
 						<?php foreach ( $ub_branches as $ub_branch ) : ?>
 							<div class="branch-card border-b border-slate-100 last:border-0 pb-8 mb-8 last:mb-0 last:pb-0" style="max-width: <?php echo esc_attr( $ub_headline_rem ); ?>;">
-								<h3 class="text-sm uppercase leading-none font-bold text-slate-900 mb-4 font-primary">
+								<h3 class="text-sm uppercase leading-none font-bold text-slate-900 mb-4! font-primary">
 									<?php echo esc_html( $ub_branch['branch_name'] ?? '' ); ?>
 								</h3>
 								
-								<div class="grid gap-3">
+								<div class="grid gap-3 mt-4">
 									<?php if ( ! empty( $ub_branch['address'] ) ) : ?>
 										<div class="flex items-start gap-3">
 											<span class="text-primary mt-1 shrink-0"><?php echo $ub_icons['location']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 											<div class="flex flex-col">
-												<p class="text-slate-500 text-sm leading-tight max-w-xs">
+												<p class="text-slate-500 mt-0 text-sm leading-tight max-w-xs">
 													<?php echo esc_html( $ub_branch['address'] ); ?>
 												</p>
 												<?php if ( ! empty( $ub_branch['map_link'] ) ) : ?>

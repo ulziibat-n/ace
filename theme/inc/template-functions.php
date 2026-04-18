@@ -834,19 +834,7 @@ function ub_migrate_existing_cyrillic_slugs() {
 }
 // add_action( 'admin_init', 'ub_migrate_existing_cyrillic_slugs' );.
 
-/**
- * 404 хуудас дээр Falang плагины hreflang хэвлэх функцийг салгах.
- * Энэ нь $post->ID байхгүйгээс үүсэх PHP Warning алдаанаас сэргийлнэ.
- */
-function ub_fix_falang_404_error() {
-	if ( is_404() ) {
-		global $falang_core;
-		if ( is_object( $falang_core ) ) {
-			remove_action( 'wp_head', array( $falang_core, 'print_hreflang' ) );
-		}
-	}
-}
-add_action( 'template_redirect', 'ub_fix_falang_404_error' );
+
 
 /**
  * Placement Test - Default Questions (acf/load_value)

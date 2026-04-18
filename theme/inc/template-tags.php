@@ -403,39 +403,37 @@ endif;
 
 if ( ! function_exists( 'ub_language_switcher' ) ) :
 	/**
-	 * Display Falang Language Switcher with Tailwind Styling.
+	 * Display Polylang Language Switcher with Tailwind Styling.
 	 */
 	function ub_language_switcher() {
-		if ( ! function_exists( 'falang_languages_list' ) || ! function_exists( 'FALANG' ) ) {
+		// Polylang идэвхтэй эсэхийг шалгах.
+		if ( ! function_exists( 'pll_the_languages' ) ) {
 			return;
 		}
 
-		$languages = falang_languages_list();
+		// Хэлнүүдийн жагсаалтыг raw форматаар авах.
+		$languages = pll_the_languages( array( 'raw' => 1 ) );
 		if ( empty( $languages ) || count( $languages ) < 2 ) {
 			return;
 		}
-
-		$current_language_slug = falang_current_language();
 		?>
 		<div class="flex items-center gap-2 text-[0.625rem] font-bold tracking-widest uppercase px-4 py-2 bg-slate-50/70 hover:bg-slate-50 transition-colors duration-300 rounded-xs">
 			<?php
-			$count = count( $languages );
-			$i     = 0;
 			foreach ( $languages as $language ) :
-				++$i;
-				$is_active = ( $current_language_slug === $language->slug );
-				$url       = FALANG()->get_translated_url( $language );
+				$is_active = ! empty( $language['current_lang'] );
+				$url       = $language['url'] ?? '#';
+				$slug      = $language['slug'] ?? '';
 
-				// Map for cleaner display.
-				$display_name = $language->slug;
-				if ( strpos( $language->slug, 'mn' ) === 0 ) {
+				// Илүү цэгцтэй харагдуулахын тулд slug-ийг хөрвүүлэх (MN, EN, KR).
+				$display_name = $slug;
+				if ( strpos( $slug, 'mn' ) === 0 ) {
 					$display_name = 'MN';
-				} elseif ( strpos( $language->slug, 'en' ) === 0 ) {
+				} elseif ( strpos( $slug, 'en' ) === 0 ) {
 					$display_name = 'EN';
-				} elseif ( strpos( $language->slug, 'ko' ) === 0 ) {
+				} elseif ( strpos( $slug, 'ko' ) === 0 ) {
 					$display_name = 'KR';
 				} else {
-					$display_name = strtoupper( substr( $language->slug, 0, 2 ) );
+					$display_name = strtoupper( substr( (string) $slug, 0, 2 ) );
 				}
 				?>
 				<a href="<?php echo esc_url( $url ); ?>"
